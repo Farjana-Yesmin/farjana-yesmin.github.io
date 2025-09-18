@@ -4,34 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farjana Yesmin | Data Scientist</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #5e60ce;
-            --secondary-color: #6930c3;
-            --text-dark: #333;
+            --primary: #5e60ce;
+            --secondary: #6930c3;
+            --accent: #ff6b6b;
+            --dark: #2d3436;
+            --light: #f8f9fa;
+            --text: #444;
             --text-light: #666;
-            --background-light: #f8f9fa;
+            --white: #fff;
+            --transition: all 0.3s ease;
         }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Roboto', sans-serif;
             line-height: 1.6;
-            color: var(--text-dark);
-            background-color: #fff;
+            color: var(--text);
+            background-color: var(--white);
+            overflow-x: hidden;
         }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
         a {
             text-decoration: none;
-            color: var(--primary-color);
-            transition: color 0.3s ease;
+            color: var(--primary);
+            transition: var(--transition);
         }
+
         a:hover {
-            color: var(--secondary-color);
+            color: var(--secondary);
         }
+
         .container {
             width: 90%;
             max-width: 1200px;
@@ -41,51 +58,114 @@
 
         /* Header & Navigation */
         header {
-            background: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background: var(--white);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            padding: 15px 0;
         }
+
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 0;
         }
+
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            color: var(--text-dark);
+            color: var(--primary);
         }
+
         .nav-links {
             display: flex;
             list-style: none;
         }
+
         .nav-links li {
             margin-left: 2rem;
         }
+
         .nav-links a {
-            color: var(--text-dark);
+            color: var(--dark);
             font-weight: 500;
+            position: relative;
         }
-        .nav-links a:hover {
-            color: var(--primary-color);
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
         }
 
         /* Hero Section */
         #hero {
-            padding-top: 120px;
+            padding-top: 150px;
             padding-bottom: 80px;
             text-align: center;
-            background-color: var(--background-light);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            position: relative;
+            overflow: hidden;
         }
+
+        #hero:before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(94, 96, 206, 0.1);
+            top: -150px;
+            right: -150px;
+        }
+
+        #hero:after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(105, 48, 195, 0.1);
+            bottom: -100px;
+            left: -100px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--white);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            margin: 0 auto 2rem;
+            display: block;
+        }
+
         .hero-content h1 {
             font-size: 3.5rem;
             margin-bottom: 1rem;
-            color: var(--text-dark);
+            color: var(--dark);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
+
         .hero-content p {
             font-size: 1.5rem;
             color: var(--text-light);
@@ -94,41 +174,65 @@
             margin-left: auto;
             margin-right: auto;
         }
+
         .btn {
             display: inline-block;
             padding: 0.8rem 2rem;
-            background: var(--primary-color);
-            color: white;
-            border-radius: 5px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50px;
             font-weight: 500;
             margin: 0.5rem;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+            box-shadow: 0 4px 15px rgba(94, 96, 206, 0.3);
         }
+
         .btn:hover {
-            background: var(--secondary-color);
-            color: white;
+            background: var(--secondary);
+            border-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(105, 48, 195, 0.4);
         }
+
         .btn-outline {
             background: transparent;
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
+            color: var(--primary);
         }
+
         .btn-outline:hover {
-            background: var(--primary-color);
-            color: white;
+            background: var(--primary);
+            color: var(--white);
         }
 
         /* Section Styling */
         section {
             padding: 5rem 0;
         }
+
         section:nth-child(even) {
-            background-color: var(--background-light);
+            background-color: var(--light);
         }
+
         .section-title {
             text-align: center;
             margin-bottom: 3rem;
             font-size: 2.5rem;
-            color: var(--text-dark);
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
         }
 
         /* About Section */
@@ -142,21 +246,70 @@
         }
 
         /* Experience & Education */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: var(--primary);
+            transform: translateX(-50%);
+        }
+
         .timeline-item {
             margin-bottom: 2rem;
-            padding-left: 2rem;
-            border-left: 2px solid var(--primary-color);
+            width: 50%;
+            padding: 0 40px;
+            position: relative;
         }
-        .timeline-item h3 {
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 70px;
         }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 70px;
+        }
+
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--white);
+            border: 3px solid var(--primary);
+            border-radius: 50%;
+            top: 10px;
+        }
+
+        .timeline-item:nth-child(odd):after {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even):after {
+            left: -10px;
+        }
+
         .timeline-item .date {
-            color: var(--primary-color);
+            color: var(--primary);
             font-weight: 500;
             margin-bottom: 0.5rem;
             display: block;
         }
+
+        .timeline-item h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
         .timeline-item p {
             color: var(--text-light);
         }
@@ -166,17 +319,50 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
         }
+
+        .skill-category {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
         .skill-category h3 {
             margin-bottom: 1rem;
-            color: var(--text-dark);
+            color: var(--dark);
+            display: flex;
+            align-items: center;
         }
+
+        .skill-category h3 i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+
         .skill-list {
             list-style: none;
         }
+
         .skill-list li {
             margin-bottom: 0.8rem;
             color: var(--text-light);
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-list li:before {
+            content: '▹';
+            color: var(--primary);
+            margin-right: 10px;
         }
 
         /* Projects */
@@ -184,27 +370,165 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
+
         .project-card {
-            background: white;
-            border-radius: 8px;
+            background: var(--white);
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
+
         .project-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
         }
+
+        .project-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .project-info {
             padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
+
         .project-info h3 {
             margin-bottom: 0.5rem;
-            color: var(--text-dark);
+            color: var(--dark);
         }
+
         .project-info p {
             color: var(--text-light);
             margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .project-tag {
+            background: rgba(94, 96, 206, 0.1);
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        /* Publications */
+        .publication-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .publication-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .publication-item h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .publication-item p {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .publication-link i {
+            margin-left: 5px;
+            transition: var(--transition);
+        }
+
+        .publication-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Education */
+        .education-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .education-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .education-item h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .education-item p {
+            color: var(--text-light);
+        }
+
+        /* Certifications */
+        .certifications-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .certification-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .certification-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .certification-item i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .certification-item h3 {
+            margin-bottom: 0.5rem;
         }
 
         /* Contact */
@@ -214,17 +538,33 @@
             margin-bottom: 2rem;
             color: var(--text-light);
         }
+
         .contact-links {
             display: flex;
             justify-content: center;
             gap: 2rem;
             font-size: 2.5rem;
+            flex-wrap: wrap;
         }
+
         .contact-links a {
-            color: var(--text-dark);
+            color: var(--dark);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--white);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
+
         .contact-links a:hover {
-            color: var(--primary-color);
+            color: var(--white);
+            background: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(94, 96, 206, 0.4);
         }
 
         /* Footer */
@@ -232,15 +572,69 @@
             text-align: center;
             padding: 2rem 0;
             color: var(--text-light);
-            background-color: #fff;
-            border-top: 1px solid #eee;
+            background-color: var(--dark);
+        }
+
+        footer p {
+            margin: 0;
+            color: var(--white);
         }
 
         /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .timeline:before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 80px;
+                padding-right: 0;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:after {
+                left: 20px !important;
+            }
+        }
+
         @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.5rem; }
-            .hero-content p { font-size: 1.2rem; }
-            .nav-links { display: none; } /* Consider a mobile menu for real use */
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .contact-links {
+                font-size: 2rem;
+            }
+            
+            .contact-links a {
+                width: 60px;
+                height: 60px;
+            }
         }
     </style>
 </head>
@@ -253,8 +647,10 @@
                 <ul class="nav-links">
                     <li><a href="#about">About</a></li>
                     <li><a href="#experience">Experience</a></li>
+                    <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#publications">Publications</a></li>
+                    <li><a href="#education">Education</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -264,6 +660,8 @@
     <!-- Hero Section -->
     <section id="hero">
         <div class="container hero-content">
+            <!-- Your headshot image -->
+            <img src="assets/img/headshot.jpg" alt="Photo of Farjana Yesmin" class="profile-img">
             <h1>Data Scientist & ML Researcher</h1>
             <p>Focus on Bioinformatics, Trustworthy AI, and Healthcare Applications</p>
             <div>
@@ -277,34 +675,43 @@
     <section id="about">
         <div class="container">
             <h2 class="section-title">About Me</h2>
-            <p>Enthusiastic Data Scientist and Machine Learning specialist with extensive experience in Bioinformatics, Data Science, and AI. Proven expertise in developing and deploying machine learning models for complex challenges, particularly in healthcare, human activity recognition, and fairness-aware AI. Passionate about developing trustworthy, interpretable, and robust deep learning methodologies.</p>
+            <p>Enthusiastic Data Scientist and Machine Learning specialist with extensive experience in Bioinformatics, Data Science, and AI. Proven expertise in developing and deploying machine learning models for complex challenges, particularly in healthcare, human activity recognition, and fairness-aware AI. Passionate about developing trustworthy, interpretable, and robust deep learning methodologies with applications in healthcare, biosignals, and multimodal data.</p>
         </div>
     </section>
 
     <!-- Experience Section -->
     <section id="experience">
         <div class="container">
-            <h2 class="section-title">Experience</h2>
+            <h2 class="section-title">Professional Experience</h2>
             
-            <div class="timeline-item">
-                <span class="date">2020 - Present</span>
-                <h3>Graduate Research Assistant</h3>
-                <p><em>University of Tulsa, Tulsa, OK</em></p>
-                <p>Worked on multimodal deep learning projects analyzing human immune responses, neuropsychiatric disorders, and healthcare AI. Integrated systems data, utilizing machine learning, network theory, and information theory.</p>
-            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="date">2020 - Present</span>
+                    <h3>Graduate Research Assistant</h3>
+                    <p><em>University of Tulsa, Tulsa, OK</em></p>
+                    <p>Worked on multimodal deep learning projects analyzing human immune responses, neuropsychiatric disorders, and healthcare AI. Integrated systems data, utilizing machine learning, network theory, and information theory to explore interaction effects.</p>
+                </div>
 
-            <div class="timeline-item">
-                <span class="date">Summer 2020</span>
-                <h3>Summer Externship</h3>
-                <p><em>AT&T</em></p>
-                <p>Gained insights into leadership and technology strategy, including human resources, finance, and technology. Analyzed market trends and contributed to innovative business solutions.</p>
-            </div>
+                <div class="timeline-item">
+                    <span class="date">Summer 2020</span>
+                    <h3>Summer Externship</h3>
+                    <p><em>AT&T</em></p>
+                    <p>Gained insights into leadership and technology strategy, including human resources, finance, and technology. Analyzed market trends and contributed to innovative business solutions.</p>
+                </div>
 
-            <div class="timeline-item">
-                <span class="date">Summer 2020</span>
-                <h3>Summer Scholar</h3>
-                <p><em>HP</em></p>
-                <p>Engaged in technology, sales, and analytics training, gaining insights into decision-making in a Fortune 500 company. Networked with executives and identified emerging trends.</p>
+                <div class="timeline-item">
+                    <span class="date">Summer 2020</span>
+                    <h3>Summer Scholar</h3>
+                    <p><em>HP</em></p>
+                    <p>Engaged in technology, sales, and analytics training, gaining insights into decision-making in a Fortune 500 company. Networked with executives and identified emerging trends in technology and innovation.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="date">August 2018 – December 2018</span>
+                    <h3>Graduate Teaching Assistant</h3>
+                    <p><em>Boise State University, Boise, ID</em></p>
+                    <p>Taught programming labs in Java and Data Structures, mentoring students in algorithms and debugging.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -315,7 +722,7 @@
             <h2 class="section-title">Skills</h2>
             <div class="skills-container">
                 <div class="skill-category">
-                    <h3>Machine Learning & Data Science</h3>
+                    <h3><i class="fas fa-brain"></i> Machine Learning & Data Science</h3>
                     <ul class="skill-list">
                         <li>TensorFlow</li>
                         <li>PyTorch</li>
@@ -324,7 +731,7 @@
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <h3>Programming Languages</h3>
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
                     <ul class="skill-list">
                         <li>Python</li>
                         <li>R</li>
@@ -334,7 +741,7 @@
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <h3>Tools & Platforms</h3>
+                    <h3><i class="fas fa-tools"></i> Tools & Platforms</h3>
                     <ul class="skill-list">
                         <li>Git & GitHub</li>
                         <li>Docker</li>
@@ -352,22 +759,61 @@
         <div class="container">
             <h2 class="section-title">Projects</h2>
             <div class="projects-grid">
+                <!-- Project 1 with your ML image -->
                 <div class="project-card">
+                    <div class="project-img" style="background-image: url('assets/img/ml-project.jpg');">
+                    </div>
                     <div class="project-info">
-                        <h3>AI Chatbots for Healthcare</h3>
-                        <p>Chatbot system addressing dengue fever and healthcare advice in low-resource settings in Bangladesh.</p>
+                        <h3>AI Chatbots for Healthcare in Bangladesh</h3>
+                        <p>Chatbot system addressing dengue fever and healthcare advice in low-resource settings.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">NLP</span>
+                            <span class="project-tag">Healthcare</span>
+                            <span class="project-tag">Python</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img" style="background:linear-gradient(135deg, #ff6b6b, #ff9e7d);">
+                        <i class="fas fa-laptop-medical"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>Joint Denoising & 3D Point Cloud Reconstruction</h3>
+                        <p>Framework for simultaneous medical image denoising and 3D reconstruction.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Computer Vision</span>
+                            <span class="project-tag">3D Reconstruction</span>
+                            <span class="project-tag">Medical Imaging</span>
+                        </div>
                     </div>
                 </div>
                 <div class="project-card">
+                    <div class="project-img" style="background:linear-gradient(135deg, #4ecdc4, #00b4db);">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
                     <div class="project-info">
-                        <h3>Enhanced Fall Detection</h3>
-                        <p>Multi-sensor fusion and transformer models for wearable health monitoring in Parkinson's Disease.</p>
+                        <h3>Enhanced Fall Detection in Parkinson's Disease</h3>
+                        <p>Multi-sensor fusion and transformer models for wearable health monitoring.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Sensor Fusion</span>
+                            <span class="project-tag">Healthcare</span>
+                            <span class="project-tag">ML</span>
+                        </div>
                     </div>
                 </div>
                 <div class="project-card">
+                    <div class="project-img" style="background:linear-gradient(135deg, #a166ab, #5073b8);">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
                     <div class="project-info">
-                        <h3>Intersectional Fairness in AI</h3>
-                        <p>Bias-weighted augmentation framework for fairness-aware vision models in image classification.</p>
+                        <h3>Privacy-Preserving Models in Healthcare</h3>
+                        <p>Applied homomorphic encryption and federated learning for privacy.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Privacy</span>
+                            <span class="project-tag">Federated Learning</span>
+                            <span class="project-tag">Healthcare</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -378,17 +824,105 @@
     <section id="publications">
         <div class="container">
             <h2 class="section-title">Publications</h2>
-            <div class="timeline-item">
-                <h3>Cross-Domain Evaluation for Multi-Task Learning in NLP</h3>
+            <div class="publication-item">
+                <h3>Cross-Domain Evaluation for Multi-Task Learning in NLP: A Unified Framework for Generalization and Robustness</h3>
                 <p><em>Artificial Intelligence eJournal, Vol 8, Issue 4, January 17, 2025</em></p>
+                <a href="https://papers.ssrn.com/abstract=5018566" class="publication-link">Read Publication <i class="fas fa-arrow-right"></i></a>
             </div>
-            <div class="timeline-item">
-                <h3>Generative AI for Synthetic Data Generation</h3>
+            <div class="publication-item">
+                <h3>Generative AI for Synthetic Data Generation in Situation Awareness Training</h3>
                 <p><em>Accepted for 2025 IEEE Conference on Cognitive and Computational Aspects of Situation Management (CogSIMA)</em></p>
+                <a href="https://doi.org/10.36227/techrxiv.173609973.39908281/v1" class="publication-link">Read Preprint <i class="fas fa-arrow-right"></i></a>
             </div>
-            <div class="timeline-item">
-                <h3>Enhanced Fall Detection in Parkinson's Disease</h3>
-                <p><em>Revised and resubmitted to Scientific Reports (Nature Publishing Group)</em></p>
+            <div class="publication-item">
+                <h3>Enhanced Fall Detection in Parkinson's Disease Using Multi-Sensor Fusion and Transformer Models</h3>
+                <p><em>Revised and resubmitted addressing reviewer comments to Scientific Reports (Nature Publishing Group)</em></p>
+            </div>
+            <div class="publication-item">
+                <h3>AI Chatbots for Healthcare in Bangladesh: Addressing Dengue Fever and Common Health Issues</h3>
+                <p><em>Revised and resubmitted addressing reviewer comments to JMIR Formative Research</em></p>
+            </div>
+            <div class="publication-item">
+                <h3>A Fuzzy Logic-Based Framework for Explainable Machine Learning in Big Data Analytics</h3>
+                <p><em>Under peer review for the 12th International Conference on Soft Computing & Machine Intelligence (ISCMI 2025)</em></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-item">
+                <h3>University of Tulsa</h3>
+                <p>PhD in Computer Science (Left Incomplete)</p>
+            </div>
+            <div class="education-item">
+                <h3>Boise State University</h3>
+                <p>PhD in Computing (Transferred to TU)</p>
+            </div>
+            <div class="education-item">
+                <h3>Jashore University of Science & Technology</h3>
+                <p>B.Sc. in Computer Science & Engineering</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <div class="certifications-container">
+                <div class="certification-item">
+                    <i class="fab fa-google"></i>
+                    <h3>Google Data Analytics Professional Certificate</h3>
+                </div>
+                <div class="certification-item">
+                    <i class="fab fa-ibm"></i>
+                    <h3>IBM Data Science Professional Certificate</h3>
+                </div>
+                <div class="certification-item">
+                    <i class="fas fa-robot"></i>
+                    <h3>IBM Applied AI Professional Certificate</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Information Section -->
+    <section id="additional">
+        <div class="container">
+            <h2 class="section-title">Additional Information</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div style="background: var(--white); padding: 1.5rem; border-radius: 10px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);">
+                    <h3 style="margin-bottom: 1rem; color: var(--primary);">Reviewer Experience</h3>
+                    <ul style="list-style-type: none;">
+                        <li style="margin-bottom: 0.8rem; color: var(--text-light); display: flex; align-items: center;">
+                            <i class="fas fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i>
+                            27th ACM International Conference on Multimodal Interaction (ICMI)
+                        </li>
+                        <li style="margin-bottom: 0.8rem; color: var(--text-light); display: flex; align-items: center;">
+                            <i class="fas fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i>
+                            2nd AI for Math Workshop @ ICML 2025
+                        </li>
+                        <li style="margin-bottom: 0.8rem; color: var(--text-light); display: flex; align-items: center;">
+                            <i class="fas fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i>
+                            ICML 2025 Workshop on Machine Unlearning for Generative AI (MUGen)
+                        </li>
+                    </ul>
+                    
+                    <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--primary);">Other Information</h3>
+                    <ul style="list-style-type: none;">
+                        <li style="margin-bottom: 0.8rem; color: var(--text-light); display: flex; align-items: center;">
+                            <i class="fas fa-globe" style="color: var(--primary); margin-right: 10px;"></i>
+                            Open to relocation and remote work
+                        </li>
+                        <li style="margin-bottom: 0.8rem; color: var(--text-light); display: flex; align-items: center;">
+                            <i class="fas fa-language" style="color: var(--primary); margin-right: 10px;"></i>
+                            Fluent in Bengali, English and open to learn a new language
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -411,5 +945,49 @@
             <p>&copy; 2024 Farjana Yesmin. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Simple smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add a subtle animation to timeline items when they come into view
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe timeline items
+        document.querySelectorAll('.timeline-item, .project-card, .publication-item, .education-item, .certification-item').forEach(item => {
+            item.style.opacity = 0;
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(item);
+        });
+    </script>
 </body>
 </html>
