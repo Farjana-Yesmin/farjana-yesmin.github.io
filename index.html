@@ -235,6 +235,44 @@
             border-radius: 2px;
         }
 
+        /* News Section */
+        .news-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .news-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+            border-left: 4px solid var(--primary);
+        }
+
+        .news-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .news-date {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .news-item h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .news-item p {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
         /* About Section */
         #about p {
             font-size: 1.1rem;
@@ -580,6 +618,70 @@
             color: var(--white);
         }
 
+        .visitor-counter {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        /* Admin Panel */
+        .admin-panel {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .admin-panel:hover {
+            background: var(--secondary);
+        }
+
+        .visitor-stats {
+            display: none;
+            position: fixed;
+            bottom: 70px;
+            right: 20px;
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            width: 300px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .visitor-stats h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .visitor-list {
+            list-style: none;
+        }
+
+        .visitor-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .visitor-list li:last-child {
+            border-bottom: none;
+        }
+
         /* Responsive */
         @media (max-width: 992px) {
             .hero-content h1 {
@@ -602,6 +704,11 @@
             
             .timeline-item:after {
                 left: 20px !important;
+            }
+
+            .visitor-stats {
+                width: 250px;
+                right: 10px;
             }
         }
 
@@ -635,6 +742,20 @@
                 width: 60px;
                 height: 60px;
             }
+
+            .admin-panel {
+                bottom: 10px;
+                right: 10px;
+                font-size: 0.8rem;
+                padding: 8px 12px;
+            }
+
+            .visitor-stats {
+                width: 90%;
+                right: 5%;
+                left: 5%;
+                bottom: 60px;
+            }
         }
     </style>
 </head>
@@ -646,6 +767,7 @@
                 <a href="#" class="logo">Farjana Yesmin</a>
                 <ul class="nav-links">
                     <li><a href="#about">About</a></li>
+                    <li><a href="#news">News</a></li>
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
@@ -676,6 +798,38 @@
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <p>Enthusiastic Data Scientist and Machine Learning specialist with extensive experience in Bioinformatics, Data Science, and AI. Proven expertise in developing and deploying machine learning models for complex challenges, particularly in healthcare, human activity recognition, and fairness-aware AI. Passionate about developing trustworthy, interpretable, and robust deep learning methodologies with applications in healthcare, biosignals, and multimodal data.</p>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news">
+        <div class="container">
+            <h2 class="section-title">Academic News & Updates</h2>
+            <div class="news-container">
+                <div class="news-item">
+                    <span class="news-date">September 18, 2025</span>
+                    <h3>Paper Accepted at DASGRI 2026</h3>
+                    <p>My paper "AI Chatbots for Healthcare in Bangladesh: Addressing Dengue Fever and Common Health Issues" has been accepted for presentation at the International Conference on Data Science and Global Research 2026 in London.</p>
+                </div>
+                
+                <div class="news-item">
+                    <span class="news-date">August 30, 2025</span>
+                    <h3>Invited as Reviewer</h3>
+                    <p>Invited to serve as a reviewer for the 27th ACM International Conference on Multimodal Interaction (ICMI 2025).</p>
+                </div>
+                
+                <div class="news-item">
+                    <span class="news-date">July 15, 2025</span>
+                    <h3>Conference Presentation</h3>
+                    <p>Presented my research on "Cross-Domain Evaluation for Multi-Task Learning in NLP" at the Artificial Intelligence Conference 2025.</p>
+                </div>
+                
+                <div class="news-item">
+                    <span class="news-date">June 5, 2025</span>
+                    <h3>Research Grant Awarded</h3>
+                    <p>Received a research grant from the University of Tulsa to continue my work on fairness-aware AI in healthcare applications.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -840,6 +994,7 @@
             <h2 class="section-title">Education</h2>
             <div class="education-item">
                 <h3>University of Tulsa</h3>
+                <p>PhD in Computer Science</p>
             </div>
             <div class="education-item">
                 <h3>Boise State University</h3>
@@ -927,8 +1082,24 @@
     <footer>
         <div class="container">
             <p>&copy; 2024 Farjana Yesmin. All rights reserved.</p>
+            <div class="visitor-counter">
+                <span id="visit-count">0</span> visitors
+            </div>
         </div>
     </footer>
+
+    <!-- Admin Panel -->
+    <div class="admin-panel" id="adminToggle">
+        <i class="fas fa-chart-line"></i>
+        <span>Visitor Stats</span>
+    </div>
+
+    <div class="visitor-stats" id="visitorStats">
+        <h3>Visitor Analytics</h3>
+        <ul class="visitor-list" id="visitorList">
+            <!-- Visitor data will be populated here -->
+        </ul>
+    </div>
 
     <script>
         // Simple smooth scrolling for navigation links
@@ -966,11 +1137,87 @@
         }, observerOptions);
 
         // Observe timeline items
-        document.querySelectorAll('.timeline-item, .project-card, .publication-item, .education-item, .certification-item').forEach(item => {
+        document.querySelectorAll('.timeline-item, .project-card, .publication-item, .education-item, .certification-item, .news-item').forEach(item => {
             item.style.opacity = 0;
             item.style.transform = 'translateY(20px)';
             item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
             observer.observe(item);
+        });
+
+        // Visitor tracking system
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize visitor count
+            let visitCount = localStorage.getItem('visitCount') || 0;
+            visitCount = parseInt(visitCount) + 1;
+            localStorage.setItem('visitCount', visitCount);
+            document.getElementById('visit-count').textContent = visitCount;
+            
+            // Get visitor information
+            const visitorInfo = {
+                timestamp: new Date().toLocaleString(),
+                referrer: document.referrer || 'Direct',
+                platform: navigator.platform,
+                language: navigator.language,
+                userAgent: navigator.userAgent
+            };
+            
+            // Store visitor information
+            let visitors = JSON.parse(localStorage.getItem('visitors')) || [];
+            visitors.push(visitorInfo);
+            localStorage.setItem('visitors', JSON.stringify(visitors));
+            
+            // Update visitor stats panel
+            updateVisitorStats(visitors);
+        });
+
+        // Toggle visitor stats panel
+        document.getElementById('adminToggle').addEventListener('click', function() {
+            const statsPanel = document.getElementById('visitorStats');
+            statsPanel.style.display = statsPanel.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Update visitor stats
+        function updateVisitorStats(visitors) {
+            const visitorList = document.getElementById('visitorList');
+            visitorList.innerHTML = '';
+            
+            // Show latest 10 visitors
+            const recentVisitors = visitors.slice(-10).reverse();
+            
+            recentVisitors.forEach(visitor => {
+                const li = document.createElement('li');
+                
+                // Extract browser info from user agent
+                let browser = 'Unknown';
+                if (visitor.userAgent.includes('Chrome')) browser = 'Chrome';
+                else if (visitor.userAgent.includes('Firefox')) browser = 'Firefox';
+                else if (visitor.userAgent.includes('Safari')) browser = 'Safari';
+                else if (visitor.userAgent.includes('Edg')) browser = 'Edge';
+                
+                li.innerHTML = `
+                    <div>
+                        <strong>${visitor.timestamp}</strong><br>
+                        <small>${browser} • ${visitor.platform}</small>
+                    </div>
+                    <div>${visitor.referrer.substring(0, 20)}${visitor.referrer.length > 20 ? '...' : ''}</div>
+                `;
+                visitorList.appendChild(li);
+            });
+            
+            // Add summary item
+            const summary = document.createElement('li');
+            summary.innerHTML = `<strong>Total Visitors: ${visitors.length}</strong>`;
+            visitorList.appendChild(summary);
+        }
+
+        // Close visitor stats when clicking outside
+        document.addEventListener('click', function(event) {
+            const statsPanel = document.getElementById('visitorStats');
+            const adminToggle = document.getElementById('adminToggle');
+            
+            if (!statsPanel.contains(event.target) && !adminToggle.contains(event.target)) {
+                statsPanel.style.display = 'none';
+            }
         });
     </script>
 </body>
