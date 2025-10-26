@@ -88,6 +88,7 @@
             background: var(--bold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            white-space: nowrap; /* Prevent name from wrapping */
         }
 
         .nav-links {
@@ -184,6 +185,8 @@
             box-shadow: var(--shadow);
             margin-bottom: 2rem;
             transition: var(--transition);
+            /* Ensure the image fits properly */
+            object-position: center;
         }
 
         .profile-img:hover {
@@ -217,6 +220,11 @@
         .btn-outline:hover {
             background: var(--white);
             color: var(--primary);
+        }
+
+        .btn-small {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
         }
 
         /* Section Styling */
@@ -905,6 +913,58 @@
             border-bottom: none;
         }
 
+        /* Blog Links Styling */
+        .blog-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .blog-links .btn {
+            color: var(--primary); /* Ensure proper color */
+            background: var(--white);
+            border: 1px solid var(--primary);
+        }
+
+        .blog-links .btn:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .blog-links .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .blog-links .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* Genre Grid */
+        .genre-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .genre-item {
+            background: rgba(94, 96, 206, 0.1);
+            padding: 0.5rem;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .genre-item:hover {
+            background: var(--primary);
+            color: white;
+        }
+
         /* Responsive */
         @media (max-width: 992px) {
             .timeline::before {
@@ -951,6 +1011,14 @@
         @media (max-width: 480px) {
             .genre-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -1753,7 +1821,7 @@
             const visitorInfo = {
                 timestamp: new Date().toLocaleString(),
                 referrer: document.referrer || 'Direct',
-                platform: navigator.platform;
+                platform: navigator.platform,
                 language: navigator.language,
                 userAgent: navigator.userAgent
             };
