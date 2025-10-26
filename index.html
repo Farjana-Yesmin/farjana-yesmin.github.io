@@ -569,6 +569,236 @@
             margin-bottom: 0.5rem;
         }
 
+        /* Personal Interests Section */
+        #interests {
+            background-color: var(--light);
+        }
+
+        .interests-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .interest-category {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+        }
+
+        .interest-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .interest-category h3 {
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid var(--light);
+            padding-bottom: 0.5rem;
+        }
+
+        .interest-category h3 i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+
+        .interest-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+        }
+
+        .interest-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 1rem 0.5rem;
+            border-radius: 8px;
+            background: rgba(94, 96, 206, 0.05);
+            transition: var(--transition);
+        }
+
+        .interest-item:hover {
+            background: rgba(94, 96, 206, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .interest-item i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .interest-item span {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .travel-stats {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            min-width: 150px;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .publication-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            max-height: 300px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .publication-links::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .publication-links::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .publication-links::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        .publication-link {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem;
+            background: rgba(94, 96, 206, 0.05);
+            border-radius: 8px;
+            transition: var(--transition);
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+
+        .publication-link:hover {
+            background: rgba(94, 96, 206, 0.1);
+            color: var(--primary);
+        }
+
+        .publication-link i {
+            margin-right: 10px;
+            color: var(--primary);
+            font-size: 1rem;
+        }
+
+        .engagement-item {
+            margin-top: 1rem;
+        }
+
+        .engagement-item h4 {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .engagement-item p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .btn-small {
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+        }
+
+        /* Reading and Blogging Styles */
+        .pursuit-details {
+            margin-top: 1.5rem;
+        }
+
+        .detail-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-item h4 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .interest-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .interest-tag {
+            background: rgba(94, 96, 206, 0.1);
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .blog-links {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .blog-topics {
+            list-style: none;
+            margin: 0.8rem 0;
+        }
+
+        .blog-topics li {
+            padding: 0.3rem 0;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+        }
+
+        .blog-topics li:before {
+            content: '▸';
+            color: var(--primary);
+            margin-right: 8px;
+        }
+
+        .reading-interests {
+            margin: 1.5rem 0;
+        }
+
+        .reading-interests h4 {
+            color: var(--dark);
+            margin-bottom: 0.8rem;
+        }
+
         /* Contact */
         #contact p {
             text-align: center;
@@ -682,6 +912,11 @@
             border-bottom: none;
         }
 
+        /* Additional Information Section */
+        #additional {
+            background-color: var(--light);
+        }
+
         /* Responsive */
         @media (max-width: 992px) {
             .hero-content h1 {
@@ -756,6 +991,18 @@
                 left: 5%;
                 bottom: 60px;
             }
+
+            .interests-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .interest-items {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .publication-links {
+                max-height: 200px;
+            }
         }
     </style>
 </head>
@@ -773,6 +1020,7 @@
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#publications">Publications</a></li>
                     <li><a href="#education">Education</a></li>
+                    <li><a href="#interests">Interests</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -1100,6 +1348,147 @@
         </div>
     </section>
 
+    <!-- Personal Interests Section -->
+    <section id="interests">
+        <div class="container">
+            <h2 class="section-title">Personal Interests & Activities</h2>
+            
+            <div class="interests-container">
+                <!-- Sports & Outdoor Activities -->
+                <div class="interest-category">
+                    <h3><i class="fas fa-running"></i> Sports & Outdoor Activities</h3>
+                    <div class="interest-items">
+                        <div class="interest-item">
+                            <i class="fas fa-hiking"></i>
+                            <span>Hiking</span>
+                        </div>
+                        <div class="interest-item">
+                            <i class="fas fa-swimmer"></i>
+                            <span>Swimming</span>
+                        </div>
+                        <div class="interest-item">
+                            <i class="fas fa-bicycle"></i>
+                            <span>Cycling</span>
+                        </div>
+                        <div class="interest-item">
+                            <i class="fas fa-table-tennis"></i>
+                            <span>Tennis</span>
+                        </div>
+                        <div class="interest-item">
+                            <i class="fas fa-running"></i>
+                            <span>5K Running</span>
+                        </div>
+                        <div class="interest-item">
+                            <i class="fas fa-campground"></i>
+                            <span>Camping</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Creative & Intellectual Pursuits -->
+                <div class="interest-category">
+                    <h3><i class="fas fa-brain"></i> Creative & Intellectual Pursuits</h3>
+                    <div class="interest-items">
+                        <div class="interest-item">
+                            <i class="fas fa-music"></i>
+                            <span>Piano</span>
+                        </div>
+                        <div class="interest-item">
+                            <i class="fas fa-book-reader"></i>
+                            <span>Reading</span>
+                        </div>
+                        <div class="interest-item">
+                            <i class="fas fa-blog"></i>
+                            <span>Blogging</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pursuit-details">
+                        <div class="detail-item">
+                            <h4>Reading Interests</h4>
+                            <div class="interest-tags">
+                                <span class="interest-tag">Machine Learning</span>
+                                <span class="interest-tag">AI Research</span>
+                                <span class="interest-tag">Scientific Literature</span>
+                                <span class="interest-tag">Cultural Studies</span>
+                                <span class="interest-tag">Bioinformatics</span>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <h4>Technical Blogging</h4>
+                            <p>Writing about ML research, data science projects, and academic insights</p>
+                            <div class="blog-links">
+                                <a href="https://github.com/Farjana-Yesmin" target="_blank" class="btn btn-small">
+                                    <i class="fab fa-github"></i> GitHub Blog
+                                </a>
+                                <a href="https://farjana-yesmin.github.io/" target="_blank" class="btn btn-small btn-outline">
+                                    <i class="fas fa-globe"></i> Personal Website
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Travel & Exploration -->
+                <div class="interest-category">
+                    <h3><i class="fas fa-globe-americas"></i> Travel & Exploration</h3>
+                    <div class="travel-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">16</span>
+                            <span class="stat-label">US States Visited</span>
+                        </div>
+                    </div>
+                    <p>I've documented my travel experiences and cultural observations in leading Bangladeshi newspapers:</p>
+                    <div class="publication-links">
+                        <a href="https://nagorik.prothomalo.com/durporobash/ক্যামেলস-ব্যাক-পার্ক-থেকে-সূর্যাস্ত-দেখা" target="_blank" class="publication-link">
+                            <i class="fas fa-newspaper"></i> ক্যামেলস ব্যাক পার্ক থেকে সূর্যাস্ত দেখা
+                        </a>
+                        <a href="https://nagorik.prothomalo.com/durporobash/বয়েসি-বিশ্ববিদ্যালয়ে-আন্তর্জাতিক-মাতৃভাষা-দিবস" target="_blank" class="publication-link">
+                            <i class="fas fa-newspaper"></i> বয়েসি বিশ্ববিদ্যালয়ে আন্তর্জাতিক মাতৃভাষা দিবস
+                        </a>
+                        <a href="https://bangla.bdnews24.com/probash/article1598083.bdnews" target="_blank" class="publication-link">
+                            <i class="fas fa-newspaper"></i> BDNews24 Article
+                        </a>
+                        <a href="https://nagorik.prothomalo.com/durporobash/ট্রাম্পের-দেশে-দ্বিতীয়-ঈদ" target="_blank" class="publication-link">
+                            <i class="fas fa-newspaper"></i> ট্রাম্পের দেশে দ্বিতীয় ঈদ
+                        </a>
+                        <a href="https://nagorik.prothomalo.com/durporobash/গ্রীষ্মের-ছুটিতে-সল্ট-লেক-সিটিতে-ভ্রমণ" target="_blank" class="publication-link">
+                            <i class="fas fa-newspaper"></i> গ্রীষ্মের ছুটিতে সল্ট লেক সিটিতে ভ্রমণ
+                        </a>
+                        <a href="https://nagorik.prothomalo.com/durporobash/আমেরিকায়-এসে-প্রথম-সমুদ্র-দর্শন" target="_blank" class="publication-link">
+                            <i class="fas fa-newspaper"></i> আমেরিকায় এসে প্রথম সমুদ্র দর্শন
+                        </a>
+                        <a href="https://nagorik.prothomalo.com/durporobash/প্রবাসজীবনে-আমাদের-ঈদ" target="_blank" class="publication-link">
+                            <i class="fas fa-newspaper"></i> প্রবাসজীবনে আমাদের ঈদ
+                        </a>
+                        <a href="https://nagorik.prothomalo.com/durporobash/আমেরিকার-সবচেয়ে-সুন্দর-ছোট-শহরে" target="_blank" class="publication-link">
+                            <i class="fas fa-newspaper"></i> আমেরিকার সবচেয়ে সুন্দর ছোট শহরে
+                        </a>
+                        <a href="https://en.prothomalo.com/lifestyle/travel/thanksgiving-with-an-american-family" target="_blank" class="publication-link">
+                            <i class="fas fa-newspaper"></i> Thanksgiving with an American Family
+                        </a>
+                        <a href="https://nagorik.prothomalo.com/durporobash/বেড়ানো-অ্যারিজোনা-হট-স্প্রিং" target="_blank" class="publication-link">
+                            <i class="fas fa-newspaper"></i> বেড়ানো অ্যারিজোনা হট স্প্রিং
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Community Engagement -->
+                <div class="interest-category">
+                    <h3><i class="fas fa-users"></i> Community Engagement</h3>
+                    <div class="engagement-item">
+                        <h4>Panel Discussion - Education USA Bangladesh</h4>
+                        <p>Participated in a Ramadan discussion panel organized by Education USA BD (USA Embassy)</p>
+                        <a href="https://www.facebook.com/EdUSABangladesh/videos/happy-ramadan/703401087472878/" target="_blank" class="btn btn-small">
+                            <i class="fab fa-facebook"></i> Watch Video
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Additional Information Section -->
     <section id="additional">
         <div class="container">
@@ -1209,7 +1598,7 @@
         }, observerOptions);
 
         // Observe timeline items
-        document.querySelectorAll('.timeline-item, .project-card, .publication-item, .education-item, .certification-item, .news-item').forEach(item => {
+        document.querySelectorAll('.timeline-item, .project-card, .publication-item, .education-item, .certification-item, .news-item, .interest-category').forEach(item => {
             item.style.opacity = 0;
             item.style.transform = 'translateY(20px)';
             item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
