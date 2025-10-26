@@ -799,6 +799,53 @@
             margin-bottom: 0.8rem;
         }
 
+        /* Leadership Section */
+        .leadership-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .leadership-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+            border-left: 4px solid var(--primary);
+        }
+
+        .leadership-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .leadership-item h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .leadership-item p {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .certificate-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(94, 96, 206, 0.1);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        .certificate-badge i {
+            margin-right: 5px;
+        }
+
         /* Contact */
         #contact p {
             text-align: center;
@@ -1016,6 +1063,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#news">News</a></li>
                     <li><a href="#experience">Experience</a></li>
+                    <li><a href="#leadership">Leadership</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#publications">Publications</a></li>
@@ -1130,6 +1178,24 @@
                     <h3>Graduate Teaching Assistant</h3>
                     <p><em>Boise State University, Boise, ID</em></p>
                     <p>Taught programming labs in Java and Data Structures, mentoring students in algorithms and debugging.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section id="leadership">
+        <div class="container">
+            <h2 class="section-title">Leadership & Extracurricular Activities</h2>
+            <div class="leadership-container">
+                <div class="leadership-item">
+                    <h3>Event Coordinator</h3>
+                    <p><em>Bangladeshi Student Association, Boise State University</em></p>
+                    <p><strong>2018-2019</strong></p>
+                    <p>Organized cultural events, community gatherings, and activities to promote Bangladeshi culture and foster community among international students. Received Certificate of Appreciation from the Center for Global Education for contributions to the association.</p>
+                    <div class="certificate-badge">
+                        <i class="fas fa-award"></i> Certificate of Appreciation Received
+                    </div>
                 </div>
             </div>
         </div>
@@ -1598,7 +1664,7 @@
         }, observerOptions);
 
         // Observe timeline items
-        document.querySelectorAll('.timeline-item, .project-card, .publication-item, .education-item, .certification-item, .news-item, .interest-category').forEach(item => {
+        document.querySelectorAll('.timeline-item, .project-card, .publication-item, .education-item, .certification-item, .news-item, .interest-category, .leadership-item').forEach(item => {
             item.style.opacity = 0;
             item.style.transform = 'translateY(20px)';
             item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
