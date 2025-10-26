@@ -64,7 +64,7 @@
             padding: 0 20px;
         }
 
-        /* Header & Navigation - FIXED */
+        /* Header & Navigation */
         header {
             background: rgba(255, 255, 255, 0.95);
             box-shadow: var(--shadow);
@@ -101,7 +101,7 @@
         }
 
         .nav-links a {
-            color: var(--dark) !important;
+            color: var(--dark);
             font-weight: 500;
             position: relative;
             padding: 5px 0;
@@ -123,7 +123,7 @@
             width: 100%;
         }
 
-        /* Hero Section */
+        /* Hero Section - FIXED */
         #hero {
             height: 100vh;
             display: flex;
@@ -163,24 +163,10 @@
             max-width: 800px;
         }
 
-        .hero-content h1 {
-            color: var(--white);
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-
-        .hero-content p {
-            color: var(--white);
-            font-size: 1.6rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-        }
-
-        /* FIXED HEADSHOT */
+        /* FIXED HEADSHOT - No cutting */
         .profile-img-container {
-            width: 220px;
-            height: 220px;
+            width: 250px;
+            height: 250px;
             margin: 0 auto 2rem auto;
             position: relative;
         }
@@ -190,22 +176,50 @@
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            object-position: center center;
+            object-position: center 30%;
             border: 8px solid rgba(255,255,255,0.2);
             box-shadow: var(--shadow);
-            transition: var(--transition);
             display: block;
+            transition: var(--transition);
         }
 
         .profile-img:hover {
             transform: rotate(5deg) scale(1.05);
         }
 
+        /* FIXED HERO TEXT - Proper line breaks and colors */
+        .hero-title {
+            color: var(--white);
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            line-height: 1.1;
+        }
+
+        .hero-title .line1 {
+            display: block;
+            font-size: 3.5rem;
+        }
+
+        .hero-title .line2 {
+            display: block;
+            font-size: 3.5rem;
+        }
+
+        .hero-subtitle {
+            color: var(--white); /* FIXED: Now visible on purple background */
+            font-size: 1.8rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            line-height: 1.3;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
         .btn {
             display: inline-block;
             padding: 1rem 2.5rem;
             background: var(--white);
-            color: var(--primary) !important;
+            color: var(--primary);
             border-radius: 50px;
             font-weight: 600;
             margin: 0.5rem;
@@ -217,19 +231,19 @@
 
         .btn:hover {
             background: var(--bold-gradient);
-            color: var(--white) !important;
+            color: var(--white);
             transform: translateY(-5px);
         }
 
         .btn-outline {
             background: transparent;
             border: 2px solid var(--white);
-            color: var(--white) !important;
+            color: var(--white);
         }
 
         .btn-outline:hover {
             background: var(--white);
-            color: var(--primary) !important;
+            color: var(--primary);
         }
 
         .btn-small {
@@ -268,20 +282,6 @@
             transform: translateX(-50%);
         }
 
-        /* FIXED TEXT COLORS */
-        p, span, li, .news-item, .timeline-item, .skill-category, 
-        .project-info, .publication-item, .education-item, 
-        .leadership-item, .volunteer-item, .interest-category,
-        .news-item h3, .news-item p, .timeline-item p,
-        .skill-list li, .project-info p, .publication-item p {
-            color: var(--text) !important;
-            opacity: 1 !important;
-        }
-
-        .text-light {
-            color: var(--text-light) !important;
-        }
-
         /* Enhanced Animations */
         .reveal {
             opacity: 1;
@@ -305,13 +305,17 @@
             border-left: 6px solid var(--primary);
         }
 
+        .news-item h3, .news-item p {
+            color: var(--text);
+        }
+
         .news-item:hover {
             transform: perspective(1000px) rotateY(5deg);
             box-shadow: 0 15px 40px rgba(0,0,0,0.2);
         }
 
         .news-date {
-            color: var(--accent) !important;
+            color: var(--accent);
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
@@ -376,7 +380,7 @@
         }
 
         .timeline-item p {
-            color: var(--text-light) !important;
+            color: var(--text-light);
         }
 
         /* Skills - Interactive Grid */
@@ -401,12 +405,12 @@
 
         .skill-list li {
             transition: var(--transition);
-            color: var(--text-light) !important;
+            color: var(--text-light);
         }
 
         .skill-list li:hover {
             padding-left: 10px;
-            color: var(--primary) !important;
+            color: var(--primary);
         }
 
         /* Projects - 3D Tilt Cards with Interactive Demos */
@@ -445,7 +449,7 @@
         }
 
         .project-info p {
-            color: var(--text-light) !important;
+            color: var(--text-light);
         }
 
         .project-tags {
@@ -473,7 +477,7 @@
             margin-top: auto;
             padding: 0.8rem;
             background: var(--primary);
-            color: var(--white) !important;
+            color: var(--white);
             text-align: center;
             border-radius: 0 0 20px 20px;
             transition: var(--transition);
@@ -569,7 +573,7 @@
         }
 
         .publication-item p {
-            color: var(--text-light) !important;
+            color: var(--text-light);
         }
 
         .publication-item:hover {
@@ -608,7 +612,7 @@
         }
 
         .interest-category p {
-            color: var(--text-light) !important;
+            color: var(--text-light);
         }
 
         .interest-category:hover {
@@ -728,7 +732,7 @@
         }
 
         .leadership-item p {
-            color: var(--text-light) !important;
+            color: var(--text-light);
         }
 
         .leadership-item:hover {
@@ -769,7 +773,7 @@
         }
 
         .volunteer-item p {
-            color: var(--text-light) !important;
+            color: var(--text-light);
         }
 
         .volunteer-item:hover {
@@ -795,7 +799,7 @@
         }
 
         .education-item p {
-            color: var(--text-light) !important;
+            color: var(--text-light);
         }
 
         .education-item:hover {
@@ -832,7 +836,7 @@
             margin-bottom: 1rem;
         }
 
-        /* Blog Links - FIXED */
+        /* Blog Links */
         .blog-links {
             display: flex;
             gap: 1rem;
@@ -841,25 +845,25 @@
         }
 
         .blog-links .btn {
-            color: var(--primary) !important;
+            color: var(--primary);
             background: var(--white);
             border: 1px solid var(--primary);
         }
 
         .blog-links .btn:hover {
             background: var(--primary);
-            color: var(--white) !important;
+            color: var(--white);
         }
 
         .blog-links .btn-outline {
             background: transparent;
-            color: var(--primary) !important;
+            color: var(--primary);
             border: 1px solid var(--primary);
         }
 
         .blog-links .btn-outline:hover {
             background: var(--primary);
-            color: var(--white) !important;
+            color: var(--white);
         }
 
         /* Genre Grid */
@@ -889,7 +893,7 @@
             text-align: center;
             font-size: 1.2rem;
             margin-bottom: 2rem;
-            color: var(--text-light) !important;
+            color: var(--text-light);
         }
 
         .contact-links {
@@ -920,12 +924,27 @@
             box-shadow: 0 8px 20px rgba(94, 96, 206, 0.4);
         }
 
-        /* Footer */
+        /* Footer - FIXED COLOR ISSUES */
         footer {
             text-align: center;
             padding: 3rem 0;
             background: var(--dark);
-            color: var(--white) !important;
+            color: var(--white); /* FIXED: Now visible white text */
+        }
+
+        footer p {
+            color: var(--white) !important; /* FIXED: Copyright text now visible */
+        }
+
+        .visitor-counter {
+            margin-top: 1rem;
+            font-size: 1rem;
+            color: var(--white); /* FIXED: Now visible */
+        }
+
+        #visit-count {
+            font-weight: bold;
+            color: var(--accent); /* Stand out in accent color */
         }
 
         /* Admin Panel */
@@ -1004,8 +1023,17 @@
         }
 
         @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 3rem;
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-title .line1,
+            .hero-title .line2 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.4rem;
             }
 
             .nav-links {
@@ -1029,8 +1057,8 @@
             }
             
             .profile-img-container {
-                width: 180px;
-                height: 180px;
+                width: 200px;
+                height: 200px;
             }
         }
 
@@ -1039,8 +1067,13 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             
-            .hero-content h1 {
-                font-size: 2.5rem;
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-title .line1,
+            .hero-title .line2 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -1072,14 +1105,24 @@
         </div>
     </header>
 
-    <!-- Hero Section with FIXED HEADSHOT -->
+    <!-- Hero Section with FIXED HEADSHOT and TEXT -->
     <section id="hero">
         <div class="container hero-content">
             <div class="profile-img-container">
                 <img src="assets/img/headshot.jpg" alt="Photo of Farjana Yesmin" class="profile-img">
             </div>
-            <h1>Data Scientist & ML Researcher</h1>
-            <p>Focus on Bioinformatics, Trustworthy AI, and Healthcare Applications</p>
+            
+            <!-- FIXED TEXT LAYOUT -->
+            <h1 class="hero-title">
+                <span class="line1">Data Scientist & ML</span>
+                <span class="line2">Researcher</span>
+            </h1>
+            
+            <!-- FIXED: Now visible white text on purple background -->
+            <p class="hero-subtitle">
+                Focus on Bioinformatics, Trustworthy AI, and Healthcare Applications
+            </p>
+            
             <div>
                 <a href="#projects" class="btn">View My Work</a>
                 <a href="#contact" class="btn btn-outline">Get In Touch</a>
@@ -1707,11 +1750,12 @@
         </div>
     </section>
 
+    <!-- Footer with FIXED VISIBLE TEXT -->
     <footer>
         <div class="container">
             <p>&copy; 2024 Farjana Yesmin. All rights reserved.</p>
             <div class="visitor-counter">
-                <span id="visit-count">0</span> visitors
+                <span id="visit-count">1</span> visitors
             </div>
         </div>
     </footer>
@@ -1826,6 +1870,14 @@
             const encrypted = input.split('').reverse().join('');
             document.getElementById('privacy-output').innerHTML = `Encrypted: ${encrypted}<br>Processed result: Data secured!`;
         }
+
+        // Visitor tracking
+        document.addEventListener('DOMContentLoaded', function() {
+            let visitCount = localStorage.getItem('visitCount') || 0;
+            visitCount = parseInt(visitCount) + 1;
+            localStorage.setItem('visitCount', visitCount);
+            document.getElementById('visit-count').textContent = visitCount;
+        });
 
         // Close modals when clicking outside
         window.onclick = function(event) {
