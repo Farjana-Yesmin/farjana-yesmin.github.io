@@ -2,7 +2,6 @@
 layout: post
 title: "Welcome to My Technical Blog"
 date: 2024-12-19
-categories: [machine-learning, research]
 ---
 
 ## About This Blog
