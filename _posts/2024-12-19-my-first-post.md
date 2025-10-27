@@ -17,4 +17,4 @@ I'll be sharing insights from my research in:
 
 Coming soon: A detailed analysis of gradient sparsification in federated learning with homomorphic encryption.
 
-Stay tuned for more technical content!    
+Stay tuned for more technical content!
