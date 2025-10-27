@@ -1,23 +1,11 @@
-title: "Farjana Yesmin - Data Scientist & ML Researcher"
-description: "Personal website and technical blog"
+title: "Farjana Yesmin"
+description: "Data Scientist & ML Researcher"
 baseurl: ""
 url: "https://farjana-yesmin.github.io"
 theme: minima
 
-# Build settings
-markdown: kramdown
-permalink: pretty
-
-# Plugins
 plugins:
   - jekyll-feed
 
-# Exclude from processing
 exclude:
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
+  - README.md
