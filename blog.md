@@ -10,7 +10,9 @@ Read my latest posts about machine learning, AI research, and data science.
 
 ## Recent Posts
 
-- [My First Technical Blog Post](_posts/2024-12-19-my-first-post.md/2024/12/19/my-first-post.html)
+<ul>
+  <li><a href="/2024/12/19/my-first-post.html">Welcome to My Technical Blog</a> - December 19, 2024</li>
+</ul>
 
 ## Categories
 - Machine Learning
@@ -18,5 +20,6 @@ Read my latest posts about machine learning, AI research, and data science.
 - Research
 - Tutorials
 
+---
 
 *More blog posts coming soon!*
