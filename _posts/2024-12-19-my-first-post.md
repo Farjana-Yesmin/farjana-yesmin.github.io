@@ -1,20 +1,20 @@
 ---
 layout: post
-title: "My First Technical Blog Post"
+title: "Welcome to My Technical Blog"
 date: 2024-12-19
+categories: [machine-learning, research]
 ---
 
-## Welcome to My Blog!
+## About This Blog
 
-I'm Farjana Yesmin, and this is my technical blog where I'll share:
+I'll be sharing insights from my research in:
+- Machine Learning Fairness
+- Healthcare AI  
+- Explainable AI (XAI)
+- Federated Learning
 
-- Machine Learning Research
-- Healthcare AI Projects  
-- Data Science Tutorials
-- Academic Insights
+## First Technical Deep Dive
 
-## First Project Spotlight
-
-I recently worked on **Adaptive Gradient Sparsification for Communication-Efficient HE in FL** - a federated learning project focusing on privacy-preserving machine learning.
+Coming soon: A detailed analysis of gradient sparsification in federated learning with homomorphic encryption.
 
 Stay tuned for more technical content!
