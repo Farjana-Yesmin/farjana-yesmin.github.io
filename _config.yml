@@ -4,6 +4,9 @@ baseurl: ""
 url: "https://farjana-yesmin.github.io"
 theme: minima
 
+markdown: kramdown
+permalink: pretty
+
 plugins:
   - jekyll-feed
 
