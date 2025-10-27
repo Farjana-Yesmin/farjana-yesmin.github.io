@@ -414,152 +414,178 @@
         }
 
         /* Projects - 3D Tilt Cards with Interactive Demos */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 3rem;
-        }
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+}
 
-        .project-card {
-            background: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
-        }
+.project-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
 
-        .project-card .project-img {
-            height: 220px;
-            transition: var(--transition);
-            background-size: cover;
-            background-position: center;
-        }
+.project-card .project-img {
+    height: 220px;
+    transition: var(--transition);
+    background-size: cover;
+    background-position: center;
+}
 
-        .project-card:hover .project-img {
-            transform: scale(1.1);
-        }
+.project-card:hover .project-img {
+    transform: scale(1.1);
+}
 
-        .project-info {
-            padding: 1.5rem;
-            flex-grow: 1;
-        }
+.project-info {
+    padding: 1.5rem;
+    flex-grow: 1;
+}
 
-        .project-info p {
-            color: var(--text-light);
-        }
+.project-info p {
+    color: var(--text-light);
+}
 
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
 
-        .project-tag {
-            background: rgba(94, 96, 206, 0.15);
-            color: var(--primary);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            transition: var(--transition);
-        }
+.project-tag {
+    background: rgba(94, 96, 206, 0.15);
+    color: var(--primary);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    transition: var(--transition);
+}
 
-        .project-tag:hover {
-            background: var(--primary);
-            color: var(--white);
-        }
+.project-tag:hover {
+    background: var(--primary);
+    color: var(--white);
+}
 
-        .demo-button {
-            margin-top: auto;
-            padding: 0.8rem;
-            background: var(--primary);
-            color: var(--white);
-            text-align: center;
-            border-radius: 0 0 20px 20px;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-        }
+.demo-button {
+    margin-top: auto;
+    padding: 0.8rem;
+    background: var(--primary);
+    color: var(--white);
+    text-align: center;
+    border-radius: 0 0 20px 20px;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+}
 
-        .demo-button:hover {
-            background: var(--secondary);
-        }
+.demo-button:hover {
+    background: var(--secondary);
+}
 
-        /* Modal for Demos */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1001;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.4);
-            padding-top: 60px;
-        }
+/* Modal for Demos */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
 
-        .modal-content {
-            background-color: var(--white);
-            margin: 5% auto;
-            padding: 20px;
-            border-radius: 15px;
-            width: 80%;
-            max-width: 600px;
-            box-shadow: var(--shadow);
-        }
+.modal-content {
+    background-color: var(--white);
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: var(--shadow);
+}
 
-        .close {
-            color: var(--dark);
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+.close {
+    color: var(--dark);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
 
-        .close:hover {
-            color: var(--primary);
-        }
+.close:hover {
+    color: var(--primary);
+}
 
-        /* Demo Specific Styles */
-        #chatbot-demo {
-            height: 300px;
-            border: 1px solid var(--light);
-            padding: 10px;
-            overflow-y: auto;
-            margin-bottom: 10px;
-        }
+/* Demo Specific Styles */
+#chatbot-demo {
+    height: 300px;
+    border: 1px solid var(--light);
+    padding: 10px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
 
-        #chat-input {
-            width: 80%;
-            padding: 10px;
-            border-radius: 20px;
-            border: 1px solid var(--primary);
-        }
+#chat-input {
+    width: 70%; /* Slightly narrower for better layout */
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid var(--primary);
+}
 
-        #send-chat {
-            padding: 10px 20px;
-            background: var(--primary);
-            color: var(--white);
-            border-radius: 20px;
-            border: none;
-            cursor: pointer;
-        }
+#send-chat {
+    padding: 10px 20px;
+    background: var(--primary);
+    color: var(--white);
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
 
-        #fall-detection-demo canvas {
-            width: 100%;
-            height: 300px;
-            background: var(--light);
-        }
+#fall-detection-canvas { /* Renamed for clarity */
+    width: 100%;
+    height: 300px;
+    background: var(--light);
+    border: 1px solid var(--primary);
+}
 
-        #privacy-demo {
-            height: 300px;
-            overflow-y: auto;
-        }
+#privacy-demo {
+    height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid var(--light);
+}
+
+#privacy-input {
+    width: 80%;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid var(--primary);
+    margin-bottom: 10px;
+}
+
+#encrypt-btn {
+    padding: 10px 20px;
+    background: var(--primary);
+    color: var(--white);
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#privacy-output {
+    margin-top: 10px;
+    font-weight: bold;
+}
 
         /* Publications - Accordion Style */
         .publication-item {
@@ -1809,68 +1835,109 @@
             });
         });
 
-        // 3D Tilt for Project Cards
-        if (typeof $ !== 'undefined') {
-            $('.project-card').tilt({
-                glare: true,
-                maxGlare: .5,
-                scale: 1.05
-            });
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+    // 3D Tilt for Project Cards (requires jQuery and tilt.js)
+    if (typeof $ !== 'undefined') {
+        $('.project-card').tilt({
+            glare: true,
+            maxGlare: 0.5,
+            scale: 1.05
+        });
+    }
 
-        // Modal Functions
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = "block";
+    // Modal Functions
+    window.openModal = function(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.style.display = 'block';
             if (modalId === 'fallDetectionModal') {
                 simulateFallDetection();
             }
+        } else {
+            console.warn(`Modal ID ${modalId} not found.`);
+        }
+    };
+
+    window.closeModal = function(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) modal.style.display = 'none';
+    };
+
+    // Enhanced Chatbot Demo (tied to your dengue paper: mocks Decision Tree severity prediction)
+    window.sendChat = function() {
+        const input = document.getElementById('chat-input')?.value?.trim();
+        const demo = document.getElementById('chatbot-demo');
+        if (!input || !demo) return;
+
+        demo.innerHTML += `<p style="color: blue;">User: ${input}</p>`;
+
+        // Mock AI logic from your paper (e.g., check keywords like age, gender, symptoms)
+        let response = "Tell me your symptoms (e.g., fever, age, gender).";
+        const lowerInput = input.toLowerCase();
+        if (lowerInput.includes('fever')) {
+            response = "High fever is a dengue symptom. Severity: Moderate (F1-score 0.802 from model). Consult a doctor.";
+        } else if (lowerInput.includes('age') && lowerInput.includes('over 30')) {
+            response = "Age over 30 increases risk. Predicted severity: High (based on Decision Tree with non-leaky features). Seek medical help.";
+        } else if (lowerInput.includes('male') || lowerInput.includes('female')) {
+            response = "Gender noted. Combined with other factors (e.g., AreaType), severity: Low-Moderate (0.79 accuracy).";
         }
 
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = "none";
-        }
+        demo.innerHTML += `<p style="color: green;">Bot: ${response}</p>`;
+        demo.scrollTop = demo.scrollHeight;
+        document.getElementById('chat-input').value = '';
+    };
 
-        // Chatbot Demo
-        function sendChat() {
-            const input = document.getElementById('chat-input').value;
-            const demo = document.getElementById('chatbot-demo');
-            demo.innerHTML += `<p>User: ${input}</p>`;
-            // Simple mock response
-            let response = "I'm not feeling well. Do you have dengue symptoms?";
-            if (input.toLowerCase().includes('fever')) {
-                response = "High fever is a common symptom of dengue. Please consult a doctor.";
+    // Enhanced Fall Detection Demo - Simulates a "fall" with mock sensor data (tied to your Parkinson's paper)
+    window.simulateFallDetection = function() {
+        const canvas = document.getElementById('fall-detection-canvas');
+        if (!canvas) return console.warn('Canvas not found.');
+
+        const ctx = canvas.getContext('2d');
+        let y = 50; // Start position
+        let velocity = 0;
+        const gravity = 0.5; // Simulate fall acceleration
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw stick figure
+            ctx.beginPath();
+            ctx.arc(150, y, 20, 0, Math.PI * 2); // Head
+            ctx.moveTo(150, y + 40);
+            ctx.lineTo(150, y + 100); // Body
+            ctx.strokeStyle = 'red';
+            ctx.stroke();
+
+            // Mock sensor readings (from your paper: accel, gyro, magnetometer fusion)
+            ctx.fillStyle = 'black';
+            ctx.font = '12px Arial';
+            ctx.fillText(`Accel: ${Math.round(velocity * 10)} m/s² | Gyro: ${Math.round(y)} deg/s | Mag: Stable`, 10, 20);
+
+            // Simulate fall
+            velocity += gravity;
+            y += velocity;
+            if (y > canvas.height - 40) {
+                y = canvas.height - 40;
+                velocity = 0;
+                ctx.fillText('FALL DETECTED! (FoG Episode - 97.9% Accuracy)', 10, 40); // Tie to paper metrics
             }
-            demo.innerHTML += `<p>Bot: ${response}</p>`;
-            demo.scrollTop = demo.scrollHeight;
-            document.getElementById('chat-input').value = '';
-        }
 
-        // Fall Detection Demo - Simple Canvas Animation
-        function simulateFallDetection() {
-            const canvas = document.getElementById('fall-detection-demo');
-            if (canvas) {
-                const ctx = canvas.getContext('2d');
-                let x = 0;
-                function animate() {
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-                    ctx.fillStyle = 'red';
-                    ctx.fillRect(x, 100, 50, 50);
-                    x += 2;
-                    if (x > canvas.width) x = 0;
-                    requestAnimationFrame(animate);
-                }
-                animate();
-            }
+            requestAnimationFrame(animate);
         }
+        animate();
+    };
 
-        // Privacy Demo - Mock Encryption
-        function encryptData() {
-            const input = document.getElementById('privacy-input').value;
-            // Simple mock encryption (reverse string)
-            const encrypted = input.split('').reverse().join('');
-            document.getElementById('privacy-output').innerHTML = `Encrypted: ${encrypted}<br>Processed result: Data secured!`;
-        }
+    // Enhanced Privacy Demo - Mock homomorphic encryption (tied to your federated learning paper)
+    window.encryptData = function() {
+        const input = document.getElementById('privacy-input')?.value?.trim();
+        const output = document.getElementById('privacy-output');
+        if (!input || !output) return;
 
+        // Mock CKKS-like encryption: Base64 encode + simple obfuscation (better than reverse)
+        const encrypted = btoa(input.split('').map(char => String.fromCharCode(char.charCodeAt(0) + 1)).join(''));
+        output.innerHTML = `Encrypted Gradient (mock CKKS HE): ${encrypted}<br>Processed: Secure aggregation complete (90% sparsity, semantic security under RLWE). Data preserved!`;
+    };
+});
         // Visitor tracking
         document.addEventListener('DOMContentLoaded', function() {
             let visitCount = localStorage.getItem('visitCount') || 0;
