@@ -20,6 +20,4 @@ Read my latest posts about machine learning, AI research, and data science.
 - Research
 - Tutorials
 
----
-
 *More blog posts coming soon!*
