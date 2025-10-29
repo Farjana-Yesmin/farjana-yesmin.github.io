@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recent Research Papers - Farjana's Technical Blog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.7;
+            color: #444;
+            background-color: #f8f9fa;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .back-link {
+            margin-bottom: 30px;
+        }
+        .back-link a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+        h1 {
+            color: #2563eb;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+        .post-meta {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 20px;
+        }
+        .post-content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            border-left: 4px solid #2563eb;
+        }
+        .post-content h2 {
+            color: #1e293b;
+            margin: 2rem 0 1rem 0;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+        .post-content h3 {
+            color: #2563eb;
+            margin: 1.5rem 0 0.5rem 0;
+        }
+        .post-content p {
+            margin-bottom: 1.2rem;
+            color: #666;
+        }
+        .post-content ul, .post-content ol {
+            margin-left: 20px;
+            margin-bottom: 1.2rem;
+            color: #666;
+        }
+        .post-content li {
+            margin-bottom: 0.5rem;
+        }
+        .paper-section {
+            background: rgba(37, 99, 235, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #dc2626;
+        }
+        .paper-title {
+            color: #1e293b;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .paper-meta {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .results-highlight {
+            background: rgba(34, 197, 94, 0.1);
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            border-left: 3px solid #16a34a;
+        }
+        .preprint-link {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+        .preprint-link:hover {
+            background: #1d4ed8;
+        }
+        .categories {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+        .categories h3 {
+            color: #2563eb;
+            margin-bottom: 1rem;
+        }
+        .category-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .category-tag {
+            background: rgba(37, 99, 235, 0.1);
+            color: #2563eb;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="back-link">
+        <a href="/blog.html">← Back to Blog</a>
+    </div>
+    
+    <h1>My Recent Research Papers: Advancing AI in Healthcare and Environmental Monitoring</h1>
+    
+    <div class="post-meta">
+        <strong>Published:</strong> October 28, 2025<br>
+        <strong>Categories:</strong> Research Projects, Healthcare AI, Machine Learning, AI Fairness
+    </div>
+    
+    <div class="post-content">
+        <p>Hello, readers! As promised in my welcome post, I'm excited to dive into some of my latest research contributions. Over the past year, I've been focusing on applying machine learning and AI to real-world challenges in healthcare and environmental science, particularly in resource-constrained settings like Bangladesh and smart cities. These works are currently in preprint form and slated for publication in 2026 through prestigious conferences and Springer Lecture Notes in Networks and Systems. They've been accepted for presentation at events like the International Conference on Data Science, Analytics and Governance (DASGRI) in London and the EAI International Conference on HealthWear.</p>
+
+        <p>In this post, I'll provide an overview of each paper, highlighting the key problems addressed, methodologies, results, and potential impacts. These projects align with my core research interests in Machine Learning Fairness, Healthcare AI, Explainable AI (XAI), and Federated Learning. If you're interested in the full preprints, I've linked them below. Let's jump in!</p>
+
+        <h2>1. AI Chatbots for Dengue Symptom Triage in Bangladesh</h2>
+        
+        <div class="paper-section">
+            <div class="paper-title">AI Chatbots for Dengue Symptom Triage in Bangladesh: A Decision Tree Classifier Approach</div>
+            <div class="paper-meta">To be published in Springer Lecture Notes in Networks and Systems | Presented at DASGRI 2026</div>
+            
+            <p><strong>Overview:</strong> Dengue fever is a major public health crisis in Bangladesh, with outbreaks overwhelming hospitals—over 321,000 cases and 1,700 deaths in 2023 alone. This paper explores an AI-powered chatbot that provides preliminary symptom triage, helping users assess severity and decide when to seek professional care.</p>
+            
+            <p><strong>Methodology:</strong> Used public datasets (n=4,700) with non-leaky demographic features. A Decision Tree classifier was trained with GridSearchCV for hyperparameter tuning and SMOTE for class balancing. The chatbot incorporates a confidence threshold and NLTK for natural language processing.</p>
+            
+            <div class="results-highlight">
+                <strong>Key Results:</strong> The model achieved 0.79 accuracy and 0.802 F1-score on non-leaky features. A pilot study (n=50) showed 75% user satisfaction. Fairness analysis confirmed minimal bias (deltas <0.05 across demographics).
+            </div>
+            
+            <p><strong>Impact:</strong> This tool could ease triage strain in developing countries. Next steps include trials with Bangladesh's DGHS and integration of clinical symptoms.</p>
+            
+            <a href="https://www.researchgate.net/publication/385935162_AI_Chatbots_for_Dengue_Symptom_Triage_in_Bangladesh_A_Decision_Tree_Classifier_Approach" class="preprint-link" target="_blank">Read Preprint</a>
+        </div>
+
+        <h2>2. Evolving Health Indicators in Bangladesh</h2>
+        
+        <div class="paper-section">
+            <div class="paper-title">Evolving Health Indicators in Bangladesh: A Comparative Analysis of 2019 and 2023 Health Bulletins Using Data Science Tools</div>
+            <div class="paper-meta">Co-authored with Nusrat Shirmin | Presented at DASGRI 2026</div>
+            
+            <p><strong>Overview:</strong> This study analyzes Bangladesh's healthcare progress using government Health Bulletins from 2019 and 2023. With a population of 164 million, the country faces rural-urban disparities, workforce shortages, and rising non-communicable diseases (NCDs).</p>
+            
+            <p><strong>Methodology:</strong> Data extraction from CSVs (2019) and PDFs (2023) via pdfplumber, covering seven domains. Preprocessing handled 12.3% missing values with imputation. Analysis included statistical tests and ML (Random Forest for disease burden prediction).</p>
+            
+            <div class="results-highlight">
+                <strong>Key Results:</strong> Positive trends: Maternal mortality down 11%, malaria cases reduced 42%, stunting from 31% to 24%. Challenges: 21.4% workforce vacancies, 67% out-of-pocket spending. Models showed R²=0.87 and 5-fold CV=90.5%.
+            </div>
+            
+            <p><strong>Impact:</strong> This provides evidence for policy reforms like insurance pilots and digital health expansions.</p>
+            
+            <a href="https://www.researchgate.net/publication/396293401_Optimized_Hybrid_Machine_Learning_Framework_for_Real-Time_Air_Quality_Prediction_in_IoT-Enabled_Smart_Cities" class="preprint-link" target="_blank">Read Preprint</a>
+        </div>
+
+        <h2>3. Optimized Hybrid ML for Air Quality Prediction</h2>
+        
+        <div class="paper-section">
+            <div class="paper-title">Optimized Hybrid Machine Learning Framework for Real-Time Air Quality Prediction in IoT-Enabled Smart Cities</div>
+            <div class="paper-meta">Presented at DASGRI 2026</div>
+            
+            <p><strong>Overview:</strong> Urban air pollution causes 7 million premature deaths yearly (WHO). This paper presents a hybrid ML framework for real-time PM2.5 prediction using IoT sensors, optimized for edge devices in smart cities.</p>
+            
+            <p><strong>Methodology:</strong> Hybrid model combines XGBoost (structured data) and LSTM (temporal patterns) with dynamic inverse variance fusion. Edge optimization via TinyML, quantization, and TFLite for low-resource devices.</p>
+            
+            <div class="results-highlight">
+                <strong>Key Results:</strong> RMSE=0.1153, MAE=0.0987, R²=0.8524—12% better than standalone LSTM. Latency <112 ms on simulated Raspberry Pi. Multi-city validation showed generalizability.
+            </div>
+            
+            <p><strong>Impact:</strong> Enables proactive pollution alerts, supporting UN SDGs. Next: Physical hardware tests and multi-pollutant expansion.</p>
+            
+            <a href="https://www.researchgate.net/publication/396293401_Optimized_Hybrid_Machine_Learning_Framework_for_Real-Time_Air_Quality_Prediction_in_IoT-Enabled_Smart_Cities" class="preprint-link" target="_blank">Read Preprint</a>
+        </div>
+
+        <h2>4. Fairness-Aware ECG Representation Learning</h2>
+        
+        <div class="paper-section">
+            <div class="paper-title">Fairness-Aware Representation Learning for ECG-Based Disease Prediction in Wearable Systems</div>
+            <div class="paper-meta">Co-authored with Nusrat Shirmin | To appear at EAI HealthWear 2025</div>
+            
+            <p><strong>Overview:</strong> This work tackles biases in ECG models for wearable devices, which can disadvantage groups by sex or age. We focus on inferior myocardial infarction (IMI) detection, using adversarial debiasing to create fair representations.</p>
+            
+            <p><strong>Methodology:</strong> 20% subsample of PTB-XL dataset (n=4,367). 1D CNN encoder + adversaries for sex/age. Loss balances classification and debiasing (λ=0.3). Benchmarks: FairMixup, GroupDRO, etc.</p>
+            
+            <div class="results-highlight">
+                <strong>Key Results:</strong> AUROC=0.8472, Accuracy=0.81, F1=0.50. Improved DI for sex from 0.23 to 0.71. Per-group: Balanced F1 (0.42-0.52). Outperformed baselines in fairness-accuracy trade-off.
+            </div>
+            
+            <p><strong>Impact:</strong> Promotes equitable wearables, reducing disparities. Future: Full dataset, intersectional fairness, federated learning.</p>
+            
+            <a href="https://www.researchgate.net/publication/396441645_Fairness-Aware_Representation_Learning_for_ECG-Based_Disease_Prediction_in_Wearable_Systems" class="preprint-link" target="_blank">Read Preprint</a>
+        </div>
+
+        <h2>Conclusion</h2>
+        <p>These papers represent my commitment to impactful, ethical AI—focusing on fairness, accessibility, and real-world deployment. I'm particularly excited about their applications in low-resource areas like Bangladesh. If you'd like to collaborate, discuss, or request code/datasets, feel free to reach out!</p>
+
+        <p><strong>Stay tuned for my next deep dive:</strong> Gradient sparsification in federated learning with homomorphic encryption—coming soon!</p>
+    </div>
+
+    <div class="categories">
+        <h3>Categories</h3>
+        <div class="category-tags">
+            <span class="category-tag">Healthcare AI</span>
+            <span class="category-tag">Machine Learning</span>
+            <span class="category-tag">AI Fairness</span>
+            <span class="category-tag">Research Projects</span>
+            <span class="category-tag">Environmental Monitoring</span>
+            <span class="category-tag">IoT</span>
+        </div>
+    </div>
+</body>
+</html>
