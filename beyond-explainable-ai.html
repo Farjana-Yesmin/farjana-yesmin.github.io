@@ -1,135 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Beyond "Explainable AI": What Philosophers Can Teach Us About Trust - Farjana Yesmin</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: "Arial", sans-serif;
-      background: #f8f9fa;
-      color: #333;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 20px;
-      line-height: 1.7;
-    }
-    .back-link { margin-bottom: 24px; }
-    .back-link a { color: #2563eb; text-decoration: none; font-weight: 500; }
-    .back-link a:hover { text-decoration: underline; }
-    header { margin-bottom: 12px; }
-    h1 { color: #2563eb; font-size: 2.1rem; margin-bottom: 6px; }
-    .post-meta { color: #666; font-size: 0.95rem; margin-bottom: 22px; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px; }
-    .card {
-      background: #ffffff;
-      padding: 2.0rem;
-      border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-      border-left: 4px solid #2563eb;
-      margin-bottom: 18px;
-    }
-    .card h2 { color: #1e293b; margin: 1.4rem 0 0.8rem 0; border-bottom: 2px solid #eef5ff; padding-bottom: 0.45rem; }
-    p { color: #444; margin-bottom: 1rem; }
-    .callout {
-      background: rgba(37,99,235,0.05);
-      border-left: 4px solid #2563eb;
-      padding: 12px;
-      border-radius: 8px;
-      margin: 14px 0;
-      color: #213547;
-    }
-    ul, ol { margin-left: 18px; margin-bottom: 1rem; color: #444; }
-    blockquote { margin: 1rem 0; padding-left: 12px; border-left: 4px solid #e2e8f0; color: #555; }
-    a { color: #2563eb; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .footnote { font-size: 0.92rem; color: #6b7280; border-top: 1px solid #eef5ff; padding-top: 12px; margin-top: 14px; }
-    .tags { margin-top: 18px; display:flex; gap:0.6rem; flex-wrap:wrap; }
-    .tag { background: rgba(37,99,235,0.1); color:#2563eb; padding: 6px 10px; border-radius:999px; font-weight:600; font-size:0.86rem; }
-    /* Dark */
-    @media (prefers-color-scheme: dark) {
-      body { background: #0e0f12; color: #d6dbe3; }
-      .card { background: #111217; box-shadow: 0 6px 18px rgba(255,255,255,0.02); border-left-color: #8ab4f8; }
-      .callout { background: rgba(138,180,248,0.04); border-left-color: #8ab4f8; color: #d6dbe3; }
-      .post-meta { color: #9aa4b2; border-bottom-color: #1f2430; }
-      a { color: #8ab4f8; }
-      .footnote { color: #9aa4b2; border-top-color: #1f2430; }
-      .tag { background: rgba(138,180,248,0.12); color: #8ab4f8; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyond "Explainable AI" - Farjana's Technical Blog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.7;
+            color: #444;
+            background-color: #f8f9fa;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .back-link {
+            margin-bottom: 30px;
+        }
+        .back-link a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+        h1 {
+            color: #2563eb;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+        .post-meta {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 20px;
+        }
+        .post-content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            border-left: 4px solid #2563eb;
+        }
+        .post-content h2 {
+            color: #1e293b;
+            margin: 2rem 0 1rem 0;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+        .post-content h3 {
+            color: #2563eb;
+            margin: 1.5rem 0 0.5rem 0;
+        }
+        .post-content p {
+            margin-bottom: 1.2rem;
+            color: #666;
+        }
+        .post-content ul, .post-content ol {
+            margin-left: 20px;
+            margin-bottom: 1.2rem;
+            color: #666;
+        }
+        .post-content li {
+            margin-bottom: 0.5rem;
+        }
+        .concept-box {
+            background: rgba(37, 99, 235, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #2563eb;
+        }
+        blockquote {
+            background: rgba(37, 99, 235, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #dc2626;
+            font-style: italic;
+            color: #555;
+        }
+        .preprint-link {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+        .preprint-link:hover {
+            background: #1d4ed8;
+        }
+        .categories {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+        .categories h3 {
+            color: #2563eb;
+            margin-bottom: 1rem;
+        }
+        .category-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .category-tag {
+            background: rgba(37, 99, 235, 0.1);
+            color: #2563eb;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+    </style>
 </head>
 <body>
-  <div class="back-link"><a href="/blog.html">← Back to Blog</a></div>
-
-  <header>
+    <div class="back-link">
+        <a href="/blog.html">← Back to Blog</a>
+    </div>
+    
     <h1>Beyond "Explainable AI": What Philosophers Can Teach Us About Trust</h1>
+    
     <div class="post-meta">
-      <strong>Published:</strong> November 4, 2025 &nbsp;&nbsp; | &nbsp;&nbsp;
-      <strong>Categories:</strong> Explainable AI, Healthcare AI, Ethics
+        <strong>Published:</strong> November 4, 2025<br>
+        <strong>Categories:</strong> Explainable AI, Healthcare AI, Ethics
     </div>
-  </header>
+    
+    <div class="post-content">
+        <p>Most technical work on interpretability focuses on shrinking the black box: saliency maps, SHAP values, counterfactuals, rule extraction, and local surrogate models. These are useful tools — I've applied several of them across projects listed on my Publications page — but they don't always deliver the understanding clinicians actually need.</p>
 
-  <article class="card">
-    <p>Most technical work on interpretability focuses on shrinking the black box: saliency maps, SHAP values, counterfactuals, rule extraction, and local surrogate models. These are useful tools — I've applied several of them across projects listed on my Publications page — but they don't always deliver the understanding clinicians actually need. </p>
+        <p>That gap is not just a usability problem; it's conceptual. Two central questions matter: <em>What counts as an explanation?</em> and <em>Who is the explanation for?</em> Answering them changes how we design, evaluate, and deploy XAI.</p>
 
-    <p>That gap is not just a usability problem; it's conceptual. Two central questions matter: <em>What counts as an explanation?</em> and <em>Who is the explanation for?</em> Answering them changes how we design, evaluate, and deploy XAI.</p>
+        <h2>Technical Explanations vs. Human Understanding</h2>
+        <p>Engineering-oriented explanations typically quantify feature contributions or visualize focus areas. Those outputs are great for debugging and auditing models. Yet a clinician confronted with "Feature A contributed 0.23" needs a different kind of reasoning: a justification that supports an action for a specific patient.</p>
 
-    <h2>Technical Explanations vs. Human Understanding</h2>
-    <p>Engineering-oriented explanations typically quantify feature contributions or visualize focus areas. Those outputs are great for debugging and auditing models. Yet a clinician confronted with "Feature A contributed 0.23" needs a different kind of reasoning: a justification that supports an action for a specific patient.</p>
+        <div class="concept-box">
+            <strong>In short:</strong> technical explanations reveal correlations; philosophical explanations provide justifications that support decisions.
+        </div>
 
-    <div class="callout">
-      <strong>In short:</strong> technical explanations reveal correlations; philosophical explanations provide justifications that support decisions.
+        <h2>Philosophy gives useful distinctions</h2>
+        <p>Some philosophical ideas I find practically helpful:</p>
+        <ul>
+            <li><strong>Epistemic opacity</strong> — systems can produce reliable results while remaining only partially intelligible to humans. Privacy-preserving pipelines (e.g., encrypted federated learning) exacerbate opacity: they make systems secure, but also harder to interrogate with standard XAI tools.</li>
+            <li><strong>Explanation vs. justification</strong> — an explanation describes how a model reached an output; a justification explains why acting on that output is rational for the decision-maker. Clinicians require both.</li>
+            <li><strong>Epistemic injustice</strong> — design choices can advantage some users as knowers and disadvantage others. Explanations that assume specific domain knowledge or language proficiency can entrench inequality.</li>
+        </ul>
+
+        <h2>Design implications for XAI</h2>
+        <p>Philosophical clarity leads to different engineering priorities:</p>
+        <ol>
+            <li><strong>Audience-specific explanations:</strong> produce actionable, high-level rationales for clinicians; produce technical fidelity reports for model auditors; produce concise, comprehensible narratives for patients.</li>
+            <li><strong>Actionability & calibration:</strong> evaluate whether explanations help users make better decisions or appropriately calibrate trust. This requires human-in-the-loop studies, not just proxy metrics.</li>
+            <li><strong>Privacy-aware interpretability:</strong> in privacy-preserving systems (like MedHE), standard XAI probes on raw gradients are unavailable. Design explanations that operate at encrypted or aggregated abstraction levels — cohort-level summaries, uncertainty bands, and example-based explanations that do not leak sensitive data.</li>
+        </ol>
+
+        <h2>Concrete links to my work</h2>
+        <p>Privacy-preserving federated learning projects such as <em>MedHE</em> demonstrate that we can retain high performance while preserving privacy — but they also highlight interpretability gaps that arise when gradients are encrypted or sparsified. Complementary projects in my publications explore fairness-aware representation learning and interpretable hybrid frameworks.</p>
+
+        <blockquote>
+            "A usable explanation for a clinician need not reveal training data; it must reveal the model's limits, typical failure modes, and the sources of uncertainty relevant to the current patient."
+        </blockquote>
+
+        <h2>From metrics to meaning: evaluation suggestions</h2>
+        <p>Beyond fidelity and stability, we should evaluate explanations by:</p>
+        <ul>
+            <li><strong>Decision impact:</strong> does the explanation improve clinical decisions in simulation or practice?</li>
+            <li><strong>Comprehension:</strong> can the target user paraphrase the rationale and uncertainty correctly?</li>
+            <li><strong>Equity of explanation:</strong> do explanations work across demographic, linguistic, and expertise differences?</li>
+        </ul>
+
+        <h2>Where I'm heading</h2>
+        <p>My next experiments will focus on cohort-level explanation modules compatible with privacy-preserving pipelines, clinician-in-the-loop calibration studies, and integrating normative frameworks from epistemology to inform explanation content for sensitive domains. If you're interested in collaborating on human evaluation studies or privacy-aware interpretability, I'd love to connect.</p>
     </div>
 
-    <h2>Philosophy gives useful distinctions</h2>
-    <p>Some philosophical ideas I find practically helpful:</p>
-    <ul>
-      <li><strong>Epistemic opacity</strong> — systems can produce reliable results while remaining only partially intelligible to humans. Privacy-preserving pipelines (e.g., encrypted federated learning) exacerbate opacity: they make systems secure, but also harder to interrogate with standard XAI tools.</li>
-      <li><strong>Explanation vs. justification</strong> — an explanation describes how a model reached an output; a justification explains why acting on that output is rational for the decision-maker. Clinicians require both.</li>
-      <li><strong>Epistemic injustice</strong> — design choices can advantage some users as knowers and disadvantage others. Explanations that assume specific domain knowledge or language proficiency can entrench inequality.</li>
-    </ul>
-
-    <h2>Design implications for XAI</h2>
-    <p>Philosophical clarity leads to different engineering priorities:</p>
-    <ol>
-      <li><strong>Audience-specific explanations:</strong> produce actionable, high-level rationales for clinicians; produce technical fidelity reports for model auditors; produce concise, comprehensible narratives for patients.</li>
-      <li><strong>Actionability & calibration:</strong> evaluate whether explanations help users make better decisions or appropriately calibrate trust. This requires human-in-the-loop studies, not just proxy metrics.</li>
-      <li><strong>Privacy-aware interpretability:</strong> in privacy-preserving systems (like MedHE), standard XAI probes on raw gradients are unavailable. Design explanations that operate at encrypted or aggregated abstraction levels — cohort-level summaries, uncertainty bands, and example-based explanations that do not leak sensitive data.</li>
-    </ol>
-
-    <h2>Concrete links to my work</h2>
-    <p>Privacy-preserving federated learning projects such as <em>MedHE</em> demonstrate that we can retain high performance while preserving privacy — but they also highlight interpretability gaps that arise when gradients are encrypted or sparsified. Complementary projects in my publications explore fairness-aware representation learning and interpretable hybrid frameworks; the preprints and project pages are available on my Publications list. For example:</p>
-    <ul>
-      <li><a href="https://www.researchgate.net/publication/385935162_AI_Chatbots_for_Dengue_Symptom_Triage_in_Bangladesh_A_Decision_Tree_Classifier_Approach" target="_blank" rel="noopener">AI Chatbots for Dengue Symptom Triage in Bangladesh (preprint)</a> — an applied project showing how model outputs translate to user-facing recommendations in low-resource settings.</li>
-      <li><a href="https://www.researchgate.net/publication/396441645_Fairness-Aware_Representation_Learning_for_ECG-Based_Disease_Prediction_in_Wearable_Systems" target="_blank" rel="noopener">Fairness-Aware Representation Learning for ECG Prediction (preprint)</a> — work that examines fairness and group-level behavior of learned representations.</li>
-      <li><a href="https://doi.org/10.48550/arXiv.2510.05120" target="_blank" rel="noopener">A Fuzzy Logic-Based Framework for Explainable Machine Learning (preprint)</a> — exploring hybrid approaches that place symbolic interpretability alongside statistical learning.</li>
-    </ul>
-
-    <blockquote>
-      <p>"A usable explanation for a clinician need not reveal training data; it must reveal the model's limits, typical failure modes, and the sources of uncertainty relevant to the current patient."</p>
-    </blockquote>
-
-    <h2>From metrics to meaning: evaluation suggestions</h2>
-    <p>Beyond fidelity and stability, we should evaluate explanations by:</p>
-    <ul>
-      <li><strong>Decision impact:</strong> does the explanation improve clinical decisions in simulation or practice?</li>
-      <li><strong>Comprehension:</strong> can the target user paraphrase the rationale and uncertainty correctly?</li>
-      <li><strong>Equity of explanation:</strong> do explanations work across demographic, linguistic, and expertise differences?</li>
-    </ul>
-
-    <h2>Where I'm heading</h2>
-    <p>My next experiments will focus on cohort-level explanation modules compatible with privacy-preserving pipelines, clinician-in-the-loop calibration studies, and integrating normative frameworks from epistemology to inform explanation content for sensitive domains. If you're interested in collaborating on human evaluation studies or privacy-aware interpretability, I'd love to connect.</p>
-
-    <div class="footnote">
-      This post draws on the projects and preprints listed on my Publications page (including MedHE and the preprints linked above). For full preprints and project pages, see the Publications section of my website.
+    <div class="categories">
+        <h3>Categories</h3>
+        <div class="category-tags">
+            <span class="category-tag">Explainable AI</span>
+            <span class="category-tag">Healthcare AI</span>
+            <span class="category-tag">Ethics</span>
+            <span class="category-tag">Federated Learning</span>
+        </div>
     </div>
-  </article>
-
-  <div class="tags" aria-hidden="true">
-    <span class="tag">Explainable AI</span>
-    <span class="tag">Healthcare AI</span>
-    <span class="tag">Federated Learning</span>
-    <span class="tag">Ethics</span>
-  </div>
 </body>
 </html>
