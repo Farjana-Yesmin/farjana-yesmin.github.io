@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>When Accuracy Isn't Enough: What My AI Models Can't Tell a Doctor - Farjana Yesmin</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Arial", sans-serif;
+      background: #f8f9fa;
+      color: #333;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      line-height: 1.7;
+    }
+    .back-link { margin-bottom: 24px; }
+    .back-link a { color: #2563eb; text-decoration: none; font-weight: 500; }
+    .back-link a:hover { text-decoration: underline; }
+    h1 { color: #2563eb; font-size: 2.1rem; margin-bottom: 6px; }
+    .post-meta { color: #666; font-size: 0.95rem; margin-bottom: 18px; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px; }
+    .card {
+      background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      border-left: 4px solid #2563eb; margin-bottom: 18px;
+    }
+    .card h2 { color: #1e293b; margin: 1.2rem 0 0.6rem 0; border-bottom: 2px solid #eef5ff; padding-bottom: 0.45rem; }
+    p { color: #444; margin-bottom: 1rem; }
+    .callout { background: rgba(37,99,235,0.05); border-left: 4px solid #2563eb; padding: 12px; border-radius: 8px; margin: 14px 0; }
+    ul { margin-left: 18px; margin-bottom: 1rem; }
+    a { color: #2563eb; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .footnote { font-size: 0.92rem; color: #6b7280; border-top: 1px solid #eef5ff; padding-top: 12px; margin-top: 14px; }
+    .tags { margin-top: 18px; display:flex; gap:0.6rem; flex-wrap:wrap; }
+    .tag { background: rgba(37,99,235,0.1); color:#2563eb; padding: 6px 10px; border-radius:999px; font-weight:600; font-size:0.86rem; }
+    @media (prefers-color-scheme: dark) {
+      body { background: #0e0f12; color: #d6dbe3; }
+      .card { background: #111217; box-shadow: 0 6px 18px rgba(255,255,255,0.02); border-left-color: #8ab4f8; }
+      .callout { background: rgba(138,180,248,0.04); border-left-color: #8ab4f8; color: #d6dbe3; }
+      .post-meta { color: #9aa4b2; border-bottom-color: #1f2430; }
+      a { color: #8ab4f8; }
+      .footnote { color: #9aa4b2; border-top-color: #1f2430; }
+      .tag { background: rgba(138,180,248,0.12); color: #8ab4f8; }
+    }
+  </style>
+</head>
+<body>
+  <div class="back-link"><a href="/blog.html">← Back to Blog</a></div>
+
+  <h1>When Accuracy Isn't Enough: What My AI Models Can't Tell a Doctor</h1>
+  <div class="post-meta">
+    <strong>Published:</strong> November 5, 2025 &nbsp;&nbsp; | &nbsp;&nbsp;
+    <strong>Categories:</strong> Healthcare AI, Federated Learning, Explainable AI
+  </div>
+
+  <article class="card">
+    <p>During my recent work on privacy-preserving federated learning for healthcare, I reached a frustrating realization: high accuracy numbers don't always translate to real-world clinical trust. My model achieved 91.1% accuracy on medical text classification tasks, yet when I walked through its predictions with a clinician, they still asked: "How do I know your model isn't hiding something critical?"</p>
+
+    <h2>The Gap Between Metrics and Understanding</h2>
+    <p>Metrics like accuracy, F1-score, or AUC are easy to report and compare. But they offer little insight into whether a clinician can actually rely on the model's recommendations. This is especially true in high-stakes healthcare scenarios where mistakes can cost lives. Knowing that the model predicts "dengue likely" 91% of the time doesn't tell the doctor <em>why</em> it made that call.</p>
+
+    <div class="callout">
+      <strong>Concept:</strong> In philosophy of science, this problem is referred to as <em>epistemic opacity</em> — when a system produces outcomes that humans cannot fully understand or justify, even if the internal workings are accessible.
+    </div>
+
+    <h2>Why This Matters in Practice</h2>
+    <p>Consider federated learning: data never leaves the hospital, and models are trained across multiple institutions. Privacy guarantees are strong, but the resulting gradient updates and encrypted aggregates create a barrier to transparency. Clinicians can't inspect patient-level contributions, and existing explainable AI tools only partially illuminate model behavior. In short, accuracy alone is insufficient.</p>
+
+    <h2>Bridging the Gap</h2>
+    <p>Addressing this challenge requires more than better metrics. It demands designing AI systems that respect both technical and epistemic constraints:</p>
+    <ul>
+      <li>Integrate interpretable model structures wherever possible.</li>
+      <li>Provide justification layers that relate predictions to clinically meaningful features.</li>
+      <li>Develop evaluation frameworks that measure not just performance but trust and actionable insight.</li>
+    </ul>
+
+    <h2>Reflection</h2>
+    <p>High accuracy is gratifying, but I've learned that for healthcare AI, it's a starting point, not an endpoint. Our models must communicate in ways clinicians understand and trust, otherwise even perfect metrics are meaningless in practice.</p>
+
+    <div class="footnote">
+      <strong>Related Work:</strong> My work on <a href="https://doi.org/10.48550/arxiv.2510.05120" target="_blank" rel="noopener">MedHE: Communication-Efficient Private FL with Adaptive Gradient Sparsification</a> explores these trade-offs in federated healthcare AI, balancing privacy, efficiency, and interpretability.
+    </div>
+
+    <div class="tags">
+      <span class="tag">Healthcare AI</span>
+      <span class="tag">Federated Learning</span>
+      <span class="tag">Epistemic Opacity</span>
+      <span class="tag">Explainable AI</span>
+    </div>
+  </article>
+</body>
+</html>
