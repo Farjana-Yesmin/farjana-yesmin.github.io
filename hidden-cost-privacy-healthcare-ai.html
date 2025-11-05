@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>The Hidden Cost of Privacy in Healthcare AI - Farjana Yesmin</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Arial", sans-serif;
+      background: #f8f9fa;
+      color: #333;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      line-height: 1.7;
+    }
+    .back-link { margin-bottom: 24px; }
+    .back-link a { color: #2563eb; text-decoration: none; font-weight: 500; }
+    .back-link a:hover { text-decoration: underline; }
+    h1 { color: #2563eb; font-size: 2.1rem; margin-bottom: 6px; }
+    .post-meta { color: #666; font-size: 0.95rem; margin-bottom: 18px; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px; }
+    .card {
+      background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      border-left: 4px solid #2563eb; margin-bottom: 18px;
+    }
+    .card h2 { color: #1e293b; margin: 1.2rem 0 0.6rem 0; border-bottom: 2px solid #eef5ff; padding-bottom: 0.45rem; }
+    p { color: #444; margin-bottom: 1rem; }
+    .callout { background: rgba(37,99,235,0.05); border-left: 4px solid #2563eb; padding: 12px; border-radius: 8px; margin: 14px 0; }
+    ul { margin-left: 18px; margin-bottom: 1rem; }
+    a { color: #2563eb; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .footnote { font-size: 0.92rem; color: #6b7280; border-top: 1px solid #eef5ff; padding-top: 12px; margin-top: 14px; }
+    .tags { margin-top: 18px; display:flex; gap:0.6rem; flex-wrap:wrap; }
+    .tag { background: rgba(37,99,235,0.1); color:#2563eb; padding: 6px 10px; border-radius:999px; font-weight:600; font-size:0.86rem; }
+    @media (prefers-color-scheme: dark) {
+      body { background: #0e0f12; color: #d6dbe3; }
+      .card { background: #111217; box-shadow: 0 6px 18px rgba(255,255,255,0.02); border-left-color: #8ab4f8; }
+      .callout { background: rgba(138,180,248,0.04); border-left-color: #8ab4f8; color: #d6dbe3; }
+      .post-meta { color: #9aa4b2; border-bottom-color: #1f2430; }
+      a { color: #8ab4f8; }
+      .footnote { color: #9aa4b2; border-top-color: #1f2430; }
+      .tag { background: rgba(138,180,248,0.12); color: #8ab4f8; }
+    }
+  </style>
+</head>
+<body>
+  <div class="back-link"><a href="/blog.html">← Back to Blog</a></div>
+
+  <h1>The Hidden Cost of Privacy in Healthcare AI</h1>
+  <div class="post-meta">
+    <strong>Published:</strong> November 6, 2025 &nbsp;&nbsp; | &nbsp;&nbsp;
+    <strong>Categories:</strong> Healthcare AI, Privacy, Federated Learning
+  </div>
+
+  <article class="card">
+    <p>Privacy is non-negotiable in healthcare research and deployment. Techniques like federated learning, homomorphic encryption, and differential privacy allow institutions to collaborate without centralizing patient records. My own work — including the MedHE framework — shows that we can reach high accuracy while dramatically reducing the risk of data leakage.</p>
+
+    <p>Still, privacy is not free. There are subtle epistemic and social costs that deserve attention: the very mechanisms that protect individuals can also change how knowledge is produced, shared, and acted upon in clinical settings.</p>
+
+    <h2>Privacy improves safety — but can hamper collective learning</h2>
+    <p>Federated and encrypted training isolate local data. That isolation protects individuals, but it can also obstruct the formation of shared, granular insights that come from pooled analyses (e.g., rare adverse event patterns identifiable only when datasets are aggregated). How should we weigh individual privacy against collective medical knowledge?</p>
+
+    <div class="callout">
+      <strong>Framing:</strong> privacy reduces leakage but may reduce the transparency and traceability that clinicians rely on when evaluating model behavior.
+    </div>
+
+    <h2>Three trade-offs I keep in mind</h2>
+    <ol>
+      <li><strong>Granularity vs. privacy:</strong> cohort-level summaries preserve privacy but can hide sub-group signals (rare conditions, intersectional effects). For public health surveillance, those signals matter.</li>
+      <li><strong>Explanations vs. leakage:</strong> richer, example-based explanations (showing similar training cases) help clinicians, but can risk membership inference unless carefully sanitized.</li>
+      <li><strong>Collaboration vs. control:</strong> privacy-preserving tech often shifts control toward system designers (who define aggregation and explanation policies). This centralization can affect whose knowledge counts and how it's used.</li>
+    </ol>
+
+    <h2>Design heuristics for balancing privacy and epistemic value</h2>
+    <p>From my experience with MedHE and related projects, practical strategies include:</p>
+    <ul>
+      <li><strong>Cohort explanations:</strong> provide aggregate-level examples and statistics (e.g., "In 12 similar cases, model confidence was X and clinician outcome was Y") instead of raw training instances.</li>
+      <li><strong>Uncertainty-first interfaces:</strong> present calibrated uncertainty and failure modes prominently so users know when to trust the model.</li>
+      <li><strong>Privacy-aware case retrieval:</strong> use differentially private nearest-neighbor retrieval or synthetic exemplars to give clinicians a sense of representative cases without exposing real patient records. See related work on synthetic data generation and privacy-preserving retrieval in my Publications list.</li>
+    </ul>
+
+    <h2>Applied example: MedHE and communication-efficient privacy</h2>
+    <p>MedHE integrates adaptive gradient sparsification with CKKS homomorphic encryption to achieve significant communication savings and privacy guarantees. Technically, it performs well — but operationally, it highlights the interface challenge: clinicians cannot inspect local gradients or raw training instances, so explanation channels must adapt (e.g., cohort summaries, global failure-mode reports, and counterfactuals that operate at an aggregated level).</p>
+
+    <h2>Policy and governance considerations</h2>
+    <p>Technical design alone is not sufficient. Institutions should consider governance steps to retain epistemic value while protecting privacy:</p>
+    <ul>
+      <li>Define shared ontologies for clinical features so that aggregated signals are interpretable across sites.</li>
+      <li>Establish cross-institutional review boards that can safely audit privacy parameters and explanation outputs.</li>
+      <li>Adopt accountable reporting standards: include privacy budgets and explanation protocols in model documentation (model cards / datasheets).</li>
+    </ul>
+
+    <h2>Final thought</h2>
+    <p>Privacy is essential. But implementing privacy-preserving AI requires conscious choices about what kinds of knowledge we preserve and what we let go. Those are value-laden design decisions. The challenge for research and practice is to build systems that protect patients while still enabling the collective epistemic processes that medicine relies on.</p>
+
+    <div class="footnote">
+      For links to the MedHE preprint (under review), dengue chatbot preprint, and my other related work on privacy and synthetic data, see the Publications section of my website. Example preprints referenced in my posts include the Dengue chatbot (<a href="https://www.researchgate.net/publication/385935162_AI_Chatbots_for_Dengue_Symptom_Triage_in_Bangladesh_A_Decision_Tree_Classifier_Approach" target="_blank" rel="noopener">ResearchGate</a>) and fairness-aware ECG representation learning (<a href="https://www.researchgate.net/publication/396441645_Fairness-Aware_Representation_Learning_for_ECG-Based_Disease_Prediction_in_Wearable_Systems" target="_blank" rel="noopener">ResearchGate</a>).
+    </div>
+  </article>
+
+  <div class="tags" aria-hidden="true">
+    <span class="tag">Privacy</span>
+    <span class="tag">Healthcare AI</span>
+    <span class="tag">Federated Learning</span>
+    <span class="tag">Ethics</span>
+  </div>
+</body>
+</html>
