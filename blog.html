@@ -47,6 +47,11 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             margin-bottom: 2rem;
             border-left: 4px solid #5e60ce;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .post:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
         }
         .post h2 {
             color: #2d3436;
@@ -62,11 +67,29 @@
             margin-bottom: 1rem;
             color: #666;
         }
+        .post-categories {
+            color: #5e60ce;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        .read-more {
+            color: #5e60ce;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .read-more:hover {
+            text-decoration: underline;
+        }
         .categories {
             background: white;
             padding: 1.5rem;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-top: 2rem;
         }
         .categories h3 {
             color: #5e60ce;
@@ -74,19 +97,22 @@
         }
         .categories ul {
             list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         .categories li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #f0f0f0;
-            color: #666;
-        }
-        .categories li:last-child {
-            border-bottom: none;
+            background: rgba(94, 96, 206, 0.1);
+            color: #5e60ce;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
         }
         .categories li:hover {
-            color: #5e60ce;
-            padding-left: 10px;
-            transition: all 0.3s ease;
+            background: #5e60ce;
+            color: white;
+            transform: translateY(-2px);
         }
     </style>
 </head>
@@ -97,7 +123,49 @@
     
     <h1>Farjana's Technical Blog</h1>
     <p class="subtitle">Sharing insights from my research in machine learning, healthcare AI, and data science</p>
-    
+
+    <!-- New Blog Posts (Most Recent First) -->
+    <div class="post">
+        <h2><a href="/hidden-cost-privacy-healthcare-ai.html" style="color: inherit; text-decoration: none;">The Hidden Cost of Privacy in Healthcare AI</a></h2>
+        <div class="post-date">November 6, 2025</div>
+        <p>Exploring the subtle epistemic and social costs of privacy-preserving techniques in healthcare AI. While federated learning and homomorphic encryption protect patient data, they can also change how medical knowledge is produced and shared in clinical settings.</p>
+        <div class="post-categories">Healthcare AI, Privacy, Federated Learning, Ethics</div>
+        <a href="/hidden-cost-privacy-healthcare-ai.html" class="read-more">Read full article →</a>
+    </div>
+
+    <div class="post">
+        <h2><a href="/when-accuracy-isnt-enough.html" style="color: inherit; text-decoration: none;">When Accuracy Isn't Enough: What My AI Models Can't Tell a Doctor</a></h2>
+        <div class="post-date">November 5, 2025</div>
+        <p>High accuracy numbers don't always translate to real-world clinical trust. A reflection on the gap between model metrics and clinician understanding in healthcare AI systems.</p>
+        <div class="post-categories">Healthcare AI, Federated Learning, Explainable AI, Epistemic Opacity</div>
+        <a href="/when-accuracy-isnt-enough.html" class="read-more">Read full article →</a>
+    </div>
+
+    <div class="post">
+        <h2><a href="/beyond-explainable-ai.html" style="color: inherit; text-decoration: none;">Beyond "Explainable AI": What Philosophers Can Teach Us About Trust</a></h2>
+        <div class="post-date">November 4, 2025</div>
+        <p>Moving beyond technical explanations to philosophical frameworks for building trustworthy AI systems. Exploring epistemic opacity, justification vs. explanation, and designing for different stakeholder needs.</p>
+        <div class="post-categories">Explainable AI, Healthcare AI, Ethics, Federated Learning</div>
+        <a href="/beyond-explainable-ai.html" class="read-more">Read full article →</a>
+    </div>
+
+    <!-- Existing Blog Posts -->
+    <div class="post">
+        <h2><a href="/recent-research-papers.html" style="color: inherit; text-decoration: none;">My Recent Research Papers: Advancing AI in Healthcare and Environmental Monitoring</a></h2>
+        <div class="post-date">October 28, 2025</div>
+        <p>An overview of my latest research contributions in AI-powered healthcare solutions for Bangladesh and environmental monitoring for smart cities. Covering dengue symptom triage chatbots, health indicator analysis, air quality prediction, and fairness in ECG models.</p>
+        <div class="post-categories">Healthcare AI, Machine Learning, AI Fairness, Research Projects, Environmental Monitoring</div>
+        <a href="/recent-research-papers.html" class="read-more">Read full article →</a>
+    </div>
+
+    <div class="post">
+        <h2><a href="/secret-of-secrets-review.html" style="color: inherit; text-decoration: none;">The Secret of the Secrets: Unveiling Hidden Wisdom</a></h2>
+        <div class="post-date">October 28, 2025</div>
+        <p>A deep dive into Dawn Brown's exploration of hidden wisdom and its connections to cognitive science and AI research.</p>
+        <div class="post-categories">Personal Development, Book Review, Cognitive Science</div>
+        <a href="/secret-of-secrets-review.html" class="read-more">Read full review →</a>
+    </div>
+
     <div class="post">
         <h2>Welcome to My Technical Blog</h2>
         <div class="post-date">December 19, 2024</div>
@@ -107,69 +175,31 @@
             <li>Healthcare AI</li>
             <li>Explainable AI (XAI)</li>
             <li>Federated Learning</li>
+            <li>Privacy-Preserving AI</li>
+            <li>Ethical AI Development</li>
         </ul>
         <p><strong>First Technical Deep Dive</strong></p>
         <p>Coming soon: A detailed analysis of gradient sparsification in federated learning with homomorphic encryption.</p>
         <p>Stay tuned for more technical content!</p>
     </div>
-
-        
-    <div class="post">
-        <h2><a href="/secret-of-secrets-review.html" style="color: inherit; text-decoration: none;">The Secret of the Secrets: Unveiling Hidden Wisdom</a></h2>
-        <div class="post-date">October 28, 2025 | Book Review</div>
-        <p>A deep dive into Dawn Brown's exploration of hidden wisdom and its connections to cognitive science and AI research.</p>
-        <p><strong>Categories:</strong> Personal Development, Book Review, Cognitive Science</p>
-        <a href="/secret-of-secrets-review.html" style="color: #5e60ce; font-weight: 500;">Read full review →</a>
-    </div>
-
-<div class="post">
-    <h2><a href="/recent-research-papers.html" style="color: inherit; text-decoration: none;">My Recent Research Papers: Advancing AI in Healthcare and Environmental Monitoring</a></h2>
-    <div class="post-date">October 28, 2025 | Research Projects, Healthcare AI, Machine Learning</div>
-    <p>An overview of my latest research contributions in AI-powered healthcare solutions for Bangladesh and environmental monitoring for smart cities. Covering dengue symptom triage chatbots, health indicator analysis, air quality prediction, and fairness in ECG models.</p>
-    <p><strong>Categories:</strong> Healthcare AI, Machine Learning, AI Fairness, Research Projects, Environmental Monitoring</p>
-    <a href="/recent-research-papers.html" style="color: #2563eb; font-weight: 500;">Read full article →</a>
-</div>
-    <!-- Add these three new posts after the welcome post in your blog.html -->
-
-<div class="post">
-    <h2><a href="/hidden-cost-privacy-healthcare-ai.html" style="color: inherit; text-decoration: none;">The Hidden Cost of Privacy in Healthcare AI</a></h2>
-    <div class="post-date">November 6, 2025 | Healthcare AI, Privacy, Federated Learning</div>
-    <p>Exploring the subtle epistemic and social costs of privacy-preserving techniques in healthcare AI. While federated learning and homomorphic encryption protect patient data, they can also change how medical knowledge is produced and shared in clinical settings.</p>
-    <p><strong>Categories:</strong> Healthcare AI, Privacy, Federated Learning, Ethics</p>
-    <a href="/hidden-cost-privacy-healthcare-ai.html" style="color: #5e60ce; font-weight: 500;">Read full article →</a>
-</div>
-
-<div class="post">
-    <h2><a href="/when-accuracy-isnt-enough.html" style="color: inherit; text-decoration: none;">When Accuracy Isn't Enough: What My AI Models Can't Tell a Doctor</a></h2>
-    <div class="post-date">November 5, 2025 | Healthcare AI, Federated Learning, Explainable AI</div>
-    <p>High accuracy numbers don't always translate to real-world clinical trust. A reflection on the gap between model metrics and clinician understanding in healthcare AI systems.</p>
-    <p><strong>Categories:</strong> Healthcare AI, Federated Learning, Explainable AI, Epistemic Opacity</p>
-    <a href="/when-accuracy-isnt-enough.html" style="color: #5e60ce; font-weight: 500;">Read full article →</a>
-</div>
-
-<div class="post">
-    <h2><a href="/beyond-explainable-ai.html" style="color: inherit; text-decoration: none;">Beyond "Explainable AI": What Philosophers Can Teach Us About Trust</a></h2>
-    <div class="post-date">November 4, 2025 | Explainable AI, Healthcare AI, Ethics</div>
-    <p>Moving beyond technical explanations to philosophical frameworks for building trustworthy AI systems. Exploring epistemic opacity, justification vs. explanation, and designing for different stakeholder needs.</p>
-    <p><strong>Categories:</strong> Explainable AI, Healthcare AI, Ethics, Federated Learning</p>
-    <a href="/beyond-explainable-ai.html" style="color: #5e60ce; font-weight: 500;">Read full article →</a>
-</div>
     
     <div class="categories">
-    <h3>Blog Categories</h3>
-    <ul>
-        <li>Machine Learning</li>
-        <li>Healthcare AI</li>
-        <li>Research Projects</li>
-        <li>AI Fairness</li>
-        <li>Federated Learning</li>
-        <li>Explainable AI</li>
-        <li>Privacy</li>
-        <li>Ethics</li>
-        <li>Environmental Monitoring</li>
-        <li>IoT & Smart Cities</li>
-        <li>Technical Tutorials</li>
-    </ul>
-</div>
+        <h3>Blog Categories</h3>
+        <ul>
+            <li>Healthcare AI</li>
+            <li>Federated Learning</li>
+            <li>Explainable AI</li>
+            <li>Privacy</li>
+            <li>Ethics</li>
+            <li>Machine Learning</li>
+            <li>AI Fairness</li>
+            <li>Research Projects</li>
+            <li>Environmental Monitoring</li>
+            <li>IoT & Smart Cities</li>
+            <li>Technical Tutorials</li>
+            <li>Book Review</li>
+            <li>Personal Development</li>
+        </ul>
+    </div>
 </body>
 </html>
