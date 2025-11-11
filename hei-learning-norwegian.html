@@ -1,88 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Hei! My Journey to (Trying to) Learn Norwegian - Farjana Yesmin</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: "Arial", sans-serif;
-      background: #f8f9fa;
-      color: #333;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 20px;
-      line-height: 1.7;
-    }
-    .back-link { margin-bottom: 24px; }
-    .back-link a { color: #2563eb; text-decoration: none; font-weight: 500; }
-    .back-link a:hover { text-decoration: underline; }
-    h1 { color: #2563eb; font-size: 2.1rem; margin-bottom: 6px; }
-    .post-meta { color: #666; font-size: 0.95rem; margin-bottom: 18px; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px; }
-    .card {
-      background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-      border-left: 4px solid #2563eb; margin-bottom: 18px;
-    }
-    .card h2 { color: #1e293b; margin: 1.2rem 0 0.6rem 0; border-bottom: 2px solid #eef5ff; padding-bottom: 0.45rem; }
-    p { color: #444; margin-bottom: 1rem; }
-    .callout { background: rgba(37,99,235,0.05); border-left: 4px solid #2563eb; padding: 12px; border-radius: 8px; margin: 14px 0; }
-    a { color: #2563eb; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .footnote { font-size: 0.92rem; color: #6b7280; border-top: 1px solid #eef5ff; padding-top: 12px; margin-top: 14px; }
-    .tags { margin-top: 18px; display:flex; gap:0.6rem; flex-wrap:wrap; }
-    .tag { background: rgba(37,99,235,0.1); color:#2563eb; padding: 6px 10px; border-radius:999px; font-weight:600; font-size:0.86rem; }
-    @media (prefers-color-scheme: dark) {
-      body { background: #0e0f12; color: #d6dbe3; }
-      .card { background: #111217; box-shadow: 0 6px 18px rgba(255,255,255,0.02); border-left-color: #8ab4f8; }
-      .callout { background: rgba(138,180,248,0.04); border-left-color: #8ab4f8; color: #d6dbe3; }
-      .post-meta { color: #9aa4b2; border-bottom-color: #1f2430; }
-      a { color: #8ab4f8; }
-      .footnote { color: #9aa4b2; border-top-color: #1f2430; }
-      .tag { background: rgba(138,180,248,0.12); color: #8ab4f8; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hei! My Journey to (Trying to) Learn Norwegian - Farjana's Technical Blog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.7;
+            color: #444;
+            background-color: #f8f9fa;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .back-link {
+            margin-bottom: 30px;
+        }
+        .back-link a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+        h1 {
+            color: #2563eb;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+        .post-meta {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 20px;
+        }
+        .post-content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            border-left: 4px solid #2563eb;
+        }
+        .post-content h2 {
+            color: #1e293b;
+            margin: 2rem 0 1rem 0;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+        .post-content h3 {
+            color: #2563eb;
+            margin: 1.5rem 0 0.5rem 0;
+        }
+        .post-content p {
+            margin-bottom: 1.2rem;
+            color: #666;
+        }
+        .post-content ul, .post-content ol {
+            margin-left: 20px;
+            margin-bottom: 1.2rem;
+            color: #666;
+        }
+        .post-content li {
+            margin-bottom: 0.5rem;
+        }
+        .concept-box {
+            background: rgba(37, 99, 235, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #2563eb;
+        }
+        .results-highlight {
+            background: rgba(34, 197, 94, 0.1);
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            border-left: 3px solid #16a34a;
+        }
+        .categories {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+        .categories h3 {
+            color: #2563eb;
+            margin-bottom: 1rem;
+        }
+        .category-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .category-tag {
+            background: rgba(37, 99, 235, 0.1);
+            color: #2563eb;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .language-image {
+            max-width: 100%;
+            border-radius: 8px;
+            margin: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
 <body>
-  <div class="back-link"><a href="/blog.html">← Back to Blog</a></div>
+    <div class="back-link">
+        <a href="/blog.html">← Back to Blog</a>
+    </div>
+    
+    <h1>Hei! My Journey to (Trying to) Learn Norwegian</h1>
+    
+    <div class="post-meta">
+        <strong>Published:</strong> November 11, 2025<br>
+        <strong>Categories:</strong> Language Learning, Personal Reflection, Travel
+    </div>
+    
+    <div class="post-content">
+        <p>Anyone who's followed my writing knows I love exploring cultures beyond the surface level. After documenting everything from sunsets in Camel's Back Park to International Mother Language Day celebrations abroad, I've always believed that language is the first key to truly understanding a place. That curiosity has now led me north—to Norway.</p>
 
-  <h1>Hei! My Journey to (Trying to) Learn Norwegian</h1>
-  <div class="post-meta">
-    <strong>Published:</strong> November 11, 2025 &nbsp;&nbsp; | &nbsp;&nbsp;
-    <strong>Categories:</strong> Language Learning, Personal Reflection, Research Life
-  </div>
+        <p>So, a few days ago, I opened Duolingo and began my Norwegian journey — with exactly zero prior experience and one determined owl reminding me daily: "Don't break your streak!"</p>
 
-  <article class="card">
-    <p>As I prepare for the next chapter of my research career, which may soon take me to a new country, I’ve realized that understanding the local language is the first step to truly connecting with a place and its people. So, a few days ago, I opened Duolingo and began my Norwegian journey — with exactly zero prior experience and one determined owl reminding me daily: “Don’t break your streak!”</p>
+        <h2>Step One: "Hei!" and Other Victories</h2>
+        <p>So far, I've learned how to greet people — "Hei!" — and order essential life-sustaining items like "kaffe" (coffee) and "melk" (milk). My proudest moment? Realizing that "Kaffe, takk!" means "Coffee, please!" and that "melk og kaffe" doesn't mean "milk or coffee" (it's "milk and coffee"). Small wins matter.</p>
 
-    <h2>Step One: “Hei!” and Other Victories</h2>
-    <p>So far, I’ve learned how to greet people — “Hei!” — and order essential life-sustaining items like “kaffe” (coffee) and “melk” (milk). My proudest moment? Realizing that “Kaffe, takk!” means “Coffee, please!” and that “melk og kaffe” doesn’t mean “milk or coffee” (it’s “milk and coffee”). Small wins matter.</p>
+        <div class="concept-box">
+            <strong>Progress Update:</strong> Current Duolingo streak: 5 days strong! The green owl and I are becoming good friends.
+        </div>
 
-    <div class="callout">
-      <p>Screenshot from my latest lesson: all green checks except one stubborn “milk and coffee” error. Progress!</p>
-      <img src="/assets/img/duolingo-norwegian-scorecard.png" alt="Screenshot of Duolingo lesson progress" style="max-width:100%; border-radius:8px; margin-top:10px;">
+        <h2>The Quirky Charm of Learning Through an App</h2>
+        <p>My days now start with a cheerful green owl and a gentle guilt trip if I skip a session. I've been introduced to characters like Dag, Lisa, and Marius, and learned lines like "Jeg er en mann" (I am a man) and "Du er en kvinne" (You are a woman). It's equal parts educational and slightly absurd — but that's what makes it fun.</p>
+
+        <h2>Small Lessons Beyond Words</h2>
+        <p>Learning a language reminds me how progress often looks quiet and invisible — a few more words understood, a mistake avoided, a sentence spoken with slightly more confidence. It's humbling, in the best way possible. Every small success in Norwegian feels like proof that patience and repetition still work, even in a world of instant everything.</p>
+
+        <h2>Why Norwegian?</h2>
+        <p>I've always been fascinated by Scandinavian culture—the concept of <em>friluftsliv</em> (open-air life), their design philosophy, and the way they balance modernity with nature. If I ever get to visit Norway as a traveler, I want to be able to read street signs, order food authentically, and maybe even understand a local story or two. There's something special about being able to say "takk" instead of "thank you" when you're truly trying to connect with a place.</p>
+
+        <h2>What I've Actually Learned So Far</h2>
+        <p>Being completely new to this, I'm starting with the absolute basics:</p>
+        <ul>
+            <li><strong>Greetings:</strong> "Hei!" (Hi), "God dag" (Good day)</li>
+            <li><strong>Essentials:</strong> "Takk" (Thanks), "Vær så snill" (Please)</li>
+            <li><strong>Food & Drink:</strong> "Kaffe" (Coffee), "Melk" (Milk), "Brød" (Bread)</li>
+            <li><strong>Basic Sentences:</strong> "Jeg spiser brød" (I eat bread), "Du drikker kaffe" (You drink coffee)</li>
+        </ul>
+
+        <h2>Looking Ahead</h2>
+        <p>I don't expect to become fluent from an app, but I do hope that saying "Tusen takk" (a thousand thanks) and "Ha det bra!" (goodbye) will help me connect more genuinely if I ever visit. The journey of a thousand miles begins with a single "Hei!".</p>
+
+        <div class="results-highlight">
+            <strong>Current Status:</strong> Duolingo streak: 5 days 🌱 | Favorite word so far: "Koselig" (cozy/pleasant) - because every culture needs a word for that feeling.
+        </div>
     </div>
 
-    <h2>The Quirky Charm of Learning Through an App</h2>
-    <p>My days now start with a cheerful green owl and a gentle guilt trip if I skip a session. I’ve been introduced to characters like Dag, Lisa, and Marius, and learned lines like “Jeg er en mann” (I am a man) and “Du er en kvinne” (You are a woman). It’s equal parts educational and slightly absurd — but that’s what makes it fun.</p>
-
-    <h2>Small Lessons Beyond Words</h2>
-<p>Learning a language reminds me how progress often looks quiet and invisible — a few more words understood, a mistake avoided, a sentence spoken with slightly more confidence. It’s humbling, in the best way possible. Every small success in Norwegian feels like proof that patience and repetition still work, even in a world of instant everything.</p>
-
-    <h2>Looking Ahead</h2>
-    <p>I don’t expect to become fluent from an app, but I do hope that saying “Tusen takk” (a thousand thanks) and “Ha det bra!” (goodbye) will show a little respect when I arrive. The journey of a thousand miles begins with a single “Hei!”.</p>
-
-    <div class="footnote">
-      <strong>Current Duolingo streak:</strong> 5 days 🌱 <br/>
-      <strong>Favorite word so far:</strong> “Kaffe.” Naturally.
+    <div class="categories">
+        <h3>Categories</h3>
+        <div class="category-tags">
+            <span class="category-tag">Language Learning</span>
+            <span class="category-tag">Duolingo</span>
+            <span class="category-tag">Travel</span>
+            <span class="category-tag">Norwegian</span>
+            <span class="category-tag">Cultural Exploration</span>
+            <span class="category-tag">Personal Growth</span>
+        </div>
     </div>
-
-    <div class="tags">
-      <span class="tag">Language Learning</span>
-      <span class="tag">Duolingo</span>
-      <span class="tag">Research Life</span>
-      <span class="tag">Norwegian</span>
-    </div>
-  </article>
 </body>
 </html>
