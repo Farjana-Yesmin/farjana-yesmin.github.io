@@ -110,11 +110,32 @@
             font-size: 0.8rem;
             font-weight: 500;
         }
-        .language-image {
-            max-width: 100%;
+        .progress-box {
+            background: rgba(139, 69, 19, 0.05);
+            padding: 1.5rem;
             border-radius: 8px;
-            margin: 1rem 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 1.5rem 0;
+            border-left: 4px solid #8B4513;
+        }
+        .vocab-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .vocab-item {
+            background: rgba(37, 99, 235, 0.05);
+            padding: 1rem;
+            border-radius: 6px;
+            border-left: 3px solid #2563eb;
+        }
+        .vocab-norwegian {
+            font-weight: bold;
+            color: #2563eb;
+        }
+        .vocab-english {
+            color: #666;
+            font-style: italic;
         }
     </style>
 </head>
@@ -127,6 +148,7 @@
     
     <div class="post-meta">
         <strong>Published:</strong> November 11, 2025<br>
+        <strong>Revised:</strong> November 15, 2025<br>
         <strong>Categories:</strong> Language Learning, Personal Reflection, Travel
     </div>
     
@@ -138,8 +160,8 @@
         <h2>Step One: "Hei!" and Other Victories</h2>
         <p>So far, I've learned how to greet people — "Hei!" — and order essential life-sustaining items like "kaffe" (coffee) and "melk" (milk). My proudest moment? Realizing that "Kaffe, takk!" means "Coffee, please!" and that "melk og kaffe" doesn't mean "milk or coffee" (it's "milk and coffee"). Small wins matter.</p>
 
-        <div class="concept-box">
-            <strong>Progress Update:</strong> Current Duolingo streak: 5 days strong! The green owl and I are becoming good friends.
+        <div class="progress-box">
+            <strong>Progress Update:</strong> Current Duolingo streak: 9 days strong! The green owl and I are becoming good friends.
         </div>
 
         <h2>The Quirky Charm of Learning Through an App</h2>
@@ -149,22 +171,75 @@
         <p>Learning a language reminds me how progress often looks quiet and invisible — a few more words understood, a mistake avoided, a sentence spoken with slightly more confidence. It's humbling, in the best way possible. Every small success in Norwegian feels like proof that patience and repetition still work, even in a world of instant everything.</p>
 
         <h2>Why Norwegian?</h2>
-        <p>I've always been fascinated by Scandinavian culture—the concept of <em>friluftsliv</em> (open-air life), their design philosophy, and the way they balance modernity with nature. If I ever get to visit Norway as a traveler, I want to be able to read street signs, order food authentically, and maybe even understand a local story or two. There's something special about being able to say "takk" instead of "thank you" when you're truly trying to connect with a place.</p>
+        <p>I've always been fascinated by Scandinavian culture—the concept of friluftsliv (open-air life), their design philosophy, and the way they balance modernity with nature. If I ever get to visit Norway as a traveler, I want to be able to read street signs, order food authentically, and maybe even understand a local story or two. There's something special about being able to say "takk" instead of "thank you" when you're truly trying to connect with a place.</p>
 
         <h2>What I've Actually Learned So Far</h2>
-        <p>Being completely new to this, I'm starting with the absolute basics:</p>
+        <p>Being completely new to this, I'm starting with the absolute basics, and I've expanded my vocabulary with more everyday words:</p>
+
+        <div class="vocab-list">
+            <div class="vocab-item">
+                <div class="vocab-norwegian">Hei!</div>
+                <div class="vocab-english">Hi, hey, hello</div>
+            </div>
+            <div class="vocab-item">
+                <div class="vocab-norwegian">God dag</div>
+                <div class="vocab-english">Good day</div>
+            </div>
+            <div class="vocab-item">
+                <div class="vocab-norwegian">Velkommen</div>
+                <div class="vocab-english">Welcome</div>
+            </div>
+            <div class="vocab-item">
+                <div class="vocab-norwegian">Ja</div>
+                <div class="vocab-english">Yes, yeah, yea, ya, yep, yup</div>
+            </div>
+            <div class="vocab-item">
+                <div class="vocab-norwegian">Nei</div>
+                <div class="vocab-english">No, nay, nah, nope, negative</div>
+            </div>
+            <div class="vocab-item">
+                <div class="vocab-norwegian">Takk</div>
+                <div class="vocab-english">Thank you, please, thanks</div>
+            </div>
+            <div class="vocab-item">
+                <div class="vocab-norwegian">Kaffe</div>
+                <div class="vocab-english">Coffee</div>
+            </div>
+            <div class="vocab-item">
+                <div class="vocab-norwegian">Melk</div>
+                <div class="vocab-english">Milk</div>
+            </div>
+            <div class="vocab-item">
+                <div class="vocab-norwegian">Brød</div>
+                <div class="vocab-english">Bread, loaf of bread</div>
+            </div>
+            <div class="vocab-item">
+                <div class="vocab-norwegian">Vin</div>
+                <div class="vocab-english">Wine</div>
+            </div>
+            <div class="vocab-item">
+                <div class="vocab-norwegian">Vann</div>
+                <div class="vocab-english">Water, lake, lakes, pond, ponds</div>
+            </div>
+            <div class="vocab-item">
+                <div class="vocab-norwegian">Øl</div>
+                <div class="vocab-english">Beer, ale</div>
+            </div>
+        </div>
+
+        <p>And some basic sentences:</p>
         <ul>
-            <li><strong>Greetings:</strong> "Hei!" (Hi), "God dag" (Good day)</li>
-            <li><strong>Essentials:</strong> "Takk" (Thanks), "Vær så snill" (Please)</li>
-            <li><strong>Food & Drink:</strong> "Kaffe" (Coffee), "Melk" (Milk), "Brød" (Bread)</li>
-            <li><strong>Basic Sentences:</strong> "Jeg spiser brød" (I eat bread), "Du drikker kaffe" (You drink coffee)</li>
+            <li><strong>Jeg spiser brød</strong> (I eat bread)</li>
+            <li><strong>Du drikker kaffe</strong> (You drink coffee)</li>
+            <li><strong>Jeg er en mann</strong> (I am a man)</li>
+            <li><strong>Du er en kvinne</strong> (You are a woman)</li>
         </ul>
 
         <h2>Looking Ahead</h2>
         <p>I don't expect to become fluent from an app, but I do hope that saying "Tusen takk" (a thousand thanks) and "Ha det bra!" (goodbye) will help me connect more genuinely if I ever visit. The journey of a thousand miles begins with a single "Hei!".</p>
 
         <div class="results-highlight">
-            <strong>Current Status:</strong> Duolingo streak: 5 days 🌱 | Favorite word so far: "Koselig" (cozy/pleasant) - because every culture needs a word for that feeling.
+            <strong>Current Status:</strong> Duolingo streak: 9 days 🌱 | Favorite word so far: "Koselig" (cozy/pleasant) - because every culture needs a word for that feeling.
         </div>
     </div>
 
@@ -172,11 +247,10 @@
         <h3>Categories</h3>
         <div class="category-tags">
             <span class="category-tag">Language Learning</span>
-            <span class="category-tag">Duolingo</span>
+            <span class="category-tag">Personal Reflection</span>
             <span class="category-tag">Travel</span>
             <span class="category-tag">Norwegian</span>
-            <span class="category-tag">Cultural Exploration</span>
-            <span class="category-tag">Personal Growth</span>
+            <span class="category-tag">Culture</span>
         </div>
     </div>
 </body>
