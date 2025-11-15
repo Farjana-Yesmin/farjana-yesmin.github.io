@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethical Dilemmas of Bias in AI-Driven Medical Decisions - Farjana's Technical Blog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.7;
+            color: #444;
+            background-color: #f8f9fa;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .back-link {
+            margin-bottom: 30px;
+        }
+        .back-link a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+        h1 {
+            color: #2563eb;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+        .post-meta {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 20px;
+        }
+        .post-content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            border-left: 4px solid #2563eb;
+        }
+        .post-content h2 {
+            color: #1e293b;
+            margin: 2rem 0 1rem 0;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+        .post-content h3 {
+            color: #2563eb;
+            margin: 1.5rem 0 0.5rem 0;
+        }
+        .post-content p {
+            margin-bottom: 1.2rem;
+            color: #666;
+        }
+        .post-content ul, .post-content ol {
+            margin-left: 20px;
+            margin-bottom: 1.2rem;
+            color: #666;
+        }
+        .post-content li {
+            margin-bottom: 0.5rem;
+        }
+        .concept-box {
+            background: rgba(37, 99, 235, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #2563eb;
+        }
+        .results-highlight {
+            background: rgba(34, 197, 94, 0.1);
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            border-left: 3px solid #16a34a;
+        }
+        .categories {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+        .categories h3 {
+            color: #2563eb;
+            margin-bottom: 1rem;
+        }
+        .category-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .category-tag {
+            background: rgba(37, 99, 235, 0.1);
+            color: #2563eb;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="back-link">
+        <a href="/blog.html">← Back to Blog</a>
+    </div>
+    
+    <h1>Ethical Dilemmas of Bias in AI-Driven Medical Decisions</h1>
+    
+    <div class="post-meta">
+        <strong>Published:</strong> November 14, 2025<br>
+        <strong>Categories:</strong> Healthcare AI, Bias, Ethics, Fairness
+    </div>
+    
+    <div class="post-content">
+        <p>Imagine two patients with the same symptoms. One is flagged for a life-saving screening; the other is not. The difference isn't their clinical need, but their race or postal code. Now, imagine this decision is made not by a human, but by an algorithm touted for its "objectivity."</p>
+
+        <p>This is the central ethical crisis of AI in medicine. We risk automating and amplifying the very inequalities the healthcare system has struggled to overcome. The promise of AI is a more precise, personalized future for medicine, but without confronting bias, we risk building a future where injustice is hardwired into the system.</p>
+
+        <h2>How Bias Poisons the Well: The Flawed Data Foundation</h2>
+        <p>AI learns from historical data. In our world, that data is often a mirror reflecting decades of systemic inequities.</p>
+
+        <ul>
+            <li><strong>Representational Bias:</strong> If a dermatology AI is trained mostly on images of light skin, it will be dangerously inaccurate for patients with darker skin tones.</li>
+            <li><strong>Historical Bias:</strong> If past data shows certain groups received less aggressive care, the AI will learn to perpetuate that substandard treatment pathway.</li>
+            <li><strong>Proxy Bias:</strong> An algorithm might not use race directly, but a variable like "postal code" can serve as a proxy, systematically directing resources away from minority and low-income neighborhoods.</li>
+        </ul>
+
+        <div class="concept-box">
+            <strong>Real-World Example:</strong> A well-documented case showed an algorithm used to identify patients needing extra care used healthcare costs as a proxy for sickness. Because systemic bias means less money is often spent on Black patients, the algorithm concluded they were "healthier" than white patients with the same conditions, locking them out of vital care programs.
+        </div>
+
+        <h2>The Ethical Quagmire: Justice, Accountability, and Harm</h2>
+        <p>Bias in AI isn't a technical glitch; it's a profound moral failure that creates intractable dilemmas.</p>
+
+        <h3>The Justice Dilemma</h3>
+        <p>The core principle of justice demands equitable care for all. A biased AI violates this, creating a two-tiered system where the quality of your diagnosis depends on how well your demographic is represented in the data. This is not just unfair; it's a form of <strong>harm</strong> that reinforces existing health disparities.</p>
+
+        <h3>The Accountability Dilemma</h3>
+        <p>When a biased algorithm causes a misdiagnosis, who is to blame? The developers for using flawed data? The hospital for deploying it without sufficient testing? The doctor for trusting it? This "responsibility gap" makes it nearly impossible to achieve justice for harmed patients.</p>
+
+        <h3>The Transparency Trade-Off</h3>
+        <p>Sometimes, the most accurate AI models are also the most complex and least interpretable. Do we sacrifice a degree of performance for explainability? In healthcare, the answer is often "yes," because without transparency, bias cannot even be identified, let alone corrected.</p>
+
+        <h2>A Deeper Critique: It's Not Just Ethics, It's Power</h2>
+        <p>A purely technical or philosophical approach to bias is insufficient. As the critique of "AI realism" argues, we must view bias through a political lens. The question isn't just "Is this algorithm fair?" but <strong>"Who holds the power?"</strong></p>
+
+        <p>Which institutions control the AI? Who decides which data is valuable? Who profits from its deployment? Without addressing these power structures, bias mitigation can become a superficial exercise that fails to challenge the status quo. "Ethics washing" allows powerful entities to appear concerned while continuing to deploy systems that serve their interests, often at the expense of vulnerable populations.</p>
+
+        <div class="results-highlight">
+            <strong>Critical Insight:</strong> Addressing bias requires not just technical fixes but also confronting the political economy of AI development and deployment.
+        </div>
+
+        <h2>The Path Forward: From Diagnosis to Cure</h2>
+        <p>Overcoming bias requires a move from reactive fixes to proactive, structural solutions.</p>
+
+        <ol>
+            <li><strong>Inclusive Data from the Start:</strong> We must actively curate diverse, representative datasets and audit them for historical gaps.</li>
+            <li><strong>Mandatory Bias Audits:</strong> Independent, pre-deployment audits for fairness across all protected demographics should be a regulatory requirement.</li>
+            <li><strong>Stakeholder-Centered Design:</strong> Involve patients, advocates, and clinicians from diverse backgrounds in the design, testing, and oversight of AI systems.</li>
+            <li><strong>Embrace "AI Realism":</strong> Adopt governance models that explicitly address power dynamics, ensuring that AI development and deployment are subject to democratic accountability and prioritize public good over private gain.</li>
+        </ol>
+
+        <h2>Conclusion: Building a More Just Future</h2>
+        <p>The ethical dilemmas of bias in AI are a reflection of our own societal flaws. The great promise of AI was to surpass human limitations. The great peril is that it will simply automate our prejudices. By combining rigorous technical fixes with a clear-eyed political understanding of power, we can steer toward a future where AI in healthcare fulfills its true potential: to provide equitable, high-quality care for <strong>every</strong> patient, not just the privileged few. The goal is not just unbiased AI, but AI that actively champions justice.</p>
+    </div>
+
+    <div class="categories">
+        <h3>Categories</h3>
+        <div class="category-tags">
+            <span class="category-tag">Healthcare AI</span>
+            <span class="category-tag">Bias</span>
+            <span class="category-tag">Ethics</span>
+            <span class="category-tag">Fairness</span>
+            <span class="category-tag">Justice</span>
+        </div>
+    </div>
+</body>
+</html>
