@@ -153,63 +153,83 @@
             border: 1px solid rgba(37, 99, 235, 0.2);
         }
         
-        /* Updated Solution Framework Styles */
+        /* FIXED Solution Framework Styles */
         .solution-framework {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 12px;
-            margin: 2rem 0;
+            margin: 2.5rem 0;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
+        
         .solution-framework h2 {
             color: white;
             border-bottom: 2px solid rgba(255, 255, 255, 0.3);
             padding-bottom: 1rem;
             margin-bottom: 1.5rem;
+            font-size: 1.8rem;
         }
+        
         .solution-framework h3 {
             color: white;
             margin: 2rem 0 1.5rem 0;
             font-size: 1.4rem;
+            border: none;
         }
+        
+        .solution-framework p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.5rem;
+        }
+        
         .core-principles {
             background: rgba(255, 255, 255, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
             backdrop-filter: blur(10px);
         }
+        
         .principle-item {
             background: rgba(255, 255, 255, 0.15);
             padding: 1.5rem;
             border-radius: 8px;
-            margin: 1.2rem 0;
-            border-left: 4px solid rgba(255, 255, 255, 0.5);
-            transition: transform 0.2s ease, background 0.2s ease;
+            margin: 1.5rem 0;
+            border-left: 4px solid rgba(255, 255, 255, 0.6);
+            transition: all 0.3s ease;
         }
+        
         .principle-item:hover {
-            transform: translateX(5px);
+            transform: translateX(8px);
             background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
+        
         .principle-item h4 {
             color: white;
             margin-bottom: 0.8rem;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 600;
         }
+        
         .principle-item p {
             color: rgba(255, 255, 255, 0.9);
             margin-bottom: 0;
             line-height: 1.6;
+            font-size: 1rem;
         }
+        
         .solution-framework .reference {
-            background: rgba(255, 255, 255, 0.2);
-            border-left: 3px solid rgba(255, 255, 255, 0.7);
-            margin: 1.5rem 0 0 0;
+            background: rgba(255, 255, 255, 0.15);
+            border-left: 4px solid rgba(255, 255, 255, 0.7);
+            margin: 2rem 0 0 0;
+            padding: 1.5rem;
         }
+        
         .solution-framework .reference strong {
             color: white;
+            font-size: 1rem;
         }
     </style>
 </head>
@@ -311,21 +331,24 @@
             </div>
         </div>
 
-        <!-- Updated Solution Framework Section -->
+        <!-- FIXED Solution Framework Section -->
         <div class="solution-framework">
             <h2>Bridging the Gap: From Technical Fixes to Ethical Foundations</h2>
             <p>These two cases, one from predictive analytics and one from medical imaging, reveal a common pattern: technical failures are inextricably linked to ethical breaches.</p>
 
             <div class="core-principles">
                 <h3>Core Principles for Ethical AI in Healthcare</h3>
+                
                 <div class="principle-item">
                     <h4>From Accuracy to Equity</h4>
                     <p>We must move beyond optimizing for overall accuracy. The critical question is: "Accuracy for whom?" My work is centered on developing the tools to answer this question rigorously.</p>
                 </div>
+                
                 <div class="principle-item">
                     <h4>Governance and the Full Lifecycle</h4>
                     <p>Fixing bias isn't a one-off task. It requires a governance framework that spans the entire AI lifecycle, from design to deployment and monitoring.</p>
                 </div>
+                
                 <div class="principle-item">
                     <h4>The Imperative of Explainability</h4>
                     <p>For clinicians to trust and responsibly use AI, they need more than a result; they need context. Making model limitations and strengths understandable to human experts is a cornerstone of building trustworthy clinical systems.</p>
