@@ -137,6 +137,42 @@
             color: #666;
             font-style: italic;
         }
+        .vocabulary-section {
+            margin: 2rem 0;
+        }
+        .vocabulary-category {
+            margin-bottom: 2rem;
+        }
+        .vocabulary-category h3 {
+            color: #1e293b;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 4px solid #2563eb;
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2563eb;
+            margin-bottom: 0.5rem;
+        }
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
@@ -148,7 +184,7 @@
     
     <div class="post-meta">
         <strong>Published:</strong> November 11, 2025<br>
-        <strong>Revised:</strong> November 15, 2025<br>
+        <strong>Updated:</strong> November 20, 2025<br>
         <strong>Categories:</strong> Language Learning, Personal Reflection, Travel
     </div>
     
@@ -157,11 +193,30 @@
 
         <p>So, a few days ago, I opened Duolingo and began my Norwegian journey — with exactly zero prior experience and one determined owl reminding me daily: "Don't break your streak!"</p>
 
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">14</div>
+                <div class="stat-label">Days Streak</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">150+</div>
+                <div class="stat-label">Words Learned</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Units Completed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">85%</div>
+                <div class="stat-label">Accuracy Rate</div>
+            </div>
+        </div>
+
         <h2>Step One: "Hei!" and Other Victories</h2>
         <p>So far, I've learned how to greet people — "Hei!" — and order essential life-sustaining items like "kaffe" (coffee) and "melk" (milk). My proudest moment? Realizing that "Kaffe, takk!" means "Coffee, please!" and that "melk og kaffe" doesn't mean "milk or coffee" (it's "milk and coffee"). Small wins matter.</p>
 
         <div class="progress-box">
-            <strong>Progress Update:</strong> Current Duolingo streak: 9 days strong! The green owl and I are becoming good friends.
+            <strong>Progress Update:</strong> Current Duolingo streak: 14 days strong! The green owl and I are becoming good friends. I've completed the first 5 units covering basics, phrases, food, family, and shopping.
         </div>
 
         <h2>The Quirky Charm of Learning Through an App</h2>
@@ -173,73 +228,193 @@
         <h2>Why Norwegian?</h2>
         <p>I've always been fascinated by Scandinavian culture—the concept of friluftsliv (open-air life), their design philosophy, and the way they balance modernity with nature. If I ever get to visit Norway as a traveler, I want to be able to read street signs, order food authentically, and maybe even understand a local story or two. There's something special about being able to say "takk" instead of "thank you" when you're truly trying to connect with a place.</p>
 
-        <h2>What I've Actually Learned So Far</h2>
-        <p>Being completely new to this, I'm starting with the absolute basics, and I've expanded my vocabulary with more everyday words:</p>
+        <h2>My Norwegian Vocabulary So Far</h2>
+        <p>Being completely new to this, I'm starting with the absolute basics. Here's what I've learned from my recent sessions:</p>
 
-        <div class="vocab-list">
-            <div class="vocab-item">
-                <div class="vocab-norwegian">Hei!</div>
-                <div class="vocab-english">Hi, hey, hello</div>
+        <div class="vocabulary-section">
+            <div class="vocabulary-category">
+                <h3>Greetings & Basics</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Hei!</div>
+                        <div class="vocab-english">Hi, hey, hello</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Ja</div>
+                        <div class="vocab-english">Yes, yeah, yea, ya, yep, yup</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Nei</div>
+                        <div class="vocab-english">No, nay, nah, nope, negative</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Takk</div>
+                        <div class="vocab-english">Thank you, please, thanks</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Velkommen</div>
+                        <div class="vocab-english">Welcome</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Ha det</div>
+                        <div class="vocab-english">Bye, so long, goodbye</div>
+                    </div>
+                </div>
             </div>
-            <div class="vocab-item">
-                <div class="vocab-norwegian">God dag</div>
-                <div class="vocab-english">Good day</div>
+
+            <div class="vocabulary-category">
+                <h3>Food & Drinks</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Kaffe</div>
+                        <div class="vocab-english">Coffee</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Melk</div>
+                        <div class="vocab-english">Milk</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Brød</div>
+                        <div class="vocab-english">Bread, loaf of bread</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Vin</div>
+                        <div class="vocab-english">Wine</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Vann</div>
+                        <div class="vocab-english">Water, lake, lakes, pond, ponds</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Øl</div>
+                        <div class="vocab-english">Beer, ale</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Te</div>
+                        <div class="vocab-english">Tea</div>
+                    </div>
+                </div>
             </div>
-            <div class="vocab-item">
-                <div class="vocab-norwegian">Velkommen</div>
-                <div class="vocab-english">Welcome</div>
+
+            <div class="vocabulary-category">
+                <h3>Family & People</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Far</div>
+                        <div class="vocab-english">Father</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Mor</div>
+                        <div class="vocab-english">Mother</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Bror</div>
+                        <div class="vocab-english">Brother</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Søster</div>
+                        <div class="vocab-english">Sister</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Faren</div>
+                        <div class="vocab-english">The father, the danger</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Moren</div>
+                        <div class="vocab-english">The mother</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Broren</div>
+                        <div class="vocab-english">The brother</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Søsteren</div>
+                        <div class="vocab-english">The sister</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Sønnen</div>
+                        <div class="vocab-english">The son</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Datteren</div>
+                        <div class="vocab-english">The daughter</div>
+                    </div>
+                </div>
             </div>
-            <div class="vocab-item">
-                <div class="vocab-norwegian">Ja</div>
-                <div class="vocab-english">Yes, yeah, yea, ya, yep, yup</div>
-            </div>
-            <div class="vocab-item">
-                <div class="vocab-norwegian">Nei</div>
-                <div class="vocab-english">No, nay, nah, nope, negative</div>
-            </div>
-            <div class="vocab-item">
-                <div class="vocab-norwegian">Takk</div>
-                <div class="vocab-english">Thank you, please, thanks</div>
-            </div>
-            <div class="vocab-item">
-                <div class="vocab-norwegian">Kaffe</div>
-                <div class="vocab-english">Coffee</div>
-            </div>
-            <div class="vocab-item">
-                <div class="vocab-norwegian">Melk</div>
-                <div class="vocab-english">Milk</div>
-            </div>
-            <div class="vocab-item">
-                <div class="vocab-norwegian">Brød</div>
-                <div class="vocab-english">Bread, loaf of bread</div>
-            </div>
-            <div class="vocab-item">
-                <div class="vocab-norwegian">Vin</div>
-                <div class="vocab-english">Wine</div>
-            </div>
-            <div class="vocab-item">
-                <div class="vocab-norwegian">Vann</div>
-                <div class="vocab-english">Water, lake, lakes, pond, ponds</div>
-            </div>
-            <div class="vocab-item">
-                <div class="vocab-norwegian">Øl</div>
-                <div class="vocab-english">Beer, ale</div>
+
+            <div class="vocabulary-category">
+                <h3>Common Words & Connectors</h3>
+                <div class="vocab-list">
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Jeg</div>
+                        <div class="vocab-english">I</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Du</div>
+                        <div class="vocab-english">You</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Er</div>
+                        <div class="vocab-english">Is, have (been), am, will, 's, be, are</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Og</div>
+                        <div class="vocab-english">And</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Eller</div>
+                        <div class="vocab-english">Or, nor</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">En</div>
+                        <div class="vocab-english">A, an, one</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Det</div>
+                        <div class="vocab-english">That, it, the, those, they, there, what, so</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Min</div>
+                        <div class="vocab-english">My, mine</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Høy</div>
+                        <div class="vocab-english">Tall, high</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Veldig</div>
+                        <div class="vocab-english">Very, a lot, really</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Smart</div>
+                        <div class="vocab-english">Smart</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-norwegian">Snill</div>
+                        <div class="vocab-english">Nice, kind, gentle, good</div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <p>And some basic sentences:</p>
+        <h2>Basic Sentences I Can Form</h2>
+        <p>Putting it all together, here are some simple sentences I can now construct:</p>
         <ul>
             <li><strong>Jeg spiser brød</strong> (I eat bread)</li>
             <li><strong>Du drikker kaffe</strong> (You drink coffee)</li>
-            <li><strong>Jeg er en kvinne</strong> (I am a wooman)</li>
+            <li><strong>Jeg er en kvinne</strong> (I am a woman)</li>
             <li><strong>Du er en mann</strong> (You are a man)</li>
+            <li><strong>Min far er snill</strong> (My father is kind)</li>
+            <li><strong>Broren min er veldig smart</strong> (My brother is very smart)</li>
+            <li><strong>Jeg vil ha kaffe og melk</strong> (I want coffee and milk)</li>
+            <li><strong>Er du sønnen eller broren?</strong> (Are you the son or the brother?)</li>
         </ul>
 
         <h2>Looking Ahead</h2>
         <p>I don't expect to become fluent from an app, but I do hope that saying "Tusen takk" (a thousand thanks) and "Ha det bra!" (goodbye) will help me connect more genuinely if I ever visit. The journey of a thousand miles begins with a single "Hei!".</p>
 
         <div class="results-highlight">
-            <strong>Current Status:</strong> Duolingo streak: 9 days 🌱 | Favorite word so far: "Koselig" (cozy/pleasant) - because every culture needs a word for that feeling.
+            <strong>Current Status:</strong> Duolingo streak: 14 days 🌱 | Favorite word so far: "Koselig" (cozy/pleasant) - because every culture needs a word for that feeling. Next goal: Learn numbers and basic questions!
         </div>
     </div>
 
@@ -251,6 +426,7 @@
             <span class="category-tag">Travel</span>
             <span class="category-tag">Norwegian</span>
             <span class="category-tag">Culture</span>
+            <span class="category-tag">Duolingo</span>
         </div>
     </div>
 </body>
