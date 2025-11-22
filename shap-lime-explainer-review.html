@@ -167,14 +167,59 @@
         .key-finding {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 12px;
-            margin: 2rem 0;
+            margin: 2.5rem 0;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        .key-finding::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ffd700, #ff8c00);
         }
         .key-finding h3 {
             color: white;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .key-finding h3::before {
+            content: "🔍";
+            font-size: 1.8rem;
+        }
+        .key-finding p {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+        .key-finding strong {
+            color: #ffd700;
+            font-weight: 600;
+        }
+        .key-finding .citation {
+            display: block;
+            margin-top: 1.2rem;
+            font-style: italic;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 1rem;
+        }
+        .key-finding .citation a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+        .key-finding .citation a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -364,8 +409,9 @@ for feature, weight in explanation.as_list()[:5]:<br>
         </div>
 
         <div class="key-finding">
-            <h3>Key Finding from My Research:</h3>
-            <p>SHAP analysis revealed that our baseline model relied 57% more on environmental features for underrepresented intersections. This wasn't just a technical insight—it was a fairness failure that required intervention through our Bias-Weighted Augmentation method.</p>
+            <h3>Key Finding from My Research</h3>
+            <p><strong>SHAP analysis revealed that our baseline model relied 57% more on environmental features for underrepresented intersections.</strong> This wasn't just a technical insight—it was a fairness failure that required intervention through our Bias-Weighted Augmentation method.</p>
+            <span class="citation">From: "Data-Driven Analysis of Intersectional Bias in Image Classification" | <a href="https://doi.org/10.48550/arXiv.2510.16072" target="_blank">Read the full paper</a></span>
         </div>
 
         <h2>Conclusion: From Explanations to Accountability</h2>
@@ -390,7 +436,7 @@ for feature, weight in explanation.as_list()[:5]:<br>
         <p>The path forward requires us to treat explainability not as a box-checking exercise, but as a continuous process of model interrogation and refinement. By combining tools like SHAP and LIME with rigorous fairness metrics, domain expertise, and—most importantly—engagement with affected communities, we can move toward AI systems that are not just accurate, but truly equitable and accountable.</p>
 
         <div class="research-insight">
-            <strong>Research Note:</strong> The techniques and insights presented here are drawn from my research on intersectional fairness in computer vision. You can explore the complete implementation and analysis in my GitHub repository and read the full paper here. I welcome conversations about building more transparent and fair AI systems.
+            <strong>Research Note:</strong> The techniques and insights presented here are drawn from my research on intersectional fairness in computer vision. You can explore the complete implementation and analysis in my <a href="https://github.com/Farjana-Yesmin?tab=repositories" target="_blank">GitHub repository</a> and read the full paper <a href="https://doi.org/10.48550/arXiv.2510.16072" target="_blank">here</a>. I welcome conversations about building more transparent and fair AI systems.
         </div>
     </div>
 
