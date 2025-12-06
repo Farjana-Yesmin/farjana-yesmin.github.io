@@ -712,6 +712,104 @@
             border-radius: 8px;
         }
 
+        /* Enhanced Privacy Demo Styles */
+        .processing-step {
+            margin: 8px 0;
+            padding: 8px;
+            background: #f8fafc;
+            border-radius: 6px;
+            border-left: 4px solid #4F46E5;
+        }
+
+        .processing-step.success {
+            border-left-color: #10B981;
+            background: #f0fdf4;
+        }
+
+        .stats {
+            font-size: 0.9em;
+            color: #6B7280;
+            margin-top: 4px;
+        }
+
+        .research-metrics {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .metric {
+            text-align: center;
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .metric-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #4F46E5;
+        }
+
+        .metric-label {
+            font-size: 0.9em;
+            color: #6B7280;
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .comparison-table tr.highlight {
+            background: #e0e7ff;
+            font-weight: bold;
+        }
+
+        .paper-link {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .paper-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 15px;
+            background: var(--primary);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .paper-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .paper-button i {
+            font-size: 1.2em;
+        }
+
         /* Publications */
         .publication-item {
             background: var(--white);
@@ -1212,6 +1310,13 @@
             border: none;
         }
 
+        /* Research Paper Animation */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
         /* Responsive */
         @media (max-width: 1200px) {
             .nav-links a {
@@ -1312,6 +1417,10 @@
             
             .video-container {
                 gap: 15px;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -1464,6 +1573,12 @@
         <h2 class="section-title">Academic News & Updates</h2>
         <div class="news-container">
             <div class="news-item reveal">
+                <span class="news-date">November 2025</span>
+                <h3>New Preprint: MedHE: Communication-Efficient Privacy-Preserving Federated Learning with Adaptive Gradient Sparsification for Healthcare</h3>
+                <p>Our paper proposing MedHE, a novel framework combining adaptive gradient sparsification with CKKS homomorphic encryption for healthcare FL, is now available on arXiv. The paper demonstrates 97.5% communication reduction while maintaining 89.5% accuracy with formal privacy guarantees.</p>
+                <a href="https://doi.org/10.48550/arXiv.2511.09043" class="btn btn-small" style="margin-top: 10px;">Read Preprint</a>
+            </div>
+            <div class="news-item reveal">
                 <span class="news-date">October 11, 2025</span>
                 <h3>Paper Accepted at EAI Healthwear 2025</h3> 
                 <p>My paper "Fairness-Aware Representation Learning for ECG-Based Disease Prediction in Wearable Systems" has been accepted for presentation at the 6th EAI International Conference on Wearables in Healthcare in Isparta, Turkey.</p>
@@ -1487,21 +1602,6 @@
                 <span class="news-date">September 20, 2025</span>
                 <h3>Paper Accepted at DASGRI 2026</h3>
                 <p>My paper "AI Chatbots for Dengue Symptom Triage in Bangladesh: A Decision Tree Classifier Approach" has been accepted for presentation at the International Conference on Data Science and Global Research 2026 in London.</p>
-            </div>
-            <div class="news-item reveal">
-                <span class="news-date">May 23, 2025</span>
-                <h3>Invited as Reviewer</h3>
-                <p>Invited to serve as a reviewer for the ICML 2025 Workshop on Machine Unlearning for Generative AI (MUGen).</p>
-            </div>
-            <div class="news-item reveal">
-                <span class="news-date">May 12, 2025</span>
-                <h3>Invited as Reviewer</h3>
-                <p>Invited to serve as a reviewer for the 2nd AI for Math Workshop @ ICML 2025.</p>
-            </div> <!-- This closing div was missing -->
-            <div class="news-item reveal">
-                <span class="news-date">March 28, 2025</span>
-                <h3>Invited as Reviewer</h3>
-                <p>Invited to serve as a Program Committee Reviewer for the 27th ACM International Conference on Multimodal Interaction (ICMI 2025). Acknowledged in the <a href="https://dl.acm.org/doi/10.1145/3716553" target="_blank">official proceedings</a>.</p>
             </div>
         </div>
     </div>
@@ -1615,6 +1715,8 @@
                         <li>Splunk</li>
                         <li>RPA Automation</li>
                         <li>UiPath</li>
+                        <li>Homomorphic Encryption</li>
+                        <li>Federated Learning</li>
                     </ul>
                 </div>
                 <div class="skill-category reveal">
@@ -1636,6 +1738,7 @@
                         <li>Tableau</li>
                         <li>MATLAB</li>
                         <li>Microsoft Excel</li>
+                        <li>CKKS Libraries</li>
                     </ul>
                 </div>
             </div>
@@ -1647,6 +1750,33 @@
         <div class="container">
             <h2 class="section-title">Projects</h2>
             <div class="projects-grid">
+                <!-- MedHE Project -->
+                <div class="project-card reveal">
+                    <div class="project-img" style="background: linear-gradient(135deg, #4F46E5, #7E69AB);">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>MedHE: Privacy-Preserving Federated Learning for Healthcare</h3>
+                        <p>A novel framework combining adaptive gradient sparsification with CKKS homomorphic encryption to enable secure, communication-efficient collaborative learning on sensitive medical data with HIPAA compliance.</p>
+                        
+                        <div class="project-tags">
+                            <span class="project-tag">Federated Learning</span>
+                            <span class="project-tag">Homomorphic Encryption</span>
+                            <span class="project-tag">Healthcare Privacy</span>
+                            <span class="project-tag">CKKS</span>
+                            <span class="project-tag">Differential Privacy</span>
+                            <span class="project-tag">Gradient Sparsification</span>
+                        </div>
+                        
+                        <p><strong>Key Results:</strong><br>
+                        • 97.5% communication reduction (1277 MB → 32 MB per round)<br>
+                        • 89.5% accuracy (comparable to standard FL, p=0.32)<br>
+                        • Differential privacy with ε ≤ 1.0<br>
+                        • Scalable to 100+ medical institutions</p>
+                        <button class="demo-button" onclick="openModal('medheModal')">Try Demo</button>
+                    </div>
+                </div>
+                
                 <div class="project-card reveal">
                     <div class="project-img" style="background:linear-gradient(135deg, #ff9a9e, #fad0c4);">
                         <i class="fas fa-robot"></i>
@@ -1677,26 +1807,87 @@
                         <button class="demo-button" onclick="openModal('fallDetectionModal')">Try Demo</button>
                     </div>
                 </div>
-                <div class="project-card reveal">
-                    <div class="project-img" style="background:linear-gradient(135deg, #a166ab, #5073b8);">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3>Privacy-Preserving Models in Healthcare</h3>
-                        <p>Applied homomorphic encryption and federated learning for privacy.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Privacy</span>
-                            <span class="project-tag">Federated Learning</span>
-                            <span class="project-tag">Healthcare</span>
-                        </div>
-                        <button class="demo-button" onclick="openModal('privacyModal')">Try Demo</button>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
     <!-- Project Demo Modals -->
+    <!-- MedHE Modal -->
+    <div id="medheModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('medheModal')">&times;</span>
+            <h2>MedHE: Privacy-Preserving Federated Learning Demo</h2>
+            <div id="medhe-demo">
+                <p>Simulate medical data processing with MedHE's adaptive gradient sparsification and homomorphic encryption:</p>
+                <input type="text" id="medhe-input" placeholder="Enter simulated patient data (e.g., 'Patient Age: 45, Diagnosis: X')" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 8px; border: 1px solid var(--primary);">
+                <button id="medhe-btn" onclick="encryptMedicalData()" style="width: 100%; padding: 12px; background: var(--primary); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-bottom: 15px;">Process with MedHE</button>
+                
+                <div id="medhe-output"></div>
+                
+                <div class="research-metrics">
+                    <h4>Research Validation (5 Independent Trials)</h4>
+                    <div class="metrics-grid">
+                        <div class="metric">
+                            <div class="metric-value">89.5% ± 0.8%</div>
+                            <div class="metric-label">Accuracy</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">97.5%</div>
+                            <div class="metric-label">Comm Reduction</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">ε ≤ 1.0</div>
+                            <div class="metric-label">DP Guarantee</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">50.1%</div>
+                            <div class="metric-label">MIA Resistance</div>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-table">
+                        <h5>Performance Comparison</h5>
+                        <table>
+                            <tr>
+                                <th>Method</th>
+                                <th>Accuracy</th>
+                                <th>Communication</th>
+                                <th>Privacy</th>
+                            </tr>
+                            <tr>
+                                <td>Standard FL</td>
+                                <td>89.9%</td>
+                                <td>1277 MB</td>
+                                <td>Weak</td>
+                            </tr>
+                            <tr class="highlight">
+                                <td><strong>MedHE</strong></td>
+                                <td><strong>89.5%</strong></td>
+                                <td><strong>32 MB</strong></td>
+                                <td><strong>Strong</strong></td>
+                            </tr>
+                            <tr>
+                                <td>HE-only FL</td>
+                                <td>87.2%</td>
+                                <td>6385 MB</td>
+                                <td>Strong</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <div class="paper-link">
+                        <a href="https://doi.org/10.48550/arXiv.2511.09043" target="_blank" class="paper-button">
+                            <i class="fas fa-file-pdf"></i> Read Full Paper (arXiv)
+                        </a>
+                        <a href="https://github.com/Farjana-Yesmin/MedHE" target="_blank" class="paper-button">
+                            <i class="fab fa-github"></i> View Code Repository
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="chatbotModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('chatbotModal')">&times;</span>
@@ -1718,19 +1909,6 @@
         </div>
     </div>
 
-    <div id="privacyModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('privacyModal')">&times;</span>
-            <h2>Privacy-Preserving Model Demo</h2>
-            <div id="privacy-demo">
-                <p>Input sensitive data:</p>
-                <input type="text" id="privacy-input" placeholder="Enter data...">
-                <button id="encrypt-btn" onclick="encryptData()">Encrypt & Process</button>
-                <p id="privacy-output"></p>
-            </div>
-        </div>
-    </div>
-
     <!-- Publications Section -->
 <section id="publications">
     <div class="container">
@@ -1738,6 +1916,15 @@
         
         <!-- Peer-Reviewed Publications -->
         <h3 style="margin: 2rem 0 1rem 0; color: var(--text-dark); border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem;">Peer-Reviewed Publications</h3>
+        
+        <!-- MedHE Paper -->
+        <div class="publication-item reveal">
+            <h3>MedHE: Communication-Efficient Privacy-Preserving Federated Learning with Adaptive Gradient Sparsification for Healthcare</h3>
+            <p><strong>Farjana Yesmin</strong></p>
+            <p><em>Under Review at 5th IEEE Workshop on Pervasive and Resource Constrained AI (PeRConAI'26)</em></p>
+            <p><small><strong>Topics:</strong> Federated Learning, Homomorphic Encryption, Healthcare Privacy, Gradient Sparsification</small></p>
+            <a href="https://doi.org/10.48550/arXiv.2511.09043" class="publication-link">Read Preprint <i class="fas fa-arrow-right"></i></a>
+        </div>
         
         <!-- EAI HEALTHCARE 2025 Paper -->
         <div class="publication-item reveal">
@@ -1799,14 +1986,6 @@
         
         <!-- Conference Submissions -->
         <div class="publication-item reveal">
-            <h3>MedHE: Communication-Efficient Privacy-Preserving Federated Learning with Adaptive Gradient Sparsification for Healthcare</h3>
-            <p><strong>Farjana Yesmin</strong></p>
-            <p><em>Under Review at 5th IEEE Workshop on Pervasive and Resource Constrained AI (PeRConAI'26)</em></p>
-            <p><small><strong>Topics:</strong> Security, Privacy, Efficient AI</small></p>
-            <a href="https://doi.org/10.48550/arXiv.2511.09043" class="publication-link">Read Preprint <i class="fas fa-arrow-right"></i></a>
-        </div>
-        
-        <div class="publication-item reveal">
             <h3>Data-Driven Analysis of Intersectional Bias in Image Classification</h3>
             <p><strong>Farjana Yesmin</strong></p>
             <p><em>Under Review at Symposium on Intelligent Data Analysis (IDA 2026)</em></p>
@@ -1837,6 +2016,7 @@
         </div>
     </div>
 </section>
+
     <!-- Education Section -->
     <section id="education">
         <div class="container">
@@ -1971,17 +2151,17 @@
                     </div>
                     
                     <div style="margin-top: 1rem;">
-    <h4>Technical Blogging</h4>
-    <p>Writing about ML research, data science projects, and academic insights</p>
-    <div class="blog-links">
-        <a href="/blog.html" class="btn btn-small">
-    <i class="fas fa-blog"></i> Visit My Blog
-</a>
- <a href="https://github.com/Farjana-Yesmin?tab=repositories" target="_blank" class="btn btn-small btn-outline">
-    <i class="fab fa-github"></i> GitHub Repos
-</a>
-    </div>
-</div>
+                        <h4>Technical Blogging</h4>
+                        <p>Writing about ML research, data science projects, and academic insights</p>
+                        <div class="blog-links">
+                            <a href="/blog.html" class="btn btn-small">
+                                <i class="fas fa-blog"></i> Visit My Blog
+                            </a>
+                            <a href="https://github.com/Farjana-Yesmin?tab=repositories" target="_blank" class="btn btn-small btn-outline">
+                                <i class="fab fa-github"></i> GitHub Repos
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- Travel & Exploration -->
@@ -1992,68 +2172,50 @@
                             <span class="stat-number">18</span>
                             <span class="stat-label">US States Visited</span>
                         </div>
+                    </div>
+                    <p>I've documented my travel experiences and cultural observations in leading Bangladeshi newspapers:</p>
+                    <div class="publication-links">
+                        <a href="https://nagorik.prothomalo.com/durporobash/ক্যামেলস-ব্যাক-পার্ক-থেকে-সূর্যাস্ত-দেখা" target="_blank" class="publication-link">
+                            <i class="fas fa-newspaper"></i> ক্যামেলস ব্যাক পার্ক থেকে সূর্যাস্ত দেখা
+                        </a>
 
-</div>
-<p>I've documented my travel experiences and cultural observations in leading Bangladeshi newspapers:</p>
-<div class="publication-links">
-    <a href="https://nagorik.prothomalo.com/durporobash/ক্যামেলস-ব্যাক-পার্ক-থেকে-সূর্যাস্ত-দেখা" target="_blank" class="publication-link">
-        <i class="fas fa-newspaper"></i> ক্যামেলস ব্যাক পার্ক থেকে সূর্যাস্ত দেখা
-    </a>
+                        <a href="https://nagorik.prothomalo.com/durporobash/বয়েসি-বিশ্ববিদ্যালয়ে-আন্তর্জাতিক-মাতৃভাষা-দিবস" target="_blank" class="publication-link">
+                            <i class="fas fa-newspaper"></i> বয়েসি বিশ্ববিদ্যালয়ে আন্তর্জাতিক মাতৃভাষা দিবস
+                        </a>
 
-    <a href="https://nagorik.prothomalo.com/durporobash/বয়েসি-বিশ্ববিদ্যালয়ে-আন্তর্জাতিক-মাতৃভাষা-দিবস" target="_blank" class="publication-link">
-        <i class="fas fa-newspaper"></i> বয়েসি বিশ্ববিদ্যালয়ে আন্তর্জাতিক মাতৃভাষা দিবস
-    </a>
+                        <a href="https://bangla.bdnews24.com/probash/article1598083.bdnews" target="_blank" class="publication-link">
+                            <i class="fas fa-newspaper"></i> BDNews24 Article
+                        </a>
 
-    <a href="https://bangla.bdnews24.com/probash/article1598083.bdnews" target="_blank" class="publication-link">
-        <i class="fas fa-newspaper"></i> BDNews24 Article
-    </a>
+                        <a href="https://nagorik.prothomalo.com/durporobash/ট্রাম্পের-দেশে-দ্বিতীয়-ঈদ" target="_blank" class="publication-link">
+                            <i class="fas fa-newspaper"></i> ট্রাম্পের দেশে দ্বিতীয় ঈদ
+                        </a>
 
-    <a href="https://nagorik.prothomalo.com/durporobash/ট্রাম্পের-দেশে-দ্বিতীয়-ঈদ" target="_blank" class="publication-link">
-        <i class="fas fa-newspaper"></i> ট্রাম্পের দেশে দ্বিতীয় ঈদ
-    </a>
+                        <a href="https://nagorik.prothomalo.com/durporobash/গ্রীষ্মের-ছুটিতে-সল্ট-লেক-সিটিতে-ভ্রমণ" target="_blank" class="publication-link">
+                            <i class="fas fa-newspaper"></i> গ্রীষ্মের ছুটিতে সল্ট লেক সিটিতে ভ্রমণ
+                        </a>
 
-    <a href="https://nagorik.prothomalo.com/durporobash/গ্রীষ্মের-ছুটিতে-সল্ট-লেক-সিটিতে-ভ্রমণ" target="_blank" class="publication-link">
-        <i class="fas fa-newspaper"></i> গ্রীষ্মের ছুটিতে সল্ট লেক সিটিতে ভ্রমণ
-    </a>
+                        <a href="https://nagorik.prothomalo.com/durporobash/আমেরিকায়-এসে-প্রথম-সমুদ্র-দর্শন" target="_blank" class="publication-link">
+                            <i class="fas fa-newspaper"></i> আমেরিকায় এসে প্রথম সমুদ্র দর্শন
+                        </a>
 
-    <a href="https://nagorik.prothomalo.com/durporobash/আমেরিকায়-এসে-প্রথম-সমুদ্র-দর্শন" target="_blank" class="publication-link">
-        <i class="fas fa-newspaper"></i> আমেরিকায় এসে প্রথম সমুদ্র দর্শন
-    </a>
+                        <a href="https://nagorik.prothomalo.com/durporobash/প্রবাসজীবনে-আমাদের-ঈদ" target="_blank" class="publication-link">
+                            <i class="fas fa-newspaper"></i> প্রবাসজীবনে আমাদের ঈদ
+                        </a>
 
-    <a href="https://nagorik.prothomalo.com/durporobash/প্রবাসজীবনে-আমাদের-ঈদ" target="_blank" class="publication-link">
-        <i class="fas fa-newspaper"></i> প্রবাসজীবনে আমাদের ঈদ
-    </a>
+                        <a href="https://nagorik.prothomalo.com/durporobash/আমেরিকার-সবচেয়ে-সুন্দর-ছোট-শহরে" target="_blank" class="publication-link">
+                            <i class="fas fa-newspaper"></i> আমেরিকার সবচেয়ে সুন্দর ছোট শহরে
+                        </a>
 
-    <a href="https://nagorik.prothomalo.com/durporobash/আমেরিকার-সবচেয়ে-সুন্দর-ছোট-শহরে" target="_blank" class="publication-link">
-        <i class="fas fa-newspaper"></i> আমেরিকার সবচেয়ে সুন্দর ছোট শহরে
-    </a>
+                        <a href="https://en.prothomalo.com/lifestyle/travel/thanksgiving-with-an-american-family" target="_blank" class="publication-link">
+                            <i class="fas fa-newspaper"></i> Thanksgiving with an American Family
+                        </a>
 
-    <a href="https://en.prothomalo.com/lifestyle/travel/thanksgiving-with-an-american-family" target="_blank" class="publication-link">
-        <i class="fas fa-newspaper"></i> Thanksgiving with an American Family
-    </a>
-
-    <a href="https://nagorik.prothomalo.com/durporobash/বেড়ানো-অ্যারিজোনা-হট-স্প্রিং" target="_blank" class="publication-link">
-        <i class="fas fa-newspaper"></i> বেড়ানো অ্যারিজোনা হট স্প্রিং
-    </a>
-</div>
-</div>
-
-<script>
-document.querySelectorAll('a[data-url]').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const url = this.getAttribute('data-url');
-        navigator.clipboard.writeText(url).then(() => {
-            alert('Link copied! Please paste it in your browser address bar.');
-        });
-    });
-});
-</script>
-</div>
-
-                    
-
-
+                        <a href="https://nagorik.prothomalo.com/durporobash/বেড়ানো-অ্যারিজোনা-হট-স্প্রিং" target="_blank" class="publication-link">
+                            <i class="fas fa-newspaper"></i> বেড়ানো অ্যারিজোনা হট স্প্রিং
+                        </a>
+                    </div>
+                </div>
                 
                 <!-- Community Engagement -->
                 <div class="interest-category reveal">
@@ -2093,6 +2255,10 @@ document.querySelectorAll('a[data-url]').forEach(link => {
                     <i class="fas fa-check-circle"></i>
                     Deep Learning Indaba Ideathon 2025
                 </li>
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    5th IEEE Workshop on Pervasive and Resource Constrained AI (PeRConAI'26) - Submitted paper to
+                </li>
             </ul>
             
             <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--primary);">Other Information</h3>
@@ -2104,6 +2270,10 @@ document.querySelectorAll('a[data-url]').forEach(link => {
                 <li>
                     <i class="fas fa-language"></i>
                     Fluent in Bengali, English and open to learn a new language
+                </li>
+                <li>
+                    <i class="fas fa-shield-alt"></i>
+                    Specialized in privacy-preserving machine learning and healthcare AI
                 </li>
             </ul>
         </div>
@@ -2120,6 +2290,7 @@ document.querySelectorAll('a[data-url]').forEach(link => {
                 <a href="https://www.linkedin.com/in/farjana-yesmin/" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/Farjana-Yesmin" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="https://scholar.google.com/citations?user=AKL9avYAAAAJ&hl=en" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+                <a href="https://arxiv.org/a/yesmin_f_1.html" target="_blank"><i class="fas fa-file-alt"></i></a>
             </div>
         </div>
     </section>
@@ -2130,6 +2301,9 @@ document.querySelectorAll('a[data-url]').forEach(link => {
             <p>&copy; 2024 Farjana Yesmin. All rights reserved.</p>
             <div class="visitor-counter">
                 <span id="visit-count">1</span> visitors
+            </div>
+            <div id="research-interest" style="margin-top: 10px; font-size: 0.9rem;">
+                <!-- Research interest metrics will be populated here -->
             </div>
         </div>
     </footer>
@@ -2229,6 +2403,9 @@ document.querySelectorAll('a[data-url]').forEach(link => {
             
             // Initialize admin panel
             initAdminPanel();
+            
+            // Initialize research tracking
+            initResearchTracking();
         });
 
         // Scroll animations
@@ -2432,21 +2609,50 @@ document.querySelectorAll('a[data-url]').forEach(link => {
             });
         }
 
-        // Enhanced Privacy Demo
-        function encryptData() {
-            const input = document.getElementById('privacy-input');
-            const output = document.getElementById('privacy-output');
-            if (!input || !output) return;
-
-            const userData = input.value.trim();
-            if (!userData) {
-                output.innerHTML = 'Please enter some data to encrypt.';
+        // Enhanced MedHE Privacy Demo
+        function encryptMedicalData() {
+            const input = document.getElementById('medhe-input');
+            const output = document.getElementById('medhe-output');
+            
+            const medicalData = input.value.trim();
+            if (!medicalData) {
+                output.innerHTML = '<div class="error">Please enter simulated patient data.</div>';
                 return;
             }
 
-            // Mock homomorphic encryption simulation
-            const encrypted = btoa(userData).split('').reverse().join('');
-            output.innerHTML = `Encrypted: ${encrypted}<br>Processing with federated learning...<br>Result: Data securely processed without decryption.`;
+            // Simulate MedHE processing pipeline
+            output.innerHTML = `
+                <div class="processing-step">
+                    <strong>1. Data Input:</strong> "${medicalData}"
+                </div>
+                <div class="processing-step">
+                    <strong>2. Local Training:</strong> Training on encrypted local data with differential privacy (ε=0.57)...
+                </div>
+                <div class="processing-step">
+                    <strong>3. Adaptive Sparsification:</strong> Retaining top 10% gradients with error compensation...
+                </div>
+                <div class="processing-step">
+                    <strong>4. CKKS Encryption:</strong> Encrypting with 128-bit RLWE security (N=8192, q=240 bits)...
+                </div>
+                <div class="processing-step">
+                    <strong>5. Batch Packing:</strong> Encoding 64 gradients per CKKS slot, reducing ciphertexts from 806 to 13...
+                </div>
+                <div class="processing-step">
+                    <strong>6. Secure Aggregation:</strong> Processing encrypted updates with adaptive threshold τ...
+                </div>
+                <div class="processing-step success">
+                    <strong>✓ Result:</strong> Model updated without exposing individual patient data.
+                    <div class="stats">
+                        Communication reduced by 97.5% (1277 MB → 32 MB) | Differential Privacy ε=0.57 | MIA Resistance 50.1%
+                    </div>
+                </div>
+            `;
+            
+            // Add visual feedback
+            output.style.animation = 'pulse 0.5s ease-in-out';
+            setTimeout(() => {
+                output.style.animation = '';
+            }, 500);
         }
 
         // Visitor tracking
@@ -2455,6 +2661,19 @@ document.querySelectorAll('a[data-url]').forEach(link => {
             visitCount = parseInt(visitCount) + 1;
             localStorage.setItem('visitCount', visitCount);
             document.getElementById('visit-count').textContent = visitCount;
+        }
+
+        // Research tracking
+        function initResearchTracking() {
+            let paperViews = localStorage.getItem('paperViews') || 0;
+            paperViews = parseInt(paperViews) + 1;
+            localStorage.setItem('paperViews', paperViews);
+            
+            // Show research interest metrics
+            document.getElementById('research-interest').innerHTML = `
+                <small>Research papers viewed ${paperViews} times</small><br>
+                <small>MedHE paper available on arXiv: <a href="https://doi.org/10.48550/arXiv.2511.09043" target="_blank" style="color: #ffd700;">arXiv:2511.09043</a></small>
+            `;
         }
 
         // Admin panel functionality
@@ -2479,13 +2698,16 @@ document.querySelectorAll('a[data-url]').forEach(link => {
             if (!visitorList) return;
             
             const visitCount = localStorage.getItem('visitCount') || 0;
+            const paperViews = localStorage.getItem('paperViews') || 0;
             const now = new Date();
             const visitTime = now.toLocaleString();
             
             visitorList.innerHTML = `
                 <li>Total Visits: <strong>${visitCount}</strong></li>
+                <li>Paper Views: <strong>${paperViews}</strong></li>
                 <li>Last Visit: <strong>${visitTime}</strong></li>
                 <li>Returning Visitor: <strong>${visitCount > 1 ? 'Yes' : 'No'}</strong></li>
+                <li>Research Interest: <strong>${paperViews > 5 ? 'High' : 'Medium'}</strong></li>
             `;
         }
 
@@ -2545,6 +2767,13 @@ document.querySelectorAll('a[data-url]').forEach(link => {
         document.getElementById('chat-input')?.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 sendChat();
+            }
+        });
+
+        // Handle Enter key in MedHE demo
+        document.getElementById('medhe-input')?.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                encryptMedicalData();
             }
         });
     </script>
