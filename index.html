@@ -340,6 +340,57 @@
             font-size: 0.9rem;
         }
 
+        /* Featured Section Styles */
+        .featured-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .featured-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            border-left: 4px solid var(--accent);
+        }
+
+        .featured-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .featured-logo {
+            font-size: 2rem;
+            color: var(--primary);
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .featured-content {
+            flex: 1;
+        }
+
+        .featured-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .featured-content p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .featured-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
         /* Timeline */
         .timeline {
             position: relative;
@@ -1422,6 +1473,16 @@
             .metrics-grid {
                 grid-template-columns: 1fr;
             }
+            
+            /* Featured section responsive */
+            .featured-item {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .featured-logo {
+                text-align: left;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1550,6 +1611,9 @@
             
             <p class="hero-subtitle">
                 Focus on Bioinformatics, Trustworthy AI, and Healthcare Applications
+                <br><small style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.5rem; display: inline-block;">
+                    <i class="fas fa-award"></i> Featured in Prothom Alo & BD Gen 24
+                </small>
             </p>
             
             <div>
@@ -1568,38 +1632,79 @@
     </section>
 
     <!-- News Section -->
-<section id="news">
-    <div class="container">
-        <h2 class="section-title">Academic News & Updates</h2>
-        <div class="news-container">
-            <div class="news-item reveal">
-                <span class="news-date">October 11, 2025</span>
-                <h3>Paper Accepted at EAI Healthwear 2025</h3> 
-                <p>My paper "Fairness-Aware Representation Learning for ECG-Based Disease Prediction in Wearable Systems" has been accepted for presentation at the 6th EAI International Conference on Wearables in Healthcare in Isparta, Turkey.</p>
-            </div>
-            <div class="news-item reveal">
-                <span class="news-date">October 5, 2025</span>
-                <h3>Paper Accepted at DASGRI 2026</h3>
-                <p>My paper "Optimized Hybrid Machine Learning Framework for Real-Time Air Quality Prediction in IoT-Enabled Smart Cities" has been accepted for presentation at the International Conference on Data Science and Global Research 2026 in London.</p>
-            </div>
-            <div class="news-item reveal">
-                <span class="news-date">October 5, 2025</span>
-                <h3>Paper Accepted at DASGRI 2026</h3>
-                <p>My paper "Evolving Health Indicators in Bangladesh: A Comparative Analysis of 2019 and 2023 Health Bulletins Using Data Science Tools" has been accepted for presentation at the International Conference on Data Science and Global Research 2026 in London.</p>
-            </div>
-            <div class="news-item reveal">
-                <span class="news-date">October 1, 2025</span>
-                <h3>Invited as Reviewer for Deep Learning Indaba Ideathon 2025</h3>
-                <p>I have been welcomed as a reviewer for the 2025 Deep Learning Indaba Ideathon. I will be evaluating project submissions on the Baobab platform, contributing to the advancement of AI innovation in the community.</p>
-            </div>
-            <div class="news-item reveal">
-                <span class="news-date">September 20, 2025</span>
-                <h3>Paper Accepted at DASGRI 2026</h3>
-                <p>My paper "AI Chatbots for Dengue Symptom Triage in Bangladesh: A Decision Tree Classifier Approach" has been accepted for presentation at the International Conference on Data Science and Global Research 2026 in London.</p>
+    <section id="news">
+        <div class="container">
+            <h2 class="section-title">Academic News & Updates</h2>
+            <div class="news-container">
+                <div class="news-item reveal">
+                    <span class="news-date">October 11, 2025</span>
+                    <h3>Paper Accepted at EAI Healthwear 2025</h3> 
+                    <p>My paper "Fairness-Aware Representation Learning for ECG-Based Disease Prediction in Wearable Systems" has been accepted for presentation at the 6th EAI International Conference on Wearables in Healthcare in Isparta, Turkey.</p>
+                </div>
+                <div class="news-item reveal">
+                    <span class="news-date">October 5, 2025</span>
+                    <h3>Paper Accepted at DASGRI 2026</h3>
+                    <p>My paper "Optimized Hybrid Machine Learning Framework for Real-Time Air Quality Prediction in IoT-Enabled Smart Cities" has been accepted for presentation at the International Conference on Data Science and Global Research 2026 in London.</p>
+                </div>
+                <div class="news-item reveal">
+                    <span class="news-date">October 5, 2025</span>
+                    <h3>Paper Accepted at DASGRI 2026</h3>
+                    <p>My paper "Evolving Health Indicators in Bangladesh: A Comparative Analysis of 2019 and 2023 Health Bulletins Using Data Science Tools" has been accepted for presentation at the International Conference on Data Science and Global Research 2026 in London.</p>
+                </div>
+                <div class="news-item reveal">
+                    <span class="news-date">October 1, 2025</span>
+                    <h3>Invited as Reviewer for Deep Learning Indaba Ideathon 2025</h3>
+                    <p>I have been welcomed as a reviewer for the 2025 Deep Learning Indaba Ideathon. I will be evaluating project submissions on the Baobab platform, contributing to the advancement of AI innovation in the community.</p>
+                </div>
+                <div class="news-item reveal">
+                    <span class="news-date">September 20, 2025</span>
+                    <h3>Paper Accepted at DASGRI 2026</h3>
+                    <p>My paper "AI Chatbots for Dengue Symptom Triage in Bangladesh: A Decision Tree Classifier Approach" has been accepted for presentation at the International Conference on Data Science and Global Research 2026 in London.</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <!-- Featured In Section -->
+    <section id="featured">
+        <div class="container">
+            <h2 class="section-title">Featured In</h2>
+            <div class="featured-container">
+                <!-- Prothom Alo Feature -->
+                <div class="featured-item reveal">
+                    <div class="featured-logo">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <div class="featured-content">
+                        <h3>Prothom Alo - Leading National Newspaper</h3>
+                        <p>My work and experiences as a Bangladeshi researcher abroad have been featured in Prothom Alo, the largest circulating Bengali daily newspaper in Bangladesh.</p>
+                        <div class="featured-links">
+                            <a href="https://nagorik.prothomalo.com/durporobash/s7u0rawj83" target="_blank" class="btn btn-small">
+                                <i class="fas fa-external-link-alt"></i> Read Bengali Version
+                            </a>
+                            <a href="https://en.prothomalo.com/" target="_blank" class="btn btn-small btn-outline">
+                                <i class="fas fa-globe"></i> English Version Coming Soon
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- BD Gen 24 Feature -->
+                <div class="featured-item reveal">
+                    <div class="featured-logo">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <div class="featured-content">
+                        <h3>BD Gen 24</h3>
+                        <p>Featured in BD Gen 24 for contributions to AI research and representing Bangladeshi talent in international academia.</p>
+                        <a href="https://bdgen24.com/opinion/bdgj8znwku6cp" target="_blank" class="btn btn-small">
+                            <i class="fas fa-external-link-alt"></i> Read Article
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Experience Section -->
     <section id="experience">
@@ -1904,112 +2009,112 @@
     </div>
 
     <!-- Publications Section -->
-<section id="publications">
-    <div class="container">
-        <h2 class="section-title">Publications</h2>
-        
-        <!-- Peer-Reviewed Publications -->
-        <h3 style="margin: 2rem 0 1rem 0; color: var(--text-dark); border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem;">Peer-Reviewed Publications</h3>
-        
-        <!-- MedHE Paper -->
-        <div class="publication-item reveal">
-            <h3>MedHE: Communication-Efficient Privacy-Preserving Federated Learning with Adaptive Gradient Sparsification for Healthcare</h3>
-            <p><strong>Farjana Yesmin</strong></p>
-            <p><em>Under Review at 5th IEEE Workshop on Pervasive and Resource Constrained AI (PeRConAI'26)</em></p>
-            <p><small><strong>Topics:</strong> Federated Learning, Homomorphic Encryption, Healthcare Privacy, Gradient Sparsification</small></p>
-            <a href="https://doi.org/10.48550/arXiv.2511.09043" class="publication-link">Read Preprint <i class="fas fa-arrow-right"></i></a>
-        </div>
-        
-        <!-- EAI HEALTHCARE 2025 Paper -->
-        <div class="publication-item reveal">
-            <h3>Fairness-Aware Representation Learning for ECG-Based Disease Prediction in Wearable Systems</h3>
-            <p><strong>Farjana Yesmin</strong>, Nusrat Shirmin</p>
-            <p><em>To appear in Proceedings of the 6th EAI International Conference on Wearables in Healthcare 2025(EAI HEALTHCARE 2025), Conference got canceled</em></p>
-            <p><small><strong>Topics:</strong> Fairness, Trustworthy AI, Healthcare</small></p>
-            <a href="https://www.researchgate.net/publication/396441645_Fairness-Aware_Representation_Learning_for_ECG-Based_Disease_Prediction_in_Wearable_Systems" class="publication-link">Read Preprint <i class="fas fa-arrow-right"></i></a>
-        </div>
-        
-        <!-- DASGRI 2026 Papers -->
-        <div class="publication-item reveal">
-            <h3>AI Chatbots for Dengue Symptom Triage in Bangladesh: A Decision Tree Classifier Approach</h3>
-            <p><strong>Farjana Yesmin</strong></p>
-            <p><em>In Springer Lecture Notes in Networks and Systems. International Conference on Data Science and AI for Social Good and Responsible Innovation (DASGRI 2026)</em></p>
-            <a href="https://www.researchgate.net/publication/385935162_AI_Chatbots_for_Dengue_Symptom_Triage_in_Bangladesh_A_Decision_Tree_Classifier_Approach" class="publication-link">Read Publication <i class="fas fa-arrow-right"></i></a>
-        </div>
-        
-        <div class="publication-item reveal">
-            <h3>Optimized Hybrid Machine Learning Framework for Real-Time Air Quality Prediction in IoT-Enabled Smart Cities</h3>
-            <p><strong>Farjana Yesmin</strong></p>
-            <p><em>In Springer Lecture Notes in Networks and Systems. International Conference on Data Science and AI for Social Good and Responsible Innovation (DASGRI 2026)</em></p>
-            <a href="https://www.researchgate.net/publication/396293401_Optimized_Hybrid_Machine_Learning_Framework_for_Real-Time_Air_Quality_Prediction_in_IoT-Enabled_Smart_Cities" class="publication-link">Read Publication <i class="fas fa-arrow-right"></i></a>
-        </div>
-        
-        <div class="publication-item reveal">
-            <h3>Evolving Health Indicators in Bangladesh: A Comparative Analysis of 2019 and 2023 Health Bulletins Using Data Science Tools</h3>
-            <p><strong>Farjana Yesmin</strong>, Nusrat Shirmin</p>
-            <p><em>In Springer Lecture Notes in Networks and Systems. International Conference on Data Science and AI for Social Good and Responsible Innovation (DASGRI 2026)</em></p>
-            <a href="https://www.researchgate.net/publication/396293401_Optimized_Hybrid_Machine_Learning_Framework_for_Real-Time_Air_Quality_Prediction_in_IoT-Enabled_Smart_Cities" class="publication-link">Read Publication <i class="fas fa-arrow-right"></i></a>
-        </div>
-        
-        <!-- Journal Publication -->
-        <div class="publication-item reveal">
-            <h3>Cross-Domain Evaluation for Multi-Task Learning in NLP: A Unified Framework for Generalization and Robustness</h3>
-            <p><strong>Farjana Yesmin</strong></p>
-            <p><em>Artificial Intelligence eJournal, 8(4), 2025</em></p>
-            <a href="https://papers.ssrn.com/abstract=5018566" class="publication-link">Read Publication <i class="fas fa-arrow-right"></i></a>
-        </div>
+    <section id="publications">
+        <div class="container">
+            <h2 class="section-title">Publications</h2>
+            
+            <!-- Peer-Reviewed Publications -->
+            <h3 style="margin: 2rem 0 1rem 0; color: var(--text-dark); border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem;">Peer-Reviewed Publications</h3>
+            
+            <!-- MedHE Paper -->
+            <div class="publication-item reveal">
+                <h3>MedHE: Communication-Efficient Privacy-Preserving Federated Learning with Adaptive Gradient Sparsification for Healthcare</h3>
+                <p><strong>Farjana Yesmin</strong></p>
+                <p><em>Under Review at 5th IEEE Workshop on Pervasive and Resource Constrained AI (PeRConAI'26)</em></p>
+                <p><small><strong>Topics:</strong> Federated Learning, Homomorphic Encryption, Healthcare Privacy, Gradient Sparsification</small></p>
+                <a href="https://doi.org/10.48550/arXiv.2511.09043" class="publication-link">Read Preprint <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <!-- EAI HEALTHCARE 2025 Paper -->
+            <div class="publication-item reveal">
+                <h3>Fairness-Aware Representation Learning for ECG-Based Disease Prediction in Wearable Systems</h3>
+                <p><strong>Farjana Yesmin</strong>, Nusrat Shirmin</p>
+                <p><em>To appear in Proceedings of the 6th EAI International Conference on Wearables in Healthcare 2025(EAI HEALTHCARE 2025), Conference got canceled</em></p>
+                <p><small><strong>Topics:</strong> Fairness, Trustworthy AI, Healthcare</small></p>
+                <a href="https://www.researchgate.net/publication/396441645_Fairness-Aware_Representation_Learning_for_ECG-Based_Disease_Prediction_in_Wearable_Systems" class="publication-link">Read Preprint <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <!-- DASGRI 2026 Papers -->
+            <div class="publication-item reveal">
+                <h3>AI Chatbots for Dengue Symptom Triage in Bangladesh: A Decision Tree Classifier Approach</h3>
+                <p><strong>Farjana Yesmin</strong></p>
+                <p><em>In Springer Lecture Notes in Networks and Systems. International Conference on Data Science and AI for Social Good and Responsible Innovation (DASGRI 2026)</em></p>
+                <a href="https://www.researchgate.net/publication/385935162_AI_Chatbots_for_Dengue_Symptom_Triage_in_Bangladesh_A_Decision_Tree_Classifier_Approach" class="publication-link">Read Publication <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="publication-item reveal">
+                <h3>Optimized Hybrid Machine Learning Framework for Real-Time Air Quality Prediction in IoT-Enabled Smart Cities</h3>
+                <p><strong>Farjana Yesmin</strong></p>
+                <p><em>In Springer Lecture Notes in Networks and Systems. International Conference on Data Science and AI for Social Good and Responsible Innovation (DASGRI 2026)</em></p>
+                <a href="https://www.researchgate.net/publication/396293401_Optimized_Hybrid_Machine_Learning_Framework_for_Real-Time_Air_Quality_Prediction_in_IoT-Enabled_Smart_Cities" class="publication-link">Read Publication <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="publication-item reveal">
+                <h3>Evolving Health Indicators in Bangladesh: A Comparative Analysis of 2019 and 2023 Health Bulletins Using Data Science Tools</h3>
+                <p><strong>Farjana Yesmin</strong>, Nusrat Shirmin</p>
+                <p><em>In Springer Lecture Notes in Networks and Systems. International Conference on Data Science and AI for Social Good and Responsible Innovation (DASGRI 2026)</em></p>
+                <a href="https://www.researchgate.net/publication/396293401_Optimized_Hybrid_Machine_Learning_Framework_for_Real-Time_Air_Quality_Prediction_in_IoT-Enabled_Smart_Cities" class="publication-link">Read Publication <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <!-- Journal Publication -->
+            <div class="publication-item reveal">
+                <h3>Cross-Domain Evaluation for Multi-Task Learning in NLP: A Unified Framework for Generalization and Robustness</h3>
+                <p><strong>Farjana Yesmin</strong></p>
+                <p><em>Artificial Intelligence eJournal, 8(4), 2025</em></p>
+                <a href="https://papers.ssrn.com/abstract=5018566" class="publication-link">Read Publication <i class="fas fa-arrow-right"></i></a>
+            </div>
 
-        <!-- Papers Under Review -->
-        <h3 style="margin: 3rem 0 1rem 0; color: var(--text-dark); border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem;">Papers Under Peer Review</h3>
-        
-        <!-- ESANN Submissions -->
-        <div class="publication-item reveal">
-            <h3>Rule-Augmented Neural Networks for Trustworthy Decision-Making</h3>
-            <p><strong>Farjana Yesmin</strong>, Nusrat Shirmin</p>
-            <p><em>Under Review at ESANN 2026, Special Session on Neuro-Symbolic AI</em></p>
-            <p><small><strong>Topics:</strong> Explainable AI, Trustworthy ML</small></p>
+            <!-- Papers Under Review -->
+            <h3 style="margin: 3rem 0 1rem 0; color: var(--text-dark); border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem;">Papers Under Peer Review</h3>
+            
+            <!-- ESANN Submissions -->
+            <div class="publication-item reveal">
+                <h3>Rule-Augmented Neural Networks for Trustworthy Decision-Making</h3>
+                <p><strong>Farjana Yesmin</strong>, Nusrat Shirmin</p>
+                <p><em>Under Review at ESANN 2026, Special Session on Neuro-Symbolic AI</em></p>
+                <p><small><strong>Topics:</strong> Explainable AI, Trustworthy ML</small></p>
+            </div>
+            
+            <div class="publication-item reveal">
+                <h3>A Constraint-Aware Neuro-Symbolic Framework: Integrating Linguistic Rules with Uncertainty Modeling for Interpretable Complex Data Analytics</h3>
+                <p><strong>Farjana Yesmin</strong>, Nusrat Shirmin</p>
+                <p><em>Under Review at ESANN 2026, Special Session on Neuro-Symbolic AI</em></p>
+                <p><small><strong>Topics:</strong> Explainable AI</small></p>
+                <a href="https://doi.org/10.48550/arXiv.2510.05120" class="publication-link">Read Preprint <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <!-- Conference Submissions -->
+            <div class="publication-item reveal">
+                <h3>Data-Driven Analysis of Intersectional Bias in Image Classification</h3>
+                <p><strong>Farjana Yesmin</strong></p>
+                <p><em>Under Review at Symposium on Intelligent Data Analysis (IDA 2026)</em></p>
+                <p><small><strong>Topics:</strong> Fairness, Explainable AI</small></p>
+                <a href="https://doi.org/10.48550/arXiv.2510.16072" class="publication-link">Read Preprint <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="publication-item reveal">
+                <h3>Joint Denoising and 3D Point Cloud Reconstruction from Single Medical Images</h3>
+                <p><strong>Farjana Yesmin</strong>, Nusrat Shirmin</p>
+                <p><em>Under Review at Symposium on Intelligent Data Analysis (IDA 2026)</em></p>
+                <p><small><strong>Topics:</strong> Computer Vision, Medical Informatics</small></p>
+            </div>
+            
+            <div class="publication-item reveal">
+                <h3>Beyond the Black Box: A Framework for Interpretable Retrieval-Augmented Generation</h3>
+                <p><strong>Farjana Yesmin</strong>, Nusrat Shirmin</p>
+                <p><em>Under Review at European Conference on Information Retrieval (ECIR 2026)</em></p>
+                <p><small><strong>Topics:</strong> Explainable AI, NLP</small></p>
+            </div>
+            
+            <!-- Journal Revision -->
+            <div class="publication-item reveal">
+                <h3>Enhanced Fall Detection in Parkinson's Disease Using Multi-Sensor Fusion and Transformer Models</h3>
+                <p><strong>Farjana Yesmin</strong></p>
+                <p><em>In Revision at Scientific Reports (Nature Portfolio)</em></p>
+                <p><small><strong>Topics:</strong> Healthcare, ML Applications</small></p>
+            </div>
         </div>
-        
-        <div class="publication-item reveal">
-            <h3>A Constraint-Aware Neuro-Symbolic Framework: Integrating Linguistic Rules with Uncertainty Modeling for Interpretable Complex Data Analytics</h3>
-            <p><strong>Farjana Yesmin</strong>, Nusrat Shirmin</p>
-            <p><em>Under Review at ESANN 2026, Special Session on Neuro-Symbolic AI</em></p>
-            <p><small><strong>Topics:</strong> Explainable AI</small></p>
-            <a href="https://doi.org/10.48550/arXiv.2510.05120" class="publication-link">Read Preprint <i class="fas fa-arrow-right"></i></a>
-        </div>
-        
-        <!-- Conference Submissions -->
-        <div class="publication-item reveal">
-            <h3>Data-Driven Analysis of Intersectional Bias in Image Classification</h3>
-            <p><strong>Farjana Yesmin</strong></p>
-            <p><em>Under Review at Symposium on Intelligent Data Analysis (IDA 2026)</em></p>
-            <p><small><strong>Topics:</strong> Fairness, Explainable AI</small></p>
-            <a href="https://doi.org/10.48550/arXiv.2510.16072" class="publication-link">Read Preprint <i class="fas fa-arrow-right"></i></a>
-        </div>
-        
-        <div class="publication-item reveal">
-            <h3>Joint Denoising and 3D Point Cloud Reconstruction from Single Medical Images</h3>
-            <p><strong>Farjana Yesmin</strong>, Nusrat Shirmin</p>
-            <p><em>Under Review at Symposium on Intelligent Data Analysis (IDA 2026)</em></p>
-            <p><small><strong>Topics:</strong> Computer Vision, Medical Informatics</small></p>
-        </div>
-        
-        <div class="publication-item reveal">
-            <h3>Beyond the Black Box: A Framework for Interpretable Retrieval-Augmented Generation</h3>
-            <p><strong>Farjana Yesmin</strong>, Nusrat Shirmin</p>
-            <p><em>Under Review at European Conference on Information Retrieval (ECIR 2026)</em></p>
-            <p><small><strong>Topics:</strong> Explainable AI, NLP</small></p>
-        </div>
-        
-        <!-- Journal Revision -->
-        <div class="publication-item reveal">
-            <h3>Enhanced Fall Detection in Parkinson's Disease Using Multi-Sensor Fusion and Transformer Models</h3>
-            <p><strong>Farjana Yesmin</strong></p>
-            <p><em>In Revision at Scientific Reports (Nature Portfolio)</em></p>
-            <p><small><strong>Topics:</strong> Healthcare, ML Applications</small></p>
-        </div>
-    </div>
-</section>
+    </section>
 
     <!-- Education Section -->
     <section id="education">
@@ -2226,54 +2331,55 @@
         </div>
     </section>
 
-<!-- Academic Service & Additional Information Section -->
-<section id="additional">
-    <div class="container">
-        <h2 class="section-title">Academic Service & Additional Information</h2>
-        <div class="additional-info reveal">
-            
-            <h3 style="margin-bottom: 1.5rem; color: var(--primary);">Academic Service</h3>
-            <div style="margin-left: 0.5rem;">
-                <!-- REPLACE THE SAI ENTRY WITH THIS BLOCK -->
-                <div style="margin-bottom: 1.2rem; line-height: 1.6;">
-                    <strong>Member & TPC Applicant</strong>, The Science and Information (SAI) Organization (2025)
-                    <div style="margin: 0.5rem 0 0 0.5rem; color: var(--text-light); font-size: 0.95rem; line-height: 1.5; font-style: italic;">
-                        Application for the Technical Program Committee under formal review. Active member of the SAI academic network.
+    <!-- Academic Service & Additional Information Section -->
+    <section id="additional">
+        <div class="container">
+            <h2 class="section-title">Academic Service & Additional Information</h2>
+            <div class="additional-info reveal">
+                
+                <h3 style="margin-bottom: 1.5rem; color: var(--primary);">Academic Service</h3>
+                <div style="margin-left: 0.5rem;">
+                    <!-- REPLACE THE SAI ENTRY WITH THIS BLOCK -->
+                    <div style="margin-bottom: 1.2rem; line-height: 1.6;">
+                        <strong>Member & TPC Applicant</strong>, The Science and Information (SAI) Organization (2025)
+                        <div style="margin: 0.5rem 0 0 0.5rem; color: var(--text-light); font-size: 0.95rem; line-height: 1.5; font-style: italic;">
+                            Application for the Technical Program Committee under formal review. Active member of the SAI academic network.
+                        </div>
+                    </div>
+                    </div>
+                    <div style="margin-bottom: 1rem; line-height: 1.6;">
+                        <strong>Program Committee Reviewer</strong>, 27th ACM International Conference on Multimodal Interaction (ICMI 2025)
+                    </div>
+                    <div style="margin-bottom: 1rem; line-height: 1.6;">
+                        <strong>Reviewer</strong>, 2nd AI for Math Workshop @ ICML 2025
+                    </div>
+                    <div style="margin-bottom: 1rem; line-height: 1.6;">
+                        <strong>Reviewer</strong>, ICML 2025 Workshop on Machine Unlearning for Generative AI (MUGen)
+                    </div>
+                    <div style="line-height: 1.6;">
+                        <strong>Reviewer</strong>, Deep Learning Indaba Ideathon 2025
+                    </div>
+                    <div style="line-height: 1.6;">
+                        <strong>Reviewer</strong>, ACM IUI 2026 (Intelligent User Interfaces) - Posters Track
                     </div>
                 </div>
-                </div>
-                <div style="margin-bottom: 1rem; line-height: 1.6;">
-                    <strong>Program Committee Reviewer</strong>, 27th ACM International Conference on Multimodal Interaction (ICMI 2025)
-                </div>
-                <div style="margin-bottom: 1rem; line-height: 1.6;">
-                    <strong>Reviewer</strong>, 2nd AI for Math Workshop @ ICML 2025
-                </div>
-                <div style="margin-bottom: 1rem; line-height: 1.6;">
-                    <strong>Reviewer</strong>, ICML 2025 Workshop on Machine Unlearning for Generative AI (MUGen)
-                </div>
-                <div style="line-height: 1.6;">
-                    <strong>Reviewer</strong>, Deep Learning Indaba Ideathon 2025
-                </div>
-                <div style="line-height: 1.6;">
-                    <strong>Reviewer</strong>, ACM IUI 2026 (Intelligent User Interfaces) - Posters Track
-                </div>
-            </div>
-            
-            <h3 style="margin-top: 2.5rem; margin-bottom: 1.5rem; color: var(--primary);">Other Information</h3>
-            <div style="margin-left: 0.5rem;">
-                <div style="margin-bottom: 1rem; line-height: 1.6;">
-                    Open to relocation and remote work.
-                </div>
-                <div style="margin-bottom: 1rem; line-height: 1.6;">
-                    <strong>Languages:</strong> Bengali (Fluent), English (Fluent), Norwegian (Elementary, Duolingo Score: 12, Dec 2025).
-                </div>
-                <div style="line-height: 1.6;">
-                    Open to learning new languages.
+                
+                <h3 style="margin-top: 2.5rem; margin-bottom: 1.5rem; color: var(--primary);">Other Information</h3>
+                <div style="margin-left: 0.5rem;">
+                    <div style="margin-bottom: 1rem; line-height: 1.6;">
+                        Open to relocation and remote work.
+                    </div>
+                    <div style="margin-bottom: 1rem; line-height: 1.6;">
+                        <strong>Languages:</strong> Bengali (Fluent), English (Fluent), Norwegian (Elementary, Duolingo Score: 12, Dec 2025).
+                    </div>
+                    <div style="line-height: 1.6;">
+                        Open to learning new languages.
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact">
         <div class="container">
