@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auditing Trust in Health Registries: From Technical Fairness to Epistemic Responsibility - Farjana's Research Blog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.7;
+            color: #444;
+            background-color: #f8f9fa;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .back-link {
+            margin-bottom: 30px;
+        }
+        .back-link a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+        h1 {
+            color: #2563eb;
+            margin-bottom: 10px;
+            font-size: 2.4rem;
+        }
+        .author {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        .post-meta {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 20px;
+        }
+        .post-content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            border-left: 4px solid #2563eb;
+        }
+        .post-content h2 {
+            color: #1e293b;
+            margin: 2rem 0 1rem 0;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+        .post-content h3 {
+            color: #2563eb;
+            margin: 1.5rem 0 0.5rem 0;
+        }
+        .post-content p {
+            margin-bottom: 1.2rem;
+            color: #666;
+        }
+        .post-content ul, .post-content ol {
+            margin-left: 20px;
+            margin-bottom: 1.2rem;
+            color: #666;
+        }
+        .post-content li {
+            margin-bottom: 0.5rem;
+        }
+        .intro-reflection {
+            background: rgba(37, 99, 235, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #2563eb;
+            font-style: italic;
+        }
+        .concept-box {
+            background: rgba(168, 85, 247, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 3px solid #a855f7;
+        }
+        .categories {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+        .categories h3 {
+            color: #2563eb;
+            margin-bottom: 1rem;
+        }
+        .category-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .category-tag {
+            background: rgba(37, 99, 235, 0.1);
+            color: #2563eb;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .challenge-scenario {
+            background: rgba(239, 68, 68, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 3px solid #ef4444;
+        }
+        .framework-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin: 2.5rem 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        .framework-box h3 {
+            color: white;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .framework-box h3::before {
+            content: "🔍";
+            font-size: 1.5rem;
+        }
+        .framework-box ul {
+            color: rgba(255, 255, 255, 0.95);
+        }
+        .framework-box li {
+            margin-bottom: 0.8rem;
+            padding-left: 0.5rem;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .comparison-table th {
+            background-color: rgba(37, 99, 235, 0.1);
+            color: #1e293b;
+            font-weight: 600;
+        }
+        .comparison-table tr:hover {
+            background-color: rgba(37, 99, 235, 0.02);
+        }
+        .research-example {
+            background: rgba(34, 197, 94, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 3px solid #16a34a;
+        }
+        .conclusion-insight {
+            background: rgba(245, 158, 11, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 3px solid #f59e0b;
+        }
+    </style>
+</head>
+<body>
+    <div class="back-link">
+        <a href="/blog.html">← Back to Blog</a>
+    </div>
+    
+    <h1>Auditing Trust in Health Registries: From Technical Fairness to Epistemic Responsibility</h1>
+    <div class="author">By Farjana Yesmin | Data Scientist & ML Researcher</div>
+    
+    <div class="post-meta">
+        <strong>Published:</strong> January 22, 2026<br>
+        <strong>Categories:</strong> Health Registries, AI Ethics, Trustworthy AI, Epistemic Justice
+    </div>
+    
+    <div class="post-content">
+        <div class="intro-reflection">
+            My last post sat with me for a while. I wrote about moving from technical privacy to ethical auditing, and it felt like a start. But I kept coming back to a single, stubborn question: what good is a perfectly private system if no one actually trusts what it says?
+        </div>
+
+        <p>This has been the quiet focus of my recent work. I've come to believe that trust is not a feature you can bolt onto a health registry. It is not a checklist item for compliance. Real trust is earned when people believe the knowledge a system produces is credible, careful, and just. This moves the conversation into unfamiliar territory for many engineers. We are used to auditing data. We must learn to audit knowledge.</p>
+
+        <div class="concept-box">
+            <strong>Epistemic Responsibility Defined:</strong><br>
+            This is what I mean by epistemic responsibility. It is the duty we have as builders and stewards to ensure the insights we generate are not only statistically valid, but also socially sound and transparent about their own limits. It asks us to be accountable for the truthfulness of the story our data tells.
+        </div>
+
+        <h2>When Compliance Is Not Enough</h2>
+        
+        <div class="challenge-scenario">
+            <strong>The Compliant but Flawed System:</strong><br><br>
+            Let's picture a model trusted research environment. It uses federated learning so data never leaves the hospital. It applies differential privacy, adding mathematical noise to protect individual identities. A standard audit passes it with high marks. The technical boxes are checked.<br><br>
+            
+            But what if the combined data from all those hospitals holds very little information from patients over eighty? Or from communities with limited healthcare access? The model trained on this data will develop a view of disease that is, quite literally, blind to these groups. The privacy is impeccable. The knowledge is impoverished, and worse, it presents a distorted reality as fact. This creates a quiet harm, what philosophers call an epistemic injustice. The system itself prevents certain groups from being seen and understood in our shared pool of medical knowledge.
+        </div>
+
+        <h2>A Practical Framework: Two Questions to Ask</h2>
+        
+        <p>So how do we build an audit for this? In my own work, I've found it helpful to structure the process around two parallel lines of questioning.</p>
+
+        <div class="framework-box">
+            <h3>The Two Pillars of Epistemic Auditing</h3>
+            <ul>
+                <li><strong>Interrogate Multidimensional Fairness:</strong> We look beyond a single accuracy number. We slice the model's performance across every demographic axis we can responsibly track: sex, ethnicity, age, postal code. My work analyzing ECG signals was a blunt lesson here. A model could achieve impressive overall accuracy while failing systematically for women. An audit must use tools like disparity metrics to force these gaps into the open. It asks: for whom does this system work, and for whom does it fail?</li>
+                
+                <li><strong>Formalize and Report Uncertainty:</strong> Every prediction, every statistic from a registry comes with a shadow of doubt. This doubt comes from the noise we add for privacy, from sparse data for rare conditions, from the inherent messiness of biology. An epistemically responsible system does not hide this doubt. It measures it and reports it alongside the result.</li>
+            </ul>
+        </div>
+
+        <div class="research-example">
+            <strong>Transforming Output into Knowledge Claims:</strong><br><br>
+            The output should never be "The readmission risk is 15%." It should be: "The estimated readmission risk is 15%. Given the data sparsity for this patient group and the privacy safeguards applied, we are 90% confident the true value lies between 11% and 19%."<br><br>
+            
+            This transforms a bare fact into a careful knowledge claim. It tells the clinician not just what we think, but how sure we are. That honesty is the seed of real trust.
+        </div>
+
+        <h2>Navigating the Inevitable Trade Off</h2>
+        
+        <p>This process forces us to confront a difficult balance, especially with tools like differential privacy. There is a direct and unavoidable tension between privacy strength and knowledge clarity.</p>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Privacy Setting</th>
+                    <th>Effect on Data Fidelity</th>
+                    <th>What the Audit Must Emphasize</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Strong Privacy</strong><br>(High noise)</td>
+                    <td>Insights become blurry. Fine details are lost.</td>
+                    <td>Communicating uncertainty. We must be explicit that findings are broad estimates, not precise truths.</td>
+                </tr>
+                <tr>
+                    <td><strong>Moderate Privacy</strong></td>
+                    <td>A balance. Clear patterns for common cases, fuzzier for rare ones.</td>
+                    <td>Vigilance for bias. Clearer patterns could accidentally cement existing inequities if not scrutinized.</td>
+                </tr>
+                <tr>
+                    <td><strong>Minimal Privacy</strong></td>
+                    <td>Sharp, detailed outputs. High fidelity.</td>
+                    <td>Rigorous validation. High precision risks lending false authority to flawed or biased conclusions.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>There is no perfect point on this spectrum. Our audit framework must therefore be adaptive. It tightens its focus on uncertainty when privacy is high, and on bias detection when privacy is lower.</p>
+
+        <h2>Putting It Into Practice: Lessons from an ECG</h2>
+        
+        <div class="research-example">
+            <strong>Beyond Technical Audits:</strong><br><br>
+            Let me make this concrete with the ECG project I mentioned. A technical audit validated the federated learning protocol. A fairness check found a performance gap.<br><br>
+            
+            An audit for epistemic responsibility would dig deeper. It would ask why the gap exists. Was it due to how the sensors were placed? To historical under enrollment of certain groups in studies? More importantly, it would require that any paper or tool released from this work includes what I've started calling a Limitations Appendix. This appendix would plainly state: "Performance was lower for female patients. Our training consortium had limited data from rural clinics. The confidence intervals for subgroup X are widened by 5% due to applied privacy measures."<br><br>
+            
+            This does not make the work seem weaker. It makes it more honest, more usable, and ultimately, more trustworthy.
+        </div>
+
+        <h2>The Deeper Duty of Stewardship</h2>
+        
+        <p>This view connects with a broader shift in thinking about data stewardship. A steward is not just a guardian against data leaks. A steward is a guardian against misleading knowledge. Their duty is to ensure the registry's outputs are legitimate contributions to our understanding of health.</p>
+
+        <div class="conclusion-insight">
+            <strong>Building Lasting Trust Through Honesty:</strong><br><br>
+            As I wrote about in my piece on explainability tools, techniques that help us understand model decisions are just one part of this. They are like a doctor's diagnostic kit. But we need the broader governance equivalent of medical ethics, a framework that mandates transparency about the origins and limits of the knowledge we create.<br><br>
+            
+            This is the path forward. It asks for humility from those of us who build these systems. It requires that we design our audits not as proofs of perfection, but as testaments to our thoroughness and our honesty. The goal is a system that speaks about what it knows, and also about what it does not. That kind of careful, truthful conversation is, I believe, the only real foundation for lasting trust.
+        </div>
+    </div>
+
+    <div class="categories">
+        <h3>Categories</h3>
+        <div class="category-tags">
+            <span class="category-tag">Health Registries</span>
+            <span class="category-tag">AI Ethics</span>
+            <span class="category-tag">Trustworthy AI</span>
+            <span class="category-tag">Epistemic Justice</span>
+            <span class="category-tag">Auditing Frameworks</span>
+            <span class="category-tag">Differential Privacy</span>
+            <span class="category-tag">Clinical Data</span>
+            <span class="category-tag">Knowledge Stewardship</span>
+        </div>
+    </div>
+</body>
+</html>
