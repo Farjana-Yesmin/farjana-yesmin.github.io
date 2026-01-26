@@ -125,11 +125,11 @@
     </div>
     
     <div class="post-content">
-        <p>Privacy is non-negotiable in healthcare research and deployment. Techniques like federated learning, homomorphic encryption, and differential privacy allow institutions to collaborate without centralizing patient records. My own work — including the MedHE framework — shows that we can reach high accuracy while dramatically reducing the risk of data leakage.</p>
+        <p>Privacy is non-negotiable in healthcare research and deployment. Techniques like federated learning, homomorphic encryption, and differential privacy allow institutions to collaborate without centralizing patient records. My own work including the MedHE framework shows that we can reach high accuracy while dramatically reducing the risk of data leakage.</p>
 
         <p>Still, privacy is not free. There are subtle epistemic and social costs that deserve attention: the very mechanisms that protect individuals can also change how knowledge is produced, shared, and acted upon in clinical settings.</p>
 
-        <h2>Privacy improves safety — but can hamper collective learning</h2>
+        <h2>Privacy improves safety but can hamper collective learning</h2>
         <p>Federated and encrypted training isolate local data. That isolation protects individuals, but it can also obstruct the formation of shared, granular insights that come from pooled analyses (e.g., rare adverse event patterns identifiable only when datasets are aggregated). How should we weigh individual privacy against collective medical knowledge?</p>
 
         <div class="concept-box">
@@ -152,7 +152,7 @@
         </ul>
 
         <h2>Applied example: MedHE and communication-efficient privacy</h2>
-        <p>MedHE integrates adaptive gradient sparsification with CKKS homomorphic encryption to achieve significant communication savings and privacy guarantees. Technically, it performs well — but operationally, it highlights the interface challenge: clinicians cannot inspect local gradients or raw training instances, so explanation channels must adapt (e.g., cohort summaries, global failure-mode reports, and counterfactuals that operate at an aggregated level).</p>
+        <p>MedHE integrates adaptive gradient sparsification with CKKS homomorphic encryption to achieve significant communication savings and privacy guarantees. Technically, it performs well but operationally, it highlights the interface challenge: clinicians cannot inspect local gradients or raw training instances, so explanation channels must adapt (e.g., cohort summaries, global failure-mode reports, and counterfactuals that operate at an aggregated level).</p>
 
         <h2>Policy and governance considerations</h2>
         <p>Technical design alone is not sufficient. Institutions should consider governance steps to retain epistemic value while protecting privacy:</p>
