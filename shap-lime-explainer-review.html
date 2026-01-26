@@ -237,9 +237,9 @@
     </div>
     
     <div class="post-content">
-        <p>In my research on Trustworthy AI and intersectional fairness in computer vision, I've learned that model accuracy tells only half the story. When AI systems make decisions that impact people's lives—whether in healthcare, hiring, or criminal justice—the opacity of a "black box" model isn't just a technical limitation; it's an ethical liability. It can perpetuate and even amplify existing societal biases, particularly against intersectional groups that face compounded disadvantages.</p>
+        <p>In my research on Trustworthy AI and intersectional fairness in computer vision, I've learned that model accuracy tells only half the story. When AI systems make decisions that impact people's lives whether in healthcare, hiring, or criminal justice the opacity of a "black box" model isn't just a technical limitation; it's an ethical liability. It can perpetuate and even amplify existing societal biases, particularly against intersectional groups that face compounded disadvantages.</p>
 
-        <p>This is where explainable AI (XAI) becomes not just useful, but essential. In this hands-on review, I'll share my practical experience with two foundational XAI tools—SHAP and LIME—drawn directly from my research on intersectional fairness in image classification. More importantly, I'll explore what these tools can and cannot tell us about model trustworthiness, and why technical explanations alone are insufficient for building truly fair AI systems.</p>
+        <p>This is where explainable AI (XAI) becomes not just useful, but essential. In this hands-on review, I'll share my practical experience with two foundational XAI tools SHAP and LIME drawn directly from my research on intersectional fairness in image classification. More importantly, I'll explore what these tools can and cannot tell us about model trustworthiness, and why technical explanations alone are insufficient for building truly fair AI systems.</p>
 
         <h2>The Tools of the Trade: SHAP & LIME in Practice</h2>
         <p>Before diving into code, let's establish why these tools matter for fairness research:</p>
@@ -309,7 +309,7 @@ shap_values, env_contributions = shap_analysis(<br>
 
         <div class="research-insight">
             <strong>What this reveals about model bias:</strong><br>
-            In my experiments, SHAP analysis showed that environmental features contributed 35% more to predictions for underrepresented intersections (like "tables in low-light conditions") compared to well-represented ones. This indicated that the model was relying disproportionately on environmental cues rather than object characteristics for disadvantaged groups—a clear fairness violation.
+            In my experiments, SHAP analysis showed that environmental features contributed 35% more to predictions for underrepresented intersections (like "tables in low-light conditions") compared to well represented ones. This indicated that the model was relying disproportionately on environmental cues rather than object characteristics for disadvantaged groups a clear fairness violation.
         </div>
 
         <h3>LIME for Instance-Level Analysis</h3>
@@ -355,7 +355,7 @@ for feature, weight in explanation.as_list()[:5]:<br>
 
         <div class="research-insight">
             <strong>Interpreting the Results:</strong><br>
-            For a table misclassified in low-light conditions, LIME revealed that the model was overweighting lighting_score and underweighting object_shape_features. This specific insight guided our development of Bias-Weighted Augmentation (BWA)—a data augmentation strategy that applies transformations with intensities proportional to subgroup underrepresentation.
+            For a table misclassified in low-light conditions, LIME revealed that the model was overweighting lighting_score and underweighting object_shape_features. This specific insight guided our development of Bias-Weighted Augmentation (BWA) a data augmentation strategy that applies transformations with intensities proportional to subgroup underrepresentation.
         </div>
 
         <h2>A Critical Analysis: Beyond Technical Explanations</h2>
@@ -401,7 +401,7 @@ for feature, weight in explanation.as_list()[:5]:<br>
         <div class="pros-cons">
             <h3>The Deeper, Epistemic Challenge in Fairness Research:</h3>
             
-            <p><strong>The Plausibility Trap:</strong> Both SHAP and LIME can produce explanations that look reasonable but mask underlying biases. In my work, SHAP values showed high importance for "lighting conditions"—seemingly reasonable, until we realized the model was using lighting as a proxy for object class in underrepresented groups.</p>
+            <p><strong>The Plausibility Trap:</strong> Both SHAP and LIME can produce explanations that look reasonable but mask underlying biases. In my work, SHAP values showed high importance for "lighting conditions" seemingly reasonable, until we realized the model was using lighting as a proxy for object class in underrepresented groups.</p>
             
             <p><strong>The Human Interpretation Gap:</strong> A SHAP summary plot might show that "background complexity" contributes to predictions, but what does this mean for fairness? Without domain expertise and intersectional analysis, we might miss that this disproportionately affects certain object classes in specific environments.</p>
             
@@ -410,7 +410,7 @@ for feature, weight in explanation.as_list()[:5]:<br>
 
         <div class="key-finding">
             <h3>Key Finding from My Research</h3>
-            <p><strong>SHAP analysis revealed that our baseline model relied 57% more on environmental features for underrepresented intersections.</strong> This wasn't just a technical insight—it was a fairness failure that required intervention through our Bias-Weighted Augmentation method.</p>
+            <p><strong>SHAP analysis revealed that our baseline model relied 57% more on environmental features for underrepresented intersections.</strong> This wasn't just a technical insight it was a fairness failure that required intervention through our Bias-Weighted Augmentation method.</p>
             <span class="citation">From: "Data-Driven Analysis of Intersectional Bias in Image Classification" | <a href="https://doi.org/10.48550/arXiv.2510.16072" target="_blank">Read the full paper</a></span>
         </div>
 
@@ -433,7 +433,7 @@ for feature, weight in explanation.as_list()[:5]:<br>
             <strong>From Individual Fairness to Systemic Justice:</strong> Both SHAP and LIME excel at local explanations, but fairness is often a systemic concern. How do we scale these tools to detect and address population-level disparities across intersectional groups?
         </div>
 
-        <p>The path forward requires us to treat explainability not as a box-checking exercise, but as a continuous process of model interrogation and refinement. By combining tools like SHAP and LIME with rigorous fairness metrics, domain expertise, and—most importantly—engagement with affected communities, we can move toward AI systems that are not just accurate, but truly equitable and accountable.</p>
+        <p>The path forward requires us to treat explainability not as a box-checking exercise, but as a continuous process of model interrogation and refinement. By combining tools like SHAP and LIME with rigorous fairness metrics, domain expertise, and most importantly engagement with affected communities, we can move toward AI systems that are not just accurate, but truly equitable and accountable.</p>
 
         <div class="research-insight">
             <strong>Research Note:</strong> The techniques and insights presented here are drawn from my research on intersectional fairness in computer vision. You can explore the complete implementation and analysis in my <a href="https://github.com/Farjana-Yesmin?tab=repositories" target="_blank">GitHub repository</a> and read the full paper <a href="https://doi.org/10.48550/arXiv.2510.16072" target="_blank">here</a>. I welcome conversations about building more transparent and fair AI systems.
