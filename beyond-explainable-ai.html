@@ -140,7 +140,7 @@
     </div>
     
     <div class="post-content">
-        <p>Most technical work on interpretability focuses on shrinking the black box: saliency maps, SHAP values, counterfactuals, rule extraction, and local surrogate models. These are useful tools — I've applied several of them across projects listed on my Publications page — but they don't always deliver the understanding clinicians actually need.</p>
+        <p>Most technical work on interpretability focuses on shrinking the black box: saliency maps, SHAP values, counterfactuals, rule extraction, and local surrogate models. These are useful tools I've applied several of them across projects listed on my Publications page but they don't always deliver the understanding clinicians actually need.</p>
 
         <p>That gap is not just a usability problem; it's conceptual. Two central questions matter: <em>What counts as an explanation?</em> and <em>Who is the explanation for?</em> Answering them changes how we design, evaluate, and deploy XAI.</p>
 
@@ -154,9 +154,9 @@
         <h2>Philosophy gives useful distinctions</h2>
         <p>Some philosophical ideas I find practically helpful:</p>
         <ul>
-            <li><strong>Epistemic opacity</strong> — systems can produce reliable results while remaining only partially intelligible to humans. Privacy-preserving pipelines (e.g., encrypted federated learning) exacerbate opacity: they make systems secure, but also harder to interrogate with standard XAI tools.</li>
-            <li><strong>Explanation vs. justification</strong> — an explanation describes how a model reached an output; a justification explains why acting on that output is rational for the decision-maker. Clinicians require both.</li>
-            <li><strong>Epistemic injustice</strong> — design choices can advantage some users as knowers and disadvantage others. Explanations that assume specific domain knowledge or language proficiency can entrench inequality.</li>
+            <li><strong>Epistemic opacity</strong> - systems can produce reliable results while remaining only partially intelligible to humans. Privacy-preserving pipelines (e.g., encrypted federated learning) exacerbate opacity: they make systems secure, but also harder to interrogate with standard XAI tools.</li>
+            <li><strong>Explanation vs. justification</strong> - an explanation describes how a model reached an output; a justification explains why acting on that output is rational for the decision-maker. Clinicians require both.</li>
+            <li><strong>Epistemic injustice</strong> - design choices can advantage some users as knowers and disadvantage others. Explanations that assume specific domain knowledge or language proficiency can entrench inequality.</li>
         </ul>
 
         <h2>Design implications for XAI</h2>
@@ -164,11 +164,11 @@
         <ol>
             <li><strong>Audience-specific explanations:</strong> produce actionable, high-level rationales for clinicians; produce technical fidelity reports for model auditors; produce concise, comprehensible narratives for patients.</li>
             <li><strong>Actionability & calibration:</strong> evaluate whether explanations help users make better decisions or appropriately calibrate trust. This requires human-in-the-loop studies, not just proxy metrics.</li>
-            <li><strong>Privacy-aware interpretability:</strong> in privacy-preserving systems (like MedHE), standard XAI probes on raw gradients are unavailable. Design explanations that operate at encrypted or aggregated abstraction levels — cohort-level summaries, uncertainty bands, and example-based explanations that do not leak sensitive data.</li>
+            <li><strong>Privacy-aware interpretability:</strong> in privacy-preserving systems (like MedHE), standard XAI probes on raw gradients are unavailable. Design explanations that operate at encrypted or aggregated abstraction levels cohort-level summaries, uncertainty bands, and example-based explanations that do not leak sensitive data.</li>
         </ol>
 
         <h2>Concrete links to my work</h2>
-        <p>Privacy-preserving federated learning projects such as <em>MedHE</em> demonstrate that we can retain high performance while preserving privacy — but they also highlight interpretability gaps that arise when gradients are encrypted or sparsified. Complementary projects in my publications explore fairness-aware representation learning and interpretable hybrid frameworks.</p>
+        <p>Privacy-preserving federated learning projects such as <em>MedHE</em> demonstrate that we can retain high performance while preserving privacy but they also highlight interpretability gaps that arise when gradients are encrypted or sparsified. Complementary projects in my publications explore fairness-aware representation learning and interpretable hybrid frameworks.</p>
 
         <blockquote>
             "A usable explanation for a clinician need not reveal training data; it must reveal the model's limits, typical failure modes, and the sources of uncertainty relevant to the current patient."
