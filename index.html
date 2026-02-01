@@ -917,10 +917,10 @@
             box-shadow: var(--shadow-lg);
         }
 
-        /* Certifications */
+        /* Certifications - UPDATED */
         .certifications-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
             max-width: 1000px;
             margin: 0 auto;
@@ -928,22 +928,69 @@
 
         .certification-item {
             background: var(--white);
-            padding: 1.5rem;
+            padding: 2rem;
             border-radius: 12px;
             box-shadow: var(--shadow);
             transition: var(--transition);
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid rgba(37, 99, 235, 0.1);
         }
 
         .certification-item:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
         }
 
-        .certification-item i {
-            font-size: 2.5rem;
-            color: var(--primary);
+        .certification-item i.fa-certificate {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .certification-item h3 {
             margin-bottom: 1rem;
+            font-size: 1.2rem;
+            color: var(--dark);
+        }
+
+        .certification-item p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+
+        /* Certificate button styling - FIXED */
+        .certificate-button {
+            margin-top: 1.5rem;
+            padding: 0.7rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .certificate-button i {
+            font-size: 1rem;
+            color: white;
+        }
+
+        .certificate-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            background: linear-gradient(135deg, var(--primary-dark), var(--secondary));
         }
 
         /* Interests */
@@ -1483,6 +1530,11 @@
             .featured-logo {
                 text-align: left;
             }
+            
+            /* Certifications responsive */
+            .certifications-container {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1515,6 +1567,10 @@
             .contact-links a {
                 width: 45px;
                 height: 45px;
+            }
+            
+            .certification-item {
+                padding: 1.5rem;
             }
         }
         
@@ -2060,7 +2116,7 @@
                 <img src="assets/img/certified-peer-reviewer-course-certificate.jpg" 
                      alt="Elsevier Certified Peer Reviewer Certificate" 
                      style="max-width: 100%; border-radius: 8px; box-shadow: var(--shadow);"
-                     onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQ1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmFmYWZhIi8+PHRleHQgeD0iNTAlIiB5PSI0MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0iIzMzMzMzMyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RWxzZXZpZXIgQ2VydGlmaWNhdGU8L3RleHQ+PHRleHQgeD0iNTAlIiB5PSI1NSUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzY2NjY2NiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Q2VydGlmaWVkIFBlZXIgUmV2aWV3ZXI8YnIvPkNvdXJzZSBDZXJ0aWZpY2F0ZTwvdGV4dD48dGV4dCB4PSI1MCUiIHkPSI3MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzY2NjY2NiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RmFyamFuYSBZZXNtaW48YnI+MyBob3VycyAxNSBtaW51dGVzPGJyLz5KYW51YXJ5IDMxLCAyMDI2PC90ZXh0Pjwvc3ZnPg=='">
+                     onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQ1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmFmYWZhIi8+PHRleHQgeD0iNTAlIiB5PSI0MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0iIzMzMzMzMyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RWxzZXZpZXIgQ2VydGlmaWNhdGU8L3RleHQ+PHRleHQgeD0iNTAlIiB5PSI1NSUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzY2NjY2NiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Q2VydGlmaWVkIFBlZXIgUmV2aWV3ZXI8YnIvPkNvdXJzZSBDZXJ0aWZpY2F0ZTwvdGV4dD48dGV4dCB4PSI1MCUiIHk9IjcwJSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSIjNjY2NjY2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5GYXJqYW5hIFllc21pbjxicj4zIGhvdXJzIDE1IG1pbnV0ZXM8YnIvPkphbnVhcnkgMzEsIDIwMjY8L3RleHQ+PC9zdmc+'">
             </div>
             <div style="background: #f8fafc; padding: 15px; border-radius: 8px; margin-top: 20px;">
                 <h4>Certificate Details:</h4>
@@ -2240,7 +2296,7 @@
         </div>
     </section>
 
-    <!-- Certifications Section -->
+    <!-- Certifications Section - UPDATED -->
     <section id="certifications">
         <div class="container">
             <h2 class="section-title">Certifications</h2>
@@ -2254,7 +2310,7 @@
                         Duration: 3.5 hours<br>
                         Issued: January 31, 2026
                     </p>
-                    <button onclick="openCertificateModal('natureCert')" class="btn btn-small" style="margin-top: 1rem;">
+                    <button onclick="openCertificateModal('natureCert')" class="certificate-button">
                         <i class="fas fa-eye"></i> View Certificate
                     </button>
                 </div>
@@ -2267,7 +2323,7 @@
                         Completed: January 31, 2026<br>
                         Duration: 3 hours 15 minutes
                     </p>
-                    <button onclick="openCertificateModal('elsevierCert')" class="btn btn-small" style="margin-top: 1rem;">
+                    <button onclick="openCertificateModal('elsevierCert')" class="certificate-button">
                         <i class="fas fa-eye"></i> View Certificate
                     </button>
                 </div>
@@ -2280,7 +2336,7 @@
                         Association for Computing Machinery<br>
                         Professional Training Certificate
                     </p>
-                    <button onclick="openCertificateModal('acmCert')" class="btn btn-small" style="margin-top: 1rem;">
+                    <button onclick="openCertificateModal('acmCert')" class="certificate-button">
                         <i class="fas fa-eye"></i> View Certificate
                     </button>
                 </div>
