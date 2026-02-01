@@ -949,6 +949,9 @@
         /* SIMPLE FIX: Make eye icon visible in certificate buttons */
         .btn-small .fa-eye {
             color: var(--primary);
+            display: inline-block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
         }
 
         /* Interests */
@@ -3009,7 +3012,7 @@
                     }
                 }
             }
-        });
+        }
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
