@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Black Box to Arguable System: A Practical Framework for Clinician–AI Collaboration - Farjana's Research Blog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.7;
+            color: #444;
+            background-color: #f8f9fa;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .back-link {
+            margin-bottom: 30px;
+        }
+        .back-link a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+        h1 {
+            color: #2563eb;
+            margin-bottom: 10px;
+            font-size: 2.4rem;
+        }
+        .author {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        .post-meta {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 20px;
+        }
+        .post-content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            border-left: 4px solid #2563eb;
+        }
+        .post-content h2 {
+            color: #1e293b;
+            margin: 2rem 0 1rem 0;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+        .post-content h3 {
+            color: #2563eb;
+            margin: 1.5rem 0 0.5rem 0;
+        }
+        .post-content p {
+            margin-bottom: 1.2rem;
+            color: #666;
+        }
+        .post-content ul, .post-content ol {
+            margin-left: 20px;
+            margin-bottom: 1.2rem;
+            color: #666;
+        }
+        .post-content li {
+            margin-bottom: 0.5rem;
+        }
+        .intro-reflection {
+            background: rgba(37, 99, 235, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #2563eb;
+            font-style: italic;
+        }
+        .concept-box {
+            background: rgba(168, 85, 247, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 3px solid #a855f7;
+        }
+        .categories {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+        .categories h3 {
+            color: #2563eb;
+            margin-bottom: 1rem;
+        }
+        .category-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .category-tag {
+            background: rgba(37, 99, 235, 0.1);
+            color: #2563eb;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .challenge-box {
+            background: rgba(239, 68, 68, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 3px solid #ef4444;
+        }
+        .example-box {
+            background: rgba(34, 197, 94, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 3px solid #16a34a;
+        }
+        .solution-framework {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin: 2.5rem 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        .solution-framework h3 {
+            color: white;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .solution-framework h3::before {
+            content: "🔧";
+            font-size: 1.5rem;
+        }
+        .solution-framework ul {
+            color: rgba(255, 255, 255, 0.95);
+        }
+        .solution-framework li {
+            margin-bottom: 0.8rem;
+            padding-left: 0.5rem;
+        }
+        .pipeline-box {
+            background: rgba(245, 158, 11, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 3px solid #f59e0b;
+        }
+        .pipeline-step {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .pipeline-step:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        .step-number {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        .reference-list {
+            background: rgba(107, 114, 128, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .reference-list h3 {
+            color: #374151;
+            margin-bottom: 1rem;
+        }
+        .reference-item {
+            margin-bottom: 0.8rem;
+            padding-left: 1rem;
+            border-left: 2px solid #d1d5db;
+        }
+        .conclusion-reflection {
+            background: rgba(99, 102, 241, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 3px solid #6366f1;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="back-link">
+        <a href="/blog.html">← Back to Blog</a>
+    </div>
+    
+    <h1>From Black Box to Arguable System: A Practical Framework for Clinician–AI Collaboration</h1>
+    <div class="author">By Farjana Yesmin | Data Scientist & ML Researcher</div>
+    
+    <div class="post-meta">
+        <strong>Published:</strong> April 5, 2026<br>
+        <strong>Categories:</strong> Clinical AI, Human-AI Collaboration, Explainable AI, Healthcare Systems
+    </div>
+    
+    <div class="post-content">
+        <div class="intro-reflection">
+            On January 27, I wrote about the "clinician's black box." The tension was simple. We keep asking clinicians to trust systems that cannot explain themselves in clinical language. The output may be 95% accurate. But the path from input to output stays hidden. In practice, this creates three reactions: blind trust, quiet rejection, or that uncomfortable feeling of being overruled by a machine you do not understand.
+        </div>
+
+        <p>Since January, I have been thinking less about explainability as a technical patch and more about argumentation as a design principle. What if we stop trying to make models perfectly transparent? What if we make them arguable instead?</p>
+
+        <div class="concept-box">
+            <strong>What Makes a System Arguable:</strong><br>
+            An arguable system does not claim to be right. It presents a claim, the evidence it used, and its own doubts. Then it steps back and lets the clinician agree, push back, or say "you missed something." That is collaboration. That is not automation.
+        </div>
+
+        <h2>The Double Black Box Is Real</h2>
+        
+        <div class="challenge-box">
+            <strong>Federation Opacity:</strong><br><br>
+            We are piling complexity onto complexity. Federated learning protects privacy, yes. But as Hatherley, Søgaard, Ballantyne, and Pauwels pointed out in their 2025 paper, it also creates "federation opacity." You now have a black box model trained on invisible data across invisible sites. The clinician sees a prediction for an ECG or a dengue patient but has no idea what distribution the model learned from. That is not one black box. That is two.<br><br>
+            
+            When a model flags "High Risk" and the patient looks stable, there is no middle ground. You either trust a system you cannot see into, or you ignore it completely. Neither is safe.
+        </div>
+
+        <h2>What Makes a System Arguable</h2>
+        
+        <p>Three things, from what I have tested in my own work.</p>
+
+        <div class="solution-framework">
+            <h3>Three Pillars of Arguable Systems</h3>
+            <ul>
+                <li><strong>Rule-Augmented Neural Networks:</strong> You let the neural network learn complex patterns from thousands of cases. But you run its output through a symbolic layer of actual clinical rules. The rules act as guardrails. If the neural network finds a correlation that violates WHO guidelines or basic physiology, the rule layer flags it. The model cannot just output a probability. It has to show which rules it used and which ones it broke.</li>
+                
+                <li><strong>Structured Uncertainty Reporting:</strong> A prediction without a confidence interval is just a guess. But a single uncertainty score is not enough either. Clinicians need to know what kind of uncertainty they are looking at. Is the input data noisy? Has the model seen a case like this before? Do the rules and the learned patterns disagree? An arguable system tells you the difference.</li>
+                
+                <li><strong>A Claim You Can Push Back On:</strong> The system should present its output as a position, not a verdict. Something like: "I think this is high risk, here is why, but I am uncertain about these two things." That invites a response. That keeps the clinician in charge.</li>
+            </ul>
+        </div>
+
+        <h2>A Small Example from My Dengue Work</h2>
+        
+        <div class="example-box">
+            <strong>Rule-Augmented Dengue Triage Chatbot:</strong><br><br>
+            Let me walk you through something we actually built.<br><br>
+            
+            We had a symptom triage chatbot for dengue in Bangladesh. The first version was a simple decision tree. It followed WHO warning signs directly: platelet thresholds, vomiting, abdominal pain, bleeding. The rules were transparent but brittle. The model missed subtle combinations that local clinicians spotted immediately.<br><br>
+            
+            So we tested a rule-augmented version. The neural network learned embeddings from patient reported symptoms and basic lab trends across thousands of cases. The symbolic layer still enforced the exact rules that clinicians expect. When the hybrid system flagged a case, it showed three things together:<br><br>
+            
+            <strong>Claim:</strong> Moderate risk of dengue with warning signs.<br>
+            <strong>Evidence from model:</strong> Platelet trend downward over 48 hours. Persistent fever day 4.<br>
+            <strong>Rule alignment:</strong> Matches WHO criteria for warning signs. Does not meet criteria for severe dengue (no bleeding, no plasma leakage).<br>
+            <strong>Uncertainty:</strong> Moderate. The patient's description of "bone pain" in Bangla colloquial terms was underrepresented in our training data.<br><br>
+            
+            Now the clinician can argue. One reviewer looked at that output and said: "In my experience, that phrasing plus this patient's address in an endemic urban slum raises concern for early plasma leakage. I am moving this to high risk."<br><br>
+            
+            The system did not argue back. It simply accepted the override and logged the disagreement for retraining. That is the difference between an oracle and a colleague. The model made its logic available for challenge. The final decision stayed with the human.
+        </div>
+
+        <div class="example-box">
+            <strong>From Our Fairness Aware ECG Work:</strong><br><br>
+            I have seen the same pattern in our fairness aware ECG work. The neural representation learning picks up fine waveform patterns. The rule layers enforce age and sex specific thresholds from local guidelines. Uncertainty reporting highlights when skin tone or motion artifacts degrade signal quality. The clinician decides whether to trust the output or order a confirmatory test. The model stays open to scrutiny.
+        </div>
+
+        <h2>Why This Matters Right Now</h2>
+        
+        <p>Recent literature backs this up from multiple angles.</p>
+
+        <div class="concept-box">
+            <strong>Evidence from Recent Research:</strong><br><br>
+            Parsons, Zuiderwijk, and Orchard published a systematic review in BMC Medical Informatics late last year on Task-Technology Fit. Their finding was straightforward: AI tools fail when they do not leave room for human expertise. The friction becomes unproductive. An arguable system fits because it mirrors how clinicians already think.<br><br>
+            
+            Rosenbacke's PhD work from Copenhagen Business School looked at cognitive challenges in human AI teams. He found that unexamined reliance leads to new errors. Clinicians develop heuristics around when to trust and when to ignore. Those heuristics are often wrong. But when systems invite argument, they keep the clinician's critical thinking engaged.<br><br>
+            
+            Even the survey work from Ojha and colleagues in ACM Transactions on Computing for Healthcare points the same direction. Trustworthiness is not just about accuracy. It is about seeing uncertainty and being able to engage the reasoning behind the result.
+        </div>
+
+        <h2>We Need Different Success Metrics</h2>
+        
+        <p>If we adopt this framework, we have to change how we measure success. Accuracy on a held out test set is no longer enough.</p>
+
+        <div class="pipeline-box">
+            <strong>Responsibility Preserving Performance:</strong><br><br>
+            We should track what I call responsibility preserving performance. Does the system leave clinicians better equipped to defend their decisions? Does it surface the right moments for human override? When the AI and the clinician disagree, does that disagreement lead to better outcomes or just more frustration?<br><br>
+            
+            These are harder metrics. They take longer to collect. But they match what actually happens at the bedside.
+        </div>
+
+        <h2>A Simple Pipeline to Build Arguable Systems</h2>
+        
+        <div class="pipeline-box">
+            <div class="pipeline-step">
+                <span class="step-number">1</span>
+                <strong>Train your base neural model normally.</strong> Track where it struggles.
+            </div>
+            
+            <div class="pipeline-step">
+                <span class="step-number">2</span>
+                <strong>Identify clinically meaningful rules.</strong> Pull them from guidelines, local protocols, or expert interviews. Do not guess. Go talk to the clinicians who will use the system.
+            </div>
+            
+            <div class="pipeline-step">
+                <span class="step-number">3</span>
+                <strong>Build a symbolic layer</strong> that checks agreement and conflict between the neural output and those rules.
+            </div>
+            
+            <div class="pipeline-step">
+                <span class="step-number">4</span>
+                <strong>Force the system to produce structured output:</strong> claim, evidence, rule alignment, and uncertainty type.
+            </div>
+            
+            <div class="pipeline-step">
+                <span class="step-number">5</span>
+                <strong>Test with real clinicians.</strong> Watch how they interpret the output. Watch where they argue. Fix those places.
+            </div>
+        </div>
+
+        <div class="conclusion-reflection">
+            The last step is the one everyone skips. A model that is slightly less accurate but more arguable will almost always lead to better real world decisions.
+        </div>
+
+        <h2>Closing Thought</h2>
+        
+        <div class="conclusion-reflection">
+            We do not need perfectly transparent models. That goal is probably impossible anyway. Neural networks are messy. So are human brains. The difference is that clinicians are used to arguing with each other. They present evidence. They admit uncertainty. They change their minds when new data arrives.<br><br>
+            
+            We should build AI that does the same thing.<br><br>
+            
+            The black box is not going away. But we can wrap it in rules, structure, and uncertainty reporting that makes it contestable. An arguable system does not ask for blind trust. It invites scrutiny. And in a dengue ward or an ICU or a primary care clinic, that is exactly what we should want.
+        </div>
+
+        <div class="reference-list">
+            <h3>References</h3>
+            <div class="reference-item">
+                Hatherley, J., Søgaard, A., Ballantyne, A., & Pauwels, R. (2025). Federated learning, ethics, and the double black box problem in medical AI. arXiv:2504.20656.
+            </div>
+            <div class="reference-item">
+                Parsons, C.S., Zuiderwijk, A., Orchard, N.A. et al. (2025). Task-Technology Fit of Artificial Intelligence-based clinical decision support systems: a review of qualitative studies. <em>BMC Medical Informatics and Decision Making</em>, 25, 397.
+            </div>
+            <div class="reference-item">
+                Rosenbacke, R. (2025). Cognitive Challenges in Human-AI Collaboration: A Study on Trust, Errors, and Heuristics in Clinical Decision-Making. PhD Series No. 04.2025, Copenhagen Business School.
+            </div>
+            <div class="reference-item">
+                Ojha, J., Presacan, O., Lind, P.G., Monteiro, E., & Yazidi, A. (2025). Navigating Uncertainty: A User-Perspective Survey of Trustworthiness of AI in Healthcare. <em>ACM Transactions on Computing for Healthcare</em>, 6(3), 1-32.
+            </div>
+            <div class="reference-item">
+                Thamson, K., & Panahi, O. (2025). Bridging the Gap: AI as a Collaborative Tool between Clinicians and Researchers. <em>Journal of Biomedical Advancement Scientific Research</em>, 1(2), 1-08.
+            </div>
+        </div>
+    </div>
+
+    <div class="categories">
+        <h3>Categories</h3>
+        <div class="category-tags">
+            <span class="category-tag">Clinical AI</span>
+            <span class="category-tag">Human-AI Collaboration</span>
+            <span class="category-tag">Explainable AI</span>
+            <span class="category-tag">Healthcare Systems</span>
+            <span class="category-tag">Rule-Augmented Networks</span>
+            <span class="category-tag">Dengue Triage</span>
+            <span class="category-tag">ECG Fairness</span>
+            <span class="category-tag">Clinical Decision Support</span>
+        </div>
+    </div>
+</body>
+</html>
