@@ -1,683 +1,504 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hei! My Journey to Learning Norwegian - Diamond League Achieved!</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.7;
-            color: #444;
-            background-color: #f8f9fa;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        .back-link {
-            margin-bottom: 30px;
-        }
-        .back-link a {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .back-link a:hover {
-            text-decoration: underline;
-        }
-        h1 {
-            color: #2563eb;
-            margin-bottom: 10px;
-            font-size: 2.5rem;
-        }
-        .post-meta {
-            color: #666;
-            font-size: 1rem;
-            margin-bottom: 30px;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 20px;
-        }
-        .post-content {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-            border-left: 4px solid #2563eb;
-        }
-        .post-content h2 {
-            color: #1e293b;
-            margin: 2rem 0 1rem 0;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 0.5rem;
-        }
-        .post-content h3 {
-            color: #2563eb;
-            margin: 1.5rem 0 0.5rem 0;
-        }
-        .post-content p {
-            margin-bottom: 1.2rem;
-            color: #666;
-        }
-        .post-content ul, .post-content ol {
-            margin-left: 20px;
-            margin-bottom: 1.2rem;
-            color: #666;
-        }
-        .post-content li {
-            margin-bottom: 0.5rem;
-        }
-        .concept-box {
-            background: rgba(37, 99, 235, 0.05);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 4px solid #2563eb;
-        }
-        .results-highlight {
-            background: rgba(34, 197, 94, 0.1);
-            padding: 1rem;
-            border-radius: 6px;
-            margin: 1rem 0;
-            border-left: 3px solid #16a34a;
-        }
-        .categories {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-top: 2rem;
-        }
-        .categories h3 {
-            color: #2563eb;
-            margin-bottom: 1rem;
-        }
-        .category-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        .category-tag {
-            background: rgba(37, 99, 235, 0.1);
-            color: #2563eb;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-        .progress-box {
-            background: rgba(139, 69, 19, 0.05);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 4px solid #8B4513;
-        }
-        .vocab-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1rem;
-            margin: 1.5rem 0;
-        }
-        .vocab-item {
-            background: rgba(37, 99, 235, 0.05);
-            padding: 1rem;
-            border-radius: 6px;
-            border-left: 3px solid #2563eb;
-        }
-        .vocab-norwegian {
-            font-weight: bold;
-            color: #2563eb;
-        }
-        .vocab-english {
-            color: #666;
-            font-style: italic;
-        }
-        .vocabulary-section {
-            margin: 2rem 0;
-        }
-        .vocabulary-category {
-            margin-bottom: 2rem;
-        }
-        .vocabulary-category h3 {
-            color: #1e293b;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin: 1.5rem 0;
-        }
-        .stat-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            text-align: center;
-            border-top: 4px solid #2563eb;
-        }
-        .stat-card.diamond {
-            border-top: 4px solid #b9f2ff;
-        }
-        .stat-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #2563eb;
-            margin-bottom: 0.5rem;
-        }
-        .stat-card.diamond .stat-number {
-            color: #b9f2ff;
-        }
-        .stat-label {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        .unit-progress {
-            margin: 2rem 0;
-        }
-        .unit-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            margin-bottom: 1rem;
-            border-left: 4px solid #2563eb;
-        }
-        .unit-title {
-            font-weight: bold;
-            color: #1e293b;
-            margin-bottom: 0.5rem;
-        }
-        .unit-description {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        .new-badge {
-            background: #ffd700;
-            color: #8B4513;
-            padding: 0.2rem 0.6rem;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            font-weight: bold;
-            margin-left: 0.5rem;
-            vertical-align: middle;
-        }
-        .amethyst-badge {
-            background: #9966cc;
-            color: white;
-            padding: 0.2rem 0.6rem;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            font-weight: bold;
-            margin-left: 0.5rem;
-            vertical-align: middle;
-        }
-        .diamond-badge {
-            background: linear-gradient(45deg, #b9f2ff, #e0f7ff);
-            color: #1e293b;
-            padding: 0.2rem 0.6rem;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            font-weight: bold;
-            margin-left: 0.5rem;
-            vertical-align: middle;
-            border: 1px solid #a0e1ff;
-        }
-        .champion-badge {
-            background: #ffd700;
-            color: #8B4513;
-            padding: 0.3rem 0.8rem;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-left: 0.5rem;
-            vertical-align: middle;
-        }
-        .wildfire-badge {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-left: 0.5rem;
-            vertical-align: middle;
-        }
-    </style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hei! My Journey to Learning Norwegian - Diamond League Achieved! · Farjana Yesmin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --ink:   #111827;
+      --mid:   #4b5563;
+      --light: #9ca3af;
+      --rule:  #e5e7eb;
+      --bg:    #ffffff;
+      --tint:  #f9fafb;
+      --green: #065f46;
+      --glt:   #ecfdf5;
+      --serif: 'Lora', Georgia, serif;
+      --sans:  'Inter', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      position: sticky; top: 0; z-index: 50;
+      border-bottom: 1px solid var(--rule);
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(6px);
+    }
+    nav {
+      max-width: 860px; margin: 0 auto; padding: 0 24px;
+      height: 52px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-ul { display: flex; list-style: none; gap: 2px; }
+    .nav-ul a {
+      font-size: 0.75rem; font-weight: 500; letter-spacing: .05em; text-transform: uppercase;
+      color: var(--mid); padding: 5px 10px; border-radius: 5px; transition: color .15s;
+    }
+    .nav-ul a:hover { color: var(--green); text-decoration: none; }
+    .nav-ul a.active { color: var(--green); }
+    .hamburger { display: none; background: none; border: none; font-size: 1.1rem; cursor: pointer; color: var(--mid); }
+
+    .post-page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+    .post-header {
+      margin-bottom: 48px;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 28px;
+    }
+    .post-date {
+      font-size: 0.85rem;
+      color: var(--light);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 12px;
+    }
+    .post-title {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .post-meta {
+      font-size: 0.85rem;
+      color: var(--mid);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .post-content {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      color: #2c2c2c;
+    }
+    .post-content p {
+      margin-bottom: 1.5rem;
+    }
+    .post-content h2 {
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 1.4rem;
+      margin: 2rem 0 1rem;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+    .post-content h3 {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 1.2rem;
+      margin: 1.8rem 0 0.8rem;
+      color: var(--green);
+    }
+    .post-content .concept-box,
+    .post-content .progress-box,
+    .post-content .results-highlight {
+      background: var(--tint);
+      border-left: 4px solid var(--green);
+      padding: 1.2rem 1.8rem;
+      margin: 1.8rem 0;
+      border-radius: 0 12px 12px 0;
+    }
+    /* custom stats & vocab */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .stat-card {
+      background: white;
+      padding: 1.2rem;
+      border-radius: 16px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      text-align: center;
+      border-top: 4px solid var(--green);
+    }
+    .stat-card.diamond {
+      border-top-color: #b9f2ff;
+    }
+    .stat-number {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 0.3rem;
+    }
+    .stat-card.diamond .stat-number {
+      color: #0f766e;
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--mid);
+    }
+    .new-badge, .diamond-badge, .amethyst-badge, .champion-badge, .wildfire-badge {
+      display: inline-block;
+      background: #fef3c7;
+      color: #92400e;
+      font-size: 0.65rem;
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-left: 6px;
+      font-weight: 500;
+    }
+    .diamond-badge {
+      background: linear-gradient(135deg, #b9f2ff, #e0f7ff);
+      color: #1e293b;
+    }
+    .vocab-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 0.8rem;
+      margin: 1rem 0;
+    }
+    .vocab-item {
+      background: var(--tint);
+      padding: 0.6rem 1rem;
+      border-radius: 12px;
+      border-left: 3px solid var(--green);
+    }
+    .vocab-norwegian {
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .vocab-english {
+      font-size: 0.85rem;
+      color: var(--mid);
+      font-style: italic;
+    }
+    .vocabulary-category h3 {
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 0.3rem;
+      margin-top: 1.8rem;
+    }
+    .unit-card {
+      background: var(--tint);
+      padding: 1rem;
+      border-radius: 12px;
+      margin: 1rem 0;
+      border-left: 3px solid var(--green);
+    }
+    .post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 2rem 0 1rem;
+    }
+    .post-tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 100px;
+      background: var(--tint);
+      border: 1px solid var(--rule);
+      color: var(--mid);
+      letter-spacing: 0.01em;
+    }
+    .further-reading {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--rule);
+    }
+    .further-reading h3 {
+      font-family: var(--sans);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .further-reading ul {
+      list-style: none;
+      margin-left: 0;
+    }
+    .further-reading li {
+      margin-bottom: 0.5rem;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 2rem;
+      font-size: 0.85rem;
+    }
+    @media (max-width: 640px) {
+      .nav-ul { display: none; }
+      .hamburger { display: block; }
+      .nav-ul.open { display: flex; flex-direction: column; position: absolute; top: 52px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 12px 20px; gap: 6px; }
+      .post-title { font-size: 1.8rem; }
+      .post-page { padding: 40px 20px 80px; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
 </head>
 <body>
-    <div class="back-link">
-        <a href="/blog.html">Back to Blog</a>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo">Farjana Yesmin</a>
+    <button class="hamburger" id="hbg">☰</button>
+    <ul class="nav-ul" id="navul">
+      <li><a href="index.html#research">Research</a></li>
+      <li><a href="index.html#news">News</a></li>
+      <li><a href="index.html#publications">Publications</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="post-page">
+  <div class="back-link">
+    <a href="blog.html">← Back to all posts</a>
+  </div>
+
+  <article>
+    <div class="post-header">
+      <div class="post-date">November 11, 2025</div>
+      <h1 class="post-title">Hei! My Journey to Learning Norwegian – Diamond League Achieved!</h1>
+      <div class="post-meta">
+        <span>By Farjana Yesmin</span>
+        <span>•</span>
+        <span>Updated: January 25, 2026</span>
+      </div>
     </div>
-    
-    <h1>Hei! My Journey to Learning Norwegian - Diamond League Achieved!</h1>
-    
-    <div class="post-meta">
-        <strong>Published:</strong> November 11, 2025<br>
-        <strong>Updated:</strong> January 25, 2026<br>
-        <strong>Categories:</strong> Language Learning, Personal Reflection, Travel, Achievements
-    </div>
-    
+
     <div class="post-content">
-        <p>My Norwegian learning journey continues to reach new heights! Since my last update, I've not only maintained my consistency but achieved major milestones that I'm excited to share. The journey from understanding basic phrases to navigating more complex conversations has been incredibly rewarding.</p>
+      <p>My Norwegian learning journey continues to reach new heights! Since my last update, I've not only maintained my consistency but achieved major milestones that I'm excited to share. The journey from understanding basic phrases to navigating more complex conversations has been incredibly rewarding.</p>
 
-        <div class="stats-grid">
-            <div class="stat-card diamond">
-                <div class="stat-number">75</div>
-                <div class="stat-label">Day Streak <span class="new-badge">NEW!</span></div>
-            </div>
-            <div class="stat-card diamond">
-                <div class="stat-number">30000+</div>
-                <div class="stat-label">Total XP <span class="new-badge">NEW!</span></div>
-            </div>
-            <div class="stat-card diamond">
-                <div class="stat-number">8</div>
-                <div class="stat-label">Top 3 Finishes <span class="new-badge">NEW!</span></div>
-            </div>
-            <div class="stat-card diamond">
-                <div class="stat-number">Diamond</div>
-                <div class="stat-label">Current League <span class="diamond-badge">NEW!</span></div>
-            </div>
+      <div class="stats-grid">
+        <div class="stat-card diamond">
+          <div class="stat-number">75</div>
+          <div class="stat-label">Day Streak <span class="new-badge">NEW!</span></div>
         </div>
-
-        <h2>Major Achievements Unlocked! 🏆</h2>
-        
-        <div class="concept-box" style="border-left: 4px solid #b9f2ff;">
-            <strong style="color: #1e293b; display: block; margin-bottom: 0.5rem;">🎯 CHAMPION Achievement Earned!</strong>
-            <p>I've successfully made it to the <strong>Diamond League</strong> - the highest competitive league in Duolingo! This represents consistent top-tier performance against dedicated language learners from around the world.</p>
+        <div class="stat-card diamond">
+          <div class="stat-number">30,000+</div>
+          <div class="stat-label">Total XP <span class="new-badge">NEW!</span></div>
         </div>
-
-        <div class="concept-box" style="border-left: 4px solid #ff6b6b;">
-            <strong style="color: #1e293b; display: block; margin-bottom: 0.5rem;">🔥 WILDFIRE Achievement Progress!</strong>
-            <p>Reached <strong>EL 7</strong> in the Wildfire achievement! My current 75-day streak puts me well on track toward reaching the 125-day streak milestone. The consistency of daily practice has transformed Norwegian from a learning project to a daily habit.</p>
+        <div class="stat-card diamond">
+          <div class="stat-number">8</div>
+          <div class="stat-label">Top 3 Finishes <span class="new-badge">NEW!</span></div>
         </div>
-
-        <div class="concept-box" style="border-left: 4px solid #9966cc;">
-            <strong style="color: #1e293b; display: block; margin-bottom: 0.5rem;">🧠 SAGE Achievement Earned!</strong>
-            <p>Successfully earned <strong>30,000 XP</strong> and unlocked the Sage achievement! This represents significant dedication and learning progress, putting me among the top performers in the Norwegian course.</p>
+        <div class="stat-card diamond">
+          <div class="stat-number">Diamond</div>
+          <div class="stat-label">Current League <span class="diamond-badge">NEW!</span></div>
         </div>
+      </div>
 
-        <h2>New Vocabulary & Concepts Learned</h2>
-        <p>Based on my recent lessons, I've expanded my vocabulary in several key areas:</p>
+      <h2>Major Achievements Unlocked! 🏆</h2>
 
-        <div class="vocabulary-section">
-            <div class="vocabulary-category">
-                <h3>Celebrations & Parties</h3>
-                <div class="vocab-list">
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">feire</div>
-                        <div class="vocab-english">celebrate, be celebrating</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">giest</div>
-                        <div class="vocab-english">guest</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">danser</div>
-                        <div class="vocab-english">am dancing, is dancing, are dancing, dance</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">ballong</div>
-                        <div class="vocab-english">balloon</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">invitasjon</div>
-                        <div class="vocab-english">invitation</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">fest</div>
-                        <div class="vocab-english">fasten, party, partying</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">bursdag</div>
-                        <div class="vocab-english">birthday</div>
-                    </div>
-                </div>
-            </div>
+      <div class="concept-box" style="border-left-color: #b9f2ff;">
+        <strong style="color: #1e293b; display: block; margin-bottom: 0.5rem;">🎯 CHAMPION Achievement Earned!</strong>
+        <p>I've successfully made it to the <strong>Diamond League</strong> – the highest competitive league in Duolingo! This represents consistent top‑tier performance against dedicated language learners from around the world.</p>
+      </div>
 
-            <div class="vocabulary-category">
-                <h3>Colors & Descriptions</h3>
-                <div class="vocab-list">
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">rød</div>
-                        <div class="vocab-english">red</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">klovn</div>
-                        <div class="vocab-english">clown</div>
-                    </div>
-                </div>
-            </div>
+      <div class="concept-box" style="border-left-color: #ff6b6b;">
+        <strong style="color: #1e293b; display: block; margin-bottom: 0.5rem;">🔥 WILDFIRE Achievement Progress!</strong>
+        <p>Reached <strong>EL 7</strong> in the Wildfire achievement! My current 75‑day streak puts me well on track toward reaching the 125‑day streak milestone. The consistency of daily practice has transformed Norwegian from a learning project to a daily habit.</p>
+      </div>
 
-            <div class="vocabulary-category">
-                <h3>Months & Dates</h3>
-                <div class="vocab-list">
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">juli</div>
-                        <div class="vocab-english">July</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">mars</div>
-                        <div class="vocab-english">March, Mars</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">april</div>
-                        <div class="vocab-english">April</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">mai</div>
-                        <div class="vocab-english">May</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">juni</div>
-                        <div class="vocab-english">June</div>
-                    </div>
-                </div>
-            </div>
+      <div class="concept-box" style="border-left-color: #9966cc;">
+        <strong style="color: #1e293b; display: block; margin-bottom: 0.5rem;">🧠 SAGE Achievement Earned!</strong>
+        <p>Successfully earned <strong>30,000 XP</strong> and unlocked the Sage achievement! This represents significant dedication and learning progress, putting me among the top performers in the Norwegian course.</p>
+      </div>
 
-            <div class="vocabulary-category">
-                <h3>Ordinal Numbers</h3>
-                <div class="vocab-list">
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">første</div>
-                        <div class="vocab-english">first</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">femte</div>
-                        <div class="vocab-english">fifth, the fifth, 5th, the 5th</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">fjerde</div>
-                        <div class="vocab-english">fourth, the fourth, 4th, the 4th</div>
-                    </div>
-                </div>
-            </div>
+      <h2>New Vocabulary & Concepts Learned</h2>
+      <p>Based on my recent lessons, I've expanded my vocabulary in several key areas:</p>
 
-            <div class="vocabulary-category">
-                <h3>Time Expressions</h3>
-                <div class="vocab-list">
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">i morgen</div>
-                        <div class="vocab-english">tomorrow</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="vocabulary-category">
-                <h3>Verbs & Actions</h3>
-                <div class="vocab-list">
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">tar</div>
-                        <div class="vocab-english">is making, are taking, make, do ... get, take</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">går</div>
-                        <div class="vocab-english">run, are running, are going, go</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">vent</div>
-                        <div class="vocab-english">wait, expect</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">besøke</div>
-                        <div class="vocab-english">visit</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">bestiller</div>
-                        <div class="vocab-english">am booking, are booking, is booking, book</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="vocabulary-category">
-                <h3>Numbers</h3>
-                <div class="vocab-list">
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">tretten</div>
-                        <div class="vocab-english">thirteen, 13</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">tolv</div>
-                        <div class="vocab-english">twelve, 12</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">elleve</div>
-                        <div class="vocab-english">eleven, 11</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">tjue</div>
-                        <div class="vocab-english">twenty, 20</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">tretti</div>
-                        <div class="vocab-english">thirty</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="vocabulary-category">
-                <h3>Transportation & Directions</h3>
-                <div class="vocab-list">
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">taxi</div>
-                        <div class="vocab-english">taxi</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">buss</div>
-                        <div class="vocab-english">bus</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">adresse</div>
-                        <div class="vocab-english">address</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">gate</div>
-                        <div class="vocab-english">street</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">omtrent</div>
-                        <div class="vocab-english">around, about, nearly, almost, some</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">frem</div>
-                        <div class="vocab-english">ahead, forth, off, forward</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">rett</div>
-                        <div class="vocab-english">straight, the right, right, a right, directly</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">sentrum</div>
-                        <div class="vocab-english">(the) (city) centre, (the) (city) center</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">dyrehage</div>
-                        <div class="vocab-english">zoo</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="vocabulary-category">
-                <h3>Social & Togetherness</h3>
-                <div class="vocab-list">
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">sammen</div>
-                        <div class="vocab-english">together</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">hjemme</div>
-                        <div class="vocab-english">at home, home</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="vocabulary-category">
-                <h3>Food & Dining</h3>
-                <div class="vocab-list">
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">gode</div>
-                        <div class="vocab-english">good, tasty</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">sukker</div>
-                        <div class="vocab-english">sugar</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">dessert</div>
-                        <div class="vocab-english">dessert</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">is</div>
-                        <div class="vocab-english">ice, ice cream</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">søt</div>
-                        <div class="vocab-english">cute, sweet</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">kjøtt</div>
-                        <div class="vocab-english">meat, flesh</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">suppe</div>
-                        <div class="vocab-english">soup</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">drikke</div>
-                        <div class="vocab-english">drink</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="vocabulary-category">
-                <h3>Money & Shopping</h3>
-                <div class="vocab-list">
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">kontant</div>
-                        <div class="vocab-english">cash</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="vocabulary-category">
-                <h3>Useful Phrases</h3>
-                <div class="vocab-list">
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">hurra</div>
-                        <div class="vocab-english">hooray, yay</div>
-                    </div>
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">ver så god</div>
-                        <div class="vocab-english">here you are, enjoy, go ahead, dig in</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="vocabulary-category">
-                <h3>Pronouns</h3>
-                <div class="vocab-list">
-                    <div class="vocab-item">
-                        <div class="vocab-norwegian">meg</div>
-                        <div class="vocab-english">me, myself</div>
-                    </div>
-                </div>
-            </div>
+      <div class="vocabulary-category"><h3>Celebrations & Parties</h3>
+        <div class="vocab-list">
+          <div class="vocab-item"><div class="vocab-norwegian">feire</div><div class="vocab-english">celebrate, be celebrating</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">giest</div><div class="vocab-english">guest</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">danser</div><div class="vocab-english">am dancing, is dancing, are dancing, dance</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">ballong</div><div class="vocab-english">balloon</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">invitasjon</div><div class="vocab-english">invitation</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">fest</div><div class="vocab-english">fasten, party, partying</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">bursdag</div><div class="vocab-english">birthday</div></div>
         </div>
+      </div>
 
-        <h2>Practical Conversations I Can Now Have</h2>
-        <p>With my expanded vocabulary, I can now handle even more situations:</p>
-
-        <div class="concept-box">
-            <strong>Planning Celebrations:</strong><br>
-            "Vi skal feire bursdagen min i juli." (We are going to celebrate my birthday in July.)<br>
-            "Jeg sender invitasjoner til gjestene." (I am sending invitations to the guests.)<br>
-            "Det er ballonger og en klovn på festen." (There are balloons and a clown at the party.)
+      <div class="vocabulary-category"><h3>Colors & Descriptions</h3>
+        <div class="vocab-list">
+          <div class="vocab-item"><div class="vocab-norwegian">rød</div><div class="vocab-english">red</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">klovn</div><div class="vocab-english">clown</div></div>
         </div>
+      </div>
 
-        <div class="concept-box">
-            <strong>Giving Directions:</strong><br>
-            "Gå rett frem omtrent tjue meter." (Go straight ahead about twenty meters.)<br>
-            "Sentrum er ikke langt herfra." (The city center is not far from here.)<br>
-            "Ta buss nummer elleve til dyrehagen." (Take bus number eleven to the zoo.)
+      <div class="vocabulary-category"><h3>Months & Dates</h3>
+        <div class="vocab-list">
+          <div class="vocab-item"><div class="vocab-norwegian">juli</div><div class="vocab-english">July</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">mars</div><div class="vocab-english">March, Mars</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">april</div><div class="vocab-english">April</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">mai</div><div class="vocab-english">May</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">juni</div><div class="vocab-english">June</div></div>
         </div>
+      </div>
 
-        <div class="concept-box">
-            <strong>Dining Out:</strong><br>
-            "Jeg bestiller kjøtt og suppe." (I am ordering meat and soup.)<br>
-            "Desserten er veldig søt med sukker." (The dessert is very sweet with sugar.)<br>
-            "Vær så god, håper du liker isen!" (Here you are, hope you like the ice cream!)
+      <div class="vocabulary-category"><h3>Ordinal Numbers</h3>
+        <div class="vocab-list">
+          <div class="vocab-item"><div class="vocab-norwegian">første</div><div class="vocab-english">first</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">femte</div><div class="vocab-english">fifth, the fifth, 5th, the 5th</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">fjerde</div><div class="vocab-english">fourth, the fourth, 4th, the 4th</div></div>
         </div>
+      </div>
 
-        <div class="concept-box">
-            <strong>Making Plans:</strong><br>
-            "I morgen besøker vi sentrum sammen." (Tomorrow we visit the city center together.)<br>
-            "Den første dagen i april er spesiel." (The first day of April is special.)<br>
-            "Vent litt, jeg tar taxien." (Wait a bit, I'll take the taxi.)
+      <div class="vocabulary-category"><h3>Time Expressions</h3>
+        <div class="vocab-list"><div class="vocab-item"><div class="vocab-norwegian">i morgen</div><div class="vocab-english">tomorrow</div></div></div>
+      </div>
+
+      <div class="vocabulary-category"><h3>Verbs & Actions</h3>
+        <div class="vocab-list">
+          <div class="vocab-item"><div class="vocab-norwegian">tar</div><div class="vocab-english">is making, are taking, make, do ... get, take</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">går</div><div class="vocab-english">run, are running, are going, go</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">vent</div><div class="vocab-english">wait, expect</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">besøke</div><div class="vocab-english">visit</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">bestiller</div><div class="vocab-english">am booking, are booking, is booking, book</div></div>
         </div>
+      </div>
 
-        <h2>Grammar Insights & Progress</h2>
-        <p>My continued learning has revealed deeper grammatical structures:</p>
-        <ul>
-            <li><strong>Present tense verb conjugations:</strong> Understanding how verbs change (danser, går, tar, bestiller)</li>
-            <li><strong>Ordinal numbers:</strong> Using "første" (first), "fjerde" (fourth), "femte" (fifth) correctly</li>
-            <li><strong>Prepositional phrases:</strong> "i morgen" (tomorrow), "i juli" (in July), "hjemme" (at home)</li>
-            <li><strong>Adjective usage:</strong> "rød ballong" (red balloon), "søt dessert" (sweet dessert)</li>
-            <li><strong>Verb phrases:</strong> "skal feire" (going to celebrate), "tar taxi" (take taxi)</li>
-        </ul>
-
-        <h2>Reflections on Reaching Diamond League</h2>
-        <p>Reaching the Diamond League with a 75-day streak represents a significant milestone in my language learning journey. The consistency of daily practice has made Norwegian feel increasingly natural. Moving from Amethyst to Diamond League shows how competitive dedication can drive progress.</p>
-
-        <p>Earning 30,000 XP and the Sage achievement demonstrates substantial time investment and learning retention. The 8 Top 3 finishes in weekly leagues show consistent performance against other dedicated learners.</p>
-
-        <div class="progress-box">
-            <strong>Latest Achievement Summary:</strong> I've reached the Diamond League with 30,000+ XP and a 75-day streak! I've achieved the "Sage" milestone (30,000 XP), made significant progress on "Wildfire" (EL 7 toward 125 days), and earned the "Champion" achievement for reaching Diamond League. With 8 Top 3 finishes, I'm competing at the highest level!
+      <div class="vocabulary-category"><h3>Numbers</h3>
+        <div class="vocab-list">
+          <div class="vocab-item"><div class="vocab-norwegian">tretten</div><div class="vocab-english">thirteen, 13</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">tolv</div><div class="vocab-english">twelve, 12</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">elleve</div><div class="vocab-english">eleven, 11</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">tjue</div><div class="vocab-english">twenty, 20</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">tretti</div><div class="vocab-english">thirty</div></div>
         </div>
+      </div>
 
-        <h2>Looking Ahead: Next Goals</h2>
-        <p>My next goals are ambitious but achievable:</p>
-        <ul>
-            <li>Reach 125 day streak (complete Wildfire achievement)</li>
-            <li>Maintain position in Diamond League</li>
-            <li>Reach 40,000 XP milestone</li>
-            <li>Expand vocabulary to 500+ words</li>
-            <li>Begin practicing speaking with Norwegian speakers</li>
-            <li>Start reading simple Norwegian children's books</li>
-        </ul>
-
-        <p>I'm planning to supplement Duolingo with listening practice through Norwegian podcasts and songs to improve comprehension and pronunciation.</p>
-
-        <div class="results-highlight">
-            <strong>Current Status:</strong> Duolingo streak: 75 days (Wildfire EL 7!) | Diamond League achieved! | 30,000+ XP (Sage earned!) | 8 Top 3 finishes | Champion achievement unlocked! Next goal: Reach 125 day streak and maintain Diamond League position!
+      <div class="vocabulary-category"><h3>Transportation & Directions</h3>
+        <div class="vocab-list">
+          <div class="vocab-item"><div class="vocab-norwegian">taxi</div><div class="vocab-english">taxi</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">buss</div><div class="vocab-english">bus</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">adresse</div><div class="vocab-english">address</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">gate</div><div class="vocab-english">street</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">omtrent</div><div class="vocab-english">around, about, nearly, almost, some</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">frem</div><div class="vocab-english">ahead, forth, off, forward</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">rett</div><div class="vocab-english">straight, the right, right, a right, directly</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">sentrum</div><div class="vocab-english">(the) (city) centre, (the) (city) center</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">dyrehage</div><div class="vocab-english">zoo</div></div>
         </div>
+      </div>
 
-        <p>The journey continues to be rewarding, and each new word or phrase learned feels like unlocking another piece of Norwegian culture. På gjensyn! (See you again!)</p>
+      <div class="vocabulary-category"><h3>Social & Togetherness</h3>
+        <div class="vocab-list">
+          <div class="vocab-item"><div class="vocab-norwegian">sammen</div><div class="vocab-english">together</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">hjemme</div><div class="vocab-english">at home, home</div></div>
+        </div>
+      </div>
+
+      <div class="vocabulary-category"><h3>Food & Dining</h3>
+        <div class="vocab-list">
+          <div class="vocab-item"><div class="vocab-norwegian">gode</div><div class="vocab-english">good, tasty</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">sukker</div><div class="vocab-english">sugar</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">dessert</div><div class="vocab-english">dessert</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">is</div><div class="vocab-english">ice, ice cream</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">søt</div><div class="vocab-english">cute, sweet</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">kjøtt</div><div class="vocab-english">meat, flesh</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">suppe</div><div class="vocab-english">soup</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">drikke</div><div class="vocab-english">drink</div></div>
+        </div>
+      </div>
+
+      <div class="vocabulary-category"><h3>Money & Shopping</h3>
+        <div class="vocab-list"><div class="vocab-item"><div class="vocab-norwegian">kontant</div><div class="vocab-english">cash</div></div></div>
+      </div>
+
+      <div class="vocabulary-category"><h3>Useful Phrases</h3>
+        <div class="vocab-list">
+          <div class="vocab-item"><div class="vocab-norwegian">hurra</div><div class="vocab-english">hooray, yay</div></div>
+          <div class="vocab-item"><div class="vocab-norwegian">ver så god</div><div class="vocab-english">here you are, enjoy, go ahead, dig in</div></div>
+        </div>
+      </div>
+
+      <div class="vocabulary-category"><h3>Pronouns</h3>
+        <div class="vocab-list"><div class="vocab-item"><div class="vocab-norwegian">meg</div><div class="vocab-english">me, myself</div></div></div>
+      </div>
+
+      <h2>Practical Conversations I Can Now Have</h2>
+      <div class="concept-box"><strong>Planning Celebrations:</strong><br> "Vi skal feire bursdagen min i juli." (We are going to celebrate my birthday in July.)<br> "Jeg sender invitasjoner til gjestene." (I am sending invitations to the guests.)<br> "Det er ballonger og en klovn på festen." (There are balloons and a clown at the party.)</div>
+      <div class="concept-box"><strong>Giving Directions:</strong><br> "Gå rett frem omtrent tjue meter." (Go straight ahead about twenty meters.)<br> "Sentrum er ikke langt herfra." (The city center is not far from here.)<br> "Ta buss nummer elleve til dyrehagen." (Take bus number eleven to the zoo.)</div>
+      <div class="concept-box"><strong>Dining Out:</strong><br> "Jeg bestiller kjøtt og suppe." (I am ordering meat and soup.)<br> "Desserten er veldig søt med sukker." (The dessert is very sweet with sugar.)<br> "Vær så god, håper du liker isen!" (Here you are, hope you like the ice cream!)</div>
+      <div class="concept-box"><strong>Making Plans:</strong><br> "I morgen besøker vi sentrum sammen." (Tomorrow we visit the city center together.)<br> "Den første dagen i april er spesiell." (The first day of April is special.)<br> "Vent litt, jeg tar taxien." (Wait a bit, I'll take the taxi.)</div>
+
+      <h2>Grammar Insights & Progress</h2>
+      <ul>
+        <li><strong>Present tense verb conjugations:</strong> Understanding how verbs change (danser, går, tar, bestiller)</li>
+        <li><strong>Ordinal numbers:</strong> Using "første" (first), "fjerde" (fourth), "femte" (fifth) correctly</li>
+        <li><strong>Prepositional phrases:</strong> "i morgen" (tomorrow), "i juli" (in July), "hjemme" (at home)</li>
+        <li><strong>Adjective usage:</strong> "rød ballong" (red balloon), "søt dessert" (sweet dessert)</li>
+        <li><strong>Verb phrases:</strong> "skal feire" (going to celebrate), "tar taxi" (take taxi)</li>
+      </ul>
+
+      <h2>Reflections on Reaching Diamond League</h2>
+      <p>Reaching the Diamond League with a 75‑day streak represents a significant milestone in my language learning journey. The consistency of daily practice has made Norwegian feel increasingly natural. Moving from Amethyst to Diamond League shows how competitive dedication can drive progress.</p>
+      <p>Earning 30,000 XP and the Sage achievement demonstrates substantial time investment and learning retention. The 8 Top 3 finishes in weekly leagues show consistent performance against other dedicated learners.</p>
+
+      <div class="progress-box">
+        <strong>Latest Achievement Summary:</strong> I've reached the Diamond League with 30,000+ XP and a 75‑day streak! I've achieved the "Sage" milestone (30,000 XP), made significant progress on "Wildfire" (EL 7 toward 125 days), and earned the "Champion" achievement for reaching Diamond League. With 8 Top 3 finishes, I'm competing at the highest level!
+      </div>
+
+      <h2>Looking Ahead: Next Goals</h2>
+      <ul>
+        <li>Reach 125 day streak (complete Wildfire achievement)</li>
+        <li>Maintain position in Diamond League</li>
+        <li>Reach 40,000 XP milestone</li>
+        <li>Expand vocabulary to 500+ words</li>
+        <li>Begin practicing speaking with Norwegian speakers</li>
+        <li>Start reading simple Norwegian children's books</li>
+      </ul>
+      <p>I'm planning to supplement Duolingo with listening practice through Norwegian podcasts and songs to improve comprehension and pronunciation.</p>
+
+      <div class="results-highlight">
+        <strong>Current Status:</strong> Duolingo streak: 75 days (Wildfire EL 7!) | Diamond League achieved! | 30,000+ XP (Sage earned!) | 8 Top 3 finishes | Champion achievement unlocked! Next goal: Reach 125 day streak and maintain Diamond League position!
+      </div>
+      <p>The journey continues to be rewarding, and each new word or phrase learned feels like unlocking another piece of Norwegian culture. På gjensyn! (See you again!)</p>
     </div>
 
-    <div class="categories">
-        <h3>Categories</h3>
-        <div class="category-tags">
-            <span class="category-tag">Language Learning</span>
-            <span class="category-tag">Personal Reflection</span>
-            <span class="category-tag">Travel</span>
-            <span class="category-tag">Norwegian</span>
-            <span class="category-tag">Culture</span>
-            <span class="category-tag">Duolingo</span>
-            <span class="category-tag">Progress Update</span>
-            <span class="category-tag">Vocabulary</span>
-            <span class="category-tag">Grammar</span>
-            <span class="category-tag">Achievements</span>
-            <span class="category-tag">Diamond League</span>
-            <span class="category-tag">Milestones</span>
-            <span class="category-tag">Language Goals</span>
-        </div>
+    <div class="post-tags">
+      <span class="post-tag">Language Learning</span>
+      <span class="post-tag">Personal Reflection</span>
+      <span class="post-tag">Norwegian</span>
+      <span class="post-tag">Duolingo</span>
+      <span class="post-tag">Diamond League</span>
+      <span class="post-tag">Milestones</span>
     </div>
+
+    <div class="further-reading">
+      <h3>Further reading on this site</h3>
+      <ul>
+        <li><a href="cultural-calculus-healthcare-ai.html">The Cultural Calculus of Care: How Economics and Values Shape Global Healthcare AI</a></li>
+        <li><a href="cost-of-perfect-privacy.html">The Cost of Perfect Privacy: What Differential Privacy Hides from Global Health</a></li>
+        <li><a href="arguable-system-clinician-ai.html">From Black Box to Arguable System: A Practical Framework for Clinician–AI Collaboration</a></li>
+      </ul>
+    </div>
+  </article>
+</div>
+
+<script>
+  document.getElementById('hbg').addEventListener('click', function(){
+    document.getElementById('navul').classList.toggle('open');
+  });
+</script>
 </body>
 </html>
