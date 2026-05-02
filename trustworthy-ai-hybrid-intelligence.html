@@ -1,293 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Future of Trustworthy AI: Why Hybrid Intelligence is the Key to Human Confidence - Farjana's Technical Blog</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.7;
-            color: #444;
-            background-color: #f8f9fa;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        .back-link {
-            margin-bottom: 30px;
-        }
-        .back-link a {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .back-link a:hover {
-            text-decoration: underline;
-        }
-        h1 {
-            color: #2563eb;
-            margin-bottom: 10px;
-            font-size: 2.5rem;
-        }
-        .author {
-            color: #666;
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            font-style: italic;
-        }
-        .post-meta {
-            color: #666;
-            font-size: 1rem;
-            margin-bottom: 30px;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 20px;
-        }
-        .post-content {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-            border-left: 4px solid #2563eb;
-        }
-        .post-content h2 {
-            color: #1e293b;
-            margin: 2rem 0 1rem 0;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 0.5rem;
-        }
-        .post-content h3 {
-            color: #2563eb;
-            margin: 1.5rem 0 0.5rem 0;
-        }
-        .post-content p {
-            margin-bottom: 1.2rem;
-            color: #666;
-        }
-        .post-content ul, .post-content ol {
-            margin-left: 20px;
-            margin-bottom: 1.2rem;
-            color: #666;
-        }
-        .post-content li {
-            margin-bottom: 0.5rem;
-        }
-        .concept-box {
-            background: rgba(37, 99, 235, 0.05);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 4px solid #2563eb;
-        }
-        .code-block {
-            background: #1e293b;
-            color: #e2e8f0;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            overflow-x: auto;
-            text-align: center;
-        }
-        .code-comment {
-            color: #94a3b8;
-            font-style: italic;
-        }
-        .architecture-diagram {
-            background: #f8fafc;
-            padding: 2rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border: 2px solid #e2e8f0;
-            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-            text-align: center;
-        }
-        .research-insight {
-            background: rgba(168, 85, 247, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 3px solid #a855f7;
-        }
-        .categories {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-top: 2rem;
-        }
-        .categories h3 {
-            color: #2563eb;
-            margin-bottom: 1rem;
-        }
-        .category-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        .category-tag {
-            background: rgba(37, 99, 235, 0.1);
-            color: #2563eb;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-        .prediction-box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 12px;
-            margin: 2rem 0;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-        .prediction-box h3 {
-            color: white;
-            margin-bottom: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-        .prediction-box h3::before {
-            content: "🔮";
-            font-size: 1.5rem;
-        }
-        .prediction-box ul {
-            color: rgba(255, 255, 255, 0.95);
-        }
-        .prediction-box li {
-            margin-bottom: 0.8rem;
-            padding-left: 0.5rem;
-        }
-        .healthcare-example {
-            background: rgba(34, 197, 94, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 3px solid #16a34a;
-        }
-    </style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Future of Trustworthy AI: Why Hybrid Intelligence is the Key to Human Confidence · Farjana Yesmin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --ink: #111827;
+      --mid: #4b5563;
+      --light: #9ca3af;
+      --rule: #e5e7eb;
+      --bg: #ffffff;
+      --tint: #f9fafb;
+      --green: #065f46;
+      --glt: #ecfdf5;
+      --serif: 'Lora', Georgia, serif;
+      --sans: 'Inter', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { 
+      font-family: var(--sans); 
+      background: var(--bg); 
+      color: var(--ink); 
+      font-size: 15px; 
+      line-height: 1.75; 
+    }
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      border-bottom: 1px solid var(--rule); 
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(6px);
+    }
+    nav {
+      max-width: 860px; margin: 0 auto; padding: 0 24px;
+      height: 52px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { 
+      font-family: var(--serif); 
+      font-size: 1rem; 
+      font-weight: 600; 
+      color: var(--ink); 
+      text-decoration: none; 
+    }
+    .nav-ul { 
+      display: flex; 
+      list-style: none; 
+      gap: 2px; 
+    }
+    .nav-ul a {
+      font-size: 0.75rem; 
+      font-weight: 500; 
+      letter-spacing: .05em; 
+      text-transform: uppercase;
+      color: var(--mid); 
+      padding: 5px 10px; 
+      border-radius: 5px; 
+      transition: color .15s;
+    }
+    .nav-ul a:hover { color: var(--green); text-decoration: none; }
+    .nav-ul a.active { color: var(--green); }
+    .hamburger { 
+      display: none; 
+      background: none; 
+      border: none; 
+      font-size: 1.1rem; 
+      cursor: pointer; 
+      color: var(--mid); 
+    }
+
+    /* PAGE */
+    .page { 
+      max-width: 760px; 
+      margin: 0 auto; 
+      padding: 52px 24px 100px; 
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--mid);
+      font-size: 0.9rem;
+      margin-bottom: 32px;
+    }
+    .back-link:hover { color: var(--green); }
+
+    .post-header {
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 32px;
+    }
+    .post-title {
+      font-family: var(--serif);
+      font-size: 2.05rem;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .post-meta {
+      color: var(--mid);
+      font-size: 0.9rem;
+    }
+
+    /* POST CONTENT */
+    .post-content {
+      font-size: 1.02rem;
+      max-width: 680px;
+    }
+    .post-content h2 {
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 2.2rem 0 1rem;
+    }
+    .post-content h3 {
+      font-size: 1.2rem;
+      color: var(--green);
+      margin: 1.8rem 0 0.8rem;
+    }
+    .post-content p {
+      margin-bottom: 1.35rem;
+      color: var(--mid);
+    }
+    .post-content ul, .post-content ol {
+      margin: 1.2rem 0 1.4rem 1.4rem;
+      color: var(--mid);
+    }
+    .post-content li {
+      margin-bottom: 0.6rem;
+    }
+
+    .concept-box {
+      background: var(--glt);
+      border-left: 4px solid var(--green);
+      padding: 1.6rem 1.8rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+    .research-insight {
+      background: #f0fdfa;
+      border-left: 4px solid var(--green);
+      padding: 1.6rem 1.8rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+    .healthcare-example {
+      background: #f0fdf4;
+      border-left: 4px solid #4ade80;
+      padding: 1.6rem 1.8rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+    .prediction-box {
+      background: linear-gradient(135deg, #065f46, #0f766e);
+      color: white;
+      padding: 2.2rem;
+      border-radius: 10px;
+      margin: 2.5rem 0;
+    }
+    .prediction-box h3 {
+      color: white;
+      margin-bottom: 1.2rem;
+    }
+    .prediction-box ul {
+      color: #e0f2fe;
+    }
+
+    /* ARCHITECTURE */
+    .architecture-diagram {
+      background: var(--tint);
+      border: 1px solid var(--rule);
+      padding: 1.8rem;
+      border-radius: 8px;
+      margin: 2rem 0;
+      font-family: monospace;
+      white-space: pre;
+      text-align: center;
+      line-height: 1.4;
+      font-size: 0.95rem;
+    }
+
+    /* CATEGORIES */
+    .categories {
+      margin-top: 60px;
+      padding-top: 32px;
+      border-top: 1px solid var(--rule);
+    }
+    .categories h3 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+    }
+    .category-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .category-tag {
+      font-size: 0.78rem;
+      padding: 4px 12px;
+      background: var(--glt);
+      color: var(--green);
+      border: 1px solid #a7f3d0;
+      border-radius: 9999px;
+    }
+
+    @media (max-width: 640px) {
+      .nav-ul { display: none; }
+      .hamburger { display: block; }
+      .nav-ul.open { 
+        display: flex; 
+        flex-direction: column; 
+        position: absolute; 
+        top: 52px; 
+        left: 0; 
+        right: 0; 
+        background: var(--bg); 
+        border-bottom: 1px solid var(--rule); 
+        padding: 12px 20px; 
+        gap: 6px; 
+      }
+      .page { padding: 36px 20px 80px; }
+      .post-title { font-size: 1.85rem; }
+    }
+  </style>
 </head>
 <body>
-    <div class="back-link">
-        <a href="/blog.html">← Back to Blog</a>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">Farjana Yesmin</a>
+      <button class="hamburger" id="hbg">☰</button>
+      <ul class="nav-ul" id="navul">
+        <li><a href="index.html#research">Research</a></li>
+        <li><a href="index.html#news">News</a></li>
+        <li><a href="index.html#publications">Publications</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="page">
+    <a href="blog.html" class="back-link">← Back to Blog</a>
+
+    <div class="post-header">
+      <h1 class="post-title">The Future of Trustworthy AI: Why Hybrid Intelligence is the Key to Human Confidence</h1>
+      <div class="post-meta">
+        <span>November 30, 2025</span>
+        <span>By Farjana Yesmin</span>
+      </div>
     </div>
-    
-    <h1>The Future of Trustworthy AI: Why Hybrid Intelligence is the Key to Human Confidence</h1>
-    <div class="author">By Farjana Yesmin | Data Scientist & ML Researcher</div>
-    
-    <div class="post-meta">
-        <strong>Published:</strong> November 30, 2025<br>
-        <strong>Categories:</strong> Trustworthy AI, Hybrid Intelligence, AI Ethics, Healthcare AI
-    </div>
-    
+
     <div class="post-content">
-        <p>We're living through a remarkable era for artificial intelligence. Deep learning models can now diagnose diseases from medical images and parse complex legal documents with astonishing accuracy. Yet, a stubborn problem persists: the more powerful these systems become, the more they resemble inscrutable "black boxes." We've hit a wall where raw performance isn't enough. True progress now depends on building AI we can genuinely trust.</p>
+      <p>We're living through a remarkable era for artificial intelligence. Yet a stubborn problem persists: the more powerful these systems become, the more they resemble inscrutable "black boxes." True progress now depends on building AI we can genuinely trust.</p>
 
-        <p>My journey, from modeling immune responses in bioinformatics to developing privacy-preserving federated learning frameworks, has consistently revolved around this core challenge. The future of AI isn't just about making models smarter; it's about making them more understandable, reliable, and aligned with human reasoning. The most promising answer emerging from labs and my own research is clear: <strong>Hybrid Symbolic-Neural Models</strong>.</p>
+      <p>The most promising answer is <strong>Hybrid Symbolic-Neural Models</strong>.</p>
 
-        <h2>Moving Beyond the Black Box</h2>
-        
-        <p>For years, we've treated AI's opacity as an unfortunate trade-off for high performance. But that mindset is changing. We're realizing that for AI to be a true partner in high-stakes fields like healthcare, it must be able to explain itself. This isn't just a technical nicety it's an ethical imperative.</p>
+      <h2>Moving Beyond the Black Box</h2>
+      
+      <div class="concept-box">
+        <strong>Hybrid Intelligence combines two forms of intelligence:</strong><br><br>
+        • <strong>Neural Networks</strong> — excel at pattern recognition in messy data<br>
+        • <strong>Symbolic AI</strong> — provides transparent logic, rules, and explanations
+      </div>
 
-        <div class="concept-box">
-            <strong>This is where hybrid models change the game.</strong> They fuse two distinct forms of intelligence:<br><br>
-            
-            <strong>The Pattern Recognizer (Neural Networks):</strong> This is the engine behind today's AI breakthroughs. It excels at finding subtle correlations in massive datasets, like identifying a potential tumor in an MRI scan. Its weakness is its intuition; it can't tell you <em>why</em> it sees what it sees.<br><br>
-            
-            <strong>The Logician (Symbolic AI):</strong> This branch of AI operates on logic, rules, and explicit knowledge. It's inherently transparent and auditable. If you ask it why it reached a conclusion, it can walk you through its reasoning, step by logical step.
-        </div>
+      <p>The neural component handles real-world complexity while the symbolic layer ensures consistency, auditability, and explainability.</p>
 
-        <p>Hybrid models bring these two together. The neural network handles the messy, real-world data, while the symbolic system overlays a framework of rules, constraints, and domain knowledge. The result is an AI that doesn't just guess it reasons.</p>
+      <div class="architecture-diagram">
++--------------------+     +---------------------+
+| Neural Layer       | <-> | Symbolic Layer      |
+| (Pattern Learning) |     | (Rules & Logic)     |
+| - Finds patterns   |     | - Ensures consistency|
+| - Handles noise    |     | - Provides audit trail|
++--------------------+     +---------------------+
+                          |
+                  +-------------------+
+                  | Explainable Output |
+                  +-------------------+
+      </div>
 
-        <p>You can think of the architecture like this:</p>
+      <h2>Where It Matters Most: Healthcare</h2>
+      
+      <div class="healthcare-example">
+        <strong>Real-World Scenario:</strong><br><br>
+        A hybrid clinical assistant might say:<br><br>
+        "The neural component identified a 94% probability of severe dengue. This triggers WHO Rule 4.1 recommending immediate hydration and monitoring for hemorrhagic symptoms."
+      </div>
 
-        <div class="architecture-diagram">
-            +-------------------+       +-------------------+<br>
-            |   Neural Layer    |&lt;----&gt;|   Symbolic Layer  |<br>
-            | (Data Learning)   |       | (Rules & Logic)   |<br>
-            | - Finds Patterns  |       | - Ensures Consistency |<br>
-            | - Handles Uncertainty |   | - Provides Audit Trail |<br>
-            +-------------------+       +-------------------+<br>
-                                          |<br>
-                              +-----------------------+<br>
-                              | Trustworthy, Explainable |<br>
-                              |        Output          |<br>
-                              +-----------------------+
-        </div>
+      <h2>The Ethical Shift</h2>
+      <p>Hybrid models enable "role-sensitive explainability" — giving surgeons detailed traces, patients plain-language summaries, and administrators system-wide reports.</p>
 
-        <div class="research-insight">
-            <strong>Research Insight:</strong><br>
-            This synergy is the heart of the trustworthy systems I build. It moves us from trying to explain a black box after the fact to designing glass-box systems from the ground up. In my work on fairness-aware models, this approach has been crucial for ensuring accuracy doesn't come at the cost of equity.
-        </div>
+      <div class="prediction-box">
+        <h3>Key Developments on the Horizon</h3>
+        <ul>
+          <li>Explainable-by-design becoming standard in regulated domains</li>
+          <li>Open libraries of domain-specific safety rules</li>
+          <li>Trustworthiness as a measurable benchmark</li>
+        </ul>
+      </div>
 
-        <h2>Where It Matters Most: A Revolution in Healthcare</h2>
-        
-        <p>The potential of hybrid AI is most profound in healthcare, where trust is literally a matter of life and death. Let's make this concrete.</p>
-
-        <div class="healthcare-example">
-            <strong>Real-World Healthcare Scenario:</strong><br><br>
-            Imagine an AI clinical assistant for triaging patients during an outbreak. A pure neural network might flag a case based on patterns in patient data. A hybrid system, infused with medical guidelines, could produce something far more powerful:<br><br>
-            
-            <em>"The neural component identified a 94% probability of severe dengue based on the patient's platelet count and fever pattern. This triggers Rule 4.1 from the WHO management protocol, recommending immediate hydration therapy and a warning to watch for hemorrhagic symptoms due to the patient's age demographic."</em>
-        </div>
-
-        <p>This isn't a simple prediction; it's a justified decision. It gives clinicians not just an answer, but a reasoning partner. In my work on fairness-aware models for ECG analysis, this hybrid approach has been crucial for ensuring accuracy doesn't come at the cost of equity, especially for underrepresented patient groups.</p>
-
-        <p>The implications are vast: from reducing diagnostic errors by catching "hallucinations" to creating clear audit trails for liability, hybrid AI is poised to make clinical systems not only more powerful but also safer and more accountable.</p>
-
-        <h2>The Ethical Shift: From Opacity to Governable Transparency</h2>
-        
-        <p>The ethical landscape of AI is also being reshaped by this trend. The old goal was to eliminate opacity entirely a near-impossible task. The new, more nuanced approach is to govern opacity by ensuring the right people get the right explanations at the right time.</p>
-
-        <p>Hybrid models are the technical backbone for this "role-sensitive explainability." A surgeon might need a detailed, rule-based trace of a diagnostic AI's logic. A patient might simply need a high-level, plain-language justification. A hospital administrator might require a system-wide report on how often certain clinical guidelines were invoked.</p>
-
-        <div class="research-insight">
-            <strong>Ethical Framework Integration:</strong><br>
-            This directly addresses the concerns raised in the literature I've engaged with, from the need for institutional trust to the practical challenges of clinical accountability. By building systems that can tailor their transparency, we make AI a more respectful and trustworthy collaborator.
-        </div>
-
-        <h2>What's Next: My Predictions for a Trustworthy AI Future</h2>
-        
-        <div class="prediction-box">
-            <h3>Key Developments on the Horizon</h3>
-            <ul>
-                <li><strong>The "Explainable-by-Design" Mandate:</strong> Within the next few years, hybrid architectures will become the default for any AI in regulated sectors like healthcare and finance. Explainability will shift from a post-hoc add-on to a non-negotiable design requirement, heavily influenced by frameworks like the EU AI Act.</li>
-                
-                <li><strong>The Rise of Constraint Libraries:</strong> We will see open-source libraries of pre-vetted, domain-specific rules "safety guardrails" for healthcare, finance, and law that developers can plug directly into their neural models. This will democratize the creation of trustworthy AI.</li>
-                
-                <li><strong>Trustworthiness as a Measurable Metric:</strong> The conversation will move beyond just accuracy. We'll develop standardized benchmarks for "logic fidelity" and "explainability quality," allowing us to quantitatively measure and compare how trustworthy an AI system truly is.</li>
-            </ul>
-        </div>
-
-        <p>The path forward is clear. The next breakthrough in AI won't be a bigger neural network, but a more intelligent architecture one that combines the intuitive power of neural networks with the reasoned trust of symbolic logic. This is the foundation for an AI future that is not only intelligent but also wise, reliable, and deserving of our confidence.</p>
-
-        <div class="research-insight">
-            <strong>Research Connection:</strong><br>
-            These insights build on my work in trustworthy AI and fairness-aware systems. The principles discussed here directly inform my ongoing research in healthcare AI and federated learning frameworks. I welcome conversations about building more transparent and accountable AI systems.
-        </div>
+      <p>The next breakthrough in AI won’t be a bigger neural network, but a more intelligent, trustworthy architecture.</p>
     </div>
 
     <div class="categories">
-        <h3>Categories</h3>
-        <div class="category-tags">
-            <span class="category-tag">Trustworthy AI</span>
-            <span class="category-tag">Hybrid Intelligence</span>
-            <span class="category-tag">AI Ethics</span>
-            <span class="category-tag">Healthcare AI</span>
-            <span class="category-tag">Explainable AI</span>
-            <span class="category-tag">Neural-Symbolic AI</span>
-            <span class="category-tag">AI Safety</span>
-            <span class="category-tag">Clinical Decision Support</span>
-        </div>
+      <h3>Categories</h3>
+      <div class="category-tags">
+        <span class="category-tag">Trustworthy AI</span>
+        <span class="category-tag">Hybrid Intelligence</span>
+        <span class="category-tag">AI Ethics</span>
+        <span class="category-tag">Healthcare AI</span>
+        <span class="category-tag">Explainable AI</span>
+      </div>
     </div>
+  </div>
+
+  <script>
+    document.getElementById('hbg').addEventListener('click', function(){
+      document.getElementById('navul').classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
