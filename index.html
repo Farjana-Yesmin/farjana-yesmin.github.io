@@ -202,7 +202,21 @@
     .ct-btn:hover { border-color: var(--green); color: var(--green); transform: translateY(-1px); text-decoration: none; }
 
     /* FOOTER */
-    footer { border-top: 1px solid var(--rule); padding: 20px 24px; text-align: center; font-size: 0.72rem; color: var(--light); }
+    footer {
+      background: #0f172a;
+      padding: 32px 24px 28px;
+      text-align: center;
+    }
+    .footer-icons {
+      display: flex; justify-content: center; gap: 22px; margin-bottom: 16px;
+    }
+    .footer-icons a {
+      color: #94a3b8; font-size: 1.2rem; transition: color .15s; text-decoration: none;
+    }
+    .footer-icons a:hover { color: #ffffff; }
+    .footer-copy {
+      font-size: 0.78rem; color: #64748b;
+    }
 
     /* REVEAL */
     .rv { opacity: 0; transform: translateY(14px); transition: opacity .5s, transform .5s; }
@@ -247,7 +261,7 @@
     <h1>Hi, I'm Farjana Yesmin.</h1>
     <p class="hero-role">Machine Learning Researcher · Trustworthy AI for Healthcare</p>
     <p class="hero-bio">
-      I am a Machine Learning Researcher dedicated to building AI systems that are as equitable as they are intelligent. My work sits at the intersection of <strong>Privacy-Preserving Federated Learning</strong>, <strong>Explainable AI</strong>, and <strong>Trustworthy Healthcare AI</strong>. I believe technology truly serves people only when it is grounded in transparency, fairness, and clinical validation, especially in low-resource settings like Bangladesh. Outside research, I find balance through the piano, the outdoors, and stories discovered while traveling.
+      I am a Machine Learning Researcher dedicated to building AI systems that are as equitable as they are intelligent. My work sits at the intersection of <strong>Privacy-Preserving Federated Learning</strong>, <strong>Explainable AI</strong>, and <strong>Trustworthy Healthcare AI</strong>. I believe technology truly serves people only when it is grounded in transparency, fairness, and clinical validation, especially in low-resource settings. Outside research, I find balance through the piano, the outdoors, and stories discovered while traveling.
     </p>
     <div class="social-row">
       <a class="s-link" href="mailto:farjanayesmin76@gmail.com"><i class="fas fa-envelope"></i>Email</a>
@@ -576,18 +590,20 @@
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
       Send an Email
     </a>
-    <p style="font-size:.78rem;color:var(--light);margin-top:16px;">
-      Also on
-      <a href="https://www.linkedin.com/in/farjana-yesmin/" target="_blank" style="color:var(--mid);font-weight:500;">LinkedIn</a> ·
-      <a href="https://scholar.google.com/citations?user=AKL9avYAAAAJ&hl=en" target="_blank" style="color:var(--mid);font-weight:500;">Google Scholar</a> ·
-      <a href="https://dblp.org/pid/419/5427" target="_blank" style="color:var(--mid);font-weight:500;">DBLP</a> ·
-      <a href="https://github.com/Farjana-Yesmin" target="_blank" style="color:var(--mid);font-weight:500;">GitHub</a>
-    </p>
   </section>
 
 </div>
 
-<footer>© 2026 Farjana Yesmin</footer>
+<footer>
+  <div class="footer-icons">
+    <a href="https://github.com/Farjana-Yesmin" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/farjana-yesmin/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a href="https://scholar.google.com/citations?user=AKL9avYAAAAJ&hl=en" target="_blank" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+    <a href="https://dblp.org/pid/419/5427" target="_blank" aria-label="DBLP"><i class="fas fa-database"></i></a>
+    <a href="mailto:farjanayesmin76@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+  </div>
+  <div class="footer-copy">© 2026 Farjana Yesmin. All rights reserved.</div>
+</footer>
 
 <script>
   document.getElementById('hbg').addEventListener('click',function(){
