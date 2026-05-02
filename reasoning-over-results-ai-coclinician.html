@@ -9,33 +9,33 @@
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --ink:   #111827;
-      --mid:   #4b5563;
+      --ink: #111827;
+      --mid: #4b5563;
       --light: #9ca3af;
-      --rule:  #e5e7eb;
-      --bg:    #ffffff;
-      --tint:  #f9fafb;
+      --rule: #e5e7eb;
+      --bg: #ffffff;
+      --tint: #f9fafb;
       --green: #065f46;
-      --glt:   #ecfdf5;
+      --glt: #ecfdf5;
       --serif: 'Lora', Georgia, serif;
-      --sans:  'Inter', system-ui, sans-serif;
+      --sans: 'Inter', system-ui, sans-serif;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--sans);
-      background: var(--bg);
-      color: var(--ink);
-      font-size: 16px;
-      line-height: 1.7;
+    body { 
+      font-family: var(--sans); 
+      background: var(--bg); 
+      color: var(--ink); 
+      font-size: 15px; 
+      line-height: 1.75; 
     }
     a { color: var(--green); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* header (identical to blog listing) */
+    /* NAV */
     header {
       position: sticky; top: 0; z-index: 50;
-      border-bottom: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule); 
       background: rgba(255,255,255,0.96);
       backdrop-filter: blur(6px);
     }
@@ -43,228 +43,243 @@
       max-width: 860px; margin: 0 auto; padding: 0 24px;
       height: 52px; display: flex; align-items: center; justify-content: space-between;
     }
-    .logo { font-family: var(--serif); font-size: 1rem; font-weight: 600; color: var(--ink); text-decoration: none; }
-    .nav-ul { display: flex; list-style: none; gap: 2px; }
+    .logo { 
+      font-family: var(--serif); 
+      font-size: 1rem; 
+      font-weight: 600; 
+      color: var(--ink); 
+      text-decoration: none; 
+    }
+    .nav-ul { 
+      display: flex; 
+      list-style: none; 
+      gap: 2px; 
+    }
     .nav-ul a {
-      font-size: 0.75rem; font-weight: 500; letter-spacing: .05em; text-transform: uppercase;
-      color: var(--mid); padding: 5px 10px; border-radius: 5px; transition: color .15s;
+      font-size: 0.75rem; 
+      font-weight: 500; 
+      letter-spacing: .05em; 
+      text-transform: uppercase;
+      color: var(--mid); 
+      padding: 5px 10px; 
+      border-radius: 5px; 
+      transition: color .15s;
     }
     .nav-ul a:hover { color: var(--green); text-decoration: none; }
     .nav-ul a.active { color: var(--green); }
-    .hamburger { display: none; background: none; border: none; font-size: 1.1rem; cursor: pointer; color: var(--mid); }
-
-    /* post page layout */
-    .post-page {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 64px 24px 96px;
+    .hamburger { 
+      display: none; 
+      background: none; 
+      border: none; 
+      font-size: 1.1rem; 
+      cursor: pointer; 
+      color: var(--mid); 
     }
+
+    /* PAGE */
+    .page { 
+      max-width: 760px; 
+      margin: 0 auto; 
+      padding: 52px 24px 100px; 
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--mid);
+      font-size: 0.9rem;
+      margin-bottom: 32px;
+    }
+    .back-link:hover { color: var(--green); }
+
     .post-header {
       margin-bottom: 48px;
       border-bottom: 1px solid var(--rule);
-      padding-bottom: 28px;
+      padding-bottom: 32px;
     }
     .post-date {
       font-size: 0.85rem;
       color: var(--light);
       text-transform: uppercase;
       letter-spacing: 0.03em;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
     .post-title {
       font-family: var(--serif);
-      font-size: 2.2rem;
+      font-size: 2.1rem;
       font-weight: 600;
       line-height: 1.25;
       color: var(--ink);
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
     .post-meta {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: var(--mid);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
     }
+
+    /* POST CONTENT */
     .post-content {
-      font-family: var(--serif);
-      font-size: 1.05rem;
-      color: #2c2c2c;
+      font-size: 1.02rem;
+      max-width: 680px;
     }
     .post-content p {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.4rem;
+      color: var(--mid);
     }
     .post-content h2 {
-      font-family: var(--sans);
+      font-family: var(--serif);
+      font-size: 1.45rem;
       font-weight: 600;
-      font-size: 1.4rem;
-      margin: 2rem 0 1rem;
       color: var(--ink);
-      letter-spacing: -0.01em;
+      margin: 2.4rem 0 1rem;
     }
     .post-content h3 {
-      font-family: var(--sans);
-      font-weight: 500;
       font-size: 1.2rem;
-      margin: 1.8rem 0 0.8rem;
       color: var(--green);
+      margin: 1.8rem 0 0.8rem;
     }
     .post-content blockquote {
       border-left: 4px solid var(--green);
       background: var(--glt);
-      padding: 1rem 1.5rem;
-      margin: 1.8rem 0;
-      font-style: normal;
+      padding: 1.4rem 1.8rem;
+      margin: 2rem 0;
       color: #1f5d4a;
+      font-style: italic;
     }
-    .post-content .paper-box {
+    .paper-box {
       background: var(--tint);
       border: 1px solid var(--rule);
-      border-radius: 12px;
-      padding: 1.2rem 1.6rem;
-      margin: 1.8rem 0;
+      border-radius: 8px;
+      padding: 1.4rem 1.6rem;
+      margin: 2rem 0;
     }
-    .post-content .paper-box strong {
-      color: var(--green);
-    }
+
     .post-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin: 2rem 0 1rem;
+      margin: 3rem 0 2rem;
     }
     .post-tag {
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       font-weight: 500;
       padding: 4px 12px;
-      border-radius: 100px;
+      border-radius: 9999px;
       background: var(--tint);
       border: 1px solid var(--rule);
       color: var(--mid);
-      letter-spacing: 0.01em;
     }
+
     .further-reading {
-      margin-top: 3rem;
+      margin-top: 3.5rem;
       padding-top: 2rem;
       border-top: 1px solid var(--rule);
     }
     .further-reading h3 {
-      font-family: var(--sans);
-      font-size: 1rem;
-      font-weight: 600;
+      font-family: var(--serif);
+      font-size: 1.1rem;
       margin-bottom: 1rem;
     }
-    .further-reading ul {
-      list-style: none;
-      margin-left: 0;
-    }
-    .further-reading li {
-      margin-bottom: 0.5rem;
-    }
-    .back-link {
-      display: inline-block;
-      margin-bottom: 2rem;
-      font-size: 0.85rem;
-    }
+
     @media (max-width: 640px) {
       .nav-ul { display: none; }
       .hamburger { display: block; }
-      .nav-ul.open { display: flex; flex-direction: column; position: absolute; top: 52px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 12px 20px; gap: 6px; }
-      .post-title { font-size: 1.8rem; }
-      .post-page { padding: 40px 20px 80px; }
+      .nav-ul.open { 
+        display: flex; 
+        flex-direction: column; 
+        position: absolute; 
+        top: 52px; 
+        left: 0; 
+        right: 0; 
+        background: var(--bg); 
+        border-bottom: 1px solid var(--rule); 
+        padding: 12px 20px; 
+        gap: 6px; 
+      }
+      .page { padding: 36px 20px 80px; }
+      .post-title { font-size: 1.85rem; }
     }
   </style>
 </head>
 <body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">Farjana Yesmin</a>
+      <button class="hamburger" id="hbg">☰</button>
+      <ul class="nav-ul" id="navul">
+        <li><a href="index.html#research">Research</a></li>
+        <li><a href="index.html#news">News</a></li>
+        <li><a href="index.html#publications">Publications</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<header>
-  <nav>
-    <a href="index.html" class="logo">Farjana Yesmin</a>
-    <button class="hamburger" id="hbg">☰</button>
-    <ul class="nav-ul" id="navul">
-      <li><a href="index.html#research">Research</a></li>
-      <li><a href="index.html#news">News</a></li>
-      <li><a href="index.html#publications">Publications</a></li>
-      <li><a href="index.html#projects">Projects</a></li>
-      <li><a href="index.html#experience">Experience</a></li>
-      <li><a href="blog.html" class="active">Blog</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+  <div class="page">
+    <a href="blog.html" class="back-link">← Back to Blog</a>
 
-<div class="post-page">
-  <div class="back-link">
-    <a href="blog.html">← Back to all posts</a>
-  </div>
-
-  <article>
     <div class="post-header">
       <div class="post-date">May 2, 2026</div>
       <h1 class="post-title">Reasoning Over Results – Deconstructing the AI Co‑clinician Architecture</h1>
       <div class="post-meta">
-        <span>By Farjana Yesmin</span>
-        <span>•</span>
-        <span>6 min read</span>
+        By Farjana Yesmin • 6 min read
       </div>
     </div>
 
     <div class="post-content">
       <p>Google DeepMind recently released research on an “AI co‑clinician.” This post looks at the architectural shift behind it and what it means for system‑level clinical AI.</p>
+      
+      <p>I have spent years building AI tools for healthcare settings that look nothing like the clean labs where many frontier models are tested. From dengue triage chatbots in rural Bangladesh to fairness‑aware ECG models validated with local clinicians, one lesson stands out: a model that scores well on benchmarks can still fail the real test of clinical usefulness.</p>
 
-      <p>I have spent years building AI tools for healthcare settings that look nothing like the clean labs where many frontier models are tested. From dengue triage chatbots designed for low‑bandwidth phones in rural Bangladesh to fairness‑aware ECG models validated with local clinicians, one lesson stands out: a model that scores well on benchmarks can still fail the real test of clinical usefulness.</p>
-
-      <p>The DeepMind announcement caught my attention not because of another claim about surpassing doctors on exam questions, but because it represents a shift toward treating AI as a <strong>reasoning partner</strong> rather than a prediction engine.</p>
+      <p>The DeepMind announcement caught my attention not because of another claim about surpassing doctors on exams, but because it represents a shift toward treating AI as a <strong>reasoning partner</strong> rather than a prediction engine.</p>
 
       <h2>Moving Beyond the Single‑Shot Model</h2>
-      <p>For a long time, medical AI development chased “Dr. Benchmark” performance. Models tried to ace licensing exams or spot diseases from images. Those efforts delivered impressive numbers on static test sets. Yet, the gap between benchmark accuracy and daily practice remains wide.</p>
-      <p>DeepMind’s work takes a different direction. Instead of one large model generating an answer in one pass, they explore a structured setup with separate responsibilities. One component handles <strong>planning</strong> — figuring out what evidence is needed, which risks to check, and what information is missing. Another component manages the actual conversation with the clinician or patient.</p>
-      <p>This separation creates space for internal checks before any suggestion reaches the doctor. The planner can review its own steps for gaps or unsupported claims. In high‑stakes environments, this kind of self‑verification is more valuable than raw scale.</p>
+      <p>For a long time, medical AI chased “Dr. Benchmark” performance. DeepMind’s work takes a different direction with a structured setup: one component handles <strong>planning</strong> (figuring out what evidence is needed), while another manages conversation with the clinician.</p>
 
       <div class="paper-box">
-        <strong>✔ Planning layer → verification → conversation layer</strong><br>
-        The architecture mirrors how a thoughtful human consultant works: first gather evidence, then propose a conclusion, and always be ready to explain the reasoning.
+        <strong>✔ Planning layer → verification → conversation layer</strong><br><br>
+        The architecture mirrors how a thoughtful human consultant works: gather evidence, propose a conclusion, and always be ready to explain the reasoning.
       </div>
 
       <h2>The NOHARM Evaluation and Evidence Synthesis</h2>
-      <p>A particularly useful part of this research is the <strong>NOHARM framework</strong>. It judges the AI on two practical types of mistakes that matter in real care:</p>
+      <p>The <strong>NOHARM framework</strong> evaluates the AI on two practical types of mistakes:</p>
       <ul>
-        <li><strong>Errors of omission:</strong> missing a critical diagnosis or important warning.</li>
+        <li><strong>Errors of omission:</strong> missing a critical diagnosis or warning.</li>
         <li><strong>Errors of commission:</strong> giving incorrect or invented information.</li>
       </ul>
-      <p>In their blind evaluations, the AI recorded <strong>zero critical errors</strong> in 97 out of 98 realistic clinical queries. They also evaluated it on medication‑related questions using benchmarks like OpenFDA RxQA. These are open‑ended tasks — closer to how doctors actually ask questions during busy shifts.</p>
-      <p>This focus on evidence synthesis addresses a core weakness I have seen in many deployments: hallucinations that sound confident but lack support. We need systems that <strong>show their sources</strong> and admit limits rather than always presenting a single confident answer.</p>
+      <p>In blind evaluations, the AI recorded <strong>zero critical errors</strong> in 97 out of 98 realistic clinical queries. This focus on evidence synthesis addresses a core weakness: confident but unsupported hallucinations.</p>
 
       <h2>Supporting the Idea of Arguable Systems</h2>
-      <p>This research directly supports the idea of <strong>arguable systems</strong> that I have been building in my recent work. In a study we conducted with 14 clinicians in Bangladesh, we tested hybrid models for maternal health risk prediction. The doctors did not just want high accuracy; they wanted to understand the reasoning and to be able to question or override it based on their experience with the patient.</p>
       <blockquote>
-        When a system can lay out its plan and the strength of its supporting evidence, the interaction changes. The doctor moves from a passive recipient of a score to an active partner who can probe, correct, or add context the model missed.
+        When a system can lay out its plan and the strength of its supporting evidence, the interaction changes. The doctor moves from a passive recipient of a score to an active partner who can probe, correct, or add context.
       </blockquote>
-      <p>DeepMind’s emphasis on structured reasoning supports this same principle: a co‑clinician should <strong>invite scrutiny</strong> instead of demanding trust.</p>
+
+      <p>DeepMind’s emphasis on structured reasoning supports the <strong>arguable systems</strong> concept I’ve been developing in my own work.</p>
 
       <h2>Multimodal Capabilities and Low‑Resource Challenges</h2>
-      <p>The initiative also looks at real‑time multimodal interaction, using audio and video to guide patients through physical tasks like inhaler technique or shoulder examinations.</p>
-      <p>At the same time, it raises important questions for those of us working in diverse, low‑resource contexts. How well will these systems handle varied accents, lighting conditions, or patients describing symptoms in local languages? The planner component will need to remain robust even when the input data is noisy or incomplete.</p>
+      <p>The initiative explores real-time multimodal interaction, but important questions remain for low-resource settings: How well will these systems handle varied accents, lighting, or local languages?</p>
 
       <h2>Final Thoughts for Researchers</h2>
-      <p>The AI co‑clinician is still in the research phase. It is not a ready‑to‑deploy product, and the authors are careful to note its current limitations. For the research community, the key takeaway is <strong>architectural</strong>. Future progress will likely come from thoughtful system design rather than ever‑larger models:</p>
+      <p>The key takeaway is architectural. Future progress will likely come from thoughtful system design:</p>
       <ul>
-        <li>Clear separation of planning and execution with verification layers.</li>
-        <li>Strong emphasis on evidence grounding and uncertainty reporting.</li>
-        <li>Evaluation frameworks that measure real clinical safety rather than isolated accuracy.</li>
-        <li>Architectures built for contestation from the start.</li>
+        <li>Clear separation of planning and execution with verification layers</li>
+        <li>Strong emphasis on evidence grounding and uncertainty reporting</li>
+        <li>Evaluation frameworks focused on real clinical safety</li>
+        <li>Architectures built for contestation from the start</li>
       </ul>
-      <p>The most important question is not whether the AI is smart enough to replace parts of clinical work. It is whether the overall system supports better judgment while preserving the doctor’s responsibility and the patient’s voice. This research suggests the field is starting to take that question seriously.</p>
+
+      <p>The most important question is whether the overall system supports better judgment while preserving the doctor’s responsibility and the patient’s voice.</p>
     </div>
 
     <div class="post-tags">
       <span class="post-tag">Healthcare AI</span>
       <span class="post-tag">Clinical Reasoning</span>
-      <span class="post-tag">Explainable AI</span>
       <span class="post-tag">Arguable Systems</span>
       <span class="post-tag">DeepMind</span>
       <span class="post-tag">Multimodal AI</span>
-      <span class="post-tag">LLM Safety</span>
     </div>
 
     <div class="further-reading">
@@ -275,13 +290,12 @@
         <li><a href="clinicians-black-box.html">The Clinician’s Black Box: Designing AI That Supports, Not Replaces, Human Judgment</a></li>
       </ul>
     </div>
-  </article>
-</div>
+  </div>
 
-<script>
-  document.getElementById('hbg').addEventListener('click', function(){
-    document.getElementById('navul').classList.toggle('open');
-  });
-</script>
+  <script>
+    document.getElementById('hbg').addEventListener('click', function(){
+      document.getElementById('navul').classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
