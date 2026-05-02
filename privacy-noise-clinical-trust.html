@@ -1,319 +1,345 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Differential Privacy Noise and Clinical Epistemic Trust: Can We Have Both? - Farjana's Research Blog</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.7;
-            color: #444;
-            background-color: #f8f9fa;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        .back-link {
-            margin-bottom: 30px;
-        }
-        .back-link a {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .back-link a:hover {
-            text-decoration: underline;
-        }
-        h1 {
-            color: #2563eb;
-            margin-bottom: 10px;
-            font-size: 2.4rem;
-        }
-        .author {
-            color: #666;
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            font-style: italic;
-        }
-        .post-meta {
-            color: #666;
-            font-size: 1rem;
-            margin-bottom: 30px;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 20px;
-        }
-        .post-content {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-            border-left: 4px solid #2563eb;
-        }
-        .post-content h2 {
-            color: #1e293b;
-            margin: 2rem 0 1rem 0;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 0.5rem;
-        }
-        .post-content h3 {
-            color: #2563eb;
-            margin: 1.5rem 0 0.5rem 0;
-        }
-        .post-content p {
-            margin-bottom: 1.2rem;
-            color: #666;
-        }
-        .post-content ul, .post-content ol {
-            margin-left: 20px;
-            margin-bottom: 1.2rem;
-            color: #666;
-        }
-        .post-content li {
-            margin-bottom: 0.5rem;
-        }
-        .intro-box {
-            background: rgba(37, 99, 235, 0.05);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 4px solid #2563eb;
-            font-style: italic;
-        }
-        .code-block {
-            background: #1e293b;
-            color: #e2e8f0;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            overflow-x: auto;
-        }
-        .code-comment {
-            color: #94a3b8;
-            font-style: italic;
-        }
-        .research-insight {
-            background: rgba(168, 85, 247, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 3px solid #a855f7;
-        }
-        .categories {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-top: 2rem;
-        }
-        .categories h3 {
-            color: #2563eb;
-            margin-bottom: 1rem;
-        }
-        .category-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        .category-tag {
-            background: rgba(37, 99, 235, 0.1);
-            color: #2563eb;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-        .philosophical-insight {
-            background: rgba(245, 158, 11, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 3px solid #f59e0b;
-        }
-        .clinical-case {
-            background: rgba(239, 68, 68, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 3px solid #ef4444;
-        }
-        .solution-box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            margin: 2.5rem 0;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-        .solution-box h3 {
-            color: white;
-            margin-bottom: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-        .solution-box h3::before {
-            content: "💡";
-            font-size: 1.5rem;
-        }
-        .solution-box ul {
-            color: rgba(255, 255, 255, 0.95);
-        }
-        .solution-box li {
-            margin-bottom: 0.8rem;
-            padding-left: 0.5rem;
-        }
-        .transparency-example {
-            background: rgba(34, 197, 94, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 3px solid #16a34a;
-        }
-        .call-to-action {
-            background: rgba(99, 102, 241, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 3px solid #6366f1;
-            text-align: center;
-            font-style: italic;
-        }
-    </style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Differential Privacy Noise and Clinical Epistemic Trust: Can We Have Both? · Farjana Yesmin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --ink: #111827;
+      --mid: #4b5563;
+      --light: #9ca3af;
+      --rule: #e5e7eb;
+      --bg: #ffffff;
+      --tint: #f9fafb;
+      --green: #065f46;
+      --glt: #ecfdf5;
+      --serif: 'Lora', Georgia, serif;
+      --sans: 'Inter', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { 
+      font-family: var(--sans); 
+      background: var(--bg); 
+      color: var(--ink); 
+      font-size: 15px; 
+      line-height: 1.75; 
+    }
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      border-bottom: 1px solid var(--rule); 
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(6px);
+    }
+    nav {
+      max-width: 860px; margin: 0 auto; padding: 0 24px;
+      height: 52px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { 
+      font-family: var(--serif); 
+      font-size: 1rem; 
+      font-weight: 600; 
+      color: var(--ink); 
+      text-decoration: none; 
+    }
+    .nav-ul { 
+      display: flex; 
+      list-style: none; 
+      gap: 2px; 
+    }
+    .nav-ul a {
+      font-size: 0.75rem; 
+      font-weight: 500; 
+      letter-spacing: .05em; 
+      text-transform: uppercase;
+      color: var(--mid); 
+      padding: 5px 10px; 
+      border-radius: 5px; 
+      transition: color .15s;
+    }
+    .nav-ul a:hover { color: var(--green); text-decoration: none; }
+    .nav-ul a.active { color: var(--green); }
+    .hamburger { 
+      display: none; 
+      background: none; 
+      border: none; 
+      font-size: 1.1rem; 
+      cursor: pointer; 
+      color: var(--mid); 
+    }
+
+    /* PAGE */
+    .page { 
+      max-width: 760px; 
+      margin: 0 auto; 
+      padding: 52px 24px 100px; 
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--mid);
+      font-size: 0.9rem;
+      margin-bottom: 32px;
+    }
+    .back-link:hover { color: var(--green); }
+
+    .post-header {
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 32px;
+    }
+    .post-title {
+      font-family: var(--serif);
+      font-size: 2.05rem;
+      font-weight: 600;
+      line-height: 1.28;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .post-meta {
+      color: var(--mid);
+      font-size: 0.9rem;
+    }
+    .post-meta span {
+      margin-right: 16px;
+    }
+
+    /* POST CONTENT */
+    .post-content {
+      font-size: 1.02rem;
+      max-width: 680px;
+    }
+    .post-content h2 {
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 2.2rem 0 1rem;
+    }
+    .post-content p {
+      margin-bottom: 1.35rem;
+      color: var(--mid);
+    }
+    .post-content ul, .post-content ol {
+      margin: 1.2rem 0 1.4rem 1.4rem;
+      color: var(--mid);
+    }
+    .post-content li {
+      margin-bottom: 0.6rem;
+    }
+
+    /* BOXES */
+    .intro-box, .philosophical-insight, .research-insight, .transparency-example {
+      background: var(--glt);
+      border-left: 4px solid var(--green);
+      padding: 1.6rem 1.8rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+    .clinical-case {
+      background: #fee2e2;
+      border-left: 4px solid #ef4444;
+      padding: 1.6rem 1.8rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+    .solution-box {
+      background: linear-gradient(135deg, #065f46, #0f766e);
+      color: white;
+      padding: 2.2rem;
+      border-radius: 10px;
+      margin: 2.5rem 0;
+    }
+    .solution-box h3 {
+      color: white;
+      margin-bottom: 1.2rem;
+    }
+    .solution-box ul {
+      color: #e0f2fe;
+    }
+
+    /* CODE BLOCK */
+    .code-block {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 1.6rem;
+      border-radius: 8px;
+      margin: 2rem 0;
+      font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      overflow-x: auto;
+      white-space: pre;
+    }
+    .code-comment { color: #94a3b8; font-style: italic; }
+
+    /* CATEGORIES */
+    .categories {
+      margin-top: 60px;
+      padding-top: 32px;
+      border-top: 1px solid var(--rule);
+    }
+    .categories h3 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+    }
+    .category-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .category-tag {
+      font-size: 0.78rem;
+      padding: 4px 12px;
+      background: var(--glt);
+      color: var(--green);
+      border: 1px solid #a7f3d0;
+      border-radius: 9999px;
+    }
+
+    @media (max-width: 640px) {
+      .nav-ul { display: none; }
+      .hamburger { display: block; }
+      .nav-ul.open { 
+        display: flex; 
+        flex-direction: column; 
+        position: absolute; 
+        top: 52px; 
+        left: 0; 
+        right: 0; 
+        background: var(--bg); 
+        border-bottom: 1px solid var(--rule); 
+        padding: 12px 20px; 
+        gap: 6px; 
+      }
+      .page { padding: 36px 20px 80px; }
+      .post-title { font-size: 1.85rem; }
+    }
+  </style>
 </head>
 <body>
-    <div class="back-link">
-        <a href="/blog.html">← Back to Blog</a>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">Farjana Yesmin</a>
+      <button class="hamburger" id="hbg">☰</button>
+      <ul class="nav-ul" id="navul">
+        <li><a href="index.html#research">Research</a></li>
+        <li><a href="index.html#news">News</a></li>
+        <li><a href="index.html#publications">Publications</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="page">
+    <a href="blog.html" class="back-link">← Back to Blog</a>
+
+    <div class="post-header">
+      <h1 class="post-title">Differential Privacy Noise and Clinical Epistemic Trust: Can We Have Both?</h1>
+      <div class="post-meta">
+        <span>January 15, 2026</span>
+        <span>By Farjana Yesmin</span>
+      </div>
     </div>
-    
-    <h1>Differential Privacy Noise and Clinical Epistemic Trust: Can We Have Both?</h1>
-    <div class="author">By Farjana Yesmin | Data Scientist & ML Researcher</div>
-    
-    <div class="post-meta">
-        <strong>Published:</strong> January 15, 2026<br>
-        <strong>Categories:</strong> Differential Privacy, Clinical Ethics, Healthcare AI, Epistemology
-    </div>
-    
+
     <div class="post-content">
-        <div class="intro-box">
-            In my recent post on differential privacy in health registries, I explored how mathematical privacy guarantees can protect sensitive patient data while still allowing aggregate insights for public health research. I argued for adaptive approaches that adjust noise levels based on query sensitivity and population characteristics to avoid erasing signals from rare conditions or marginalized groups. Yet the more I work with real clinical datasets, the clearer it becomes that the core tension remains unresolved. The very noise that shields individuals can also obscure truths clinicians need to trust.
-        </div>
+      <div class="intro-box">
+        In my recent post on differential privacy in health registries, I explored how mathematical privacy guarantees can protect sensitive patient data while still allowing aggregate insights. Yet the more I work with real clinical datasets, the clearer it becomes that the very noise that shields individuals can also obscure truths clinicians need to trust.
+      </div>
 
-        <div class="clinical-case">
-            <strong>The Rare Disease Registry Scenario:</strong><br><br>
-            Consider a national rare disease registry tracking conditions that affect fewer than one in ten thousand people. A researcher queries the system for incidence patterns across regions to guide resource allocation. Differential privacy adds calibrated noise to the counts, ensuring no single patient's presence or absence can be inferred. The result looks plausible, but the added variability might push a small cluster of cases below the detection threshold. Clinicians reviewing the data for early warning signs see only blurred signals. They cannot confidently say whether a potential outbreak is real or an artifact of protection. This is not merely a technical trade off. It strikes at the heart of epistemic trust in clinical settings, where justified belief depends on reliable evidence.
-        </div>
+      <div class="clinical-case">
+        <strong>The Rare Disease Registry Scenario:</strong><br><br>
+        Consider a national rare disease registry. A researcher queries incidence patterns across regions. Differential privacy adds calibrated noise. The result looks plausible, but small clusters might fall below detection thresholds. Clinicians cannot confidently distinguish real signals from artifacts of protection. This strikes at the heart of epistemic trust in clinical settings.
+      </div>
 
-        <h2>How Noise Works in Practice</h2>
-        
-        <p>To understand this erosion, we need to look at the machinery. Differential privacy typically uses mechanisms like Laplace or Gaussian noise, scaled to a query's sensitivity. Sensitivity measures how much one person's data can change the result.</p>
+      <h2>How Noise Works in Practice</h2>
+      <p>Differential privacy typically uses Laplace or Gaussian noise scaled to a query’s sensitivity. A smaller privacy budget (epsilon) means stronger privacy but noisier outputs.</p>
 
-        <p>For a simple count where an individual contributes at most one, the Laplace mechanism adds noise from a Laplace distribution centered at zero with scale equal to one divided by epsilon, the privacy budget. A smaller epsilon means stronger privacy but wider, noisier outputs. The Gaussian mechanism works similarly but uses a normal distribution, which is often preferred in machine learning pipelines because it handles multiple queries more gracefully.</p>
+      <div class="code-block">
+import numpy as np
 
-        <p>Here is a basic example, similar to code I have written for the MedHE project:</p>
+def laplace_mechanism(true_count, sensitivity, epsilon):
+    """Apply Laplace noise for differential privacy."""
+    scale = sensitivity / epsilon
+    noise = np.random.laplace(loc=0, scale=scale)
+    return true_count + noise
 
-        <div class="code-block">
-<span class="code-comment">import</span> numpy <span class="code-comment">as</span> np<br><br>
-<span class="code-comment">def</span> laplace_mechanism(true_count, sensitivity, epsilon):<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">"""Apply Laplace noise for differential privacy."""</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;scale = sensitivity / epsilon<br>
-&nbsp;&nbsp;&nbsp;&nbsp;noise = np.random.laplace(loc=0, scale=scale)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">return</span> true_count + noise<br>
-<br>
-<span class="code-comment"># Example from a rare disease monitoring scenario</span><br>
-true_cases = 5<br>
-sensitivity = 1<br>
-epsilon = 0.1  <span class="code-comment"># A strong privacy setting</span><br>
-<br>
-private_count = laplace_mechanism(true_cases, sensitivity, epsilon)<br>
-<span class="code-comment">print</span>(<span class="code-comment">f</span><span class="code-comment">"True cases: {true_cases}"</span>)<br>
-<span class="code-comment">print</span>(<span class="code-comment">f</span><span class="code-comment">"Private count: {private_count:.1f}"</span>)<br>
-        </div>
+# Example from a rare disease monitoring scenario
+true_cases = 5
+sensitivity = 1
+epsilon = 0.1  # Strong privacy setting
 
-        <div class="research-insight">
-            <strong>The Clinical Interpretation Challenge:</strong><br>
-            Running this, a true count of five might return 1.8 or 9.3. The clinician viewing this result must decide if the fluctuation is medically meaningful or just privacy protection at work. For small counts, even modest noise can completely change the clinical interpretation.
-        </div>
+private_count = laplace_mechanism(true_cases, sensitivity, epsilon)
+print(f"True cases: {true_cases}")
+print(f"Private count: {private_count:.1f}")
+      </div>
 
-        <h2>When Protection Creates an Epistemic Gap</h2>
-        
-        <div class="philosophical-insight">
-            <strong>The Chain of Trust in Clinical Knowledge:</strong><br><br>
-            This is where privacy mechanisms meet clinical epistemology. A clinician's knowledge is rarely built from direct observation alone. It relies on chains of testimony. They trust a lab result because of institutional standards, calibration practices, and professional accountability. They trust a registry because it aggregates many such values under shared protocols. Philosophers like John Hardwig argue that modern expertise depends fundamentally on this epistemic trust. I can justify my belief in a diagnosis because I trust the justified beliefs of the pathologist.<br><br>
-            
-            Differential privacy, when applied without context, breaks this chain. The clinician receiving the noisy statistic cannot calibrate their trust. Is the number reflecting reality, or is it a protective artifact? The noise actively undermines their ability to form a justified true belief.
-        </div>
+      <div class="research-insight">
+        <strong>The Clinical Interpretation Challenge:</strong><br><br>
+        A true count of five might return 1.8 or 9.3. For small counts, even modest noise can completely change clinical interpretation.
+      </div>
 
-        <p>Researchers danah boyd and Jayshree Sarathy call this an "epistemic disconnect," where experts and end users hold completely different understandings of what an output means. In a hospital, this disconnect is dangerous. If a public health officer cannot know whether a risk estimate is stable or a noise induced phantom, their capacity for good judgment erodes.</p>
+      <h2>When Protection Creates an Epistemic Gap</h2>
+      
+      <div class="philosophical-insight">
+        <strong>The Chain of Trust in Clinical Knowledge:</strong><br><br>
+        Clinicians rely on chains of testimony and institutional trust. Differential privacy, when applied without context, breaks this chain. The clinician cannot calibrate their trust — is the number reflecting reality or a protective artifact?
+      </div>
 
-        <p>Other studies highlight related problems. Work on differential privacy in medical deep learning shows it often degrades performance on rare classes, exactly where clinical need is greatest. Meanwhile, research on clinical decision support stresses that systems must be clear about what they do not know. When we add deliberate noise, that uncertainty becomes hidden instead of transparent.</p>
+      <h2>A Practical Path Forward</h2>
+      
+      <div class="solution-box">
+        <h3>Building Systems with Selective Fidelity</h3>
+        <ul>
+          <li><strong>Stratify privacy guarantees:</strong> Use stronger noise for large population trends and lighter protections (or different protocols) for rare signals and critical clusters.</li>
+          <li><strong>Build transparency layers:</strong> Provide interpretative guidance with every noisy output, including reliability notes and confidence indicators.</li>
+        </ul>
+      </div>
 
-        <h2>A Practical Path Forward</h2>
-        
-        <p>Giving up on privacy is not the solution. The ethical duty to protect patients remains. Instead, we need systems that practice selective fidelity. We need to navigate the tension with more nuance than blanket noise application.</p>
+      <div class="transparency-example">
+        <strong>Example Transparency Guidance:</strong><br><br>
+        • "This count has high relative noise due to strong privacy settings. Interpret with caution."<br>
+        • "The three-year trend remains robust under applied privacy noise."<br>
+        • "Cluster alert: Signal detected but confidence is low. Consider secure follow-up."
+      </div>
 
-        <div class="solution-box">
-            <h3>Building Systems with Selective Fidelity</h3>
-            <ul>
-                <li><strong>Stratify privacy guarantees:</strong> Queries about large population trends can handle strong noise without much epistemic loss. However, for critical, small scale signals like potential rare disease clusters, the system needs different rules. This could mean using a higher privacy budget, applying post processing to limit distortion, or creating separate protocols for confirmed public health investigations. This approach places the privacy cost where the knowledge benefit is highest.</li>
-                
-                <li><strong>Build transparency layers governed by clear rules:</strong> We should not simply show a noisy number. We need to provide interpretative guidance rooted in clinical logic. This treats differential privacy as part of a human centered system, not just a mathematical component.</li>
-            </ul>
-        </div>
-
-        <div class="transparency-example">
-            <strong>Example Transparency Guidance:</strong><br><br>
-            For example, the system could attach notes:<br><br>
-            
-            • "This count has high relative noise due to strong privacy settings. Interpret with caution."<br>
-            • "The three year trend remains robust under applied privacy noise."<br>
-            • "Cluster alert: Signal detected but confidence is low. Consider secure follow up with data steward."<br><br>
-            
-            In my own prototyping work, I am testing exactly this. We are not just releasing a number. We are releasing a statement about that number's reliability. We are trying to communicate both the privacy promise and the practical risk, much like researchers have suggested is necessary for user understanding. The clinician does not need to see the Laplace distribution. They need to know if they can stand on the number or if it will give way.
-        </div>
-
-        <h2>The Challenge of Trust Calibration</h2>
-        
-        <p>The hardest part is calibrating trust itself. How do clinicians learn to rely on a system designed to be uncertain? Trust must shift from the output alone to the governance of the entire process. It becomes trust in the ethics of how the privacy budget is allocated, the rigor of the transparency rules, and a shared professional understanding that some uncertainty protects our community.</p>
-
-        <p>This demands better communication. We cannot expect clinicians to become privacy experts, but we can design interfaces that build accurate intuition. Visual confidence intervals, simple reliability flags, and clear pathways for accessing more precise data under strict protocols are all necessary.</p>
-
-        <h2>Conclusion: Toward Openly Trustworthy Systems</h2>
-        
-        <p>The goal is not to remove the tension between privacy and clinical knowledge. The goal is to build a framework where that tension is visible, managed, and regularly discussed. We must move past systems that are only private or only useful. We need systems that are openly trustworthy about the difficult space between those two poles.</p>
-
-        <div class="research-insight">
-            <strong>Final Reflection:</strong><br>
-            Can we have both strong privacy and justified clinical knowledge? I believe we can, but only if we stop treating noise as just a technical parameter and start seeing it as an intervention in how knowledge is built. The quality of our medical decisions, and the care that depends on them, requires this shift in perspective.
-        </div>
-
-        <div class="call-to-action">
-            <strong>What do you think?</strong><br><br>
-            How should we design systems that help clinicians calibrate their trust in privacy protected data? I would genuinely like to hear your thoughts.
-        </div>
+      <h2>Conclusion: Toward Openly Trustworthy Systems</h2>
+      
+      <div class="research-insight">
+        <strong>Final Reflection:</strong><br><br>
+        Can we have both strong privacy and justified clinical knowledge? I believe we can — but only if we treat noise as a visible intervention in how knowledge is built, not a hidden technical parameter.
+      </div>
     </div>
 
     <div class="categories">
-        <h3>Categories</h3>
-        <div class="category-tags">
-            <span class="category-tag">Differential Privacy</span>
-            <span class="category-tag">Clinical Ethics</span>
-            <span class="category-tag">Healthcare AI</span>
-            <span class="category-tag">Epistemology</span>
-            <span class="category-tag">Medical Trust</span>
-            <span class="category-tag">Health Registries</span>
-            <span class="category-tag">Privacy-Utility Tradeoff</span>
-            <span class="category-tag">Clinical Decision Making</span>
-        </div>
+      <h3>Categories</h3>
+      <div class="category-tags">
+        <span class="category-tag">Differential Privacy</span>
+        <span class="category-tag">Clinical Ethics</span>
+        <span class="category-tag">Healthcare AI</span>
+        <span class="category-tag">Epistemology</span>
+        <span class="category-tag">Health Registries</span>
+      </div>
     </div>
+  </div>
+
+  <script>
+    document.getElementById('hbg').addEventListener('click', function(){
+      document.getElementById('navul').classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
