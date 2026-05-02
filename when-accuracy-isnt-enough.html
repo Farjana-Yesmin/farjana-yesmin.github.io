@@ -1,166 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>When Accuracy Isn't Enough - Farjana's Technical Blog</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.7;
-            color: #444;
-            background-color: #f8f9fa;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        .back-link {
-            margin-bottom: 30px;
-        }
-        .back-link a {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .back-link a:hover {
-            text-decoration: underline;
-        }
-        h1 {
-            color: #2563eb;
-            margin-bottom: 10px;
-            font-size: 2.5rem;
-        }
-        .post-meta {
-            color: #666;
-            font-size: 1rem;
-            margin-bottom: 30px;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 20px;
-        }
-        .post-content {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-            border-left: 4px solid #2563eb;
-        }
-        .post-content h2 {
-            color: #1e293b;
-            margin: 2rem 0 1rem 0;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 0.5rem;
-        }
-        .post-content h3 {
-            color: #2563eb;
-            margin: 1.5rem 0 0.5rem 0;
-        }
-        .post-content p {
-            margin-bottom: 1.2rem;
-            color: #666;
-        }
-        .post-content ul, .post-content ol {
-            margin-left: 20px;
-            margin-bottom: 1.2rem;
-            color: #666;
-        }
-        .post-content li {
-            margin-bottom: 0.5rem;
-        }
-        .concept-box {
-            background: rgba(37, 99, 235, 0.05);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 4px solid #2563eb;
-        }
-        .results-highlight {
-            background: rgba(34, 197, 94, 0.1);
-            padding: 1rem;
-            border-radius: 6px;
-            margin: 1rem 0;
-            border-left: 3px solid #16a34a;
-        }
-        .categories {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-top: 2rem;
-        }
-        .categories h3 {
-            color: #2563eb;
-            margin-bottom: 1rem;
-        }
-        .category-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        .category-tag {
-            background: rgba(37, 99, 235, 0.1);
-            color: #2563eb;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-    </style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>When Accuracy Isn't Enough: What My AI Models Cannot Tell a Doctor · Farjana Yesmin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --ink: #111827;
+      --mid: #4b5563;
+      --light: #9ca3af;
+      --rule: #e5e7eb;
+      --bg: #ffffff;
+      --tint: #f9fafb;
+      --green: #065f46;
+      --glt: #ecfdf5;
+      --serif: 'Lora', Georgia, serif;
+      --sans: 'Inter', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { 
+      font-family: var(--sans); 
+      background: var(--bg); 
+      color: var(--ink); 
+      font-size: 15px; 
+      line-height: 1.75; 
+    }
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      border-bottom: 1px solid var(--rule); 
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(6px);
+    }
+    nav {
+      max-width: 860px; margin: 0 auto; padding: 0 24px;
+      height: 52px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { 
+      font-family: var(--serif); 
+      font-size: 1rem; 
+      font-weight: 600; 
+      color: var(--ink); 
+      text-decoration: none; 
+    }
+    .nav-ul { 
+      display: flex; 
+      list-style: none; 
+      gap: 2px; 
+    }
+    .nav-ul a {
+      font-size: 0.75rem; 
+      font-weight: 500; 
+      letter-spacing: .05em; 
+      text-transform: uppercase;
+      color: var(--mid); 
+      padding: 5px 10px; 
+      border-radius: 5px; 
+      transition: color .15s;
+    }
+    .nav-ul a:hover { color: var(--green); text-decoration: none; }
+    .nav-ul a.active { color: var(--green); }
+    .hamburger { 
+      display: none; 
+      background: none; 
+      border: none; 
+      font-size: 1.1rem; 
+      cursor: pointer; 
+      color: var(--mid); 
+    }
+
+    /* PAGE */
+    .page { 
+      max-width: 760px; 
+      margin: 0 auto; 
+      padding: 52px 24px 100px; 
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--mid);
+      font-size: 0.9rem;
+      margin-bottom: 32px;
+    }
+    .back-link:hover { color: var(--green); }
+
+    .post-header {
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 32px;
+    }
+    .post-title {
+      font-family: var(--serif);
+      font-size: 2.05rem;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .post-meta {
+      color: var(--mid);
+      font-size: 0.9rem;
+    }
+
+    /* POST CONTENT */
+    .post-content {
+      font-size: 1.02rem;
+      max-width: 680px;
+    }
+    .post-content h2 {
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 2.2rem 0 1rem;
+    }
+    .post-content h3 {
+      font-size: 1.2rem;
+      color: var(--green);
+      margin: 1.8rem 0 0.8rem;
+    }
+    .post-content p {
+      margin-bottom: 1.35rem;
+      color: var(--mid);
+    }
+    .post-content ul, .post-content ol {
+      margin: 1.2rem 0 1.4rem 1.4rem;
+      color: var(--mid);
+    }
+    .post-content li {
+      margin-bottom: 0.6rem;
+    }
+
+    .concept-box {
+      background: var(--glt);
+      border-left: 4px solid var(--green);
+      padding: 1.6rem 1.8rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+    .results-highlight {
+      background: #f0fdf4;
+      border-left: 4px solid #4ade80;
+      padding: 1.6rem 1.8rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+
+    /* CATEGORIES */
+    .categories {
+      margin-top: 60px;
+      padding-top: 32px;
+      border-top: 1px solid var(--rule);
+    }
+    .categories h3 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+    }
+    .category-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .category-tag {
+      font-size: 0.78rem;
+      padding: 4px 12px;
+      background: var(--glt);
+      color: var(--green);
+      border: 1px solid #a7f3d0;
+      border-radius: 9999px;
+    }
+
+    @media (max-width: 640px) {
+      .nav-ul { display: none; }
+      .hamburger { display: block; }
+      .nav-ul.open { 
+        display: flex; 
+        flex-direction: column; 
+        position: absolute; 
+        top: 52px; 
+        left: 0; 
+        right: 0; 
+        background: var(--bg); 
+        border-bottom: 1px solid var(--rule); 
+        padding: 12px 20px; 
+        gap: 6px; 
+      }
+      .page { padding: 36px 20px 80px; }
+      .post-title { font-size: 1.85rem; }
+    }
+  </style>
 </head>
 <body>
-    <div class="back-link">
-        <a href="/blog.html">← Back to Blog</a>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">Farjana Yesmin</a>
+      <button class="hamburger" id="hbg">☰</button>
+      <ul class="nav-ul" id="navul">
+        <li><a href="index.html#research">Research</a></li>
+        <li><a href="index.html#news">News</a></li>
+        <li><a href="index.html#publications">Publications</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="page">
+    <a href="blog.html" class="back-link">← Back to Blog</a>
+
+    <div class="post-header">
+      <h1 class="post-title">When Accuracy Isn't Enough: What My AI Models Cannot Tell a Doctor</h1>
+      <div class="post-meta">
+        <span>October 11, 2025</span>
+        <span>By Farjana Yesmin</span>
+      </div>
     </div>
-    
-    <h1>When Accuracy Isn't Enough: What My AI Models Can't Tell a Doctor</h1>
-    
-    <div class="post-meta">
-        <strong>Published:</strong> October 11, 2025<br>
-        <strong>Categories:</strong> Healthcare AI, Federated Learning, Explainable AI
-    </div>
-    
+
     <div class="post-content">
-        <p>During my recent work on privacy-preserving federated learning for healthcare, I reached a frustrating realization: high accuracy numbers don't always translate to real-world clinical trust. My model achieved 91.1% accuracy on medical text classification tasks, yet when I walked through its predictions with a clinician, they still asked: "How do I know your model isn't hiding something critical?"</p>
+      <p>During my recent work on privacy-preserving federated learning for healthcare, I reached a frustrating realization: high accuracy numbers don't always translate to real-world clinical trust.</p>
 
-        <h2>The Gap Between Metrics and Understanding</h2>
-        <p>Metrics like accuracy, F1-score, or AUC are easy to report and compare. But they offer little insight into whether a clinician can actually rely on the model's recommendations. This is especially true in high-stakes healthcare scenarios where mistakes can cost lives. Knowing that the model predicts "dengue likely" 91% of the time doesn't tell the doctor <em>why</em> it made that call.</p>
+      <h2>The Gap Between Metrics and Understanding</h2>
+      <p>Metrics like accuracy, F1-score, or AUC are easy to report. But they offer little insight into whether a clinician can actually rely on the model's recommendations. Knowing that the model predicts "dengue likely" 91% of the time doesn't tell the doctor <em>why</em>.</p>
 
-        <div class="concept-box">
-            <strong>Concept:</strong> In philosophy of science, this problem is referred to as <em>epistemic opacity</em> when a system produces outcomes that humans cannot fully understand or justify, even if the internal workings are accessible.
-        </div>
+      <div class="concept-box">
+        <strong>Concept:</strong> In philosophy of science, this is referred to as <em>epistemic opacity</em> — when a system produces outcomes that humans cannot fully understand or justify.
+      </div>
 
-        <h2>Why This Matters in Practice</h2>
-        <p>Consider federated learning: data never leaves the hospital, and models are trained across multiple institutions. Privacy guarantees are strong, but the resulting gradient updates and encrypted aggregates create a barrier to transparency. Clinicians can't inspect patient-level contributions, and existing explainable AI tools only partially illuminate model behavior. In short, accuracy alone is insufficient.</p>
+      <h2>Why This Matters in Practice</h2>
+      <p>In federated learning, privacy guarantees are strong, but they create barriers to transparency. Clinicians can't inspect patient-level contributions, and existing explainable AI tools only partially illuminate model behavior.</p>
 
-        <h2>Bridging the Gap</h2>
-        <p>Addressing this challenge requires more than better metrics. It demands designing AI systems that respect both technical and epistemic constraints:</p>
-        <ul>
-            <li>Integrate interpretable model structures wherever possible</li>
-            <li>Provide justification layers that relate predictions to clinically meaningful features</li>
-            <li>Develop evaluation frameworks that measure not just performance but trust and actionable insight</li>
-        </ul>
+      <h2>Bridging the Gap</h2>
+      <p>Addressing this requires more than better metrics. We must design systems that respect both technical and epistemic constraints:</p>
+      <ul>
+        <li>Integrate interpretable model structures wherever possible</li>
+        <li>Provide justification layers tied to clinically meaningful features</li>
+        <li>Develop evaluation frameworks that measure trust and actionable insight</li>
+      </ul>
 
-        <h2>Reflection</h2>
-        <p>High accuracy is gratifying, but I've learned that for healthcare AI, it's a starting point, not an endpoint. Our models must communicate in ways clinicians understand and trust, otherwise even perfect metrics are meaningless in practice.</p>
+      <h2>Reflection</h2>
+      <p>High accuracy is gratifying, but for healthcare AI, it's only a starting point. Our models must communicate in ways clinicians understand and trust.</p>
 
-        <div class="results-highlight">
-            <strong>Related Work:</strong> My work on MedHE explores these trade-offs in federated healthcare AI, balancing privacy, efficiency, and interpretability. For my publications on federated learning and healthcare AI, see the Publications section of my website.
-        </div>
+      <div class="results-highlight">
+        <strong>Related Work:</strong> My work on MedHE explores these trade-offs in federated healthcare AI — balancing privacy, efficiency, and interpretability.
+      </div>
     </div>
 
     <div class="categories">
-        <h3>Categories</h3>
-        <div class="category-tags">
-            <span class="category-tag">Healthcare AI</span>
-            <span class="category-tag">Federated Learning</span>
-            <span class="category-tag">Explainable AI</span>
-            <span class="category-tag">Epistemic Opacity</span>
-        </div>
+      <h3>Categories</h3>
+      <div class="category-tags">
+        <span class="category-tag">Healthcare AI</span>
+        <span class="category-tag">Federated Learning</span>
+        <span class="category-tag">Explainable AI</span>
+        <span class="category-tag">Epistemic Opacity</span>
+      </div>
     </div>
+  </div>
+
+  <script>
+    document.getElementById('hbg').addEventListener('click', function(){
+      document.getElementById('navul').classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
