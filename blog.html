@@ -1,382 +1,362 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farjana's Technical Blog</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #444;
-            background-color: #f8f9fa;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        .back-link {
-            margin-bottom: 30px;
-        }
-        .back-link a {
-            color: #5e60ce;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .back-link a:hover {
-            text-decoration: underline;
-        }
-        h1 {
-            color: #5e60ce;
-            margin-bottom: 10px;
-            font-size: 2.5rem;
-        }
-        .subtitle {
-            color: #666;
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-        }
-        .post {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            margin-bottom: 2rem;
-            border-left: 4px solid #5e60ce;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .post:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-        }
-        .post h2 {
-            color: #2d3436;
-            margin-bottom: 10px;
-        }
-        .post-date {
-            color: #ff6b6b;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-        .post p {
-            margin-bottom: 1rem;
-            color: #666;
-        }
-        .post-categories {
-            color: #5e60ce;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-        .read-more {
-            color: #5e60ce;
-            font-weight: 500;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .read-more:hover {
-            text-decoration: underline;
-        }
-        .categories {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            margin-top: 2rem;
-        }
-        .categories h3 {
-            color: #5e60ce;
-            margin-bottom: 1rem;
-        }
-        .categories ul {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .categories li {
-            background: rgba(94, 96, 206, 0.1);
-            color: #5e60ce;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-        .categories li:hover {
-            background: #5e60ce;
-            color: white;
-            transform: translateY(-2px);
-        }
-    </style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog · Farjana Yesmin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --ink:   #111827;
+      --mid:   #4b5563;
+      --light: #9ca3af;
+      --rule:  #e5e7eb;
+      --bg:    #ffffff;
+      --tint:  #f9fafb;
+      --green: #065f46;
+      --glt:   #ecfdf5;
+      --serif: 'Lora', Georgia, serif;
+      --sans:  'Inter', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--bg); color: var(--ink); font-size: 15px; line-height: 1.7; }
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV - identical to index */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      border-bottom: 1px solid var(--rule); background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(6px);
+    }
+    nav {
+      max-width: 860px; margin: 0 auto; padding: 0 24px;
+      height: 52px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { font-family: var(--serif); font-size: 1rem; font-weight: 600; color: var(--ink); text-decoration: none; }
+    .nav-ul { display: flex; list-style: none; gap: 2px; }
+    .nav-ul a {
+      font-size: 0.75rem; font-weight: 500; letter-spacing: .05em; text-transform: uppercase;
+      color: var(--mid); padding: 5px 10px; border-radius: 5px; transition: color .15s;
+    }
+    .nav-ul a:hover { color: var(--green); text-decoration: none; }
+    .nav-ul a.active { color: var(--green); }
+    .hamburger { display: none; background: none; border: none; font-size: 1.1rem; cursor: pointer; color: var(--mid); }
+
+    /* PAGE */
+    .page { max-width: 760px; margin: 0 auto; padding: 52px 24px 80px; }
+
+    .page-head { margin-bottom: 40px; border-bottom: 1px solid var(--rule); padding-bottom: 28px; }
+    .page-head h1 { font-family: var(--serif); font-size: 2rem; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+    .page-head p { font-size: 0.9rem; color: var(--mid); }
+
+    /* POST CARD */
+    .post {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .post:first-child { border-top: 1px solid var(--rule); }
+    .post-date { font-size: 0.73rem; color: var(--light); margin-bottom: 6px; font-variant-numeric: tabular-nums; }
+    .post-title {
+      font-family: var(--serif); font-size: 1.15rem; font-weight: 600;
+      color: var(--ink); line-height: 1.35; margin-bottom: 8px;
+    }
+    .post-title a { color: var(--ink); }
+    .post-title a:hover { color: var(--green); text-decoration: none; }
+    .post-excerpt { font-size: 0.86rem; color: var(--mid); line-height: 1.7; margin-bottom: 10px; max-width: 640px; }
+    .post-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+    .post-tag { font-size: 0.68rem; font-weight: 500; padding: 3px 9px; border-radius: 100px; background: var(--tint); border: 1px solid var(--rule); color: var(--mid); }
+    .post-link { font-size: 0.8rem; font-weight: 600; color: var(--green); }
+    .post-link:hover { text-decoration: underline; }
+
+    /* CATEGORIES SIDEBAR-STYLE */
+    .cat-wrap { margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--rule); }
+    .cat-wrap h2 { font-family: var(--serif); font-size: 1rem; font-weight: 600; color: var(--ink); margin-bottom: 14px; }
+    .cat-chips { display: flex; flex-wrap: wrap; gap: 7px; }
+    .cat-chip { font-size: 0.75rem; padding: 4px 12px; border-radius: 100px; background: var(--glt); color: var(--green); border: 1px solid #a7f3d0; }
+
+    @media (max-width: 640px) {
+      .nav-ul { display: none; }
+      .hamburger { display: block; }
+      .nav-ul.open { display: flex; flex-direction: column; position: absolute; top: 52px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 12px 20px; gap: 6px; }
+      .page { padding: 36px 20px 60px; }
+    }
+  </style>
 </head>
 <body>
-    <div class="back-link">
-        <a href="/">← Back to Main Site</a>
-    </div>
-    
-    <h1>Farjana's Technical Blog</h1>
-    <p class="subtitle">Sharing insights from my research in machine learning, healthcare AI, and data science</p>
 
-    <!-- New Blog Posts (Most Recent First) -->
-    <div class="post">
-      <h2><a href="/llm-safety-clinical-deployment.html" style="color: inherit; text-decoration: none;">LLM Safety in Clinical Deployment: Why Prompt Engineering Is Not Enough</a></h2>
-      <div class="post-date">April 18, 2026</div>
-      <p>Drawing on recent research and a real case from rural Bangladesh, this post argues that prompt engineering alone cannot guarantee LLM safety in clinical settings. Hallucinations, bias, and shallow reasoning remain even with advanced prompting. Instead, the post calls for domain adaptation, structured evaluation frameworks like ACUTE, governance, contestability, and continuous monitoring as essential safeguards.</p>
-      <div class="post-categories">LLM Safety, Clinical AI, Prompt Engineering, Healthcare Technology</div>
-      <a href="/llm-safety-clinical-deployment.html" class="read-more">Read full article →</a>
-    </div>
-    
-    <div class="post">
-      <h2><a href="/cost-of-perfect-privacy.html" style="color: inherit; text-decoration: none;">The Cost of Perfect Privacy: What Differential Privacy Hides from Global Health</a></h2>
-      <div class="post-date">April 12, 2026</div>
-      <p>Aggressive differential privacy does not just protect data. It systematically hides rare diseases, marginalized communities, and emerging outbreak signals in low-resource settings like Bangladesh. This post proposes "equity aware differential privacy" as an alternative, with epistemic impact assessments, selective fidelity, visible loss reporting, and contextual privacy budgets that prioritize clinical truth over mathematical purity.</p>
-      <div class="post-categories">Differential Privacy, Global Health, AI Ethics, Healthcare Data</div>
-      <a href="/cost-of-perfect-privacy.html" class="read-more">Read full article →</a>
-    </div>
-    <div class="post">
-      <h2><a href="/arguable-system-clinician-ai.html" style="color: inherit; text-decoration: none;">From Black Box to Arguable System: A Practical Framework for Clinician-AI Collaboration</a></h2>
-      <div class="post-date">April 5, 2026</div>
-      <p>Moving beyond explainability as a technical patch, this post introduces "arguable systems" as a new design principle for clinical AI. Drawing on dengue triage work in Bangladesh and fairness-aware ECG research, the article presents a practical framework using rule-augmented neural networks, structured uncertainty reporting, and contestable claims. Includes a five-step pipeline for building systems that invite clinical scrutiny rather than demanding blind trust.</p>
-      <div class="post-categories">Clinical AI, Human-AI Collaboration, Explainable AI, Healthcare Systems</div>
-      <a href="/arguable-system-clinician-ai.html" class="read-more">Read full article →</a>
-    </div>
-    
-    <div class="post">
-      <h2><a href="/epistemic-injustice-clinical-ai.html" style="color: inherit; text-decoration: none;">Epistemic Injustice in Clinical AI: When Marginalized Voices Are Silenced by Algorithms</a></h2>
-      <div class="post-date">March 31, 2026</div>
-      <p>Drawing on Miranda Fricker's framework of epistemic injustice, this post examines how clinical AI systems commit testimonial and hermeneutical wrongs at scale. Through firsthand experiences with dengue triage chatbots in Bangladesh and fairness-aware ECG models, the article shows how algorithms can systematically silence marginalized ways of knowing, and proposes five concrete directions for building epistemically just AI.</p>
-      <div class="post-categories">AI Ethics, Epistemic Injustice, Global Health, Clinical AI</div>
-      <a href="/epistemic-injustice-clinical-ai.html" class="read-more">Read full article →</a>
-    </div>
-    
-    <div class="post">
-      <h2><a href="/epistemic-virtues-privacy-systems.html" style="color: inherit; text-decoration: none;">Designing Epistemic Virtues into Privacy Preserving Systems</a></h2>
-      <div class="post-date">February 6, 2026</div>
-      <p>Building on previous posts about trust erosion in privacy-preserving health data, this piece argues for designing systems that cultivate epistemic virtues intellectual humility, courage, and responsibility rather than treating privacy as a simple trade-off. A practical four-step framework shows how to embed these virtues from the start, ensuring systems built for places like Bangladesh protect both data and the quality of knowledge produced.</p>
-      <div class="post-categories">Privacy-Preserving AI, Epistemic Ethics, Global Health, System Design</div>
-      <a href="/epistemic-virtues-privacy-systems.html" class="read-more">Read full article →</a>
-    </div>
+<header>
+  <nav>
+    <a href="index.html" class="logo">Farjana Yesmin</a>
+    <button class="hamburger" id="hbg">☰</button>
+    <ul class="nav-ul" id="navul">
+      <li><a href="index.html#research">Research</a></li>
+      <li><a href="index.html#news">News</a></li>
+      <li><a href="index.html#publications">Publications</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <div class="post">
-      <h2><a href="/clinicians-black-box.html" style="color: inherit; text-decoration: none;">The Clinician's Black Box: Designing AI That Supports, Not Replaces, Human Judgment</a></h2>
-      <div class="post-date">January 27, 2026</div>
-      <p>Examining the philosophical clash between clinicians' experiential wisdom and AI's opaque reasoning, this post argues against simply explaining black-box models. Instead, it proposes designing inherently arguable systems using hybrid rule-augmented architectures that foster professional dialogue, preserve clinical autonomy, and measure success through "responsibility-preserving performance."</p>
-      <div class="post-categories">Clinical AI, Human-Centered Design, Medical Ethics, Hybrid AI Systems</div>
-      <a href="/clinicians-black-box.html" class="read-more">Read full article →</a>
-    </div>
+<div class="page">
 
-    <div class="post">
-      <h2><a href="/auditing-trust-health-registries.html" style="color: inherit; text-decoration: none;">Auditing Trust in Health Registries: From Technical Fairness to Epistemic Responsibility</a></h2>
-      <div class="post-date">January 22, 2026</div>
-      <p>Building on previous work about ethical auditing, this post argues that real trust in health data systems requires moving beyond technical compliance to embrace epistemic responsibility. Exploring how to audit not just data but knowledge itself, we examine frameworks for multidimensional fairness, transparent uncertainty reporting, and the steward's duty to prevent misleading insights in compliant but flawed systems.</p>
-      <div class="post-categories">Health Registries, AI Ethics, Trustworthy AI, Epistemic Justice</div>
-      <a href="/auditing-trust-health-registries.html" class="read-more">Read full article →</a>
-    </div>
+  <div class="page-head">
+    <h1>Blog</h1>
+    <p>Writing on trustworthy AI, clinical systems, healthcare ethics, and research reflections.</p>
+  </div>
 
-    <div class="post">
-      <h2><a href="/privacy-noise-clinical-trust.html" style="color: inherit; text-decoration: none;">Differential Privacy Noise and Clinical Epistemic Trust: Can We Have Both?</a></h2>
-      <div class="post-date">January 15, 2026</div>
-      <p>Exploring how the very noise that protects patient privacy in health registries can erode clinicians' ability to form justified beliefs about medical reality. This post examines the epistemic disconnect between privacy mechanisms and clinical knowledge, proposing transparent systems with selective fidelity and clear trust calibration for rare disease monitoring and public health decision-making.</p>
-      <div class="post-categories">Differential Privacy, Clinical Ethics, Healthcare AI, Epistemology</div>
-      <a href="/privacy-noise-clinical-trust.html" class="read-more">Read full article →</a>
-    </div>
-    
-    <div class="post">
-      <h2><a href="/privacy-explainability-clinical-data.html" style="color: inherit; text-decoration: none;">Balancing Privacy and Explainability: A Technical and Epistemic Challenge for Clinical Data Sharing</a></h2>
-      <div class="post-date">December 19, 2025</div>
-      <p>Examining the fundamental tension between Differential Privacy's mathematical guarantees and the need for transparent explanations in clinical AI. This post explores how privacy-preserving noise conflicts with explainable AI methods, proposing a co-design framework that integrates hybrid architectures, selective DP application, and social-epistemological principles for building trustworthy health data ecosystems.</p>
-      <div class="post-categories">Differential Privacy, Explainable AI, Healthcare Data, Clinical Ethics</div>
-      <a href="/privacy-explainability-clinical-data.html" class="read-more">Read full article →</a>
-    </div>
-    
-    <div class="post">
-      <h2><a href="/ethical-auditing-federated-health-ai.html" style="color: inherit; text-decoration: none;">From Technical Privacy to Ethical Accountability: Auditing Federated Health AI</a></h2>
-      <div class="post-date">December 12, 2025</div>
-      <p>Exploring why federated learning's privacy guarantees are insufficient without systematic ethical audits. Drawing from ECG analysis and registry projects, this post presents a practical framework combining rule-augmented networks, multiparty differential privacy, and continuous fairness monitoring to build truly accountable health AI systems.</p>
-      <div class="post-categories">Federated Learning, AI Ethics, Healthcare AI, Differential Privacy</div>
-      <a href="/ethical-auditing-federated-health-ai.html" class="read-more">Read full article →</a>
-    </div>
+  <!-- POSTS -->
 
-    <div class="post">
-      <h2><a href="/differential-privacy-health-registries.html" style="color: inherit; text-decoration: none;">Differential Privacy in Health Registries: Protecting Data Without Losing Clinical Insight</a></h2>
-      <div class="post-date">December 6, 2025</div>
-      <p>Exploring the ethical and technical challenges of applying differential privacy to sensitive health data. How traditional approaches can erase rare disease signals and marginalized communities, and the adaptive methods that protect privacy while preserving clinical truth and equity.</p>
-      <div class="post-categories">Differential Privacy, Healthcare Data, ML Ethics, Federated Learning</div>
-      <a href="/differential-privacy-health-registries.html" class="read-more">Read full article →</a>
-    </div>
+  <div class="post">
+    <div class="post-date">April 18, 2026</div>
+    <div class="post-title"><a href="llm-safety-clinical-deployment.html">LLM Safety in Clinical Deployment: Why Prompt Engineering Is Not Enough</a></div>
+    <div class="post-excerpt">Drawing on recent research and a real case from rural Bangladesh, this post argues that prompt engineering alone cannot guarantee LLM safety in clinical settings. Hallucinations, bias, and shallow reasoning remain even with advanced prompting.</div>
+    <div class="post-tags"><span class="post-tag">LLM Safety</span><span class="post-tag">Clinical AI</span><span class="post-tag">Healthcare</span></div>
+    <a class="post-link" href="llm-safety-clinical-deployment.html">Read more →</a>
+  </div>
 
-    <div class="post">
-      <h2><a href="/beyond-scaling-sutskever-reflection.html" style="color: inherit; text-decoration: none;">Beyond Scaling: What Ilya Sutskever's AI Warning Means for Global Health</a></h2>
-      <div class="post-date">December 1, 2025</div>
-      <p>A personal reflection on Ilya Sutskever's podcast insights about AI's limitations and the transition from scaling to true understanding. Connecting his observations about "shallow understanding" and learning efficiency to real challenges in global health AI, from dengue symptom triage in Bangladesh to fairness-aware ECG analysis.</p>
-      <div class="post-categories">AI Research, Global Health, Machine Learning, Ethics</div>
-      <a href="/beyond-scaling-sutskever-reflection.html" class="read-more">Read full article →</a>
-    </div>
-    
-    <div class="post">
-      <h2><a href="/trustworthy-ai-hybrid-intelligence.html" style="color: inherit; text-decoration: none;">The Future of Trustworthy AI: Why Hybrid Intelligence is the Key to Human Confidence</a></h2>
-      <div class="post-date">November 30, 2025</div>
-      <p>Exploring how hybrid symbolic-neural models are solving AI's black box problem by combining neural network pattern recognition with symbolic AI's logical reasoning. Drawing from my research in healthcare AI and fairness-aware systems, this article examines the technical architecture and ethical implications of building AI that doesn't just perform well but explains itself and earns genuine trust.</p>
-      <div class="post-categories">Trustworthy AI, Hybrid Intelligence, AI Ethics, Healthcare AI</div>
-      <a href="/trustworthy-ai-hybrid-intelligence.html" class="read-more">Read full article →</a>
-    </div>
+  <div class="post">
+    <div class="post-date">April 12, 2026</div>
+    <div class="post-title"><a href="cost-of-perfect-privacy.html">The Cost of Perfect Privacy: What Differential Privacy Hides from Global Health</a></div>
+    <div class="post-excerpt">Aggressive differential privacy does not just protect data. It systematically hides rare diseases, marginalized communities, and emerging outbreak signals in low-resource settings like Bangladesh.</div>
+    <div class="post-tags"><span class="post-tag">Differential Privacy</span><span class="post-tag">Global Health</span><span class="post-tag">AI Ethics</span></div>
+    <a class="post-link" href="cost-of-perfect-privacy.html">Read more →</a>
+  </div>
 
-    <div class="post">
-      <h2><a href="/personal-reflection-0s-1s-big-questions.html" style="color: inherit; text-decoration: none;">Personal Reflection: From 0s and 1s to Life's Big Questions</a></h2>
-      <div class="post-date">November 27, 2025</div>
-      <p>A heartfelt journey from pure coding to philosophically-informed AI development. Reflecting on how building a dengue symptom triage chatbot revealed the ethical dimensions of technical decisions, and how concepts like epistemic injustice transformed my approach to creating trustworthy, human-centered AI systems.</p>
-      <div class="post-categories">Personal Journey, AI Ethics, Philosophy, Research Reflection</div>
-      <a href="/personal-reflection-0s-1s-big-questions.html" class="read-more">Read full article →</a>
-    </div>
-    
-    <div class="post">
-      <h2><a href="/philosophical-guardrails-clinical-ai.html" style="color: inherit; text-decoration: none;">From Philosophical Guardrails to Clinical Black Boxes: Building Ethical AI in an Opaque World</a></h2>
-      <div class="post-date">November 25, 2025</div>
-      <p>Examining the critical gap between AI ethical training and real-world vulnerabilities through Anthropic's security incidents. This analysis connects state-sponsored AI manipulation to epistemic opacity challenges in clinical decision-support, proposing a framework for healthcare AI that is both powerful and trustworthy. Includes references to 60 Minutes interviews and security disclosures.</p>
-      <div class="post-categories">AI Ethics, Clinical AI, Trustworthy AI, Healthcare Technology</div>
-      <a href="/philosophical-guardrails-clinical-ai.html" class="read-more">Read full article →</a>
-    </div>
-    
-    <div class="post">
-      <h2><a href="/cultural-calculus-healthcare-ai.html" style="color: inherit; text-decoration: none;">The Cultural Calculus of Care: How Economics and Values Shape Global Healthcare AI</a></h2>
-      <div class="post-date">November 22, 2025</div>
-      <p>Exploring how cultural contexts and economic realities create divergent AI adoption paths in healthcare from Scandinavia's privacy-focused precision medicine to Bangladesh's access-driven triage systems. Drawing from my research on dengue symptom triage AI and fairness-aware ECG analysis, this article examines the ethical tightrope between data privacy and equitable access in global health AI deployment.</p>
-      <div class="post-categories">Global Health, AI Ethics, Healthcare Systems, Cross-Cultural Research</div>
-      <a href="/cultural-calculus-healthcare-ai.html" class="read-more">Read full article →</a>
-    </div>
-    
-    <div class="post">
-      <h2><a href="/shap-lime-explainer-review.html" style="color: inherit; text-decoration: none;">AI Explainability Tools: A Hands-On Review of SHAP & LIME</a></h2>
-      <div class="post-date">November 16, 2025</div>
-      <p>A practical deep dive into SHAP and LIME explainability tools based on real research in intersectional fairness. This review includes hands-on code examples, critical analysis of limitations, and insights about moving beyond technical explanations to build truly accountable AI systems. Learn how these tools revealed critical fairness violations in image classification models.</p>
-      <div class="post-categories">Explainable AI, Machine Learning, AI Fairness, Technical Tutorial</div>
-      <a href="/shap-lime-explainer-review.html" class="read-more">Read full article →</a>
-    </div>
-    
-    <div class="post">
-      <h2><a href="/ethical-ai-healthcare-bias.html" style="color: inherit; text-decoration: none;">Ethical AI in Practice: Diagnosing and Curing Algorithmic Bias in Healthcare</a></h2>
-      <div class="post-date">November 15, 2025</div>
-      <p>When AI models are trained on data reflecting historical human biases, they don't just learn medicine they learn our inequalities. This analysis examines two critical case studies of algorithmic bias in healthcare AI and proposes an interdisciplinary framework combining technical fairness methods with ethical principles to build more equitable clinical systems.</p>
-      <div class="post-categories">AI Ethics, Healthcare AI, Algorithmic Fairness, Bias Mitigation</div>
-      <a href="/ethical-ai-healthcare-bias.html" class="read-more">Read full article →</a>
-    </div>
-    
-    <div class="post">
-      <h2><a href="/hei-learning-norwegian.html" style="color: inherit; text-decoration: none;">Hei! My Journey to Learning Norwegian <span style="background: linear-gradient(45deg, #b9f2ff, #e0f7ff); color: #1e293b; padding: 2px 6px; border-radius: 4px; font-size: 0.7em; margin-left: 8px; vertical-align: middle; border: 1px solid #a0e1ff;">DIAMOND ACHIEVED!</span></a></h2>
-      <div class="post-date">November 11, 2025 • Updated: January 25, 2026</div>
-      <p>As I prepare for the next chapter of my research career, I decided to start learning Norwegian, one Duolingo streak at a time. <strong>Latest (Jan 25):</strong> Reached Diamond League with 30000+ XP, 75-day streak (Wildfire EL 7!), Sage achievement earned, and expanded vocabulary for celebrations, directions, and dining!</p>
-      <div class="post-categories">Language Learning, Personal Reflection, Travel, Achievements</div>
-      <a href="/hei-learning-norwegian.html" class="read-more">Read full article →</a>
-    </div>
+  <div class="post">
+    <div class="post-date">April 5, 2026</div>
+    <div class="post-title"><a href="arguable-system-clinician-ai.html">From Black Box to Arguable System: A Practical Framework for Clinician-AI Collaboration</a></div>
+    <div class="post-excerpt">Moving beyond explainability as a technical patch, this post introduces "arguable systems" as a new design principle for clinical AI, with a five-step pipeline for building systems that invite clinical scrutiny rather than demanding blind trust.</div>
+    <div class="post-tags"><span class="post-tag">Clinical AI</span><span class="post-tag">Human-AI Collaboration</span><span class="post-tag">XAI</span></div>
+    <a class="post-link" href="arguable-system-clinician-ai.html">Read more →</a>
+  </div>
 
-    <div class="post">
-      <h2><a href="/healthcare-economics-sustainability.html" style="color: inherit; text-decoration: none;">Healthcare Economics & Sustainability: Lessons from Western Systems</a></h2>
-      <div class="post-date">November 8, 2025</div>
-      <p>An in-depth analysis of Western healthcare economies through recent research on Norwegian systems. This comprehensive review examines the paradox of high spending with mixed outcomes, explores circular economy implementation in hospital procurement, analyzes strategic hospital design for cost efficiency, and discusses the ethical integration of AI offering transferable principles for global healthcare sustainability.</p>
-      <div class="post-categories">Healthcare Economics, Sustainability, Policy Analysis, Circular Economy, Global Health</div>
-      <a href="/healthcare-economics-sustainability.html" class="read-more">Read full article →</a>
-    </div>
+  <div class="post">
+    <div class="post-date">March 31, 2026</div>
+    <div class="post-title"><a href="epistemic-injustice-clinical-ai.html">Epistemic Injustice in Clinical AI: When Marginalized Voices Are Silenced by Algorithms</a></div>
+    <div class="post-excerpt">Drawing on Miranda Fricker's framework of epistemic injustice, this post examines how clinical AI systems commit testimonial and hermeneutical wrongs at scale, and proposes five directions for building epistemically just AI.</div>
+    <div class="post-tags"><span class="post-tag">AI Ethics</span><span class="post-tag">Epistemic Justice</span><span class="post-tag">Global Health</span></div>
+    <a class="post-link" href="epistemic-injustice-clinical-ai.html">Read more →</a>
+  </div>
 
-    <!-- Trust in AI Blog Listing -->
-    <div class="post">
-      <h2><a href="/trust-in-ai-healthcare.html" style="color: inherit; text-decoration: none;">Trust in AI: Lessons from Healthcare</a></h2>
-      <div class="post-date">November 1, 2025</div>
-      <p>When a patient is on the operating table, trust is absolute. We trust the surgeon's skill, the anesthesiologist's precision, and the nurse's vigilance. Now, a new team member is entering the room: Artificial Intelligence. From algorithms that detect tumors invisible to the human eye to systems predicting sepsis hours before it strikes, AI's potential to save lives is revolutionary. But in this high-stakes domain, potential is meaningless without a foundation of trust.</p>
-      <div class="post-categories">Healthcare AI, Trust, Ethics, Explainable AI</div>
-      <a href="/trust-in-ai-healthcare.html" class="read-more">Read full article →</a>
-    </div>
+  <div class="post">
+    <div class="post-date">February 6, 2026</div>
+    <div class="post-title"><a href="epistemic-virtues-privacy-systems.html">Designing Epistemic Virtues into Privacy-Preserving Systems</a></div>
+    <div class="post-excerpt">This piece argues for designing systems that cultivate epistemic virtues — intellectual humility, courage, and responsibility — rather than treating privacy as a simple trade-off.</div>
+    <div class="post-tags"><span class="post-tag">Privacy</span><span class="post-tag">Epistemic Ethics</span><span class="post-tag">System Design</span></div>
+    <a class="post-link" href="epistemic-virtues-privacy-systems.html">Read more →</a>
+  </div>
 
-    <!-- Bias in AI Medical Decisions Blog Listing -->
-    <div class="post">
-      <h2><a href="/bias-ai-medical-decisions.html" style="color: inherit; text-decoration: none;">Ethical Dilemmas of Bias in AI-Driven Medical Decisions</a></h2>
-      <div class="post-date">October 25, 2025</div>
-      <p>Imagine two patients with the same symptoms. One is flagged for a life-saving screening; the other is not. The difference isn't their clinical need, but their race or postal code. Now, imagine this decision is made not by a human, but by an algorithm touted for its "objectivity." This is the central ethical crisis of AI in medicine. We risk automating and amplifying the very inequalities the healthcare system has struggled to overcome.</p>
-      <div class="post-categories">Healthcare AI, Bias, Ethics, Fairness</div>
-      <a href="/bias-ai-medical-decisions.html" class="read-more">Read full article →</a>
-    </div>
+  <div class="post">
+    <div class="post-date">January 27, 2026</div>
+    <div class="post-title"><a href="clinicians-black-box.html">The Clinician's Black Box: Designing AI That Supports, Not Replaces, Human Judgment</a></div>
+    <div class="post-excerpt">Examining the philosophical clash between clinicians' experiential wisdom and AI's opaque reasoning, this post proposes designing inherently arguable systems using hybrid rule-augmented architectures.</div>
+    <div class="post-tags"><span class="post-tag">Clinical AI</span><span class="post-tag">Medical Ethics</span><span class="post-tag">Hybrid AI</span></div>
+    <a class="post-link" href="clinicians-black-box.html">Read more →</a>
+  </div>
 
-    <div class="post">
-        <h2><a href="/hidden-cost-privacy-healthcare-ai.html" style="color: inherit; text-decoration: none;">The Hidden Cost of Privacy in Healthcare AI</a></h2>
-        <div class="post-date">October 18, 2025</div>
-        <p>Exploring the subtle epistemic and social costs of privacy-preserving techniques in healthcare AI. While federated learning and homomorphic encryption protect patient data, they can also change how medical knowledge is produced and shared in clinical settings.</p>
-        <div class="post-categories">Healthcare AI, Privacy, Federated Learning, Ethics</div>
-        <a href="/hidden-cost-privacy-healthcare-ai.html" class="read-more">Read full article →</a>
-    </div>
+  <div class="post">
+    <div class="post-date">January 22, 2026</div>
+    <div class="post-title"><a href="auditing-trust-health-registries.html">Auditing Trust in Health Registries: From Technical Fairness to Epistemic Responsibility</a></div>
+    <div class="post-excerpt">This post argues that real trust in health data systems requires moving beyond technical compliance to embrace epistemic responsibility — auditing not just data but knowledge itself.</div>
+    <div class="post-tags"><span class="post-tag">Health Registries</span><span class="post-tag">Trustworthy AI</span><span class="post-tag">Fairness</span></div>
+    <a class="post-link" href="auditing-trust-health-registries.html">Read more →</a>
+  </div>
 
-    <div class="post">
-        <h2><a href="/when-accuracy-isnt-enough.html" style="color: inherit; text-decoration: none;">When Accuracy Isn't Enough: What My AI Models Can't Tell a Doctor</a></h2>
-        <div class="post-date">October 11, 2025</div>
-        <p>High accuracy numbers don't always translate to real-world clinical trust. A reflection on the gap between model metrics and clinician understanding in healthcare AI systems.</p>
-        <div class="post-categories">Healthcare AI, Federated Learning, Explainable AI, Epistemic Opacity</div>
-        <a href="/when-accuracy-isnt-enough.html" class="read-more">Read full article →</a>
-    </div>
+  <div class="post">
+    <div class="post-date">January 15, 2026</div>
+    <div class="post-title"><a href="privacy-noise-clinical-trust.html">Differential Privacy Noise and Clinical Epistemic Trust: Can We Have Both?</a></div>
+    <div class="post-excerpt">Exploring how the very noise that protects patient privacy can erode clinicians' ability to form justified beliefs about medical reality, and how to bridge the gap.</div>
+    <div class="post-tags"><span class="post-tag">Differential Privacy</span><span class="post-tag">Clinical Ethics</span><span class="post-tag">Healthcare AI</span></div>
+    <a class="post-link" href="privacy-noise-clinical-trust.html">Read more →</a>
+  </div>
 
-    <div class="post">
-        <h2><a href="/beyond-explainable-ai.html" style="color: inherit; text-decoration: none;">Beyond "Explainable AI": What Philosophers Can Teach Us About Trust</a></h2>
-        <div class="post-date">October 4, 2025</div>
-        <p>Moving beyond technical explanations to philosophical frameworks for building trustworthy AI systems. Exploring epistemic opacity, justification vs. explanation, and designing for different stakeholder needs.</p>
-        <div class="post-categories">Explainable AI, Healthcare AI, Ethics, Federated Learning</div>
-        <a href="/beyond-explainable-ai.html" class="read-more">Read full article →</a>
-    </div>
+  <div class="post">
+    <div class="post-date">December 19, 2025</div>
+    <div class="post-title"><a href="privacy-explainability-clinical-data.html">Balancing Privacy and Explainability: A Technical and Epistemic Challenge for Clinical Data Sharing</a></div>
+    <div class="post-excerpt">Examining the fundamental tension between Differential Privacy's mathematical guarantees and the need for transparent explanations in clinical AI, proposing a co-design framework.</div>
+    <div class="post-tags"><span class="post-tag">Differential Privacy</span><span class="post-tag">XAI</span><span class="post-tag">Healthcare Data</span></div>
+    <a class="post-link" href="privacy-explainability-clinical-data.html">Read more →</a>
+  </div>
 
-    <!-- Existing Blog Posts -->
-    <div class="post">
-        <h2><a href="/recent-research-papers.html" style="color: inherit; text-decoration: none;">My Recent Research Papers: Advancing AI in Healthcare and Environmental Monitoring</a></h2>
-        <div class="post-date">September 27, 2025</div>
-        <p>An overview of my latest research contributions in AI-powered healthcare solutions for Bangladesh and environmental monitoring for smart cities. Covering dengue symptom triage chatbots, health indicator analysis, air quality prediction, and fairness in ECG models.</p>
-        <div class="post-categories">Healthcare AI, Machine Learning, AI Fairness, Research Projects, Environmental Monitoring</div>
-        <a href="/recent-research-papers.html" class="read-more">Read full article →</a>
-    </div>
+  <div class="post">
+    <div class="post-date">December 12, 2025</div>
+    <div class="post-title"><a href="ethical-auditing-federated-health-ai.html">From Technical Privacy to Ethical Accountability: Auditing Federated Health AI</a></div>
+    <div class="post-excerpt">Exploring why federated learning's privacy guarantees are insufficient without systematic ethical audits, with a practical framework combining rule-augmented networks and continuous fairness monitoring.</div>
+    <div class="post-tags"><span class="post-tag">Federated Learning</span><span class="post-tag">AI Ethics</span><span class="post-tag">Healthcare AI</span></div>
+    <a class="post-link" href="ethical-auditing-federated-health-ai.html">Read more →</a>
+  </div>
 
-    <div class="post">
-        <h2><a href="/secret-of-secrets-review.html" style="color: inherit; text-decoration: none;">The Secret of the Secrets: Unveiling Hidden Wisdom</a></h2>
-        <div class="post-date">September 20, 2025</div>
-        <p>A deep dive into Dawn Brown's exploration of hidden wisdom and its connections to cognitive science and AI research.</p>
-        <div class="post-categories">Personal Development, Book Review, Cognitive Science</div>
-        <a href="/secret-of-secrets-review.html" class="read-more">Read full review →</a>
-    </div>
+  <div class="post">
+    <div class="post-date">December 6, 2025</div>
+    <div class="post-title"><a href="differential-privacy-health-registries.html">Differential Privacy in Health Registries: Protecting Data Without Losing Clinical Insight</a></div>
+    <div class="post-excerpt">How traditional approaches can erase rare disease signals and marginalized communities, and adaptive methods that protect privacy while preserving clinical truth and equity.</div>
+    <div class="post-tags"><span class="post-tag">Differential Privacy</span><span class="post-tag">Healthcare Data</span><span class="post-tag">Equity</span></div>
+    <a class="post-link" href="differential-privacy-health-registries.html">Read more →</a>
+  </div>
 
-    <div class="post">
-        <h2>Welcome to My Technical Blog</h2>
-        <div class="post-date">December 19, 2024</div>
-        <p><strong>I'll be sharing insights from my research in:</strong></p>
-        <ul style="color: #666; margin-left: 20px; margin-bottom: 1rem;">
-            <li>Machine Learning Fairness</li>
-            <li>Healthcare AI</li>
-            <li>Explainable AI (XAI)</li>
-            <li>Federated Learning</li>
-            <li>Privacy-Preserving AI</li>
-            <li>Ethical AI Development</li>
-        </ul>
-        <p><strong>First Technical Deep Dive</strong></p>
-        <p>Coming soon: A detailed analysis of gradient sparsification in federated learning with homomorphic encryption.</p>
-        <p>Stay tuned for more technical content!</p>
+  <div class="post">
+    <div class="post-date">December 1, 2025</div>
+    <div class="post-title"><a href="beyond-scaling-sutskever-reflection.html">Beyond Scaling: What Ilya Sutskever's AI Warning Means for Global Health</a></div>
+    <div class="post-excerpt">A personal reflection on Sutskever's insights about AI's limitations and the transition from scaling to true understanding, connecting his observations to real challenges in global health AI.</div>
+    <div class="post-tags"><span class="post-tag">AI Research</span><span class="post-tag">Global Health</span><span class="post-tag">Reflection</span></div>
+    <a class="post-link" href="beyond-scaling-sutskever-reflection.html">Read more →</a>
+  </div>
+
+  <div class="post">
+    <div class="post-date">November 30, 2025</div>
+    <div class="post-title"><a href="trustworthy-ai-hybrid-intelligence.html">The Future of Trustworthy AI: Why Hybrid Intelligence Is the Key to Human Confidence</a></div>
+    <div class="post-excerpt">How hybrid symbolic-neural models solve AI's black box problem by combining neural network pattern recognition with symbolic AI's logical reasoning, and the ethical implications for healthcare.</div>
+    <div class="post-tags"><span class="post-tag">Trustworthy AI</span><span class="post-tag">Hybrid Intelligence</span><span class="post-tag">AI Ethics</span></div>
+    <a class="post-link" href="trustworthy-ai-hybrid-intelligence.html">Read more →</a>
+  </div>
+
+  <div class="post">
+    <div class="post-date">November 27, 2025</div>
+    <div class="post-title"><a href="personal-reflection-0s-1s-big-questions.html">Personal Reflection: From 0s and 1s to Life's Big Questions</a></div>
+    <div class="post-excerpt">A journey from pure coding to philosophically-informed AI development, and how building a dengue symptom triage chatbot revealed the ethical dimensions of technical decisions.</div>
+    <div class="post-tags"><span class="post-tag">Reflection</span><span class="post-tag">AI Ethics</span><span class="post-tag">Philosophy</span></div>
+    <a class="post-link" href="personal-reflection-0s-1s-big-questions.html">Read more →</a>
+  </div>
+
+  <div class="post">
+    <div class="post-date">November 25, 2025</div>
+    <div class="post-title"><a href="philosophical-guardrails-clinical-ai.html">From Philosophical Guardrails to Clinical Black Boxes: Building Ethical AI in an Opaque World</a></div>
+    <div class="post-excerpt">Examining the critical gap between AI ethical training and real-world vulnerabilities, proposing a framework for healthcare AI that is both powerful and trustworthy.</div>
+    <div class="post-tags"><span class="post-tag">AI Ethics</span><span class="post-tag">Clinical AI</span><span class="post-tag">Trustworthy AI</span></div>
+    <a class="post-link" href="philosophical-guardrails-clinical-ai.html">Read more →</a>
+  </div>
+
+  <div class="post">
+    <div class="post-date">November 22, 2025</div>
+    <div class="post-title"><a href="cultural-calculus-healthcare-ai.html">The Cultural Calculus of Care: How Economics and Values Shape Global Healthcare AI</a></div>
+    <div class="post-excerpt">Exploring how cultural contexts and economic realities create divergent AI adoption paths in healthcare, from Scandinavia's privacy-focused systems to Bangladesh's access-driven triage AI.</div>
+    <div class="post-tags"><span class="post-tag">Global Health</span><span class="post-tag">AI Ethics</span><span class="post-tag">Cross-Cultural Research</span></div>
+    <a class="post-link" href="cultural-calculus-healthcare-ai.html">Read more →</a>
+  </div>
+
+  <div class="post">
+    <div class="post-date">November 16, 2025</div>
+    <div class="post-title"><a href="shap-lime-explainer-review.html">AI Explainability Tools: A Hands-On Review of SHAP and LIME</a></div>
+    <div class="post-excerpt">A practical deep dive into SHAP and LIME based on real research in intersectional fairness, with code examples, critical analysis of limitations, and how these tools revealed fairness violations in image classifiers.</div>
+    <div class="post-tags"><span class="post-tag">XAI</span><span class="post-tag">Machine Learning</span><span class="post-tag">AI Fairness</span></div>
+    <a class="post-link" href="shap-lime-explainer-review.html">Read more →</a>
+  </div>
+
+  <div class="post">
+    <div class="post-date">November 15, 2025</div>
+    <div class="post-title"><a href="ethical-ai-healthcare-bias.html">Ethical AI in Practice: Diagnosing and Curing Algorithmic Bias in Healthcare</a></div>
+    <div class="post-excerpt">Two critical case studies of algorithmic bias in healthcare AI and an interdisciplinary framework combining technical fairness methods with ethical principles to build more equitable clinical systems.</div>
+    <div class="post-tags"><span class="post-tag">AI Ethics</span><span class="post-tag">Healthcare AI</span><span class="post-tag">Bias Mitigation</span></div>
+    <a class="post-link" href="ethical-ai-healthcare-bias.html">Read more →</a>
+  </div>
+
+  <div class="post">
+    <div class="post-date">November 11, 2025</div>
+    <div class="post-title"><a href="hei-learning-norwegian.html">Hei! My Journey to Learning Norwegian</a></div>
+    <div class="post-excerpt">Learning Norwegian one Duolingo streak at a time, alongside my research career. Reached Diamond League with 30,000+ XP and a 175-day streak.</div>
+    <div class="post-tags"><span class="post-tag">Language Learning</span><span class="post-tag">Personal</span></div>
+    <a class="post-link" href="hei-learning-norwegian.html">Read more →</a>
+  </div>
+
+  <div class="post">
+    <div class="post-date">November 8, 2025</div>
+    <div class="post-title"><a href="healthcare-economics-sustainability.html">Healthcare Economics and Sustainability: Lessons from Western Systems</a></div>
+    <div class="post-excerpt">An in-depth analysis of Western healthcare economies through recent research on Norwegian systems, examining circular economy implementation, strategic hospital design, and the ethical integration of AI.</div>
+    <div class="post-tags"><span class="post-tag">Healthcare Economics</span><span class="post-tag">Sustainability</span><span class="post-tag">Policy</span></div>
+    <a class="post-link" href="healthcare-economics-sustainability.html">Read more →</a>
+  </div>
+
+  <div class="post">
+    <div class="post-date">November 1, 2025</div>
+    <div class="post-title"><a href="trust-in-ai-healthcare.html">Trust in AI: Lessons from Healthcare</a></div>
+    <div class="post-excerpt">AI's potential to save lives is revolutionary — but in this high-stakes domain, potential is meaningless without a foundation of trust. An exploration of what genuine trust in clinical AI actually requires.</div>
+    <div class="post-tags"><span class="post-tag">Healthcare AI</span><span class="post-tag">Trust</span><span class="post-tag">Ethics</span></div>
+    <a class="post-link" href="trust-in-ai-healthcare.html">Read more →</a>
+  </div>
+
+  <div class="post">
+    <div class="post-date">October 25, 2025</div>
+    <div class="post-title"><a href="bias-ai-medical-decisions.html">Ethical Dilemmas of Bias in AI-Driven Medical Decisions</a></div>
+    <div class="post-excerpt">Two patients with the same symptoms — one flagged for a life-saving screening, one not. The difference is their postal code. An examination of algorithmic bias as the central ethical crisis of AI in medicine.</div>
+    <div class="post-tags"><span class="post-tag">Healthcare AI</span><span class="post-tag">Bias</span><span class="post-tag">Ethics</span></div>
+    <a class="post-link" href="bias-ai-medical-decisions.html">Read more →</a>
+  </div>
+
+  <div class="post">
+    <div class="post-date">October 18, 2025</div>
+    <div class="post-title"><a href="hidden-cost-privacy-healthcare-ai.html">The Hidden Cost of Privacy in Healthcare AI</a></div>
+    <div class="post-excerpt">Exploring the subtle epistemic and social costs of privacy-preserving techniques in healthcare AI and how they change the way medical knowledge is produced and shared in clinical settings.</div>
+    <div class="post-tags"><span class="post-tag">Healthcare AI</span><span class="post-tag">Privacy</span><span class="post-tag">Federated Learning</span></div>
+    <a class="post-link" href="hidden-cost-privacy-healthcare-ai.html">Read more →</a>
+  </div>
+
+  <div class="post">
+    <div class="post-date">October 11, 2025</div>
+    <div class="post-title"><a href="when-accuracy-isnt-enough.html">When Accuracy Is Not Enough: What My AI Models Cannot Tell a Doctor</a></div>
+    <div class="post-excerpt">High accuracy numbers do not always translate to real-world clinical trust. A reflection on the gap between model metrics and clinician understanding in healthcare AI systems.</div>
+    <div class="post-tags"><span class="post-tag">Healthcare AI</span><span class="post-tag">XAI</span><span class="post-tag">Epistemic Opacity</span></div>
+    <a class="post-link" href="when-accuracy-isnt-enough.html">Read more →</a>
+  </div>
+
+  <div class="post">
+    <div class="post-date">October 4, 2025</div>
+    <div class="post-title"><a href="beyond-explainable-ai.html">Beyond "Explainable AI": What Philosophers Can Teach Us About Trust</a></div>
+    <div class="post-excerpt">Moving beyond technical explanations to philosophical frameworks for building trustworthy AI systems, exploring epistemic opacity and designing for different stakeholder needs.</div>
+    <div class="post-tags"><span class="post-tag">XAI</span><span class="post-tag">Philosophy</span><span class="post-tag">Healthcare AI</span></div>
+    <a class="post-link" href="beyond-explainable-ai.html">Read more →</a>
+  </div>
+
+  <div class="post">
+    <div class="post-date">September 27, 2025</div>
+    <div class="post-title"><a href="recent-research-papers.html">My Recent Research Papers: Advancing AI in Healthcare and Environmental Monitoring</a></div>
+    <div class="post-excerpt">An overview of my latest research contributions covering dengue symptom triage chatbots, health indicator analysis, air quality prediction, and fairness in ECG models.</div>
+    <div class="post-tags"><span class="post-tag">Research</span><span class="post-tag">Healthcare AI</span><span class="post-tag">Environmental Monitoring</span></div>
+    <a class="post-link" href="recent-research-papers.html">Read more →</a>
+  </div>
+
+  <div class="post">
+    <div class="post-date">September 20, 2025</div>
+    <div class="post-title"><a href="secret-of-secrets-review.html">The Secret of the Secrets: Unveiling Hidden Wisdom</a></div>
+    <div class="post-excerpt">A deep dive into Dawn Brown's exploration of hidden wisdom and its connections to cognitive science and AI research.</div>
+    <div class="post-tags"><span class="post-tag">Book Review</span><span class="post-tag">Cognitive Science</span></div>
+    <a class="post-link" href="secret-of-secrets-review.html">Read more →</a>
+  </div>
+
+  <!-- CATEGORIES -->
+  <div class="cat-wrap">
+    <h2>Categories</h2>
+    <div class="cat-chips">
+      <span class="cat-chip">Healthcare AI</span>
+      <span class="cat-chip">Federated Learning</span>
+      <span class="cat-chip">Explainable AI</span>
+      <span class="cat-chip">Differential Privacy</span>
+      <span class="cat-chip">AI Ethics</span>
+      <span class="cat-chip">Trustworthy AI</span>
+      <span class="cat-chip">AI Fairness</span>
+      <span class="cat-chip">Epistemic Justice</span>
+      <span class="cat-chip">Clinical AI</span>
+      <span class="cat-chip">Global Health</span>
+      <span class="cat-chip">Research</span>
+      <span class="cat-chip">Philosophy</span>
+      <span class="cat-chip">Reflection</span>
+      <span class="cat-chip">Book Review</span>
+      <span class="cat-chip">Language Learning</span>
     </div>
-    
-    <div class="categories">
-        <h3>Blog Categories</h3>
-        <ul>
-            <li>Healthcare AI</li>
-            <li>Federated Learning</li>
-            <li>Explainable AI</li>
-            <li>Privacy</li>
-            <li>Ethics</li>
-            <li>Machine Learning</li>
-            <li>AI Fairness</li>
-            <li>Research Projects</li>
-            <li>Environmental Monitoring</li>
-            <li>IoT & Smart Cities</li>
-            <li>Technical Tutorials</li>
-            <li>Book Review</li>
-            <li>Personal Development</li>
-        </ul>
-    </div>
+  </div>
+
+</div>
+
+<script>
+  document.getElementById('hbg').addEventListener('click', function(){
+    document.getElementById('navul').classList.toggle('open');
+  });
+</script>
 </body>
 </html>
