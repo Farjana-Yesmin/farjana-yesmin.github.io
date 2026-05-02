@@ -1,390 +1,391 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethical AI in Practice: Diagnosing and Curing Algorithmic Bias in Healthcare - Farjana's Technical Blog</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.7;
-            color: #444;
-            background-color: #f8f9fa;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        .back-link {
-            margin-bottom: 30px;
-        }
-        .back-link a {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .back-link a:hover {
-            text-decoration: underline;
-        }
-        h1 {
-            color: #2563eb;
-            margin-bottom: 10px;
-            font-size: 2.5rem;
-        }
-        .author {
-            color: #666;
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            font-style: italic;
-        }
-        .post-meta {
-            color: #666;
-            font-size: 1rem;
-            margin-bottom: 30px;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 20px;
-        }
-        .post-content {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-            border-left: 4px solid #2563eb;
-        }
-        .post-content h2 {
-            color: #1e293b;
-            margin: 2rem 0 1rem 0;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 0.5rem;
-        }
-        .post-content h3 {
-            color: #2563eb;
-            margin: 1.5rem 0 0.5rem 0;
-        }
-        .post-content p {
-            margin-bottom: 1.2rem;
-            color: #666;
-        }
-        .post-content ul, .post-content ol {
-            margin-left: 20px;
-            margin-bottom: 1.2rem;
-            color: #666;
-        }
-        .post-content li {
-            margin-bottom: 0.5rem;
-        }
-        .concept-box {
-            background: rgba(37, 99, 235, 0.05);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 4px solid #2563eb;
-        }
-        .case-study {
-            background: rgba(139, 69, 19, 0.05);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 4px solid #8B4513;
-        }
-        .technical-breakdown {
-            background: rgba(34, 197, 94, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 3px solid #16a34a;
-        }
-        .philosophical-angle {
-            background: rgba(168, 85, 247, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 3px solid #a855f7;
-        }
-        .pros-cons {
-            background: rgba(245, 158, 11, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 3px solid #f59e0b;
-        }
-        .categories {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-top: 2rem;
-        }
-        .categories h3 {
-            color: #2563eb;
-            margin-bottom: 1rem;
-        }
-        .category-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        .category-tag {
-            background: rgba(37, 99, 235, 0.1);
-            color: #2563eb;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-        .reference {
-            background: rgba(107, 114, 128, 0.05);
-            padding: 1rem;
-            border-radius: 6px;
-            margin: 1rem 0;
-            font-size: 0.9rem;
-            border-left: 3px solid #6B7280;
-        }
-        .research-highlight {
-            background: rgba(37, 99, 235, 0.08);
-            padding: 1rem;
-            border-radius: 6px;
-            margin: 1rem 0;
-            border: 1px solid rgba(37, 99, 235, 0.2);
-        }
-        
-        /* FIXED Solution Framework Styles */
-        .solution-framework {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            margin: 2.5rem 0;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .solution-framework h2 {
-            color: white;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-            padding-bottom: 1rem;
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-        }
-        
-        .solution-framework h3 {
-            color: white;
-            margin: 2rem 0 1.5rem 0;
-            font-size: 1.4rem;
-            border: none;
-        }
-        
-        .solution-framework p {
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 1.5rem;
-        }
-        
-        .core-principles {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem 0;
-            backdrop-filter: blur(10px);
-        }
-        
-        .principle-item {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 4px solid rgba(255, 255, 255, 0.6);
-            transition: all 0.3s ease;
-        }
-        
-        .principle-item:hover {
-            transform: translateX(8px);
-            background: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .principle-item h4 {
-            color: white;
-            margin-bottom: 0.8rem;
-            font-size: 1.3rem;
-            font-weight: 600;
-        }
-        
-        .principle-item p {
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 0;
-            line-height: 1.6;
-            font-size: 1rem;
-        }
-        
-        .solution-framework .reference {
-            background: rgba(255, 255, 255, 0.15);
-            border-left: 4px solid rgba(255, 255, 255, 0.7);
-            margin: 2rem 0 0 0;
-            padding: 1.5rem;
-        }
-        
-        .solution-framework .reference strong {
-            color: white;
-            font-size: 1rem;
-        }
-    </style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ethical AI in Practice: Diagnosing and Curing Algorithmic Bias in Healthcare · Farjana Yesmin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --ink:   #111827;
+      --mid:   #4b5563;
+      --light: #9ca3af;
+      --rule:  #e5e7eb;
+      --bg:    #ffffff;
+      --tint:  #f9fafb;
+      --green: #065f46;
+      --glt:   #ecfdf5;
+      --serif: 'Lora', Georgia, serif;
+      --sans:  'Inter', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      position: sticky; top: 0; z-index: 50;
+      border-bottom: 1px solid var(--rule);
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(6px);
+    }
+    nav {
+      max-width: 860px; margin: 0 auto; padding: 0 24px;
+      height: 52px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-ul { display: flex; list-style: none; gap: 2px; }
+    .nav-ul a {
+      font-size: 0.75rem; font-weight: 500; letter-spacing: .05em; text-transform: uppercase;
+      color: var(--mid); padding: 5px 10px; border-radius: 5px; transition: color .15s;
+    }
+    .nav-ul a:hover { color: var(--green); text-decoration: none; }
+    .nav-ul a.active { color: var(--green); }
+    .hamburger { display: none; background: none; border: none; font-size: 1.1rem; cursor: pointer; color: var(--mid); }
+
+    .post-page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+    .post-header {
+      margin-bottom: 48px;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 28px;
+    }
+    .post-date {
+      font-size: 0.85rem;
+      color: var(--light);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 12px;
+    }
+    .post-title {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .post-meta {
+      font-size: 0.85rem;
+      color: var(--mid);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .post-content {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      color: #2c2c2c;
+    }
+    .post-content p {
+      margin-bottom: 1.5rem;
+    }
+    .post-content h2 {
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 1.4rem;
+      margin: 2rem 0 1rem;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+    .post-content h3 {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 1.2rem;
+      margin: 1.8rem 0 0.8rem;
+      color: var(--green);
+    }
+    .post-content blockquote {
+      border-left: 4px solid var(--green);
+      background: var(--glt);
+      padding: 1rem 1.5rem;
+      margin: 1.8rem 0;
+      font-style: normal;
+      color: #1f5d4a;
+    }
+    /* unified box styles */
+    .post-content .case-study,
+    .post-content .technical-breakdown,
+    .post-content .philosophical-angle,
+    .post-content .pros-cons,
+    .post-content .concept-box,
+    .post-content .research-highlight {
+      background: var(--tint);
+      border-left: 4px solid var(--green);
+      padding: 1.2rem 1.8rem;
+      margin: 1.8rem 0;
+      border-radius: 0 12px 12px 0;
+    }
+    .post-content .solution-framework {
+      background: linear-gradient(135deg, #064e3b 0%, #0f766e 100%);
+      color: white;
+      padding: 1.8rem;
+      border-radius: 16px;
+      margin: 2rem 0;
+    }
+    .post-content .solution-framework h2,
+    .post-content .solution-framework h3,
+    .post-content .solution-framework h4 {
+      color: white;
+    }
+    .post-content .solution-framework h2 {
+      border-bottom: 2px solid rgba(255,255,255,0.2);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .core-principles {
+      background: rgba(255,255,255,0.1);
+      padding: 1.2rem;
+      border-radius: 12px;
+      margin: 1.5rem 0;
+    }
+    .principle-item {
+      background: rgba(255,255,255,0.15);
+      padding: 1rem 1.2rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+      border-left: 3px solid rgba(255,255,255,0.5);
+    }
+    .post-content .solution-framework .reference {
+      background: rgba(255,255,255,0.15);
+      border-left: 3px solid rgba(255,255,255,0.6);
+      padding: 1rem;
+      margin: 1.5rem 0 0;
+    }
+    .post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 2rem 0 1rem;
+    }
+    .post-tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 100px;
+      background: var(--tint);
+      border: 1px solid var(--rule);
+      color: var(--mid);
+      letter-spacing: 0.01em;
+    }
+    .further-reading {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--rule);
+    }
+    .further-reading h3 {
+      font-family: var(--sans);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .further-reading ul {
+      list-style: none;
+      margin-left: 0;
+    }
+    .further-reading li {
+      margin-bottom: 0.5rem;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 2rem;
+      font-size: 0.85rem;
+    }
+    @media (max-width: 640px) {
+      .nav-ul { display: none; }
+      .hamburger { display: block; }
+      .nav-ul.open { display: flex; flex-direction: column; position: absolute; top: 52px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 12px 20px; gap: 6px; }
+      .post-title { font-size: 1.8rem; }
+      .post-page { padding: 40px 20px 80px; }
+    }
+  </style>
 </head>
 <body>
-    <div class="back-link">
-        <a href="/blog.html">← Back to Blog</a>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo">Farjana Yesmin</a>
+    <button class="hamburger" id="hbg">☰</button>
+    <ul class="nav-ul" id="navul">
+      <li><a href="index.html#research">Research</a></li>
+      <li><a href="index.html#news">News</a></li>
+      <li><a href="index.html#publications">Publications</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="post-page">
+  <div class="back-link">
+    <a href="blog.html">← Back to all posts</a>
+  </div>
+
+  <article>
+    <div class="post-header">
+      <div class="post-date">November 15, 2025</div>
+      <h1 class="post-title">Ethical AI in Practice: Diagnosing and Curing Algorithmic Bias in Healthcare</h1>
+      <div class="post-meta">
+        <span>By Farjana Yesmin</span>
+        <span>•</span>
+        <span>10 min read</span>
+      </div>
     </div>
-    
-    <h1>Ethical AI in Practice: Diagnosing and Curing Algorithmic Bias in Healthcare</h1>
-    <div class="author">By Farjana Yesmin</div>
-    
-    <div class="post-meta">
-        <strong>Published:</strong> November 15, 2025<br>
-        <strong>Categories:</strong> AI Ethics, Healthcare AI, Algorithmic Fairness, Bias Mitigation
-    </div>
-    
+
     <div class="post-content">
-        <p>Artificial Intelligence is poised to revolutionize medicine, offering tools that can detect diseases earlier, personalize treatments, and alleviate the burden on healthcare systems. Yet, this promise is shadowed by a critical challenge: when AI models are trained on data reflecting historical human biases, they don't just learn medicine they learn our inequalities.</p>
+      <p>Artificial Intelligence is poised to revolutionize medicine, offering tools that can detect diseases earlier, personalize treatments, and alleviate the burden on healthcare systems. Yet, this promise is shadowed by a critical challenge: when AI models are trained on data reflecting historical human biases, they don't just learn medicine — they learn our inequalities.</p>
 
-        <p>As a researcher focused on fairness-aware methods (as detailed in my work on ECG-based disease prediction), I see this not just as a technical problem, but as an interdisciplinary one. Truly ethical clinical AI requires us to bridge the gap between algorithmic rigor and philosophical principles like justice, trust, and accountability.</p>
+      <p>As a researcher focused on fairness-aware methods (as detailed in my work on ECG-based disease prediction), I see this not just as a technical problem, but as an interdisciplinary one. Truly ethical clinical AI requires us to bridge the gap between algorithmic rigor and philosophical principles like justice, trust, and accountability.</p>
 
-        <p>Let's dissect two real-world cases to understand how bias manifests and how we can build a better path forward.</p>
+      <p>Let's dissect two real-world cases to understand how bias manifests and how we can build a better path forward.</p>
 
-        <div class="case-study">
-            <h2>Case Study 1: The Cost-Cutting Algorithm That Cost Lives</h2>
-            
-            <h3>Brief Case Summary</h3>
-            <p>A landmark investigation revealed that a widely used algorithm from Optum, designed to identify patients for high-risk care management, was systematically discriminating against Black patients. The model used future healthcare costs as a proxy for health needs. Because structural inequities have historically limited healthcare access and spending for Black patients, the algorithm interpreted their lower costs as lower need, unfairly denying them critical care resources.</p>
+      <div class="case-study">
+        <h2>Case Study 1: The Cost-Cutting Algorithm That Cost Lives</h2>
+        <h3>Brief Case Summary</h3>
+        <p>A landmark investigation revealed that a widely used algorithm from Optum, designed to identify patients for high-risk care management, was systematically discriminating against Black patients. The model used future healthcare costs as a proxy for health needs. Because structural inequities have historically limited healthcare access and spending for Black patients, the algorithm interpreted their lower costs as lower need, unfairly denying them critical care resources.</p>
 
-            <div class="technical-breakdown">
-                <h3>Technical Breakdown: The Proxy Problem</h3>
-                <p>The core failure was a proxy discrimination. The model latched onto a biased label healthcare costs which is entangled with socioeconomic factors rather than being a pure measure of clinical severity.</p>
-                
-                <p>This is precisely where fairness-aware methods are non-negotiable. Simply removing "race" as a feature is futile, as the bias is woven into other variables. Instead, we need proactive techniques:</p>
-                
-                <ul>
-                    <li><strong>Pre-processing:</strong> Audit and re-weight the training data to correct for historical under-representation of certain patient groups.</li>
-                    <li><strong>In-processing:</strong> Integrate fairness constraints directly into the model's objective function. For instance, using equalized odds ensures that the model's true positive rate is similar across racial groups, so that equally sick patients are equally likely to be identified, regardless of race.</li>
-                    <li><strong>Post-processing:</strong> Adjust decision thresholds for different subgroups after the model makes its predictions to achieve a fair outcome.</li>
-                </ul>
-                
-                <div class="research-highlight">
-                    <strong>Research Connection:</strong> My work in developing fair representation learning for ECG signals tackles similar challenges, focusing on creating models that are robust to these hidden biases.
-                </div>
-            </div>
-
-            <div class="philosophical-angle">
-                <h3>Philosophical Angle: Justice, Opacity, and Eroding Trust</h3>
-                <p>This case is a stark lesson in distributive justice. An AI that allocates resources unfairly violates a fundamental principle of medical ethics: to treat like cases alike. Furthermore, the opacity of the "black-box" model meant clinicians had no clear way to understand or challenge its flawed logic, leading to automation bias an over-reliance on the system's output.</p>
-                
-                <p>When a tool systematically disadvantages a particular group, it erodes the trust of both patients and practitioners in the entire healthcare system, making the technology a source of harm rather than good.</p>
-                
-                <div class="reference">
-                    <strong>Research Support:</strong> This aligns with findings from Ryan et al. (2024), who highlight that such "structural social and ethical challenges" are not mere bugs, but fundamental features of AI systems when they interact with societal power dynamics [1].
-                </div>
-            </div>
-
-            <div class="pros-cons">
-                <h3>Balanced Pros & Cons</h3>
-                <p><strong>Pros:</strong> Aims to efficiently allocate scarce resources, potentially helping large numbers of patients by automating complex triage.</p>
-                <p><strong>Cons:</strong> Automates and scales existing societal inequities, creates accountability gaps, and undermines trust through its opaque and flawed reasoning.</p>
-            </div>
+        <div class="technical-breakdown">
+          <h3>Technical Breakdown: The Proxy Problem</h3>
+          <p>The core failure was a proxy discrimination. The model latched onto a biased label — healthcare costs — which is entangled with socioeconomic factors rather than being a pure measure of clinical severity.</p>
+          <p>This is precisely where fairness-aware methods are non-negotiable. Simply removing "race" as a feature is futile, as the bias is woven into other variables. Instead, we need proactive techniques:</p>
+          <ul>
+            <li><strong>Pre-processing:</strong> Audit and re-weight the training data to correct for historical under-representation of certain patient groups.</li>
+            <li><strong>In-processing:</strong> Integrate fairness constraints directly into the model's objective function. For instance, using equalized odds ensures that the model's true positive rate is similar across racial groups, so that equally sick patients are equally likely to be identified, regardless of race.</li>
+            <li><strong>Post-processing:</strong> Adjust decision thresholds for different subgroups after the model makes its predictions to achieve a fair outcome.</li>
+          </ul>
+          <div class="research-highlight">
+            <strong>Research Connection:</strong> My work in developing fair representation learning for ECG signals tackles similar challenges, focusing on creating models that are robust to these hidden biases.
+          </div>
         </div>
 
-        <div class="case-study">
-            <h2>Case Study 2: The Skin Cancer Detector That Couldn't See Dark Skin</h2>
-            
-            <h3>Brief Case Summary</h3>
-            <p>AI systems for detecting skin cancer from images have shown remarkable accuracy but primarily for lighter skin tones. Many of these models were trained on datasets overwhelmingly composed of images from white populations. As a result, when deployed on patients with darker skin, the models exhibit higher error rates, leading to potential misdiagnoses and delayed treatment for life-threatening conditions like melanoma.</p>
-
-            <div class="technical-breakdown">
-                <h3>Technical Breakdown: The Data Desert</h3>
-                <p>The bias here originates at the source: imbalanced data. A model trained predominantly on one demographic will inevitably fail to generalize to others. The features it learns to associate with disease (e.g., specific color variations or textures) are not universally applicable.</p>
-                
-                <p>A fairness-aware approach would involve:</p>
-                
-                <ul>
-                    <li><strong>Robust Data Curation:</strong> Intentionally building diverse, representative datasets with explicit metadata for skin tone to enable stratified performance analysis.</li>
-                    <li><strong>Algorithmic Mitigation:</strong> Using techniques like domain adaptation to help the model generalize across skin tones, or adversarial debiasing to force it to learn features that are invariant to skin color.</li>
-                    <li><strong>Continuous Monitoring:</strong> Implementing rigorous post-deployment audits to track performance across demographic subgroups and catch disparities early.</li>
-                </ul>
-                
-                <div class="reference">
-                    <strong>Research Support:</strong> This need for continuous, integrated ethics is underscored by research into operationalizing AI ethics within development lifecycles, such as the agile framework for AI-enabled mobile health applications proposed by Amugongo et al. (2023), which embeds ethical checks at every stage of creation [2].
-                </div>
-            </div>
-
-            <div class="philosophical-angle">
-                <h3>Philosophical Angle: The Illusion of Objectivity and Epistemic Injustice</h3>
-                <p>This case challenges the myth of AI's neutrality. It demonstrates how technology can reflect and amplify structural injustices, where certain groups are systematically neglected. This leads to a form of epistemic injustice: the healthcare system, armed with a "sophisticated" AI tool, fails to hear and respond to the medical needs of marginalized communities.</p>
-                
-                <p>The opacity of the model means a clinician has no way of knowing that the AI's diagnostic confidence plummets for a specific patient. This lack of transparency directly compromises informed consent and patient autonomy.</p>
-            </div>
-
-            <div class="pros-cons">
-                <h3>Balanced Pros & Cons</h3>
-                <p><strong>Pros:</strong> Can dramatically increase access to rapid, preliminary dermatological screening, especially in underserved areas.</p>
-                <p><strong>Cons:</strong> If deployed without fairness audits, it can exacerbate deadly health disparities, mislead clinicians with a false sense of security, and raise complex questions of liability.</p>
-            </div>
+        <div class="philosophical-angle">
+          <h3>Philosophical Angle: Justice, Opacity, and Eroding Trust</h3>
+          <p>This case is a stark lesson in distributive justice. An AI that allocates resources unfairly violates a fundamental principle of medical ethics: to treat like cases alike. Furthermore, the opacity of the "black-box" model meant clinicians had no clear way to understand or challenge its flawed logic, leading to automation bias — an over-reliance on the system's output.</p>
+          <p>When a tool systematically disadvantages a particular group, it erodes the trust of both patients and practitioners in the entire healthcare system, making the technology a source of harm rather than good.</p>
+          <div class="reference" style="background:#f0fdf4; border-left-color:var(--green); padding:0.8rem; margin-top:1rem;">
+            <strong>Research Support:</strong> This aligns with findings from Ryan et al. (2024), who highlight that such "structural social and ethical challenges" are not mere bugs, but fundamental features of AI systems when they interact with societal power dynamics [1].
+          </div>
         </div>
 
-        <!-- FIXED Solution Framework Section -->
-        <div class="solution-framework">
-            <h2>Bridging the Gap: From Technical Fixes to Ethical Foundations</h2>
-            <p>These two cases, one from predictive analytics and one from medical imaging, reveal a common pattern: technical failures are inextricably linked to ethical breaches.</p>
+        <div class="pros-cons">
+          <h3>Balanced Pros & Cons</h3>
+          <p><strong>Pros:</strong> Aims to efficiently allocate scarce resources, potentially helping large numbers of patients by automating complex triage.</p>
+          <p><strong>Cons:</strong> Automates and scales existing societal inequities, creates accountability gaps, and undermines trust through its opaque and flawed reasoning.</p>
+        </div>
+      </div>
 
-            <div class="core-principles">
-                <h3>Core Principles for Ethical AI in Healthcare</h3>
-                
-                <div class="principle-item">
-                    <h4>From Accuracy to Equity</h4>
-                    <p>We must move beyond optimizing for overall accuracy. The critical question is: "Accuracy for whom?" My work is centered on developing the tools to answer this question rigorously.</p>
-                </div>
-                
-                <div class="principle-item">
-                    <h4>Governance and the Full Lifecycle</h4>
-                    <p>Fixing bias isn't a one-off task. It requires a governance framework that spans the entire AI lifecycle, from design to deployment and monitoring.</p>
-                </div>
-                
-                <div class="principle-item">
-                    <h4>The Imperative of Explainability</h4>
-                    <p>For clinicians to trust and responsibly use AI, they need more than a result; they need context. Making model limitations and strengths understandable to human experts is a cornerstone of building trustworthy clinical systems.</p>
-                </div>
-            </div>
+      <div class="case-study">
+        <h2>Case Study 2: The Skin Cancer Detector That Couldn't See Dark Skin</h2>
+        <h3>Brief Case Summary</h3>
+        <p>AI systems for detecting skin cancer from images have shown remarkable accuracy but primarily for lighter skin tones. Many of these models were trained on datasets overwhelmingly composed of images from white populations. As a result, when deployed on patients with darker skin, the models exhibit higher error rates, leading to potential misdiagnoses and delayed treatment for life-threatening conditions like melanoma.</p>
 
-            <div class="reference">
-                <strong>Governance Research:</strong> As studied in the AuroraAI program, successful ethical AI transformation depends on "systemic governance" that involves diverse stakeholders and long-term strategic commitment [3].
-            </div>
+        <div class="technical-breakdown">
+          <h3>Technical Breakdown: The Data Desert</h3>
+          <p>The bias here originates at the source: imbalanced data. A model trained predominantly on one demographic will inevitably fail to generalize to others. The features it learns to associate with disease (e.g., specific color variations or textures) are not universally applicable.</p>
+          <p>A fairness-aware approach would involve:</p>
+          <ul>
+            <li><strong>Robust Data Curation:</strong> Intentionally building diverse, representative datasets with explicit metadata for skin tone to enable stratified performance analysis.</li>
+            <li><strong>Algorithmic Mitigation:</strong> Using techniques like domain adaptation to help the model generalize across skin tones, or adversarial debiasing to force it to learn features that are invariant to skin color.</li>
+            <li><strong>Continuous Monitoring:</strong> Implementing rigorous post-deployment audits to track performance across demographic subgroups and catch disparities early.</li>
+          </ul>
+          <div class="reference" style="background:#f0fdf4; border-left-color:var(--green); padding:0.8rem; margin-top:1rem;">
+            <strong>Research Support:</strong> This need for continuous, integrated ethics is underscored by research into operationalizing AI ethics within development lifecycles, such as the agile framework for AI-enabled mobile health applications proposed by Amugongo et al. (2023), which embeds ethical checks at every stage of creation [2].
+          </div>
         </div>
 
-        <h2>Conclusion: A Call for Interdisciplinary Vigilance</h2>
-        <p>The promise of clinical AI is undeniable, but its path is fraught with ethical pitfalls. The cases of the biased risk-algorithm and the skin cancer detector are not failures of intent, but failures of interdisciplinary foresight.</p>
-
-        <p>Building ethical AI is a continuous process of vigilance that must blend rigorous computer science with deep insights from ethics, clinical practice, and social science. By learning from these case studies and implementing robust, governance-focused frameworks, we can ensure that these powerful tools fulfill their true potential: to provide better, fairer care for all.</p>
-
-        <div class="concept-box">
-            <h3>References</h3>
-            <ol>
-                <li>Ryan, M., de Roo, N., Wang, H., Blok, V., & Atik, C. (2024). AI through the looking glass: an empirical study of structural social and ethical challenges in AI. AI & SOCIETY. [1]</li>
-                <li>Amugongo, L. M., Kriebitz, A., Boch, A., & Lütge, C. (2023). Operationalising AI ethics through the agile software development lifecycle: a case study of AI-enabled mobile health applications. AI and Ethics. [2]</li>
-                <li>Leikas, J., Johri, A., Latvanen, M., Wessberg, N., & Hahto, A. (2022). Governing Ethical AI Transformation: A Case Study of AuroraAI. Frontiers in Artificial Intelligence. [3]</li>
-            </ol>
+        <div class="philosophical-angle">
+          <h3>Philosophical Angle: The Illusion of Objectivity and Epistemic Injustice</h3>
+          <p>This case challenges the myth of AI's neutrality. It demonstrates how technology can reflect and amplify structural injustices, where certain groups are systematically neglected. This leads to a form of epistemic injustice: the healthcare system, armed with a "sophisticated" AI tool, fails to hear and respond to the medical needs of marginalized communities.</p>
+          <p>The opacity of the model means a clinician has no way of knowing that the AI's diagnostic confidence plummets for a specific patient. This lack of transparency directly compromises informed consent and patient autonomy.</p>
         </div>
+
+        <div class="pros-cons">
+          <h3>Balanced Pros & Cons</h3>
+          <p><strong>Pros:</strong> Can dramatically increase access to rapid, preliminary dermatological screening, especially in underserved areas.</p>
+          <p><strong>Cons:</strong> If deployed without fairness audits, it can exacerbate deadly health disparities, mislead clinicians with a false sense of security, and raise complex questions of liability.</p>
+        </div>
+      </div>
+
+      <div class="solution-framework">
+        <h2>Bridging the Gap: From Technical Fixes to Ethical Foundations</h2>
+        <p>These two cases, one from predictive analytics and one from medical imaging, reveal a common pattern: technical failures are inextricably linked to ethical breaches.</p>
+        <div class="core-principles">
+          <h3>Core Principles for Ethical AI in Healthcare</h3>
+          <div class="principle-item">
+            <h4>From Accuracy to Equity</h4>
+            <p>We must move beyond optimizing for overall accuracy. The critical question is: "Accuracy for whom?" My work is centered on developing the tools to answer this question rigorously.</p>
+          </div>
+          <div class="principle-item">
+            <h4>Governance and the Full Lifecycle</h4>
+            <p>Fixing bias isn't a one-off task. It requires a governance framework that spans the entire AI lifecycle, from design to deployment and monitoring.</p>
+          </div>
+          <div class="principle-item">
+            <h4>The Imperative of Explainability</h4>
+            <p>For clinicians to trust and responsibly use AI, they need more than a result; they need context. Making model limitations and strengths understandable to human experts is a cornerstone of building trustworthy clinical systems.</p>
+          </div>
+        </div>
+        <div class="reference">
+          <strong>Governance Research:</strong> As studied in the AuroraAI program, successful ethical AI transformation depends on "systemic governance" that involves diverse stakeholders and long-term strategic commitment [3].
+        </div>
+      </div>
+
+      <h2>Conclusion: A Call for Interdisciplinary Vigilance</h2>
+      <p>The promise of clinical AI is undeniable, but its path is fraught with ethical pitfalls. The cases of the biased risk-algorithm and the skin cancer detector are not failures of intent, but failures of interdisciplinary foresight.</p>
+      <p>Building ethical AI is a continuous process of vigilance that must blend rigorous computer science with deep insights from ethics, clinical practice, and social science. By learning from these case studies and implementing robust, governance-focused frameworks, we can ensure that these powerful tools fulfill their true potential: to provide better, fairer care for all.</p>
+
+      <div class="concept-box">
+        <h3>References</h3>
+        <ol style="margin-left:1rem;">
+          <li>Ryan, M., de Roo, N., Wang, H., Blok, V., & Atik, C. (2024). AI through the looking glass: an empirical study of structural social and ethical challenges in AI. <em>AI & SOCIETY</em>.</li>
+          <li>Amugongo, L. M., Kriebitz, A., Boch, A., & Lütge, C. (2023). Operationalising AI ethics through the agile software development lifecycle: a case study of AI-enabled mobile health applications. <em>AI and Ethics</em>.</li>
+          <li>Leikas, J., Johri, A., Latvanen, M., Wessberg, N., & Hahto, A. (2022). Governing Ethical AI Transformation: A Case Study of AuroraAI. <em>Frontiers in Artificial Intelligence</em>.</li>
+        </ol>
+      </div>
     </div>
 
-    <div class="categories">
-        <h3>Categories</h3>
-        <div class="category-tags">
-            <span class="category-tag">AI Ethics</span>
-            <span class="category-tag">Healthcare AI</span>
-            <span class="category-tag">Algorithmic Fairness</span>
-            <span class="category-tag">Bias Mitigation</span>
-            <span class="category-tag">Clinical AI</span>
-            <span class="category-tag">Responsible AI</span>
-        </div>
+    <div class="post-tags">
+      <span class="post-tag">AI Ethics</span>
+      <span class="post-tag">Healthcare AI</span>
+      <span class="post-tag">Algorithmic Fairness</span>
+      <span class="post-tag">Bias Mitigation</span>
+      <span class="post-tag">Clinical AI</span>
     </div>
+
+    <div class="further-reading">
+      <h3>Further reading on this site</h3>
+      <ul>
+        <li><a href="epistemic-injustice-clinical-ai.html">Epistemic Injustice in Clinical AI: When Marginalized Voices Are Silenced by Algorithms</a></li>
+        <li><a href="arguable-system-clinician-ai.html">From Black Box to Arguable System: A Practical Framework for Clinician–AI Collaboration</a></li>
+        <li><a href="differential-privacy-health-registries.html">Differential Privacy in Health Registries: Protecting Data Without Losing Clinical Insight</a></li>
+      </ul>
+    </div>
+  </article>
+</div>
+
+<script>
+  document.getElementById('hbg').addEventListener('click', function(){
+    document.getElementById('navul').classList.toggle('open');
+  });
+</script>
 </body>
 </html>
