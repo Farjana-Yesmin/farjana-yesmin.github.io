@@ -1,40 +1,293 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trust in AI: Lessons from Healthcare - Farjana's Technical Blog</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.7;
-            color: #444;
-            background-color: #f8f9fa;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        .back-link {
-            margin-bottom: 30px;
-        }
-        .back-link a {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .back-link a:hover {
-            text-decoration: underline;
-        }
-        h1 {
-            color: #2563eb;
-            margin-bottom: 10px;
-            font-size: 2.5rem;
-        }
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trust in AI: Lessons from Healthcare · Farjana Yesmin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --ink: #111827;
+      --mid: #4b5563;
+      --light: #9ca3af;
+      --rule: #e5e7eb;
+      --bg: #ffffff;
+      --tint: #f9fafb;
+      --green: #065f46;
+      --glt: #ecfdf5;
+      --serif: 'Lora', Georgia, serif;
+      --sans: 'Inter', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { 
+      font-family: var(--sans); 
+      background: var(--bg); 
+      color: var(--ink); 
+      font-size: 15px; 
+      line-height: 1.75; 
+    }
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      border-bottom: 1px solid var(--rule); 
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(6px);
+    }
+    nav {
+      max-width: 860px; margin: 0 auto; padding: 0 24px;
+      height: 52px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { 
+      font-family: var(--serif); 
+      font-size: 1rem; 
+      font-weight: 600; 
+      color: var(--ink); 
+      text-decoration: none; 
+    }
+    .nav-ul { 
+      display: flex; 
+      list-style: none; 
+      gap: 2px; 
+    }
+    .nav-ul a {
+      font-size: 0.75rem; 
+      font-weight: 500; 
+      letter-spacing: .05em; 
+      text-transform: uppercase;
+      color: var(--mid); 
+      padding: 5px 10px; 
+      border-radius: 5px; 
+      transition: color .15s;
+    }
+    .nav-ul a:hover { color: var(--green); text-decoration: none; }
+    .nav-ul a.active { color: var(--green); }
+    .hamburger { 
+      display: none; 
+      background: none; 
+      border: none; 
+      font-size: 1.1rem; 
+      cursor: pointer; 
+      color: var(--mid); 
+    }
+
+    /* PAGE */
+    .page { 
+      max-width: 760px; 
+      margin: 0 auto; 
+      padding: 52px 24px 100px; 
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--mid);
+      font-size: 0.9rem;
+      margin-bottom: 32px;
+    }
+    .back-link:hover { color: var(--green); }
+
+    .post-header {
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 32px;
+    }
+    .post-title {
+      font-family: var(--serif);
+      font-size: 2.05rem;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .post-meta {
+      color: var(--mid);
+      font-size: 0.9rem;
+    }
+
+    /* POST CONTENT */
+    .post-content {
+      font-size: 1.02rem;
+      max-width: 680px;
+    }
+    .post-content h2 {
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 2.2rem 0 1rem;
+    }
+    .post-content h3 {
+      font-size: 1.2rem;
+      color: var(--green);
+      margin: 1.8rem 0 0.8rem;
+    }
+    .post-content p {
+      margin-bottom: 1.35rem;
+      color: var(--mid);
+    }
+    .post-content ul, .post-content ol {
+      margin: 1.2rem 0 1.4rem 1.4rem;
+      color: var(--mid);
+    }
+    .post-content li {
+      margin-bottom: 0.6rem;
+    }
+
+    .concept-box {
+      background: var(--glt);
+      border-left: 4px solid var(--green);
+      padding: 1.6rem 1.8rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+    .results-highlight {
+      background: #f0fdf4;
+      border-left: 4px solid #4ade80;
+      padding: 1.4rem 1.8rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+
+    /* CATEGORIES */
+    .categories {
+      margin-top: 60px;
+      padding-top: 32px;
+      border-top: 1px solid var(--rule);
+    }
+    .categories h3 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+    }
+    .category-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .category-tag {
+      font-size: 0.78rem;
+      padding: 4px 12px;
+      background: var(--glt);
+      color: var(--green);
+      border: 1px solid #a7f3d0;
+      border-radius: 9999px;
+    }
+
+    @media (max-width: 640px) {
+      .nav-ul { display: none; }
+      .hamburger { display: block; }
+      .nav-ul.open { 
+        display: flex; 
+        flex-direction: column; 
+        position: absolute; 
+        top: 52px; 
+        left: 0; 
+        right: 0; 
+        background: var(--bg); 
+        border-bottom: 1px solid var(--rule); 
+        padding: 12px 20px; 
+        gap: 6px; 
+      }
+      .page { padding: 36px 20px 80px; }
+      .post-title { font-size: 1.85rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">Farjana Yesmin</a>
+      <button class="hamburger" id="hbg">☰</button>
+      <ul class="nav-ul" id="navul">
+        <li><a href="index.html#research">Research</a></li>
+        <li><a href="index.html#news">News</a></li>
+        <li><a href="index.html#publications">Publications</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="page">
+    <a href="blog.html" class="back-link">← Back to Blog</a>
+
+    <div class="post-header">
+      <h1 class="post-title">Trust in AI: Lessons from Healthcare</h1>
+      <div class="post-meta">
+        <span>November 1, 2025</span>
+        <span>By Farjana Yesmin</span>
+      </div>
+    </div>
+
+    <div class="post-content">
+      <p>When a patient is on the operating table, trust is absolute. We trust the surgeon’s skill, the anesthesiologist’s precision, and the nurse’s vigilance. Now, a new team member is entering the room: Artificial Intelligence.</p>
+      
+      <p>Healthcare, where decisions are life-altering, is becoming the ultimate testing ground for trustworthy AI. The lessons learned here provide a crucial blueprint for every industry.</p>
+
+      <h2>What Does "Trust" Truly Mean in AI?</h2>
+      <p>In healthcare, trust isn’t just about accuracy. It’s a multifaceted belief that the system is <strong>reliable, explainable, fair, and aligned with human values</strong>.</p>
+
+      <ul>
+        <li><strong>Deontology:</strong> Respecting duties like patient autonomy and confidentiality.</li>
+        <li><strong>Virtue Ethics:</strong> Embodying transparency, accountability, and compassion.</li>
+        <li><strong>Social Contract:</strong> Operating within shared norms of care and safety.</li>
+      </ul>
+
+      <h2>The Pillars of Trust</h2>
+      
+      <h3>1. Transparency and Explainability</h3>
+      <p>A doctor can explain their reasoning. An AI must do the same. Explainable AI (XAI) turns the black box into a collaborative tool.</p>
+      
+      <div class="concept-box">
+        <strong>Key Insight:</strong> Explainability is not just technical — it is an ethical requirement for informed consent and clinical validation.
+      </div>
+
+      <h3>2. Human-in-the-Loop</h3>
+      <p>The best AI augments human judgment rather than replacing it. AI provides insights; humans provide wisdom, empathy, and final accountability.</p>
+
+      <h3>3. Rigorous Validation</h3>
+      <p>AI systems must undergo clinical-grade validation — trials, peer review, and continuous monitoring — just like any medical device.</p>
+
+      <h3>4. Robust Governance</h3>
+      <p>Clear accountability, audit trails, and inclusive oversight are essential to maintain trust.</p>
+
+      <div class="results-highlight">
+        <strong>Practical Takeaway:</strong> Trust in AI requires governance structures that address power imbalances and ensure diverse stakeholder representation.
+      </div>
+
+      <h2>Conclusion: A Blueprint for the Future</h2>
+      <p>The lesson from healthcare is clear: trust must be designed from the outset — through explainability, human collaboration, proven performance, and accountable governance.</p>
+      
+      <p>The goal is not to replace the human touch, but to augment it with tools we can truly trust.</p>
+    </div>
+
+    <div class="categories">
+      <h3>Categories</h3>
+      <div class="category-tags">
+        <span class="category-tag">Healthcare AI</span>
+        <span class="category-tag">Trust</span>
+        <span class="category-tag">Ethics</span>
+        <span class="category-tag">Explainable AI</span>
+        <span class="category-tag">Governance</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('hbg').addEventListener('click', function(){
+      document.getElementById('navul').classList.toggle('open');
+    });
+  </script>
+</body>
+</html>        }
         .post-meta {
             color: #666;
             font-size: 1rem;
