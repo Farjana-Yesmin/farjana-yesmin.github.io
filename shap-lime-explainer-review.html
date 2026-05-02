@@ -1,457 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Explainability Tools: A Hands-On Review of SHAP & LIME - Farjana's Technical Blog</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.7;
-            color: #444;
-            background-color: #f8f9fa;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        .back-link {
-            margin-bottom: 30px;
-        }
-        .back-link a {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .back-link a:hover {
-            text-decoration: underline;
-        }
-        h1 {
-            color: #2563eb;
-            margin-bottom: 10px;
-            font-size: 2.5rem;
-        }
-        .author {
-            color: #666;
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            font-style: italic;
-        }
-        .post-meta {
-            color: #666;
-            font-size: 1rem;
-            margin-bottom: 30px;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 20px;
-        }
-        .post-content {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-            border-left: 4px solid #2563eb;
-        }
-        .post-content h2 {
-            color: #1e293b;
-            margin: 2rem 0 1rem 0;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 0.5rem;
-        }
-        .post-content h3 {
-            color: #2563eb;
-            margin: 1.5rem 0 0.5rem 0;
-        }
-        .post-content p {
-            margin-bottom: 1.2rem;
-            color: #666;
-        }
-        .post-content ul, .post-content ol {
-            margin-left: 20px;
-            margin-bottom: 1.2rem;
-            color: #666;
-        }
-        .post-content li {
-            margin-bottom: 0.5rem;
-        }
-        .concept-box {
-            background: rgba(37, 99, 235, 0.05);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 4px solid #2563eb;
-        }
-        .code-block {
-            background: #1e293b;
-            color: #e2e8f0;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            overflow-x: auto;
-        }
-        .code-comment {
-            color: #94a3b8;
-            font-style: italic;
-        }
-        .tool-comparison {
-            background: rgba(34, 197, 94, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 3px solid #16a34a;
-        }
-        .research-insight {
-            background: rgba(168, 85, 247, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 3px solid #a855f7;
-        }
-        .categories {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-top: 2rem;
-        }
-        .categories h3 {
-            color: #2563eb;
-            margin-bottom: 1rem;
-        }
-        .category-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        .category-tag {
-            background: rgba(37, 99, 235, 0.1);
-            color: #2563eb;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            font-size: 0.9rem;
-        }
-        .comparison-table th, .comparison-table td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        .comparison-table th {
-            background-color: rgba(37, 99, 235, 0.1);
-            color: #1e293b;
-            font-weight: 600;
-        }
-        .comparison-table tr:hover {
-            background-color: rgba(37, 99, 235, 0.02);
-        }
-        .pros-cons {
-            background: rgba(245, 158, 11, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 3px solid #f59e0b;
-        }
-        .key-finding {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            margin: 2.5rem 0;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            position: relative;
-            overflow: hidden;
-        }
-        .key-finding::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #ffd700, #ff8c00);
-        }
-        .key-finding h3 {
-            color: white;
-            margin-bottom: 1.2rem;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-        .key-finding h3::before {
-            content: "🔍";
-            font-size: 1.8rem;
-        }
-        .key-finding p {
-            color: rgba(255, 255, 255, 0.95);
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 0;
-        }
-        .key-finding strong {
-            color: #ffd700;
-            font-weight: 600;
-        }
-        .key-finding .citation {
-            display: block;
-            margin-top: 1.2rem;
-            font-style: italic;
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.8);
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            padding-top: 1rem;
-        }
-        .key-finding .citation a {
-            color: #ffd700;
-            text-decoration: none;
-        }
-        .key-finding .citation a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Explainability Tools: A Hands-On Review of SHAP & LIME · Farjana Yesmin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --ink: #111827;
+      --mid: #4b5563;
+      --light: #9ca3af;
+      --rule: #e5e7eb;
+      --bg: #ffffff;
+      --tint: #f9fafb;
+      --green: #065f46;
+      --glt: #ecfdf5;
+      --serif: 'Lora', Georgia, serif;
+      --sans: 'Inter', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { 
+      font-family: var(--sans); 
+      background: var(--bg); 
+      color: var(--ink); 
+      font-size: 15px; 
+      line-height: 1.75; 
+    }
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      border-bottom: 1px solid var(--rule); 
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(6px);
+    }
+    nav {
+      max-width: 860px; margin: 0 auto; padding: 0 24px;
+      height: 52px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { 
+      font-family: var(--serif); 
+      font-size: 1rem; 
+      font-weight: 600; 
+      color: var(--ink); 
+      text-decoration: none; 
+    }
+    .nav-ul { 
+      display: flex; 
+      list-style: none; 
+      gap: 2px; 
+    }
+    .nav-ul a {
+      font-size: 0.75rem; 
+      font-weight: 500; 
+      letter-spacing: .05em; 
+      text-transform: uppercase;
+      color: var(--mid); 
+      padding: 5px 10px; 
+      border-radius: 5px; 
+      transition: color .15s;
+    }
+    .nav-ul a:hover { color: var(--green); text-decoration: none; }
+    .nav-ul a.active { color: var(--green); }
+    .hamburger { 
+      display: none; 
+      background: none; 
+      border: none; 
+      font-size: 1.1rem; 
+      cursor: pointer; 
+      color: var(--mid); 
+    }
+
+    /* PAGE */
+    .page { 
+      max-width: 760px; 
+      margin: 0 auto; 
+      padding: 52px 24px 100px; 
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--mid);
+      font-size: 0.9rem;
+      margin-bottom: 32px;
+    }
+    .back-link:hover { color: var(--green); }
+
+    .post-header {
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 32px;
+    }
+    .post-title {
+      font-family: var(--serif);
+      font-size: 2.05rem;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .post-meta {
+      color: var(--mid);
+      font-size: 0.9rem;
+    }
+
+    /* POST CONTENT */
+    .post-content {
+      font-size: 1.02rem;
+      max-width: 680px;
+    }
+    .post-content h2 {
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 2.2rem 0 1rem;
+    }
+    .post-content h3 {
+      font-size: 1.2rem;
+      color: var(--green);
+      margin: 1.8rem 0 0.8rem;
+    }
+    .post-content p {
+      margin-bottom: 1.35rem;
+      color: var(--mid);
+    }
+    .post-content ul, .post-content ol {
+      margin: 1.2rem 0 1.4rem 1.4rem;
+      color: var(--mid);
+    }
+    .post-content li {
+      margin-bottom: 0.6rem;
+    }
+
+    .concept-box {
+      background: var(--glt);
+      border-left: 4px solid var(--green);
+      padding: 1.6rem 1.8rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+    .research-insight {
+      background: #f0fdfa;
+      border-left: 4px solid var(--green);
+      padding: 1.6rem 1.8rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+
+    /* CODE */
+    .code-block {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 1.6rem;
+      border-radius: 8px;
+      margin: 2rem 0;
+      font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      overflow-x: auto;
+    }
+    .code-comment { color: #94a3b8; font-style: italic; }
+
+    /* TABLE */
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      font-size: 0.92rem;
+    }
+    .comparison-table th, .comparison-table td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--rule);
+      vertical-align: top;
+    }
+    .comparison-table th {
+      background: var(--tint);
+      font-weight: 600;
+    }
+
+    .key-finding {
+      background: linear-gradient(135deg, #065f46, #0f766e);
+      color: white;
+      padding: 2.2rem;
+      border-radius: 10px;
+      margin: 2.5rem 0;
+    }
+    .key-finding h3 {
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    /* CATEGORIES */
+    .categories {
+      margin-top: 60px;
+      padding-top: 32px;
+      border-top: 1px solid var(--rule);
+    }
+    .categories h3 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+    }
+    .category-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .category-tag {
+      font-size: 0.78rem;
+      padding: 4px 12px;
+      background: var(--glt);
+      color: var(--green);
+      border: 1px solid #a7f3d0;
+      border-radius: 9999px;
+    }
+
+    @media (max-width: 640px) {
+      .nav-ul { display: none; }
+      .hamburger { display: block; }
+      .nav-ul.open { 
+        display: flex; 
+        flex-direction: column; 
+        position: absolute; 
+        top: 52px; 
+        left: 0; 
+        right: 0; 
+        background: var(--bg); 
+        border-bottom: 1px solid var(--rule); 
+        padding: 12px 20px; 
+        gap: 6px; 
+      }
+      .page { padding: 36px 20px 80px; }
+      .post-title { font-size: 1.85rem; }
+    }
+  </style>
 </head>
 <body>
-    <div class="back-link">
-        <a href="/blog.html">← Back to Blog</a>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">Farjana Yesmin</a>
+      <button class="hamburger" id="hbg">☰</button>
+      <ul class="nav-ul" id="navul">
+        <li><a href="index.html#research">Research</a></li>
+        <li><a href="index.html#news">News</a></li>
+        <li><a href="index.html#publications">Publications</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="page">
+    <a href="blog.html" class="back-link">← Back to Blog</a>
+
+    <div class="post-header">
+      <h1 class="post-title">AI Explainability Tools: A Hands-On Review of SHAP & LIME</h1>
+      <div class="post-meta">
+        <span>November 16, 2025</span>
+        <span>By Farjana Yesmin</span>
+      </div>
     </div>
-    
-    <h1>AI Explainability Tools: A Hands-On Review of SHAP & LIME</h1>
-    <div class="author">Author: Farjana Yesmin | GitHub Portfolio</div>
-    
-    <div class="post-meta">
-        <strong>Published:</strong> November 16, 2025<br>
-        <strong>Categories:</strong> Explainable AI, Machine Learning, AI Fairness, Technical Tutorial
-    </div>
-    
+
     <div class="post-content">
-        <p>In my research on Trustworthy AI and intersectional fairness in computer vision, I've learned that model accuracy tells only half the story. When AI systems make decisions that impact people's lives whether in healthcare, hiring, or criminal justice the opacity of a "black box" model isn't just a technical limitation; it's an ethical liability. It can perpetuate and even amplify existing societal biases, particularly against intersectional groups that face compounded disadvantages.</p>
+      <p>In my research on Trustworthy AI and intersectional fairness in computer vision, I've learned that model accuracy tells only half the story. When AI systems impact people's lives, opacity becomes an ethical liability.</p>
 
-        <p>This is where explainable AI (XAI) becomes not just useful, but essential. In this hands-on review, I'll share my practical experience with two foundational XAI tools SHAP and LIME drawn directly from my research on intersectional fairness in image classification. More importantly, I'll explore what these tools can and cannot tell us about model trustworthiness, and why technical explanations alone are insufficient for building truly fair AI systems.</p>
+      <h2>The Tools of the Trade: SHAP & LIME in Practice</h2>
+      
+      <div class="concept-box">
+        <strong>LIME (Local Interpretable Model-agnostic Explanations)</strong><br><br>
+        Creates a local surrogate model by perturbing inputs to approximate the black box’s behavior around a specific instance.
+      </div>
 
-        <h2>The Tools of the Trade: SHAP & LIME in Practice</h2>
-        <p>Before diving into code, let's establish why these tools matter for fairness research:</p>
+      <div class="concept-box">
+        <strong>SHAP (SHapley Additive exPlanations)</strong><br><br>
+        Uses game theory (Shapley values) to assign each feature its fair contribution to a prediction. Offers strong theoretical guarantees.
+      </div>
 
-        <div class="concept-box">
-            <strong>LIME (Local Interpretable Model-agnostic Explanations)</strong> operates on a simple but powerful principle: to understand a complex model's prediction for a specific instance, we can create a local surrogate model. By perturbing the input and observing how predictions change, LIME fits a simple interpretable model that approximates the black box's behavior in that local region.
-        </div>
+      <h2>Hands-On: Detecting Intersectional Bias</h2>
+      
+      <p>In my work on intersectional fairness in image classification, I used both tools to understand why models fail on certain subgroups.</p>
 
-        <div class="concept-box">
-            <strong>SHAP (SHapley Additive exPlanations)</strong> takes a more rigorous, game-theoretic approach. Using Shapley values from cooperative game theory, it assigns each feature its fair contribution to the prediction. SHAP's key advantage is its theoretical guarantee: feature contributions sum to the difference between the actual prediction and the average prediction.
-        </div>
+      <div class="research-insight">
+        <strong>Key Insight from SHAP:</strong><br><br>
+        Environmental features (lighting, background complexity) contributed 35% more to predictions for underrepresented intersections — a clear sign of bias.
+      </div>
 
-        <p>In my intersectional fairness research, I used both tools to answer critical questions: Why does our model perform poorly on certain class-environment combinations? What features drive these disparities?</p>
+      <h2>Critical Analysis: Strengths and Limitations</h2>
+      
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Tool</th>
+            <th>Strengths</th>
+            <th>Limitations for Fairness</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>LIME</strong></td>
+            <td>Model-agnostic, intuitive, great for debugging specific cases</td>
+            <td>Can be unstable; explanations vary across runs</td>
+          </tr>
+          <tr>
+            <td><strong>SHAP</strong></td>
+            <td>Theoretically grounded, consistent, global + local views</td>
+            <td>Computationally expensive; assumes feature independence</td>
+          </tr>
+        </tbody>
+      </table>
 
-        <h2>Hands-On: Detecting Intersectional Bias in Image Classification</h2>
-        <p>In my paper "Data-Driven Analysis of Intersectional Bias in Image Classification," I applied SHAP to understand how environmental factors like lighting and background complexity contribute to model biases. Let me walk through the key implementation:</p>
+      <div class="key-finding">
+        <h3>Key Finding from My Research</h3>
+        <p>SHAP revealed that the baseline model relied 57% more on environmental features for underrepresented intersections. This led to the development of Bias-Weighted Augmentation.</p>
+      </div>
 
-        <div class="code-block">
-<span class="code-comment"># SHAP Analysis for Intersectional Fairness</span><br>
-import shap<br>
-import matplotlib.pyplot as plt<br>
-import pandas as pd<br>
-from sklearn.ensemble import RandomForestClassifier<br>
-import numpy as np<br>
-<br>
-def shap_analysis(model, X_test, feature_names, environmental_features):<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">"""</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">Perform SHAP analysis to understand feature contributions</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">and environmental bias in image classification</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">"""</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment"># Create explainer</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;explainer = shap.Explainer(model, X_test)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment"># Calculate SHAP values</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;shap_values = explainer(X_test)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment"># Global feature importance</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;plt.figure(figsize=(10, 6))<br>
-&nbsp;&nbsp;&nbsp;&nbsp;shap.summary_plot(shap_values, X_test, feature_names=feature_names, show=False)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;plt.title("SHAP Feature Importance for Intersectional Fairness Analysis")<br>
-&nbsp;&nbsp;&nbsp;&nbsp;plt.tight_layout()<br>
-&nbsp;&nbsp;&nbsp;&nbsp;plt.savefig('shap_summary_intersectional.png', dpi=300, bbox_inches='tight')<br>
-&nbsp;&nbsp;&nbsp;&nbsp;plt.close()<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment"># Environmental feature analysis specifically</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;env_mask = [feature in environmental_features for feature in feature_names]<br>
-&nbsp;&nbsp;&nbsp;&nbsp;env_contributions = np.mean(np.abs(shap_values.values[:, env_mask]), axis=0)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;print("Environmental feature contributions to model predictions:")<br>
-&nbsp;&nbsp;&nbsp;&nbsp;for feature, contribution in zip(environmental_features, env_contributions):<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f"- {feature}: {contribution:.4f}")<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;return shap_values, env_contributions<br>
-<br>
-<span class="code-comment"># Example usage from my intersectional fairness research</span><br>
-environmental_features = ['lighting_score', 'complexity_score', 'occlusion_level']<br>
-all_features = ['object_size', 'color_variance', 'texture_complexity'] + environmental_features<br>
-<br>
-<span class="code-comment"># After training our model on Open Images dataset</span><br>
-shap_values, env_contributions = shap_analysis(<br>
-&nbsp;&nbsp;&nbsp;&nbsp;model=trained_model,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;X_test=test_features,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;feature_names=all_features,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;environmental_features=environmental_features<br>
-)
-        </div>
-
-        <div class="research-insight">
-            <strong>What this reveals about model bias:</strong><br>
-            In my experiments, SHAP analysis showed that environmental features contributed 35% more to predictions for underrepresented intersections (like "tables in low-light conditions") compared to well represented ones. This indicated that the model was relying disproportionately on environmental cues rather than object characteristics for disadvantaged groups a clear fairness violation.
-        </div>
-
-        <h3>LIME for Instance-Level Analysis</h3>
-        <p>While SHAP gave us global insights, LIME helped us understand individual failures:</p>
-
-        <div class="code-block">
-from lime import lime_tabular<br>
-import lime<br>
-<br>
-def lime_individual_explanation(model, instance, feature_names, class_names):<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">"""</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">Use LIME to explain individual predictions, particularly for</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">misclassified examples from underrepresented intersections</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">"""</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;explainer = lime_tabular.LimeTabularExplainer(<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;training_data=X_train.values,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;feature_names=feature_names,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class_names=class_names,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mode='classification'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;exp = explainer.explain_instance(<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_row=instance.values,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;predict_fn=model.predict_proba,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;num_features=8<br>
-&nbsp;&nbsp;&nbsp;&nbsp;)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;return exp<br>
-<br>
-<span class="code-comment"># Analyze a specific misclassification from an underrepresented intersection</span><br>
-problematic_instance = X_test[underrepresented_indices[0]]<br>
-explanation = lime_individual_explanation(<br>
-&nbsp;&nbsp;&nbsp;&nbsp;model=trained_model,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;instance=problematic_instance,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;feature_names=all_features,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;class_names=['Person', 'Cat', 'Dog', 'Chair', 'Table']<br>
-)<br>
-<br>
-print("LIME explanation for misclassified underrepresented example:")<br>
-for feature, weight in explanation.as_list()[:5]:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;print(f"- {feature}: {weight:.4f}")
-        </div>
-
-        <div class="research-insight">
-            <strong>Interpreting the Results:</strong><br>
-            For a table misclassified in low-light conditions, LIME revealed that the model was overweighting lighting_score and underweighting object_shape_features. This specific insight guided our development of Bias-Weighted Augmentation (BWA) a data augmentation strategy that applies transformations with intensities proportional to subgroup underrepresentation.
-        </div>
-
-        <h2>A Critical Analysis: Beyond Technical Explanations</h2>
-
-        <table class="comparison-table">
-            <thead>
-                <tr>
-                    <th>Tool</th>
-                    <th>Pros </th>
-                    <th>Cons & Fairness Limitations</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>LIME</strong></td>
-                    <td>
-                        <strong>Model-Agnostic:</strong> Works with any black box<br>
-                        <strong>Intuitive:</strong> Simple linear explanations<br>
-                        <strong>Local Focus:</strong> Perfect for debugging specific failures
-                    </td>
-                    <td>
-                        <strong>Instability:</strong> Different runs yield different explanations<br>
-                        <strong>No Causal Claims:</strong> Correlations mistaken for reasoning<br>
-                        <strong>Limited Scope:</strong> Misses systemic bias patterns
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>SHAP</strong></td>
-                    <td>
-                        <strong>Theoretically Sound:</strong> Game-theoretic foundation<br>
-                        <strong>Consistent:</strong> Stable, comparable explanations<br>
-                        <strong>Global + Local:</strong> Complete picture of model behavior
-                    </td>
-                    <td>
-                        <strong>Computational Cost:</strong> Expensive for large datasets<br>
-                        <strong>Feature Independence Assumption:</strong> Problematic with correlated features<br>
-                        <strong>Complexity Barrier:</strong> Hard for non-technical stakeholders
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div class="pros-cons">
-            <h3>The Deeper, Epistemic Challenge in Fairness Research:</h3>
-            
-            <p><strong>The Plausibility Trap:</strong> Both SHAP and LIME can produce explanations that look reasonable but mask underlying biases. In my work, SHAP values showed high importance for "lighting conditions" seemingly reasonable, until we realized the model was using lighting as a proxy for object class in underrepresented groups.</p>
-            
-            <p><strong>The Human Interpretation Gap:</strong> A SHAP summary plot might show that "background complexity" contributes to predictions, but what does this mean for fairness? Without domain expertise and intersectional analysis, we might miss that this disproportionately affects certain object classes in specific environments.</p>
-            
-            <p><strong>The Validation Problem:</strong> How do we know if an explanation is truly capturing the model's reasoning versus just telling a plausible story? In my research, I combined SHAP with rigorous fairness metrics and demographic analysis to validate that the explanations aligned with observed performance disparities.</p>
-        </div>
-
-        <div class="key-finding">
-            <h3>Key Finding from My Research</h3>
-            <p><strong>SHAP analysis revealed that our baseline model relied 57% more on environmental features for underrepresented intersections.</strong> This wasn't just a technical insight it was a fairness failure that required intervention through our Bias-Weighted Augmentation method.</p>
-            <span class="citation">From: "Data-Driven Analysis of Intersectional Bias in Image Classification" | <a href="https://doi.org/10.48550/arXiv.2510.16072" target="_blank">Read the full paper</a></span>
-        </div>
-
-        <h2>Conclusion: From Explanations to Accountability</h2>
-        <p>My hands-on experience with SHAP and LIME in fairness research has led me to a crucial realization: technical explainability is necessary but insufficient for trustworthy AI. Here are the open questions that now guide my work:</p>
-
-        <div class="concept-box">
-            <strong>From Correlation to Causation in Fairness:</strong> How can we move from SHAP's feature attributions to understanding causal mechanisms behind bias? My current research explores causal mediation analysis combined with explainability tools.
-        </div>
-
-        <div class="concept-box">
-            <strong>Stakeholder-Tailored Explanations:</strong> A SHAP summary plot might satisfy a data scientist, but what explanations are meaningful for affected communities, regulators, or domain experts? We need to develop explanation interfaces that serve diverse stakeholders.
-        </div>
-
-        <div class="concept-box">
-            <strong>Auditing the Auditors:</strong> If models can be biased, so can their explanations. How do we build systematic frameworks to validate that XAI tools themselves don't introduce or obscure biases? My work on intersectional fairness frameworks begins to address this.
-        </div>
-
-        <div class="concept-box">
-            <strong>From Individual Fairness to Systemic Justice:</strong> Both SHAP and LIME excel at local explanations, but fairness is often a systemic concern. How do we scale these tools to detect and address population-level disparities across intersectional groups?
-        </div>
-
-        <p>The path forward requires us to treat explainability not as a box-checking exercise, but as a continuous process of model interrogation and refinement. By combining tools like SHAP and LIME with rigorous fairness metrics, domain expertise, and most importantly engagement with affected communities, we can move toward AI systems that are not just accurate, but truly equitable and accountable.</p>
-
-        <div class="research-insight">
-            <strong>Research Note:</strong> The techniques and insights presented here are drawn from my research on intersectional fairness in computer vision. You can explore the complete implementation and analysis in my <a href="https://github.com/Farjana-Yesmin?tab=repositories" target="_blank">GitHub repository</a> and read the full paper <a href="https://doi.org/10.48550/arXiv.2510.16072" target="_blank">here</a>. I welcome conversations about building more transparent and fair AI systems.
-        </div>
+      <h2>Conclusion: From Explanations to Accountability</h2>
+      <p>Technical explainability is necessary but not sufficient. We need to combine SHAP and LIME with rigorous fairness metrics, domain expertise, and engagement with affected communities to build truly equitable AI systems.</p>
     </div>
 
     <div class="categories">
-        <h3>Categories</h3>
-        <div class="category-tags">
-            <span class="category-tag">Explainable AI</span>
-            <span class="category-tag">Machine Learning</span>
-            <span class="category-tag">AI Fairness</span>
-            <span class="category-tag">Technical Tutorial</span>
-            <span class="category-tag">SHAP</span>
-            <span class="category-tag">LIME</span>
-            <span class="category-tag">Intersectional Fairness</span>
-            <span class="category-tag">Computer Vision</span>
-        </div>
+      <h3>Categories</h3>
+      <div class="category-tags">
+        <span class="category-tag">Explainable AI</span>
+        <span class="category-tag">Machine Learning</span>
+        <span class="category-tag">AI Fairness</span>
+        <span class="category-tag">Computer Vision</span>
+        <span class="category-tag">SHAP</span>
+        <span class="category-tag">LIME</span>
+      </div>
     </div>
+  </div>
+
+  <script>
+    document.getElementById('hbg').addEventListener('click', function(){
+      document.getElementById('navul').classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
