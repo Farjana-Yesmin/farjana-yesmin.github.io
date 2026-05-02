@@ -1,328 +1,351 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Designing Epistemic Virtues into Privacy Preserving Systems - Farjana's Research Blog</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.7;
-            color: #444;
-            background-color: #f8f9fa;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        .back-link {
-            margin-bottom: 30px;
-        }
-        .back-link a {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .back-link a:hover {
-            text-decoration: underline;
-        }
-        h1 {
-            color: #2563eb;
-            margin-bottom: 10px;
-            font-size: 2.4rem;
-        }
-        .author {
-            color: #666;
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            font-style: italic;
-        }
-        .post-meta {
-            color: #666;
-            font-size: 1rem;
-            margin-bottom: 30px;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 20px;
-        }
-        .post-content {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-            border-left: 4px solid #2563eb;
-        }
-        .post-content h2 {
-            color: #1e293b;
-            margin: 2rem 0 1rem 0;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 0.5rem;
-        }
-        .post-content h3 {
-            color: #2563eb;
-            margin: 1.5rem 0 0.5rem 0;
-        }
-        .post-content p {
-            margin-bottom: 1.2rem;
-            color: #666;
-        }
-        .post-content ul, .post-content ol {
-            margin-left: 20px;
-            margin-bottom: 1.2rem;
-            color: #666;
-        }
-        .post-content li {
-            margin-bottom: 0.5rem;
-        }
-        .intro-reflection {
-            background: rgba(37, 99, 235, 0.05);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 4px solid #2563eb;
-            font-style: italic;
-        }
-        .concept-box {
-            background: rgba(168, 85, 247, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 3px solid #a855f7;
-        }
-        .categories {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-top: 2rem;
-        }
-        .categories h3 {
-            color: #2563eb;
-            margin-bottom: 1rem;
-        }
-        .category-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        .category-tag {
-            background: rgba(37, 99, 235, 0.1);
-            color: #2563eb;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-        .problem-scenario {
-            background: rgba(239, 68, 68, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 3px solid #ef4444;
-        }
-        .audit-framework {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            margin: 2.5rem 0;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-        .audit-framework h3 {
-            color: white;
-            margin-bottom: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-        .audit-framework h3::before {
-            content: "📊";
-            font-size: 1.5rem;
-        }
-        .audit-framework ul {
-            color: rgba(255, 255, 255, 0.95);
-        }
-        .audit-framework li {
-            margin-bottom: 0.8rem;
-            padding-left: 0.5rem;
-        }
-        .virtue-box {
-            background: rgba(34, 197, 94, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 3px solid #16a34a;
-        }
-        .design-framework {
-            background: rgba(245, 158, 11, 0.1);
-            padding: 2rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-            border-left: 3px solid #f59e0b;
-        }
-        .design-step {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-        .design-step:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-        .step-number {
-            display: inline-block;
-            background: #2563eb;
-            color: white;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 28px;
-            margin-right: 10px;
-            font-weight: bold;
-        }
-        .global-context {
-            background: rgba(99, 102, 241, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 3px solid #6366f1;
-        }
-        .conclusion-insight {
-            background: rgba(37, 99, 235, 0.05);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 4px solid #2563eb;
-            font-style: italic;
-        }
-    </style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Designing Epistemic Virtues into Privacy Preserving Systems · Farjana Yesmin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --ink:   #111827;
+      --mid:   #4b5563;
+      --light: #9ca3af;
+      --rule:  #e5e7eb;
+      --bg:    #ffffff;
+      --tint:  #f9fafb;
+      --green: #065f46;
+      --glt:   #ecfdf5;
+      --serif: 'Lora', Georgia, serif;
+      --sans:  'Inter', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      position: sticky; top: 0; z-index: 50;
+      border-bottom: 1px solid var(--rule);
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(6px);
+    }
+    nav {
+      max-width: 860px; margin: 0 auto; padding: 0 24px;
+      height: 52px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-ul { display: flex; list-style: none; gap: 2px; }
+    .nav-ul a {
+      font-size: 0.75rem; font-weight: 500; letter-spacing: .05em; text-transform: uppercase;
+      color: var(--mid); padding: 5px 10px; border-radius: 5px; transition: color .15s;
+    }
+    .nav-ul a:hover { color: var(--green); text-decoration: none; }
+    .nav-ul a.active { color: var(--green); }
+    .hamburger { display: none; background: none; border: none; font-size: 1.1rem; cursor: pointer; color: var(--mid); }
+
+    .post-page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+    .post-header {
+      margin-bottom: 48px;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 28px;
+    }
+    .post-date {
+      font-size: 0.85rem;
+      color: var(--light);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 12px;
+    }
+    .post-title {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .post-meta {
+      font-size: 0.85rem;
+      color: var(--mid);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .post-content {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      color: #2c2c2c;
+    }
+    .post-content p {
+      margin-bottom: 1.5rem;
+    }
+    .post-content h2 {
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 1.4rem;
+      margin: 2rem 0 1rem;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+    .post-content h3 {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 1.2rem;
+      margin: 1.8rem 0 0.8rem;
+      color: var(--green);
+    }
+    .post-content blockquote {
+      border-left: 4px solid var(--green);
+      background: var(--glt);
+      padding: 1rem 1.5rem;
+      margin: 1.8rem 0;
+      font-style: normal;
+      color: #1f5d4a;
+    }
+    .post-content .intro-reflection,
+    .post-content .problem-scenario,
+    .post-content .concept-box,
+    .post-content .virtue-box,
+    .post-content .global-context,
+    .post-content .conclusion-insight {
+      background: var(--tint);
+      border-left: 4px solid var(--green);
+      padding: 1.2rem 1.8rem;
+      margin: 1.8rem 0;
+      border-radius: 0 12px 12px 0;
+    }
+    .post-content .audit-framework,
+    .post-content .design-framework {
+      background: linear-gradient(135deg, #064e3b 0%, #0f766e 100%);
+      color: white;
+      padding: 1.8rem;
+      border-radius: 16px;
+      margin: 2rem 0;
+    }
+    .post-content .audit-framework h3,
+    .post-content .design-framework h3 {
+      color: white;
+      margin-top: 0;
+    }
+    .post-content .audit-framework ul li,
+    .post-content .design-framework ul li {
+      color: #f0fdf4;
+    }
+    .design-step {
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .design-step:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .step-number {
+      display: inline-block;
+      background: #ffffff30;
+      color: white;
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      text-align: center;
+      line-height: 28px;
+      margin-right: 12px;
+      font-weight: 600;
+    }
+    .post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 2rem 0 1rem;
+    }
+    .post-tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 100px;
+      background: var(--tint);
+      border: 1px solid var(--rule);
+      color: var(--mid);
+      letter-spacing: 0.01em;
+    }
+    .further-reading {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--rule);
+    }
+    .further-reading h3 {
+      font-family: var(--sans);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .further-reading ul {
+      list-style: none;
+      margin-left: 0;
+    }
+    .further-reading li {
+      margin-bottom: 0.5rem;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 2rem;
+      font-size: 0.85rem;
+    }
+    @media (max-width: 640px) {
+      .nav-ul { display: none; }
+      .hamburger { display: block; }
+      .nav-ul.open { display: flex; flex-direction: column; position: absolute; top: 52px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 12px 20px; gap: 6px; }
+      .post-title { font-size: 1.8rem; }
+      .post-page { padding: 40px 20px 80px; }
+    }
+  </style>
 </head>
 <body>
-    <div class="back-link">
-        <a href="/blog.html">← Back to Blog</a>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo">Farjana Yesmin</a>
+    <button class="hamburger" id="hbg">☰</button>
+    <ul class="nav-ul" id="navul">
+      <li><a href="index.html#research">Research</a></li>
+      <li><a href="index.html#news">News</a></li>
+      <li><a href="index.html#publications">Publications</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="post-page">
+  <div class="back-link">
+    <a href="blog.html">← Back to all posts</a>
+  </div>
+
+  <article>
+    <div class="post-header">
+      <div class="post-date">February 6, 2026</div>
+      <h1 class="post-title">Designing Epistemic Virtues into Privacy Preserving Systems</h1>
+      <div class="post-meta">
+        <span>By Farjana Yesmin</span>
+        <span>•</span>
+        <span>7 min read</span>
+      </div>
     </div>
-    
-    <h1>Designing Epistemic Virtues into Privacy Preserving Systems</h1>
-    <div class="author">By Farjana Yesmin | Data Scientist & ML Researcher</div>
-    
-    <div class="post-meta">
-        <strong>Published:</strong> February 6, 2026<br>
-        <strong>Categories:</strong> Privacy-Preserving AI, Epistemic Ethics, Global Health, System Design
-    </div>
-    
+
     <div class="post-content">
-        <div class="intro-reflection">
-            My last two posts started with a quiet tension I kept noticing in my work. When we use differential privacy, or DP, to protect health data, that protection comes from adding mathematical noise. This noise keeps personal information safe. But it also blurs the truths that doctors and researchers need to see.
-        </div>
+      <div class="intro-reflection">
+        My last two posts started with a quiet tension I kept noticing in my work. When we use differential privacy, or DP, to protect health data, that protection comes from adding mathematical noise. This noise keeps personal information safe. But it also blurs the truths that doctors and researchers need to see.
+      </div>
 
-        <p>On January 15, I wrote about how this slow erosion of clear signals can damage the trust needed for good medical decisions. Then, on January 22, I argued that our audits need to go deeper. We should check not just for statistical bias, but for whether these systems help us form responsible, justified beliefs.</p>
+      <p>On January 15, I wrote about how this slow erosion of clear signals can damage the trust needed for good medical decisions. Then, on January 22, I argued that our audits need to go deeper. We should check not just for statistical bias, but for whether these systems help us form responsible, justified beliefs.</p>
 
-        <p>Writing those pieces made a bigger question clear to me. What if we stopped treating this tension as a simple trade off? What if we started designing our systems to actively fix it? What if our privacy tools were built not just to meet a technical guarantee, but to encourage what philosophers call epistemic virtues? These are the intellectual habits of a good, careful thinker.</p>
+      <p>Writing those pieces made a bigger question clear to me. What if we stopped treating this tension as a simple trade off? What if we started designing our systems to actively fix it? What if our privacy tools were built not just to meet a technical guarantee, but to encourage what philosophers call epistemic virtues? These are the intellectual habits of a good, careful thinker.</p>
 
-        <div class="concept-box">
-            <strong>The Stakes in Global Health:</strong><br>
-            This idea is not abstract. In the high stakes world of health data, especially in global contexts like Bangladesh where I often work, the cost of getting this wrong is real. We need systems that protect people without making the resulting knowledge useless, or even worse, misleading.
-        </div>
+      <div class="concept-box">
+        <strong>The Stakes in Global Health:</strong><br>
+        This idea is not abstract. In the high stakes world of health data, especially in global contexts like Bangladesh where I often work, the cost of getting this wrong is real. We need systems that protect people without making the resulting knowledge useless, or even worse, misleading.
+      </div>
 
-        <h2>The Core Problem: Privacy Versus Justified Belief</h2>
-        
-        <p>How this works is familiar. Differential privacy adds carefully measured noise to data outputs. This ensures no single person's information can be pinpointed. For sensitive health records, this is non-negotiable.</p>
+      <h2>The Core Problem: Privacy Versus Justified Belief</h2>
+      <p>How this works is familiar. Differential privacy adds carefully measured noise to data outputs. This ensures no single person's information can be pinpointed. For sensitive health records, this is non-negotiable.</p>
+      <p>But the result is a real challenge to what we can actually know.</p>
 
-        <p>But the result is a real challenge to what we can actually know.</p>
+      <div class="problem-scenario">
+        <strong>The Clinician's Dilemma:</strong><br><br>
+        Imagine a doctor looking at a health dashboard protected by DP. She sees a weak signal for a rare side effect. The immediate, difficult question is this: Is this a real trend I should worry about, or is it just a flicker caused by the privacy tool?<br><br>
+        When she cannot answer that, trust breaks down. It is replaced by either blind faith or total doubt. Early research on this called it "epistemic privacy". True privacy is not just about hiding data. It is about controlling what can be learned or inferred from it. Our current tools often fail to control the quality of the knowledge that gets produced.
+      </div>
 
-        <div class="problem-scenario">
-            <strong>The Clinician's Dilemma:</strong><br><br>
-            Imagine a doctor looking at a health dashboard protected by DP. She sees a weak signal for a rare side effect. The immediate, difficult question is this: Is this a real trend I should worry about, or is it just a flicker caused by the privacy tool?<br><br>
-            
-            When she cannot answer that, trust breaks down. It is replaced by either blind faith or total doubt. Early research on this called it "epistemic privacy". True privacy is not just about hiding data. It is about controlling what can be learned or inferred from it. Our current tools often fail to control the quality of the knowledge that gets produced.
-        </div>
+      <h2>Auditing for Knowledge, Not Just Numbers</h2>
+      <p>This is where we need better audits, which builds on my last post. Old ways of checking DP systems look at error rates on test tasks. But a much better test is something called epistemic parity. This asks a direct question: would a person reach the same conclusion using the private data as they would with the original, real data?</p>
 
-        <h2>Auditing for Knowledge, Not Just Numbers</h2>
-        
-        <p>This is where we need better audits, which builds on my last post. Old ways of checking DP systems look at error rates on test tasks. But a much better test is something called epistemic parity. This asks a direct question: would a person reach the same conclusion using the private data as they would with the original, real data?</p>
+      <div class="audit-framework">
+        <h3>Three Components of Knowledge-Centric Auditing</h3>
+        <ul>
+          <li><strong>Quantify Total Uncertainty:</strong> We should report confidence intervals that honestly mix both the natural data variation and the extra fuzziness added by the DP noise.</li>
+          <li><strong>Check Conclusion Stability:</strong> This means running real world analysis, like the kind from actual published studies, on both the real and the private data. Does the main finding hold up? Or does the privacy noise push us toward a different answer?</li>
+          <li><strong>Audit for Epistemic Fairness:</strong> Does the noise accidentally hide patterns more for some groups than others? A standard fairness check might miss this. We need to see who becomes invisible to our knowledge because of how we added protection.</li>
+        </ul>
+      </div>
 
-        <div class="audit-framework">
-            <h3>Three Components of Knowledge-Centric Auditing</h3>
-            <ul>
-                <li><strong>Quantify Total Uncertainty:</strong> We should report confidence intervals that honestly mix both the natural data variation and the extra fuzziness added by the DP noise.</li>
-                
-                <li><strong>Check Conclusion Stability:</strong> This means running real world analysis, like the kind from actual published studies, on both the real and the private data. Does the main finding hold up? Or does the privacy noise push us toward a different answer?</li>
-                
-                <li><strong>Audit for Epistemic Fairness:</strong> Does the noise accidentally hide patterns more for some groups than others? A standard fairness check might miss this. We need to see who becomes invisible to our knowledge because of how we added protection.</li>
-            </ul>
-        </div>
+      <p>This kind of audit changes our core question. We stop asking just "Is it private?" and "Is it accurate?" We start asking the tougher one: "Does it support knowledge we can trust?"</p>
 
-        <p>This kind of audit changes our core question. We stop asking just "Is it private?" and "Is it accurate?" We start asking the tougher one: "Does it support knowledge we can trust?"</p>
+      <h2>From Auditing to Design: Building for Virtue</h2>
+      <p>Auditing shows us what is broken. The real goal is to design systems that do not break in the first place. We do this by building epistemic virtues right into their structure.</p>
 
-        <h2>From Auditing to Design: Building for Virtue</h2>
-        
-        <p>Auditing shows us what is broken. The real goal is to design systems that do not break in the first place. We do this by building epistemic virtues right into their structure.</p>
+      <div class="virtue-box">
+        <strong>Three Key Epistemic Virtues for System Design:</strong><br><br>
+        <strong>Intellectual humility</strong> means knowing the limits of what you know. A system designed for humility does not show a clean, certain looking number. It makes its own uncertainty clear to see. Think of a dashboard that uses colour or labels to show which part of a result is solid signal and which part is likely privacy noise. It might flag results that change a lot depending on the privacy settings. This stops users from the mistake of being overconfident.<br><br>
+        <strong>Intellectual courage</strong> is about chasing the truth even when it is hard. In places with few resources, the pressure to remove privacy for "better data" can be strong. A courageous design pushes back by making structured feedback loops. If a doctor keeps flagging that the noise seems to hide a possible health trend in a certain area, the system could note this. It might allow a review, perhaps shifting how the privacy budget is used for that specific question. This turns a wall into a conversation.<br><br>
+        <strong>Epistemic responsibility</strong> is the duty to make sure our knowledge does no harm. This means proactively checking that the cost of privacy does not land unfairly on the most vulnerable groups. It connects to ideas of democratic privacy, where systems must answer to the communities they impact. A responsible design might use selective noise. It would apply very strong protection to direct identifiers, like a name or ID number. But it would preserve sharper accuracy for critical public health numbers, like vaccine uptake in a small region, where getting it right is a matter of equity.
+      </div>
 
-        <div class="virtue-box">
-            <strong>Three Key Epistemic Virtues for System Design:</strong><br><br>
-            <strong>Intellectual humility</strong> means knowing the limits of what you know. A system designed for humility does not show a clean, certain looking number. It makes its own uncertainty clear to see. Think of a dashboard that uses colour or labels to show which part of a result is solid signal and which part is likely privacy noise. It might flag results that change a lot depending on the privacy settings. This stops users from the mistake of being overconfident.<br><br>
-            
-            <strong>Intellectual courage</strong> is about chasing the truth even when it is hard. In places with few resources, the pressure to remove privacy for "better data" can be strong. A courageous design pushes back by making structured feedback loops. If a doctor keeps flagging that the noise seems to hide a possible health trend in a certain area, the system could note this. It might allow a review, perhaps shifting how the privacy budget is used for that specific question. This turns a wall into a conversation.<br><br>
-            
-            <strong>Epistemic responsibility</strong> is the duty to make sure our knowledge does no harm. This means proactively checking that the cost of privacy does not land unfairly on the most vulnerable groups. It connects to ideas of democratic privacy, where systems must answer to the communities they impact. A responsible design might use selective noise. It would apply very strong protection to direct identifiers, like a name or ID number. But it would preserve sharper accuracy for critical public health numbers, like vaccine uptake in a small region, where getting it right is a matter of equity.
-        </div>
+      <h2>A Practical Framework for Virtue Aligned Design</h2>
 
-        <h2>A Practical Framework for Virtue Aligned Design</h2>
-        
-        <div class="design-framework">
-            <div class="design-step">
-                <span class="step-number">1</span>
-                <strong>Virtue Mapping:</strong> Before any code is written, we ask: which thinking virtues matter most here? For a cancer outcome registry, humility about uncertainty might be everything. For a public health equity map, responsibility toward minority groups is key.
-            </div>
-            
-            <div class="design-step">
-                <span class="step-number">2</span>
-                <strong>Mechanism Co-Design:</strong> We then choose and adjust our privacy tools to support those virtues. This could mean building in clear uncertainty displays from the start, or designing ways for the system's findings to be reproducible.
-            </div>
-            
-            <div class="design-step">
-                <span class="step-number">3</span>
-                <strong>Virtue-Centric Auditing:</strong> We run tests that check for the virtues we aimed for. Does the system help users trust it the right amount? Can they correctly sense its limits? Do the findings stay reliable for every group we care about?
-            </div>
-            
-            <div class="design-step">
-                <span class="step-number">4</span>
-                <strong>Transparent Reporting:</strong> We explain the trade offs in plain language. The documentation should not just say "this output has epsilon differential privacy." It should say, "This result is stable for large groups, but it becomes very uncertain for groups smaller than 100 people because of the strong privacy protection we used."
-            </div>
-        </div>
+      <div class="design-framework">
+        <div class="design-step"><span class="step-number">1</span> <strong>Virtue Mapping:</strong> Before any code is written, we ask: which thinking virtues matter most here? For a cancer outcome registry, humility about uncertainty might be everything. For a public health equity map, responsibility toward minority groups is key.</div>
+        <div class="design-step"><span class="step-number">2</span> <strong>Mechanism Co-Design:</strong> We then choose and adjust our privacy tools to support those virtues. This could mean building in clear uncertainty displays from the start, or designing ways for the system's findings to be reproducible.</div>
+        <div class="design-step"><span class="step-number">3</span> <strong>Virtue-Centric Auditing:</strong> We run tests that check for the virtues we aimed for. Does the system help users trust it the right amount? Can they correctly sense its limits? Do the findings stay reliable for every group we care about?</div>
+        <div class="design-step"><span class="step-number">4</span> <strong>Transparent Reporting:</strong> We explain the trade offs in plain language. The documentation should not just say "this output has epsilon differential privacy." It should say, "This result is stable for large groups, but it becomes very uncertain for groups smaller than 100 people because of the strong privacy protection we used."</div>
+      </div>
 
-        <h2>Why This All Matters for Global Health</h2>
-        
-        <div class="global-context">
-            <strong>Grounding Theory in Reality:</strong><br><br>
-            For me, this thinking is grounded in reality. Working with health data from places like Bangladesh makes the stakes clear. Where data is scarce, the blurring effect of noise is louder. A missed pattern here is not just a bad statistic. It can mean misdirected medical supplies, an overlooked outbreak, or a community losing faith in technology built to help them.
-        </div>
+      <h2>Why This All Matters for Global Health</h2>
+      <div class="global-context">
+        <strong>Grounding Theory in Reality:</strong><br><br>
+        For me, this thinking is grounded in reality. Working with health data from places like Bangladesh makes the stakes clear. Where data is scarce, the blurring effect of noise is louder. A missed pattern here is not just a bad statistic. It can mean misdirected medical supplies, an overlooked outbreak, or a community losing faith in technology built to help them.
+      </div>
 
-        <div class="conclusion-insight">
-            Responsible AI in healthcare cannot be about checking boxes for rules. It has to be about guarding the truthfulness of the knowledge we create. When we design privacy preserving systems with epistemic virtues in mind, we do more than hide data points. We protect the very chance to build knowledge that is trustworthy and useful, especially for those who need it most.<br><br>
-            
-            We stop building systems that only keep secrets. We start building systems that help us tell the truth, carefully and well.
-        </div>
+      <div class="conclusion-insight">
+        Responsible AI in healthcare cannot be about checking boxes for rules. It has to be about guarding the truthfulness of the knowledge we create. When we design privacy preserving systems with epistemic virtues in mind, we do more than hide data points. We protect the very chance to build knowledge that is trustworthy and useful, especially for those who need it most.<br><br>
+        We stop building systems that only keep secrets. We start building systems that help us tell the truth, carefully and well.
+      </div>
     </div>
 
-    <div class="categories">
-        <h3>Categories</h3>
-        <div class="category-tags">
-            <span class="category-tag">Privacy-Preserving AI</span>
-            <span class="category-tag">Epistemic Ethics</span>
-            <span class="category-tag">Global Health</span>
-            <span class="category-tag">System Design</span>
-            <span class="category-tag">Differential Privacy</span>
-            <span class="category-tag">Knowledge Auditing</span>
-            <span class="category-tag">Health Data Governance</span>
-            <span class="category-tag">Bangladesh Healthcare</span>
-        </div>
+    <div class="post-tags">
+      <span class="post-tag">Privacy-Preserving AI</span>
+      <span class="post-tag">Epistemic Ethics</span>
+      <span class="post-tag">Global Health</span>
+      <span class="post-tag">System Design</span>
+      <span class="post-tag">Differential Privacy</span>
+      <span class="post-tag">Health Data Governance</span>
     </div>
+
+    <div class="further-reading">
+      <h3>Further reading on this site</h3>
+      <ul>
+        <li><a href="cost-of-perfect-privacy.html">The Cost of Perfect Privacy: What Differential Privacy Hides from Global Health</a></li>
+        <li><a href="arguable-system-clinician-ai.html">From Black Box to Arguable System: A Practical Framework for Clinician–AI Collaboration</a></li>
+        <li><a href="epistemic-injustice-clinical-ai.html">Epistemic Injustice in Clinical AI: When Marginalized Voices Are Silenced by Algorithms</a></li>
+      </ul>
+    </div>
+  </article>
+</div>
+
+<script>
+  document.getElementById('hbg').addEventListener('click', function(){
+    document.getElementById('navul').classList.toggle('open');
+  });
+</script>
 </body>
 </html>
