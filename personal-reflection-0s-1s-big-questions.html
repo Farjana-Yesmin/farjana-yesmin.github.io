@@ -1,250 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Reflection: From 0s and 1s to Life's Big Questions - Farjana's Research Blog</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.7;
-            color: #444;
-            background-color: #f8f9fa;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        .back-link {
-            margin-bottom: 30px;
-        }
-        .back-link a {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .back-link a:hover {
-            text-decoration: underline;
-        }
-        h1 {
-            color: #2563eb;
-            margin-bottom: 10px;
-            font-size: 2.3rem;
-        }
-        .author {
-            color: #666;
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            font-style: italic;
-        }
-        .post-meta {
-            color: #666;
-            font-size: 1rem;
-            margin-bottom: 30px;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 20px;
-        }
-        .post-content {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-            border-left: 4px solid #2563eb;
-        }
-        .post-content h2 {
-            color: #1e293b;
-            margin: 2rem 0 1rem 0;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 0.5rem;
-        }
-        .post-content h3 {
-            color: #2563eb;
-            margin: 1.5rem 0 0.5rem 0;
-        }
-        .post-content p {
-            margin-bottom: 1.2rem;
-            color: #666;
-        }
-        .post-content ul, .post-content ol {
-            margin-left: 20px;
-            margin-bottom: 1.2rem;
-            color: #666;
-        }
-        .post-content li {
-            margin-bottom: 0.5rem;
-        }
-        .personal-reflection {
-            background: rgba(37, 99, 235, 0.05);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 4px solid #2563eb;
-            font-style: italic;
-        }
-        .project-story {
-            background: rgba(168, 85, 247, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 3px solid #a855f7;
-        }
-        .philosophy-insight {
-            background: rgba(34, 197, 94, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 3px solid #16a34a;
-        }
-        .categories {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-top: 2rem;
-        }
-        .categories h3 {
-            color: #2563eb;
-            margin-bottom: 1rem;
-        }
-        .category-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        .category-tag {
-            background: rgba(37, 99, 235, 0.1);
-            color: #2563eb;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-        .quote-box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 12px;
-            margin: 2rem 0;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            text-align: center;
-        }
-        .quote-box p {
-            font-size: 1.2rem;
-            font-style: italic;
-            margin-bottom: 1rem;
-            color: rgba(255, 255, 255, 0.95);
-        }
-        .quote-author {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.8);
-        }
-        .conclusion-box {
-            background: rgba(245, 158, 11, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 3px solid #f59e0b;
-        }
-    </style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Personal Reflection: From 0s and 1s to Life's Big Questions · Farjana Yesmin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --ink: #111827;
+      --mid: #4b5563;
+      --light: #9ca3af;
+      --rule: #e5e7eb;
+      --bg: #ffffff;
+      --tint: #f9fafb;
+      --green: #065f46;
+      --glt: #ecfdf5;
+      --serif: 'Lora', Georgia, serif;
+      --sans: 'Inter', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { 
+      font-family: var(--sans); 
+      background: var(--bg); 
+      color: var(--ink); 
+      font-size: 15px; 
+      line-height: 1.75; 
+    }
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      border-bottom: 1px solid var(--rule); 
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(6px);
+    }
+    nav {
+      max-width: 860px; margin: 0 auto; padding: 0 24px;
+      height: 52px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { 
+      font-family: var(--serif); 
+      font-size: 1rem; 
+      font-weight: 600; 
+      color: var(--ink); 
+      text-decoration: none; 
+    }
+    .nav-ul { 
+      display: flex; 
+      list-style: none; 
+      gap: 2px; 
+    }
+    .nav-ul a {
+      font-size: 0.75rem; 
+      font-weight: 500; 
+      letter-spacing: .05em; 
+      text-transform: uppercase;
+      color: var(--mid); 
+      padding: 5px 10px; 
+      border-radius: 5px; 
+      transition: color .15s;
+    }
+    .nav-ul a:hover { color: var(--green); text-decoration: none; }
+    .nav-ul a.active { color: var(--green); }
+    .hamburger { 
+      display: none; 
+      background: none; 
+      border: none; 
+      font-size: 1.1rem; 
+      cursor: pointer; 
+      color: var(--mid); 
+    }
+
+    /* PAGE */
+    .page { 
+      max-width: 760px; 
+      margin: 0 auto; 
+      padding: 52px 24px 100px; 
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--mid);
+      font-size: 0.9rem;
+      margin-bottom: 32px;
+    }
+    .back-link:hover { color: var(--green); }
+
+    .post-header {
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 32px;
+    }
+    .post-title {
+      font-family: var(--serif);
+      font-size: 2.1rem;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .post-meta {
+      color: var(--mid);
+      font-size: 0.9rem;
+    }
+    .post-meta span {
+      margin-right: 16px;
+    }
+
+    /* POST CONTENT */
+    .post-content {
+      font-size: 1.02rem;
+      max-width: 680px;
+    }
+    .post-content h2 {
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 2.2rem 0 1rem;
+    }
+    .post-content h3 {
+      font-size: 1.15rem;
+      color: var(--ink);
+      margin: 1.8rem 0 0.8rem;
+    }
+    .post-content p {
+      margin-bottom: 1.35rem;
+      color: var(--mid);
+    }
+    .post-content ul, .post-content ol {
+      margin: 1.2rem 0 1.4rem 1.4rem;
+      color: var(--mid);
+    }
+    .post-content li {
+      margin-bottom: 0.6rem;
+    }
+
+    /* SPECIAL BOXES */
+    .personal-reflection, .conclusion-box {
+      background: var(--glt);
+      border-left: 4px solid var(--green);
+      padding: 1.6rem 1.8rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+      font-style: italic;
+      color: #1f2937;
+    }
+    .project-story {
+      background: #f3e8ff;
+      border-left: 4px solid #a855f7;
+      padding: 1.6rem 1.8rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+    .philosophy-insight {
+      background: #f0fdfa;
+      border-left: 4px solid var(--green);
+      padding: 1.6rem 1.8rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+    .quote-box {
+      background: linear-gradient(135deg, #065f46, #0f766e);
+      color: white;
+      padding: 2.2rem;
+      border-radius: 10px;
+      margin: 2.5rem 0;
+      text-align: center;
+    }
+    .quote-box p {
+      font-size: 1.18rem;
+      font-style: italic;
+      margin-bottom: 1rem;
+      color: rgba(255,255,255,0.95);
+    }
+    .quote-author {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.95rem;
+    }
+
+    /* CATEGORIES */
+    .categories {
+      margin-top: 60px;
+      padding-top: 32px;
+      border-top: 1px solid var(--rule);
+    }
+    .categories h3 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+    }
+    .category-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .category-tag {
+      font-size: 0.78rem;
+      padding: 4px 12px;
+      background: var(--glt);
+      color: var(--green);
+      border: 1px solid #a7f3d0;
+      border-radius: 9999px;
+    }
+
+    @media (max-width: 640px) {
+      .nav-ul { display: none; }
+      .hamburger { display: block; }
+      .nav-ul.open { 
+        display: flex; 
+        flex-direction: column; 
+        position: absolute; 
+        top: 52px; 
+        left: 0; 
+        right: 0; 
+        background: var(--bg); 
+        border-bottom: 1px solid var(--rule); 
+        padding: 12px 20px; 
+        gap: 6px; 
+      }
+      .page { padding: 36px 20px 80px; }
+      .post-title { font-size: 1.85rem; }
+    }
+  </style>
 </head>
 <body>
-    <div class="back-link">
-        <a href="/blog.html">← Back to Blog</a>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">Farjana Yesmin</a>
+      <button class="hamburger" id="hbg">☰</button>
+      <ul class="nav-ul" id="navul">
+        <li><a href="index.html#research">Research</a></li>
+        <li><a href="index.html#news">News</a></li>
+        <li><a href="index.html#publications">Publications</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="page">
+    <a href="blog.html" class="back-link">← Back to Blog</a>
+
+    <div class="post-header">
+      <h1 class="post-title">Personal Reflection: From 0s and 1s to Life's Big Questions</h1>
+      <div class="post-meta">
+        <span>November 27, 2025</span>
+        <span>By Farjana Yesmin</span>
+      </div>
     </div>
-    
-    <h1>Personal Reflection: From 0s and 1s to Life's Big Questions</h1>
-    <div class="author">By Farjana Yesmin | Data Scientist & ML Researcher</div>
-    
-    <div class="post-meta">
-        <strong>Published:</strong> November 27, 2025<br>
-        <strong>Categories:</strong> Personal Journey, AI Ethics, Philosophy, Research Reflection
-    </div>
-    
+
     <div class="post-content">
-        <div class="personal-reflection">
-            I'll admit it: I started my Computer Science journey in love with the pure logic of it all. I was chasing the elegant solution, the fastest algorithm, the perfect if/then statement. It was exhilarating like solving a puzzle where every piece always, logically, fit.
-        </div>
+      <div class="personal-reflection">
+        I'll admit it: I started my Computer Science journey in love with the pure logic of it all. I was chasing the elegant solution, the fastest algorithm, the perfect if/then statement. It was exhilarating like solving a puzzle where every piece always, logically, fit.
+      </div>
 
-        <p>But the longer I worked in Machine Learning, the more I realized that building models that work is only half the fun. The really good stuff, the stuff that makes you stay up late is when you realize you're building systems that are deeply entwined with messy, beautiful, human life. This is where my love for code suddenly met my deep interest in philosophy. It's a bit like learning to cook with an instant pot, then realizing the joy is in the slow, unpredictable fermentation process.</p>
+      <p>But the longer I worked in Machine Learning, the more I realized that building models that work is only half the fun. The really good stuff is when you realize you're building systems deeply entwined with messy, beautiful, human life. This is where my love for code met my deep interest in philosophy.</p>
+      <p>This isn't an academic paper — think of it more as a quiet moment of reflection.</p>
 
-        <p>This isn't an academic paper, think of it more as a quiet moment of reflection, like watching the sunset from Camel's Back Park.</p>
-
-        <h2>The Turning Point: When a Chatbot Needed a Conscience</h2>
+      <h2>The Turning Point: When a Chatbot Needed a Conscience</h2>
+      
+      <div class="project-story">
+        <strong>The Anecdote That Changed Everything:</strong><br><br>
+        My "lightbulb moment" happened while developing an <a href="https://farjana-yesmin.github.io" target="_blank">AI Chatbot for Dengue Symptom Triage</a> in Bangladesh. On the surface, the project was straightforward: use a Decision Tree Classifier to help people quickly assess symptoms.<br><br>
         
-        <div class="project-story">
-            <strong>The Anecdote That Changed Everything:</strong><br><br>
-            My "lightbulb moment" happened while developing an <a href="https://farjana-yesmin.github.io" target="_blank">AI Chatbot for Dengue Symptom Triage</a> in Bangladesh. On the surface, the project was straightforward: use a Decision Tree Classifier to help people quickly assess symptoms and get advice.<br><br>
-            
-            But as I worked on feature prioritization deciding which symptoms mattered most and how to handle contradictory user inputs the technical task morphed into an ethical one. A low-income person might downplay a symptom to avoid clinic costs, or a non-native speaker might struggle to articulate their discomfort. If the chatbot, in its binary logic, dismissed their input as "low risk" based purely on statistical probability, the cost of that error was immense.<br><br>
-            
-            The technical problem became: <em>How do I design this system to listen better?</em>
-        </div>
+        But as I worked on feature prioritization and handling contradictory inputs, the technical task morphed into an ethical one. A low-income person might downplay a symptom to avoid clinic costs, or a non-native speaker might struggle to articulate their discomfort. The cost of a false negative was immense.
+      </div>
 
-        <p>It wasn't just about minimizing False Negatives; it was about ensuring the system didn't dismiss the testimonial of someone whose data profile was statistically unusual or whose language was imperfect. The black box wasn't just opaque; it risked being deaf to human experience.</p>
+      <p>It wasn't just about minimizing False Negatives; it was about ensuring the system didn't dismiss the testimonial of someone whose data profile was statistically unusual.</p>
 
-        <h2>Finding Philosophical Anchors</h2>
+      <h2>Finding Philosophical Anchors</h2>
+      
+      <div class="philosophy-insight">
+        <strong>Epistemic Injustice: Recognizing the Knower</strong><br><br>
+        I found incredible clarity in the concept of <strong>epistemic injustice</strong>, championed by philosopher Miranda Fricker. She describes this as harm done to someone in their capacity as a knower when their credibility is unfairly discounted.<br><br>
         
-        <p>This is exactly why I ran straight toward philosophy. The formal tools of ethics gave me the vocabulary to define the harm I was trying to prevent.</p>
+        Suddenly, the chatbot's failure wasn't just a misclassification error. It was a potential act of testimonial injustice.
+      </div>
 
-        <div class="philosophy-insight">
-            <strong>Epistemic Injustice: Recognizing the Knower</strong><br><br>
-            I found incredible clarity in the concept of <strong>epistemic injustice</strong>, championed by philosopher Miranda Fricker. She describes this as harm done to someone specifically in their capacity as a knower when their credibility is unfairly discounted due to prejudice or systemic bias.<br><br>
-            
-            Suddenly, the chatbot's failure wasn't just a misclassification error. It was a potential act of <em>testimonial injustice</em>. If the model's internal biases led it to systematically ignore the reported symptoms of marginalized groups, it was denying them recognition as credible informants about their own health.
-        </div>
+      <div class="quote-box">
+        <p>"When a model confidently classifies or reroutes based on demographic features, isn't it making epistemic judgments? Some voices are 'heard' more clearly by the model; others are marginalized."</p>
+        <div class="quote-author">— Reflection from my research notes</div>
+      </div>
 
-        <div class="quote-box">
-            <p>"When a model confidently classifies or reroutes based on demographic features, isn't it making epistemic judgments? Some voices are 'heard' more clearly by the model; others are marginalized."</p>
-            <div class="quote-author">— Reflection from my research notes</div>
-        </div>
+      <p>This insight has been humbling. It forces me to think beyond simply minimizing error.</p>
 
-        <p>This insight has been humbling. It forces me to think beyond simply minimizing error; I now ask myself: <em>Am I honoring the dignity of different knowers? Am I designing systems that respect not just statistical truth, but lived experience?</em></p>
+      <h2>Why This Intersection Sparks Me</h2>
+      <ul>
+        <li><strong>Real Impact, Real Responsibility:</strong> My work isn't just about building "more accurate models." It's about building <em>just</em> models.</li>
+        <li><strong>Growth Beyond the Code:</strong> Learning philosophy stretches me in ways that model-building alone never could.</li>
+        <li><strong>A Vision for Better Systems:</strong> I dream of systems that don't just predict, but understand in a human-sensitive way.</li>
+      </ul>
 
-        <h2>Why This Intersection Sparks Me</h2>
-        
-        <p>Here's why I find this crossroads of AI and philosophy so compelling:</p>
+      <h2>Looking Forward: Building With Conscience</h2>
+      
+      <div class="conclusion-box">
+        <strong>The Path Ahead:</strong><br><br>
+        As I move forward, I feel more grounded in my identity: not just as a researcher or engineer, but as a <em>philosophically informed technologist</em>. I care deeply about asking the right questions and making sure that, when AI touches people's lives, it does so with humility, fairness, and respect.
+      </div>
 
-        <ul>
-            <li><strong>Real Impact, Real Responsibility:</strong> My work isn't just about building "more accurate models." It's about building <em>just</em> models. I feel responsible for the people whose health advice is mediated by my algorithms. That responsibility demands both technical rigor and moral imagination.</li>
-            
-            <li><strong>Growth Beyond the Code:</strong> Learning philosophy especially epistemology and ethics stretches me in ways that model-building alone never could. I'm learning to think deeply about power, knowledge, and fairness, not just about feature importance or pruning strategies.</li>
-            
-            <li><strong>A Vision for Better Systems:</strong> I dream of systems that don't just predict, but understand in a human-sensitive way. Not just chatbots that output a risk score, but tools that reflect the complexity of the people using them.</li>
-        </ul>
-
-        <p>My work in <a href="https://farjana-yesmin.github.io" target="_blank">Fairness-Aware Representation Learning</a> and Trustworthy AI suddenly clicked into place. These aren't just advanced research topics; they are the technical implementation of core philosophical principles. The goal is to build models that not only predict accurately but also recognize and respect the input data sources equally.</p>
-
-        <h2>Looking Forward: Building With Conscience</h2>
-        
-        <div class="conclusion-box">
-            <strong>The Path Ahead:</strong><br><br>
-            As I move forward, I feel more grounded in my identity: not just as a researcher or engineer, but as a <em>philosophically informed technologist</em>. I don't pretend to have all the answers. But I care deeply about asking the right questions and making sure that, when AI touches people's lives, it does so with humility, fairness, and respect.<br><br>
-            
-            I love the high-level, human-focused problem-solving this intersection offers. It gives the cold logic of my CS background warmth and purpose. When I work on projects involving Privacy-Preserving Models or Explainable AI, I'm not just meeting technical requirements—I'm actively designing for trust, accountability, and ethical recognition.
-        </div>
-
-        <p>I'm excited to continue this work, to keep using data science not just to optimize outcomes, but to elevate dignity. It's the most rewarding kind of programming building a future where our most powerful tools are guided by a conscience, and where every line of code is written with a deeper understanding of human flourishing.</p>
-
-        <p>And if I can use both my coding skills and my love for deep, reflective thought to help build that bridge, I know I'm on the right path.</p>
+      <p>I'm excited to continue this work — using data science not just to optimize outcomes, but to elevate dignity.</p>
     </div>
 
     <div class="categories">
-        <h3>Categories</h3>
-        <div class="category-tags">
-            <span class="category-tag">Personal Journey</span>
-            <span class="category-tag">AI Ethics</span>
-            <span class="category-tag">Philosophy</span>
-            <span class="category-tag">Research Reflection</span>
-            <span class="category-tag">Epistemic Justice</span>
-            <span class="category-tag">ML Development</span>
-            <span class="category-tag">Human-Centered AI</span>
-            <span class="category-tag">Career Growth</span>
-        </div>
+      <h3>Categories</h3>
+      <div class="category-tags">
+        <span class="category-tag">Reflection</span>
+        <span class="category-tag">AI Ethics</span>
+        <span class="category-tag">Philosophy</span>
+        <span class="category-tag">Personal Journey</span>
+        <span class="category-tag">Epistemic Justice</span>
+      </div>
     </div>
+  </div>
+
+  <script>
+    document.getElementById('hbg').addEventListener('click', function(){
+      document.getElementById('navul').classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
