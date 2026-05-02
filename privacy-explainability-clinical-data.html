@@ -1,339 +1,386 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Balancing Privacy and Explainability: A Technical and Epistemic Challenge for Clinical Data Sharing - Farjana's Research Blog</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.7;
-            color: #444;
-            background-color: #f8f9fa;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        .back-link {
-            margin-bottom: 30px;
-        }
-        .back-link a {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .back-link a:hover {
-            text-decoration: underline;
-        }
-        h1 {
-            color: #2563eb;
-            margin-bottom: 10px;
-            font-size: 2.4rem;
-        }
-        .author {
-            color: #666;
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            font-style: italic;
-        }
-        .post-meta {
-            color: #666;
-            font-size: 1rem;
-            margin-bottom: 30px;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 20px;
-        }
-        .post-content {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-            border-left: 4px solid #2563eb;
-        }
-        .post-content h2 {
-            color: #1e293b;
-            margin: 2rem 0 1rem 0;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 0.5rem;
-        }
-        .post-content h3 {
-            color: #2563eb;
-            margin: 1.5rem 0 0.5rem 0;
-        }
-        .post-content p {
-            margin-bottom: 1.2rem;
-            color: #666;
-        }
-        .post-content ul, .post-content ol {
-            margin-left: 20px;
-            margin-bottom: 1.2rem;
-            color: #666;
-        }
-        .post-content li {
-            margin-bottom: 0.5rem;
-        }
-        .challenge-box {
-            background: rgba(37, 99, 235, 0.05);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 4px solid #2563eb;
-        }
-        .research-insight {
-            background: rgba(168, 85, 247, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 3px solid #a855f7;
-        }
-        .categories {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-top: 2rem;
-        }
-        .categories h3 {
-            color: #2563eb;
-            margin-bottom: 1rem;
-        }
-        .category-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        .category-tag {
-            background: rgba(37, 99, 235, 0.1);
-            color: #2563eb;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            font-size: 0.9rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .comparison-table th, .comparison-table td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        .comparison-table th {
-            background-color: rgba(37, 99, 235, 0.1);
-            color: #1e293b;
-            font-weight: 600;
-        }
-        .comparison-table tr:hover {
-            background-color: rgba(37, 99, 235, 0.02);
-        }
-        .philosophical-insight {
-            background: rgba(245, 158, 11, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 3px solid #f59e0b;
-        }
-        .framework-box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            margin: 2.5rem 0;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-        .framework-box h3 {
-            color: white;
-            margin-bottom: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-        .framework-box h3::before {
-            content: "🔧";
-            font-size: 1.5rem;
-        }
-        .framework-box ul {
-            color: rgba(255, 255, 255, 0.95);
-        }
-        .framework-box li {
-            margin-bottom: 0.8rem;
-            padding-left: 0.5rem;
-        }
-        .reference-list {
-            background: rgba(107, 114, 128, 0.05);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            font-size: 0.9rem;
-        }
-        .reference-list h3 {
-            color: #374151;
-            margin-bottom: 1rem;
-        }
-        .reference-item {
-            margin-bottom: 0.8rem;
-            padding-left: 1rem;
-            border-left: 2px solid #d1d5db;
-        }
-        .reference-item a {
-            color: #2563eb;
-            text-decoration: none;
-        }
-        .reference-item a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Balancing Privacy and Explainability: A Technical and Epistemic Challenge for Clinical Data Sharing · Farjana Yesmin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --ink: #111827;
+      --mid: #4b5563;
+      --light: #9ca3af;
+      --rule: #e5e7eb;
+      --bg: #ffffff;
+      --tint: #f9fafb;
+      --green: #065f46;
+      --glt: #ecfdf5;
+      --serif: 'Lora', Georgia, serif;
+      --sans: 'Inter', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { 
+      font-family: var(--sans); 
+      background: var(--bg); 
+      color: var(--ink); 
+      font-size: 15px; 
+      line-height: 1.75; 
+    }
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      border-bottom: 1px solid var(--rule); 
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(6px);
+    }
+    nav {
+      max-width: 860px; margin: 0 auto; padding: 0 24px;
+      height: 52px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { 
+      font-family: var(--serif); 
+      font-size: 1rem; 
+      font-weight: 600; 
+      color: var(--ink); 
+      text-decoration: none; 
+    }
+    .nav-ul { 
+      display: flex; 
+      list-style: none; 
+      gap: 2px; 
+    }
+    .nav-ul a {
+      font-size: 0.75rem; 
+      font-weight: 500; 
+      letter-spacing: .05em; 
+      text-transform: uppercase;
+      color: var(--mid); 
+      padding: 5px 10px; 
+      border-radius: 5px; 
+      transition: color .15s;
+    }
+    .nav-ul a:hover { color: var(--green); text-decoration: none; }
+    .nav-ul a.active { color: var(--green); }
+    .hamburger { 
+      display: none; 
+      background: none; 
+      border: none; 
+      font-size: 1.1rem; 
+      cursor: pointer; 
+      color: var(--mid); 
+    }
+
+    /* PAGE */
+    .page { 
+      max-width: 760px; 
+      margin: 0 auto; 
+      padding: 52px 24px 100px; 
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--mid);
+      font-size: 0.9rem;
+      margin-bottom: 32px;
+    }
+    .back-link:hover { color: var(--green); }
+
+    .post-header {
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 32px;
+    }
+    .post-title {
+      font-family: var(--serif);
+      font-size: 2.05rem;
+      font-weight: 600;
+      line-height: 1.28;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .post-meta {
+      color: var(--mid);
+      font-size: 0.9rem;
+    }
+    .post-meta span {
+      margin-right: 16px;
+    }
+
+    /* POST CONTENT */
+    .post-content {
+      font-size: 1.02rem;
+      max-width: 680px;
+    }
+    .post-content h2 {
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 2.2rem 0 1rem;
+    }
+    .post-content p {
+      margin-bottom: 1.35rem;
+      color: var(--mid);
+    }
+    .post-content ul, .post-content ol {
+      margin: 1.2rem 0 1.4rem 1.4rem;
+      color: var(--mid);
+    }
+    .post-content li {
+      margin-bottom: 0.6rem;
+    }
+
+    /* BOXES */
+    .challenge-box, .research-insight, .philosophical-insight {
+      background: var(--glt);
+      border-left: 4px solid var(--green);
+      padding: 1.6rem 1.8rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+    .framework-box {
+      background: linear-gradient(135deg, #065f46, #0f766e);
+      color: white;
+      padding: 2.2rem;
+      border-radius: 10px;
+      margin: 2.5rem 0;
+    }
+    .framework-box h3 {
+      color: white;
+      margin-bottom: 1.2rem;
+    }
+    .framework-box ul {
+      color: #e0f2fe;
+    }
+
+    /* TABLE */
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      font-size: 0.9rem;
+    }
+    .comparison-table th, .comparison-table td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--rule);
+    }
+    .comparison-table th {
+      background-color: var(--tint);
+      color: var(--ink);
+      font-weight: 600;
+    }
+    .comparison-table tr:hover {
+      background-color: #f8fafc;
+    }
+
+    /* REFERENCES */
+    .reference-list {
+      background: var(--tint);
+      padding: 1.8rem;
+      border-radius: 8px;
+      margin: 2.5rem 0;
+      font-size: 0.93rem;
+    }
+    .reference-item {
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--rule);
+    }
+
+    /* CATEGORIES */
+    .categories {
+      margin-top: 60px;
+      padding-top: 32px;
+      border-top: 1px solid var(--rule);
+    }
+    .categories h3 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+    }
+    .category-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .category-tag {
+      font-size: 0.78rem;
+      padding: 4px 12px;
+      background: var(--glt);
+      color: var(--green);
+      border: 1px solid #a7f3d0;
+      border-radius: 9999px;
+    }
+
+    @media (max-width: 640px) {
+      .nav-ul { display: none; }
+      .hamburger { display: block; }
+      .nav-ul.open { 
+        display: flex; 
+        flex-direction: column; 
+        position: absolute; 
+        top: 52px; 
+        left: 0; 
+        right: 0; 
+        background: var(--bg); 
+        border-bottom: 1px solid var(--rule); 
+        padding: 12px 20px; 
+        gap: 6px; 
+      }
+      .page { padding: 36px 20px 80px; }
+      .post-title { font-size: 1.85rem; }
+    }
+  </style>
 </head>
 <body>
-    <div class="back-link">
-        <a href="/blog.html">← Back to Blog</a>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">Farjana Yesmin</a>
+      <button class="hamburger" id="hbg">☰</button>
+      <ul class="nav-ul" id="navul">
+        <li><a href="index.html#research">Research</a></li>
+        <li><a href="index.html#news">News</a></li>
+        <li><a href="index.html#publications">Publications</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="page">
+    <a href="blog.html" class="back-link">← Back to Blog</a>
+
+    <div class="post-header">
+      <h1 class="post-title">Balancing Privacy and Explainability: A Technical and Epistemic Challenge for Clinical Data Sharing</h1>
+      <div class="post-meta">
+        <span>December 19, 2025</span>
+        <span>By Farjana Yesmin</span>
+      </div>
     </div>
-    
-    <h1>Balancing Privacy and Explainability: A Technical and Epistemic Challenge for Clinical Data Sharing</h1>
-    <div class="author">By Farjana Yesmin | Data Scientist & ML Researcher</div>
-    
-    <div class="post-meta">
-        <strong>Published:</strong> December 19, 2025<br>
-        <strong>Categories:</strong> Differential Privacy, Explainable AI, Healthcare Data, Clinical Ethics
-    </div>
-    
+
     <div class="post-content">
-        <p>Clinical data ecosystems today face a critical tension between two essential requirements: protecting individual patient privacy and providing transparent justifications for data-driven decisions. My research in health registry operations and trustworthy AI examines this not merely as a trade-off but as a fundamental technical and governance problem. This discussion focuses on the specific conflict between Differential Privacy for statistical analysis and the demand for explainable decision-support systems, a conflict central to building reliable clinical data infrastructures.</p>
+      <p>Clinical data ecosystems today face a critical tension between protecting individual patient privacy and providing transparent justifications for data-driven decisions. This is not merely a technical trade-off but a fundamental governance and epistemic challenge.</p>
 
-        <h2>The Registry Challenge: Statistical Utility Versus Clinical Justification</h2>
-        
-        <div class="challenge-box">
-            <strong>The Dual Purpose of Health Registries:</strong><br>
-            Health registries serve as vital infrastructure for public health research and operations. Their core function involves statistical estimation: calculating disease incidence, tracking treatment outcomes, and calibrating population-level models. This requires strong privacy protections. Traditional anonymization methods, such as k-anonymity, prove fragile against linkage attacks and poorly suited for repeated queries over time.
+      <h2>The Registry Challenge: Statistical Utility Versus Clinical Justification</h2>
+      
+      <div class="challenge-box">
+        <strong>The Dual Purpose of Health Registries:</strong><br><br>
+        Health registries serve as vital infrastructure for public health research and operations. They require strong privacy protections while supporting statistical estimation and clinical decision-making. Traditional anonymization methods are fragile, while Differential Privacy offers a mathematically rigorous solution by adding calibrated noise.
+      </div>
+
+      <p>However, this noise actively shapes the knowledge produced — affecting estimates for rare conditions and complicating validation.</p>
+
+      <h2>When Privacy Mechanisms Obscure Reasoning</h2>
+      
+      <div class="research-insight">
+        <strong>The Justification Dilemma:</strong><br><br>
+        When registry data feeds clinical decision-support systems, clinicians need understandable reasoning. Differential Privacy (especially DP-SGD) perturbs gradients and feature relationships, making post-hoc explanations (like SHAP) potentially reflect noise artifacts rather than genuine clinical patterns.
+      </div>
+
+      <h2>A Framework for Co-Designed Systems</h2>
+      
+      <div class="framework-box">
+        <h3>Principles for Co-Designed Privacy and Explainability</h3>
+        <ul>
+          <li><strong>Selective and Transparent DP Application:</strong> Apply strict DP to population statistics. For decision-support models, explicitly link privacy budgets to explanation stability.</li>
+          <li><strong>Hybrid AI Architectures:</strong> Combine neuro-symbolic systems where symbolic rules anchor reasoning in established medical logic, while data-driven components remain privacy-protected.</li>
+          <li><strong>Explanation-Aware Evaluation:</strong> Develop metrics for explanation fidelity under different privacy budgets and validate with clinical users.</li>
+        </ul>
+      </div>
+
+      <h2>The Social Epistemology of Trustworthy Systems</h2>
+      
+      <div class="philosophical-insight">
+        <strong>Building Trust in Knowledge-Generating Communities:</strong><br><br>
+        A clinical data ecosystem is a knowledge-generating community. Trust depends on transparent processes. If privacy noise remains hidden, it erodes foundational trust. Explanations should acknowledge: “This reasoning derives from a model trained under a strict privacy guarantee, which may affect precision of specific attributions.”
+      </div>
+
+      <h2>Comparative Analysis: Differential Privacy vs Traditional Anonymization</h2>
+      
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Aspect</th>
+            <th>Differential Privacy (DP)</th>
+            <th>Traditional Anonymization</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Privacy Guarantee</strong></td>
+            <td>Mathematical, quantifiable, robust against attacks</td>
+            <td>Syntactic, heuristic, vulnerable to linkage</td>
+          </tr>
+          <tr>
+            <td><strong>Data Utility</strong></td>
+            <td>Calibrated noise with measurable impact</td>
+            <td>Often degrades utility; hard to quantify</td>
+          </tr>
+          <tr>
+            <td><strong>Resilience to Repeated Queries</strong></td>
+            <td>High</td>
+            <td>Low</td>
+          </tr>
+          <tr>
+            <td><strong>Impact on Explainability</strong></td>
+            <td>Direct (can destabilize attributions)</td>
+            <td>Indirect</td>
+          </tr>
+          <tr>
+            <td><strong>Governance</strong></td>
+            <td>Auditable privacy budget</td>
+            <td>One-time procedures</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Conclusion: Toward Integrated System Design</h2>
+      
+      <div class="challenge-box">
+        <strong>Vision for Trustworthy Clinical Ecosystems:</strong><br><br>
+        By co-designing hybrid architectures with privacy-aware explanation frameworks and transparent governance, we can build systems that are not only compliant but genuinely trustworthy — advancing medical knowledge while protecting individuals.
+      </div>
+
+      <div class="reference-list">
+        <h3>References</h3>
+        <div class="reference-item">
+          Williamson, S. M., & Prybutok, V. (2024). Balancing Privacy and Progress in AI-Driven Healthcare. <em>Applied Sciences</em>.
         </div>
-
-        <p>Differential Privacy offers a mathematically rigorous alternative. By introducing calibrated noise to query outputs, DP establishes a bound on potential privacy loss for any individual in the dataset. For registry operations, this enables the safe release of aggregate statistics while preventing cumulative disclosure risks from sequential analyses. However, this guarantee directly impacts data fidelity. The introduced noise alters statistical distributions, affects estimates for rare conditions, and complicates validation processes. DP is not a passive filter; it actively shapes the statistical knowledge being produced.</p>
-
-        <h2>When Privacy Mechanisms Obscure Reasoning</h2>
-        
-        <p>When registry data informs clinical decision-support systems, a second requirement emerges: justification. Clinicians and oversight bodies need understandable reasoning behind model recommendations. My work in explainable AI approaches this as an epistemic challenge. The system must provide a valid, clinically coherent account for its outputs.</p>
-
-        <div class="research-insight">
-            <strong>The Justification Dilemma:</strong><br>
-            Here, DP directly conflicts with explainability. Techniques like SHAP or integrated gradients, which attribute predictions to specific input features, are sensitive to a model's internal parameters. When models are trained using DP-Stochastic Gradient Descent, the gradients and the resulting feature relationships are perturbed by privacy-preserving noise. Consequently, post-hoc explanations may reflect noise artifacts as much as genuine data patterns. This creates a justification dilemma: are we explaining clinical insight or the distortion introduced by the privacy mechanism?
+        <div class="reference-item">
+          Malin, B., et al. (2010). Technical and Policy Approaches to Balancing Patient Privacy and Data Sharing.
         </div>
-
-        <h2>A Framework for Co-Designed Systems</h2>
-        
-        <p>The solution requires co-designing privacy and explainability as interdependent properties from the outset. A trustworthy registry framework should integrate them through several key principles.</p>
-
-        <div class="framework-box">
-            <h3>Principles for Co-Designed Privacy and Explainability</h3>
-            <ul>
-                <li><strong>Selective and Transparent DP Application:</strong> Population-level statistical releases are well-suited for DP. For decision-support models, the privacy budget parameter must be explicitly linked to its impact on explanation stability. Governance protocols should treat this budget as a core auditable parameter.</li>
-                
-                <li><strong>Hybrid AI Architectures for Stability:</strong> My research into neuro-symbolic systems suggests that incorporating clinical knowledge or symbolic rules as a structural layer can create models where reasoning is partially anchored in established medical logic. Data-driven components, protected by DP, then operate within this logical framework. This approach can yield explanations that are both privacy-aware and clinically robust.</li>
-                
-                <li><strong>Explanation-Aware Evaluation:</strong> Moving beyond assessing only prediction accuracy, we need metrics for explanation fidelity and stability under varying privacy budgets. Prototyping should involve testing explanations with clinical users to determine acceptable thresholds for privacy-induced uncertainty.</li>
-            </ul>
+        <div class="reference-item">
+          For related work on hybrid AI and trustworthy systems, see my research at <a href="https://farjana-yesmin.github.io" target="_blank">farjana-yesmin.github.io</a>.
         </div>
-
-        <h2>The Social Epistemology of Trustworthy Systems</h2>
-        
-        <div class="philosophical-insight">
-            <strong>Building Trust in Knowledge-Generating Communities:</strong><br><br>
-            This technical challenge is rooted in an ethical and epistemic one, connected to what philosopher Alvin Goldman describes as social epistemology. A clinical data ecosystem functions as a knowledge-generating community. Its integrity depends on participant trust, which is built through transparent and reliable processes.<br><br>
-            
-            If the noise introduced by DP remains a hidden variable, opaque to those interpreting a model's justification, it erodes this foundational trust. Therefore, explainability serves a dual purpose: it is both a tool for clinical validation and a vital component of the social infrastructure of trust in privacy-preserving systems. An explanation should be accompanied by contextual clarity: "This reasoning derives from a model trained under a strict privacy guarantee, which may affect the precision of specific feature attributions." Such transparency is fundamental to credible, trustworthy AI.
-        </div>
-
-        <h2>Comparative Analysis: Differential Privacy Versus Traditional Anonymization</h2>
-        
-        <p>The following table summarizes the operational distinctions, illustrating why DP, despite its complexity, is necessary for modern, query-intensive registries.</p>
-
-        <table class="comparison-table">
-            <thead>
-                <tr>
-                    <th>Aspect</th>
-                    <th>Differential Privacy (DP)</th>
-                    <th>Traditional Anonymization</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Privacy Guarantee</strong></td>
-                    <td>Mathematical and quantifiable. Robust against auxiliary data attacks.</td>
-                    <td>Syntactic and heuristic. Vulnerable to linkage and reconstruction.</td>
-                </tr>
-                <tr>
-                    <td><strong>Data Utility</strong></td>
-                    <td>Preserves statistical utility with calibrated, measurable noise.</td>
-                    <td>Often degrades utility through generalization; loss is difficult to quantify.</td>
-                </tr>
-                <tr>
-                    <td><strong>Resilience to Repeated Queries</strong></td>
-                    <td>High. Designed to prevent cumulative privacy loss.</td>
-                    <td>Low. Each query increases re-identification risk.</td>
-                </tr>
-                <tr>
-                    <td><strong>Impact on Explainability</strong></td>
-                    <td>Direct. Can destabilize feature attribution methods.</td>
-                    <td>Indirect. Explanations reflect potentially biased data.</td>
-                </tr>
-                <tr>
-                    <td><strong>Governance and Audit</strong></td>
-                    <td>Requires active privacy budget management; inherently auditable.</td>
-                    <td>Relies on one-time procedures; ongoing audit is challenging.</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h2>Conclusion: Toward Integrated System Design</h2>
-        
-        <p>The relationship between privacy and explainability is not a balance to be struck but a dynamic integration to be engineered and governed. For clinical registries supporting both research and care, the goal is a system where privacy mechanisms are not obstacles to transparency but are explicitly accounted for within the justification pipeline.</p>
-
-        <div class="challenge-box">
-            <strong>Vision for Trustworthy Clinical Ecosystems:</strong><br>
-            By co-designing hybrid AI architectures with privacy-aware explanation frameworks and grounding these systems in transparent governance, we can build clinical data ecosystems that are not only compliant but genuinely trustworthy. Such systems advance collective medical knowledge while steadfastly protecting the individuals who make that knowledge possible.
-        </div>
-
-        <div class="reference-list">
-            <h3>References</h3>
-            <div class="reference-item">
-                Williamson, S. M., and Prybutok, V. (2024). Balancing Privacy and Progress: A Review of Privacy Challenges, Systemic Oversight, and Patient Perceptions in AI-Driven Healthcare. <em>Applied Sciences</em>.
-            </div>
-            <div class="reference-item">
-                Malin, B., Karp, D., and Scheuermann, R. H. (2010). Technical and Policy Approaches to Balancing Patient Privacy and Data Sharing in Clinical and Translational Research. <em>Journal of Investigative Medicine</em>.
-            </div>
-            <div class="reference-item">
-                Shoghli, A., Darvish, M., and Sadeghian, Y. (2024). Balancing Innovation and Privacy: Ethical Challenges in AI-Driven Healthcare. <em>Journal of Research in Medical Sciences</em>.
-            </div>
-            <div class="reference-item">
-                Ibrahim, A. M., et al. (2024). Balancing confidentiality and care coordination: challenges in patient privacy. <em>BMC Nursing</em>.
-            </div>
-            <div class="reference-item">
-                For my related work on hybrid AI and trustworthy systems, please see my research papers and blog at <a href="https://farjana-yesmin.github.io" target="_blank">https://farjana-yesmin.github.io</a>.
-            </div>
-        </div>
+      </div>
     </div>
 
     <div class="categories">
-        <h3>Categories</h3>
-        <div class="category-tags">
-            <span class="category-tag">Differential Privacy</span>
-            <span class="category-tag">Explainable AI</span>
-            <span class="category-tag">Healthcare Data</span>
-            <span class="category-tag">Clinical Ethics</span>
-            <span class="category-tag">Health Registries</span>
-            <span class="category-tag">Trustworthy AI</span>
-            <span class="category-tag">Social Epistemology</span>
-            <span class="category-tag">System Design</span>
-        </div>
+      <h3>Categories</h3>
+      <div class="category-tags">
+        <span class="category-tag">Differential Privacy</span>
+        <span class="category-tag">Explainable AI</span>
+        <span class="category-tag">Healthcare Data</span>
+        <span class="category-tag">Trustworthy AI</span>
+        <span class="category-tag">Health Registries</span>
+      </div>
     </div>
+  </div>
+
+  <script>
+    document.getElementById('hbg').addEventListener('click', function(){
+      document.getElementById('navul').classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
