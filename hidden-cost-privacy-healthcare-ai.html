@@ -1,183 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Hidden Cost of Privacy in Healthcare AI - Farjana's Technical Blog</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.7;
-            color: #444;
-            background-color: #f8f9fa;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        .back-link {
-            margin-bottom: 30px;
-        }
-        .back-link a {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .back-link a:hover {
-            text-decoration: underline;
-        }
-        h1 {
-            color: #2563eb;
-            margin-bottom: 10px;
-            font-size: 2.5rem;
-        }
-        .post-meta {
-            color: #666;
-            font-size: 1rem;
-            margin-bottom: 30px;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 20px;
-        }
-        .post-content {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-            border-left: 4px solid #2563eb;
-        }
-        .post-content h2 {
-            color: #1e293b;
-            margin: 2rem 0 1rem 0;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 0.5rem;
-        }
-        .post-content h3 {
-            color: #2563eb;
-            margin: 1.5rem 0 0.5rem 0;
-        }
-        .post-content p {
-            margin-bottom: 1.2rem;
-            color: #666;
-        }
-        .post-content ul, .post-content ol {
-            margin-left: 20px;
-            margin-bottom: 1.2rem;
-            color: #666;
-        }
-        .post-content li {
-            margin-bottom: 0.5rem;
-        }
-        .concept-box {
-            background: rgba(37, 99, 235, 0.05);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 4px solid #2563eb;
-        }
-        .results-highlight {
-            background: rgba(34, 197, 94, 0.1);
-            padding: 1rem;
-            border-radius: 6px;
-            margin: 1rem 0;
-            border-left: 3px solid #16a34a;
-        }
-        .categories {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-top: 2rem;
-        }
-        .categories h3 {
-            color: #2563eb;
-            margin-bottom: 1rem;
-        }
-        .category-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        .category-tag {
-            background: rgba(37, 99, 235, 0.1);
-            color: #2563eb;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-    </style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Hidden Cost of Privacy in Healthcare AI · Farjana Yesmin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --ink:   #111827;
+      --mid:   #4b5563;
+      --light: #9ca3af;
+      --rule:  #e5e7eb;
+      --bg:    #ffffff;
+      --tint:  #f9fafb;
+      --green: #065f46;
+      --glt:   #ecfdf5;
+      --serif: 'Lora', Georgia, serif;
+      --sans:  'Inter', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      position: sticky; top: 0; z-index: 50;
+      border-bottom: 1px solid var(--rule);
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(6px);
+    }
+    nav {
+      max-width: 860px; margin: 0 auto; padding: 0 24px;
+      height: 52px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-ul { display: flex; list-style: none; gap: 2px; }
+    .nav-ul a {
+      font-size: 0.75rem; font-weight: 500; letter-spacing: .05em; text-transform: uppercase;
+      color: var(--mid); padding: 5px 10px; border-radius: 5px; transition: color .15s;
+    }
+    .nav-ul a:hover { color: var(--green); text-decoration: none; }
+    .nav-ul a.active { color: var(--green); }
+    .hamburger { display: none; background: none; border: none; font-size: 1.1rem; cursor: pointer; color: var(--mid); }
+
+    .post-page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+    .post-header {
+      margin-bottom: 48px;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 28px;
+    }
+    .post-date {
+      font-size: 0.85rem;
+      color: var(--light);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 12px;
+    }
+    .post-title {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .post-meta {
+      font-size: 0.85rem;
+      color: var(--mid);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .post-content {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      color: #2c2c2c;
+    }
+    .post-content p {
+      margin-bottom: 1.5rem;
+    }
+    .post-content h2 {
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 1.4rem;
+      margin: 2rem 0 1rem;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+    .post-content h3 {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 1.2rem;
+      margin: 1.8rem 0 0.8rem;
+      color: var(--green);
+    }
+    .post-content .concept-box,
+    .post-content .results-highlight {
+      background: var(--tint);
+      border-left: 4px solid var(--green);
+      padding: 1.2rem 1.8rem;
+      margin: 1.8rem 0;
+      border-radius: 0 12px 12px 0;
+    }
+    .post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 2rem 0 1rem;
+    }
+    .post-tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 100px;
+      background: var(--tint);
+      border: 1px solid var(--rule);
+      color: var(--mid);
+      letter-spacing: 0.01em;
+    }
+    .further-reading {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--rule);
+    }
+    .further-reading h3 {
+      font-family: var(--sans);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .further-reading ul {
+      list-style: none;
+      margin-left: 0;
+    }
+    .further-reading li {
+      margin-bottom: 0.5rem;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 2rem;
+      font-size: 0.85rem;
+    }
+    @media (max-width: 640px) {
+      .nav-ul { display: none; }
+      .hamburger { display: block; }
+      .nav-ul.open { display: flex; flex-direction: column; position: absolute; top: 52px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 12px 20px; gap: 6px; }
+      .post-title { font-size: 1.8rem; }
+      .post-page { padding: 40px 20px 80px; }
+    }
+  </style>
 </head>
 <body>
-    <div class="back-link">
-        <a href="/blog.html">← Back to Blog</a>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo">Farjana Yesmin</a>
+    <button class="hamburger" id="hbg">☰</button>
+    <ul class="nav-ul" id="navul">
+      <li><a href="index.html#research">Research</a></li>
+      <li><a href="index.html#news">News</a></li>
+      <li><a href="index.html#publications">Publications</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="post-page">
+  <div class="back-link">
+    <a href="blog.html">← Back to all posts</a>
+  </div>
+
+  <article>
+    <div class="post-header">
+      <div class="post-date">October 18, 2025</div>
+      <h1 class="post-title">The Hidden Cost of Privacy in Healthcare AI</h1>
+      <div class="post-meta">
+        <span>By Farjana Yesmin</span>
+        <span>•</span>
+        <span>5 min read</span>
+      </div>
     </div>
-    
-    <h1>The Hidden Cost of Privacy in Healthcare AI</h1>
-    
-    <div class="post-meta">
-        <strong>Published:</strong> October 18, 2025<br>
-        <strong>Categories:</strong> Healthcare AI, Privacy, Federated Learning
-    </div>
-    
+
     <div class="post-content">
-        <p>Privacy is non-negotiable in healthcare research and deployment. Techniques like federated learning, homomorphic encryption, and differential privacy allow institutions to collaborate without centralizing patient records. My own work including the MedHE framework shows that we can reach high accuracy while dramatically reducing the risk of data leakage.</p>
+      <p>Privacy is non‑negotiable in healthcare research and deployment. Techniques like federated learning, homomorphic encryption, and differential privacy allow institutions to collaborate without centralising patient records. My own work — including the MedHE framework — shows that we can reach high accuracy while dramatically reducing the risk of data leakage.</p>
 
-        <p>Still, privacy is not free. There are subtle epistemic and social costs that deserve attention: the very mechanisms that protect individuals can also change how knowledge is produced, shared, and acted upon in clinical settings.</p>
+      <p>Still, privacy is not free. There are subtle epistemic and social costs that deserve attention: the very mechanisms that protect individuals can also change how knowledge is produced, shared, and acted upon in clinical settings.</p>
 
-        <h2>Privacy improves safety but can hamper collective learning</h2>
-        <p>Federated and encrypted training isolate local data. That isolation protects individuals, but it can also obstruct the formation of shared, granular insights that come from pooled analyses (e.g., rare adverse event patterns identifiable only when datasets are aggregated). How should we weigh individual privacy against collective medical knowledge?</p>
+      <h2>Privacy improves safety but can hamper collective learning</h2>
+      <p>Federated and encrypted training isolate local data. That isolation protects individuals, but it can also obstruct the formation of shared, granular insights that come from pooled analyses (e.g., rare adverse event patterns identifiable only when datasets are aggregated). How should we weigh individual privacy against collective medical knowledge?</p>
 
-        <div class="concept-box">
-            <strong>Framing:</strong> privacy reduces leakage but may reduce the transparency and traceability that clinicians rely on when evaluating model behavior.
-        </div>
+      <div class="concept-box">
+        <strong>Framing:</strong> Privacy reduces leakage but may reduce the transparency and traceability that clinicians rely on when evaluating model behaviour.
+      </div>
 
-        <h2>Three trade-offs I keep in mind</h2>
-        <ol>
-            <li><strong>Granularity vs. privacy:</strong> cohort-level summaries preserve privacy but can hide sub-group signals (rare conditions, intersectional effects). For public health surveillance, those signals matter.</li>
-            <li><strong>Explanations vs. leakage:</strong> richer, example-based explanations (showing similar training cases) help clinicians, but can risk membership inference unless carefully sanitized.</li>
-            <li><strong>Collaboration vs. control:</strong> privacy-preserving tech often shifts control toward system designers (who define aggregation and explanation policies). This centralization can affect whose knowledge counts and how it's used.</li>
-        </ol>
+      <h2>Three trade‑offs I keep in mind</h2>
+      <ol>
+        <li><strong>Granularity vs. privacy:</strong> cohort‑level summaries preserve privacy but can hide sub‑group signals (rare conditions, intersectional effects). For public health surveillance, those signals matter.</li>
+        <li><strong>Explanations vs. leakage:</strong> richer, example‑based explanations (showing similar training cases) help clinicians, but can risk membership inference unless carefully sanitised.</li>
+        <li><strong>Collaboration vs. control:</strong> privacy‑preserving tech often shifts control toward system designers (who define aggregation and explanation policies). This centralisation can affect whose knowledge counts and how it's used.</li>
+      </ol>
 
-        <h2>Design heuristics for balancing privacy and epistemic value</h2>
-        <p>From my experience with MedHE and related projects, practical strategies include:</p>
-        <ul>
-            <li><strong>Cohort explanations:</strong> provide aggregate-level examples and statistics (e.g., "In 12 similar cases, model confidence was X and clinician outcome was Y") instead of raw training instances.</li>
-            <li><strong>Uncertainty-first interfaces:</strong> present calibrated uncertainty and failure modes prominently so users know when to trust the model.</li>
-            <li><strong>Privacy-aware case retrieval:</strong> use differentially private nearest-neighbor retrieval or synthetic exemplars to give clinicians a sense of representative cases without exposing real patient records.</li>
-        </ul>
+      <h2>Design heuristics for balancing privacy and epistemic value</h2>
+      <p>From my experience with MedHE and related projects, practical strategies include:</p>
+      <ul>
+        <li><strong>Cohort explanations:</strong> provide aggregate‑level examples and statistics (e.g., "In 12 similar cases, model confidence was X and clinician outcome was Y") instead of raw training instances.</li>
+        <li><strong>Uncertainty‑first interfaces:</strong> present calibrated uncertainty and failure modes prominently so users know when to trust the model.</li>
+        <li><strong>Privacy‑aware case retrieval:</strong> use differentially private nearest‑neighbour retrieval or synthetic exemplars to give clinicians a sense of representative cases without exposing real patient records.</li>
+      </ul>
 
-        <h2>Applied example: MedHE and communication-efficient privacy</h2>
-        <p>MedHE integrates adaptive gradient sparsification with CKKS homomorphic encryption to achieve significant communication savings and privacy guarantees. Technically, it performs well but operationally, it highlights the interface challenge: clinicians cannot inspect local gradients or raw training instances, so explanation channels must adapt (e.g., cohort summaries, global failure-mode reports, and counterfactuals that operate at an aggregated level).</p>
+      <h2>Applied example: MedHE and communication‑efficient privacy</h2>
+      <p>MedHE integrates adaptive gradient sparsification with CKKS homomorphic encryption to achieve significant communication savings and privacy guarantees. Technically it performs well, but operationally it highlights the interface challenge: clinicians cannot inspect local gradients or raw training instances, so explanation channels must adapt (e.g., cohort summaries, global failure‑mode reports, and counterfactuals that operate at an aggregated level).</p>
 
-        <h2>Policy and governance considerations</h2>
-        <p>Technical design alone is not sufficient. Institutions should consider governance steps to retain epistemic value while protecting privacy:</p>
-        <ul>
-            <li>Define shared ontologies for clinical features so that aggregated signals are interpretable across sites.</li>
-            <li>Establish cross-institutional review boards that can safely audit privacy parameters and explanation outputs.</li>
-            <li>Adopt accountable reporting standards: include privacy budgets and explanation protocols in model documentation (model cards / datasheets).</li>
-        </ul>
+      <h2>Policy and governance considerations</h2>
+      <p>Technical design alone is not sufficient. Institutions should consider governance steps to retain epistemic value while protecting privacy:</p>
+      <ul>
+        <li>Define shared ontologies for clinical features so that aggregated signals are interpretable across sites.</li>
+        <li>Establish cross‑institutional review boards that can safely audit privacy parameters and explanation outputs.</li>
+        <li>Adopt accountable reporting standards: include privacy budgets and explanation protocols in model documentation (model cards / datasheets).</li>
+      </ul>
 
-        <h2>Final thought</h2>
-        <p>Privacy is essential. But implementing privacy-preserving AI requires conscious choices about what kinds of knowledge we preserve and what we let go. Those are value-laden design decisions. The challenge for research and practice is to build systems that protect patients while still enabling the collective epistemic processes that medicine relies on.</p>
+      <h2>Final thought</h2>
+      <p>Privacy is essential. But implementing privacy‑preserving AI requires conscious choices about what kinds of knowledge we preserve and what we let go. Those are value‑laden design decisions. The challenge for research and practice is to build systems that protect patients while still enabling the collective epistemic processes that medicine relies on.</p>
 
-        <div class="results-highlight">
-            <strong>Related Work:</strong> For my publications on federated learning, privacy-preserving AI, and healthcare applications, see the Publications section of my website.
-        </div>
+      <div class="results-highlight">
+        <strong>Related Work:</strong> For my publications on federated learning, privacy‑preserving AI, and healthcare applications, see the Publications section of my website.
+      </div>
     </div>
 
-    <div class="categories">
-        <h3>Categories</h3>
-        <div class="category-tags">
-            <span class="category-tag">Privacy</span>
-            <span class="category-tag">Healthcare AI</span>
-            <span class="category-tag">Federated Learning</span>
-            <span class="category-tag">Ethics</span>
-        </div>
+    <div class="post-tags">
+      <span class="post-tag">Privacy</span>
+      <span class="post-tag">Healthcare AI</span>
+      <span class="post-tag">Federated Learning</span>
+      <span class="post-tag">Ethics</span>
+      <span class="post-tag">Epistemic Costs</span>
     </div>
+
+    <div class="further-reading">
+      <h3>Further reading on this site</h3>
+      <ul>
+        <li><a href="cost-of-perfect-privacy.html">The Cost of Perfect Privacy: What Differential Privacy Hides from Global Health</a></li>
+        <li><a href="differential-privacy-health-registries.html">Differential Privacy in Health Registries: Protecting Data Without Losing Clinical Insight</a></li>
+        <li><a href="arguable-system-clinician-ai.html">From Black Box to Arguable System: A Practical Framework for Clinician–AI Collaboration</a></li>
+      </ul>
+    </div>
+  </article>
+</div>
+
+<script>
+  document.getElementById('hbg').addEventListener('click', function(){
+    document.getElementById('navul').classList.toggle('open');
+  });
+</script>
 </body>
 </html>
