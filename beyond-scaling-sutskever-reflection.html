@@ -1,296 +1,304 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beyond Scaling: What Ilya Sutskever's AI Warning Means for Global Health</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.7;
-            color: #333;
-            background-color: #f8f9fa;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        
-        .back-link {
-            margin-bottom: 30px;
-        }
-        
-        .back-link a {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .back-link a:hover {
-            text-decoration: underline;
-        }
-        
-        h1 {
-            color: #1e293b;
-            margin-bottom: 15px;
-            font-size: 2.5rem;
-            line-height: 1.2;
-            font-weight: 700;
-        }
-        
-        .author {
-            color: #64748b;
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            font-style: italic;
-        }
-        
-        .post-meta {
-            color: #64748b;
-            font-size: 1rem;
-            margin-bottom: 30px;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .post-content {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-        }
-        
-        .post-content h2 {
-            color: #1e293b;
-            margin: 2.5rem 0 1.2rem 0;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #e2e8f0;
-            font-weight: 600;
-        }
-        
-        .post-content h3 {
-            color: #374151;
-            margin: 1.8rem 0 0.8rem 0;
-            font-weight: 600;
-        }
-        
-        .post-content p {
-            margin-bottom: 1.5rem;
-            color: #4b5563;
-        }
-        
-        .post-content ul, .post-content ol {
-            margin-left: 24px;
-            margin-bottom: 1.5rem;
-            color: #4b5563;
-        }
-        
-        .post-content li {
-            margin-bottom: 0.7rem;
-        }
-        
-        .intro-section {
-            background: rgba(37, 99, 235, 0.05);
-            padding: 1.8rem;
-            border-radius: 8px;
-            margin: 1.8rem 0;
-            border-left: 4px solid #2563eb;
-            font-style: italic;
-        }
-        
-        .quote-box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2.2rem;
-            border-radius: 12px;
-            margin: 2.2rem 0;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .quote-box p {
-            font-size: 1.3rem;
-            font-style: italic;
-            margin-bottom: 1rem;
-            color: rgba(255, 255, 255, 0.95);
-            line-height: 1.6;
-        }
-        
-        .quote-author {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.8);
-            text-align: right;
-        }
-        
-        .project-story {
-            background: rgba(168, 85, 247, 0.1);
-            padding: 1.8rem;
-            border-radius: 8px;
-            margin: 1.8rem 0;
-            border-left: 4px solid #a855f7;
-        }
-        
-        .insight-box {
-            background: rgba(34, 197, 94, 0.1);
-            padding: 1.8rem;
-            border-radius: 8px;
-            margin: 1.8rem 0;
-            border-left: 4px solid #16a34a;
-        }
-        
-        .categories {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-top: 2rem;
-        }
-        
-        .categories h3 {
-            color: #2563eb;
-            margin-bottom: 1rem;
-        }
-        
-        .category-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        
-        .category-tag {
-            background: rgba(37, 99, 235, 0.1);
-            color: #2563eb;
-            padding: 0.4rem 0.9rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-        
-        .conclusion {
-            background: rgba(245, 158, 11, 0.1);
-            padding: 1.8rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-            border-left: 4px solid #f59e0b;
-        }
-        
-        .reference {
-            font-size: 0.9rem;
-            color: #6b7280;
-            margin-top: 2.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid #e5e7eb;
-        }
-        
-        @media (max-width: 768px) {
-            body {
-                padding: 20px 15px;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .post-content {
-                padding: 1.8rem;
-            }
-            
-            .quote-box p {
-                font-size: 1.1rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Beyond Scaling: What Ilya Sutskever's AI Warning Means for Global Health · Farjana Yesmin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --ink:   #111827;
+      --mid:   #4b5563;
+      --light: #9ca3af;
+      --rule:  #e5e7eb;
+      --bg:    #ffffff;
+      --tint:  #f9fafb;
+      --green: #065f46;
+      --glt:   #ecfdf5;
+      --serif: 'Lora', Georgia, serif;
+      --sans:  'Inter', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* header identical to blog listing */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      border-bottom: 1px solid var(--rule);
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(6px);
+    }
+    nav {
+      max-width: 860px; margin: 0 auto; padding: 0 24px;
+      height: 52px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-ul { display: flex; list-style: none; gap: 2px; }
+    .nav-ul a {
+      font-size: 0.75rem; font-weight: 500; letter-spacing: .05em; text-transform: uppercase;
+      color: var(--mid); padding: 5px 10px; border-radius: 5px; transition: color .15s;
+    }
+    .nav-ul a:hover { color: var(--green); text-decoration: none; }
+    .nav-ul a.active { color: var(--green); }
+    .hamburger { display: none; background: none; border: none; font-size: 1.1rem; cursor: pointer; color: var(--mid); }
+
+    /* post page */
+    .post-page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+    .post-header {
+      margin-bottom: 48px;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 28px;
+    }
+    .post-date {
+      font-size: 0.85rem;
+      color: var(--light);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 12px;
+    }
+    .post-title {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .post-meta {
+      font-size: 0.85rem;
+      color: var(--mid);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .post-content {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      color: #2c2c2c;
+    }
+    .post-content p {
+      margin-bottom: 1.5rem;
+    }
+    .post-content h2 {
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 1.4rem;
+      margin: 2rem 0 1rem;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+    .post-content h3 {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 1.2rem;
+      margin: 1.8rem 0 0.8rem;
+      color: var(--green);
+    }
+    .post-content blockquote {
+      border-left: 4px solid var(--green);
+      background: var(--glt);
+      padding: 1rem 1.5rem;
+      margin: 1.8rem 0;
+      font-style: normal;
+      color: #1f5d4a;
+    }
+    .post .intro-section,
+    .post .project-story,
+    .post .insight-box,
+    .post .conclusion {
+      background: var(--tint);
+      border-left: 4px solid var(--green);
+      padding: 1.2rem 1.8rem;
+      margin: 1.8rem 0;
+      border-radius: 0 12px 12px 0;
+    }
+    .post .quote-box {
+      background: linear-gradient(135deg, #064e3b 0%, #0f766e 100%);
+      color: white;
+      padding: 1.8rem;
+      border-radius: 16px;
+      margin: 2rem 0;
+    }
+    .post .quote-box p {
+      color: white;
+    }
+    .post .quote-author {
+      color: #d1fae5;
+    }
+    .post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 2rem 0 1rem;
+    }
+    .post-tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 100px;
+      background: var(--tint);
+      border: 1px solid var(--rule);
+      color: var(--mid);
+      letter-spacing: 0.01em;
+    }
+    .further-reading {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--rule);
+    }
+    .further-reading h3 {
+      font-family: var(--sans);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .further-reading ul {
+      list-style: none;
+      margin-left: 0;
+    }
+    .further-reading li {
+      margin-bottom: 0.5rem;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 2rem;
+      font-size: 0.85rem;
+    }
+    @media (max-width: 640px) {
+      .nav-ul { display: none; }
+      .hamburger { display: block; }
+      .nav-ul.open { display: flex; flex-direction: column; position: absolute; top: 52px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 12px 20px; gap: 6px; }
+      .post-title { font-size: 1.8rem; }
+      .post-page { padding: 40px 20px 80px; }
+    }
+  </style>
 </head>
 <body>
-    <div class="back-link">
-        <a href="/blog.html">← Back to Blog</a>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo">Farjana Yesmin</a>
+    <button class="hamburger" id="hbg">☰</button>
+    <ul class="nav-ul" id="navul">
+      <li><a href="index.html#research">Research</a></li>
+      <li><a href="index.html#news">News</a></li>
+      <li><a href="index.html#publications">Publications</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="post-page">
+  <div class="back-link">
+    <a href="blog.html">← Back to all posts</a>
+  </div>
+
+  <article>
+    <div class="post-header">
+      <div class="post-date">December 1, 2025</div>
+      <h1 class="post-title">Beyond Scaling: What Ilya Sutskever's AI Warning Means for Global Health</h1>
+      <div class="post-meta">
+        <span>By Farjana Yesmin</span>
+        <span>•</span>
+        <span>6 min read</span>
+      </div>
     </div>
-    
-    <h1>Beyond Scaling: What Ilya Sutskever's AI Warning Means for Global Health</h1>
-    <div class="author">By Farjana Yesmin | Data Scientist & ML Researcher</div>
-    
-    <div class="post-meta">
-        <strong>Published:</strong> December 1, 2025 &nbsp; | &nbsp;
-        <strong>Reading Time:</strong> 6 minutes &nbsp; | &nbsp;
-        <strong>Categories:</strong> AI Research, Global Health, Machine Learning, Ethics
-    </div>
-    
+
     <div class="post-content">
-        <div class="intro-section">
-            I was listening to Ilya Sutskever's podcast over the weekend while cleaning up some old project code, and one of his observations literally made me stop and stare at my screen. He said, <strong>"The world is made of data that is much more predictable than it should be."</strong>
-        </div>
+      <div class="intro-section">
+        I was listening to Ilya Sutskever's podcast over the weekend while cleaning up some old project code, and one of his observations literally made me stop and stare at my screen. He said, <strong>"The world is made of data that is much more predictable than it should be."</strong>
+      </div>
 
-        <p>My cursor blinked. I was looking at the evaluation results for a clinical symptom-checker we're testing in Bangladesh. The model was brilliant at recognizing textbook descriptions of dengue fever but kept failing on local, colloquial ways people describe their symptoms. Sutskever had just perfectly articulated the silent, central tension in my work: we're building systems that excel in a predictable, textbook world, but real human health is messy, contextual, and beautifully unpredictable.</p>
+      <p>My cursor blinked. I was looking at the evaluation results for a clinical symptom‑checker we're testing in Bangladesh. The model was brilliant at recognizing textbook descriptions of dengue fever but kept failing on local, colloquial ways people describe their symptoms. Sutskever had just perfectly articulated the silent, central tension in my work: we're building systems that excel in a predictable, textbook world, but real human health is messy, contextual, and beautifully unpredictable.</p>
 
-        <p>This conversation with Dwarkesh Patel didn't feel like a distant, theoretical discussion about AGI. It felt like a seasoned engineer pointing out a fundamental design flaw in the machines we're all building—a flaw that anyone working on the ground can feel intuitively.</p>
+      <p>This conversation with Dwarkesh Patel didn't feel like a distant, theoretical discussion about AGI. It felt like a seasoned engineer pointing out a fundamental design flaw in the machines we're all building — a flaw that anyone working on the ground can feel intuitively.</p>
 
-        <h2>The Illusion of Understanding</h2>
-        
-        <p>Sutskever suggested that our current AIs possess a kind of "shallow understanding." They can pass a medical exam but might not truly grasp the human reality behind the symptoms. This hits home.</p>
+      <h2>The Illusion of Understanding</h2>
+      <p>Sutskever suggested that our current AIs possess a kind of "shallow understanding." They can pass a medical exam but might not truly grasp the human reality behind the symptoms. This hits home.</p>
 
-        <div class="project-story">
-            <p>I remember a specific moment from our dengue project. A community health worker showed me how a mother described her child's fever not with clinical terms, but by pressing her hand to her own forehead and sighing in a specific, weary way. Our AI, trained on millions of data points, would have missed that entirely. It has knowledge, but does it have understanding? Sutskever's distinction isn't just academic; in healthcare, that gap is the difference between a useful tool and a dangerous one.</p>
-        </div>
+      <div class="project-story">
+        I remember a specific moment from our dengue project. A community health worker showed me how a mother described her child's fever not with clinical terms, but by pressing her hand to her own forehead and sighing in a specific, weary way. Our AI, trained on millions of data points, would have missed that entirely. It has knowledge, but does it have understanding? Sutskever's distinction isn't just academic; in healthcare, that gap is the difference between a useful tool and a dangerous one.
+      </div>
 
-        <h2>We've Been Pouring Fuel, Forgetting the Engine</h2>
-        
-        <p>The last few years in AI have been the "Scaling Era." The mantra was simple: more data, more compute, better results. And it worked—to a point.</p>
+      <h2>We've Been Pouring Fuel, Forgetting the Engine</h2>
+      <p>The last few years in AI have been the "Scaling Era." The mantra was simple: more data, more compute, better results. And it worked — to a point.</p>
+      <p>But Sutskever made a compelling case that we're approaching a ceiling. He compared it to adding more fuel to an old engine; eventually, you need a new engine. In my world, this means we can't just keep training bigger models on more hospital data from the Global North and hope they'll magically work in a rural clinic in Sylhet. The engine itself — the very way our models learn — needs to be reinvented to be more efficient, more adaptable, and less hungry for data that doesn't exist for underserved populations.</p>
 
-        <p>But Sutskever made a compelling case that we're approaching a ceiling. He compared it to adding more fuel to an old engine; eventually, you need a new engine. In my world, this means we can't just keep training bigger models on more hospital data from the Global North and hope they'll magically work in a rural clinic in Sylhet. The engine itself—the very way our models learn—needs to be reinvented to be more efficient, more adaptable, and less hungry for data that doesn't exist for underserved populations.</p>
+      <div class="insight-box">
+        This is why my research has pivoted towards <strong>fairness‑aware representation learning</strong>. It's not enough to make a bigger model; we need a smarter one that can learn the <em>essence</em> of a medical condition from limited examples, just like a human doctor learns to recognize patterns across diverse patients.
+      </div>
 
-        <div class="insight-box">
-            <p>This is why my research has pivoted towards <strong>fairness-aware representation learning</strong>. It's not enough to make a bigger model; we need a smarter one that can learn the <em>essence</em> of a medical condition from limited examples, just like a human doctor learns to recognize patterns across diverse patients.</p>
-        </div>
+      <h2>A More Human Way to Learn</h2>
+      <p>The most hopeful part of the conversation was the focus on learning efficiency. Sutskever marveled at how a human can learn to drive a car in about 10 hours, a task that would require an AI immense amounts of data.</p>
 
-        <h2>A More Human Way to Learn</h2>
-        
-        <p>The most hopeful part of the conversation was the focus on learning efficiency. Sutskever marveled at how a human can learn to drive a car in about 10 hours, a task that would require an AI immense amounts of data.</p>
+      <div class="quote-box">
+        <p>"The world is made of data that is much more predictable than it should be."</p>
+        <div class="quote-author">— Ilya Sutskever</div>
+      </div>
 
-        <div class="quote-box">
-            <p>"The world is made of data that is much more predictable than it should be."</p>
-            <div class="quote-author">— Ilya Sutskever</div>
-        </div>
+      <p>This is the holy grail for global health. We don't have massive, curated datasets for every disease in every country. We need AI that can learn from a few dozen examples, that can generalize from one context to another, and that can understand the <em>why</em>, not just the <em>what</em>. My work on ECG analysis, for instance, is trying to build models that don't just memorize patterns from Western hospital data but learn the underlying principles of cardiac physiology, so they can be accurate for patients with different demographics and lifestyles.</p>
 
-        <p>This is the holy grail for global health. We don't have massive, curated datasets for every disease in every country. We need AI that can learn from a few dozen examples, that can generalize from one context to another, and that can understand the <em>why</em>, not just the <em>what</em>. My work on ECG analysis, for instance, is trying to build models that don't just memorize patterns from Western hospital data but learn the underlying principles of cardiac physiology, so they can be accurate for patients with different demographics and lifestyles.</p>
+      <h2>So, where does this leave us?</h2>
+      <div class="conclusion">
+        <p>Listening to Sutskever solidified a feeling I've had for a while: the next breakthrough in AI won't come from a bigger computer. It will come from a better idea. It will come from rebuilding the engine, not just stocking the fuel depot.</p>
+        <p>For those of us applying AI to human problems like healthcare, this is an exciting pivot. It means the most important work isn't necessarily happening in the labs with the most GPUs, but in the minds of those asking deeper questions about how machines learn and what it means to truly understand.</p>
+        <p>It means focusing on building AI that is not just powerful, but also wise, adaptable, and humble enough to know what it doesn't know. And frankly, that's the kind of AI I'd want helping a doctor, whether in Dhaka or Dublin.</p>
+      </div>
 
-        <h2>So, where does this leave us?</h2>
-        
-        <div class="conclusion">
-            <p>Listening to Sutskever solidified a feeling I've had for a while: the next breakthrough in AI won't come from a bigger computer. It will come from a better idea. It will come from rebuilding the engine, not just stocking the fuel depot.</p>
-            
-            <p>For those of us applying AI to human problems like healthcare, this is an exciting pivot. It means the most important work isn't necessarily happening in the labs with the most GPUs, but in the minds of those asking deeper questions about how machines learn and what it means to truly understand.</p>
-            
-            <p>It means focusing on building AI that is not just powerful, but also wise, adaptable, and humble enough to know what it doesn't know. And frankly, that's the kind of AI I'd want helping a doctor, whether in Dhaka or Dublin.</p>
-        </div>
-
-        <div class="reference">
-            <p><strong>Reference:</strong> Reflection based on Ilya Sutskever's conversation with Dwarkesh Patel. Full conversation available at: <a href="https://www.dwarkesh.com/p/ilya-sutskever-2" target="_blank">https://www.dwarkesh.com/p/ilya-sutskever-2</a></p>
-        </div>
+      <div class="reference" style="font-size: 0.85rem; color: var(--mid); margin-top: 2rem; border-top: 1px solid var(--rule); padding-top: 1.5rem;">
+        <strong>Reference:</strong> Reflection based on Ilya Sutskever's conversation with Dwarkesh Patel. Full conversation available at <a href="https://www.dwarkesh.com/p/ilya-sutskever-2" target="_blank">https://www.dwarkesh.com/p/ilya-sutskever-2</a>.
+      </div>
     </div>
 
-    <div class="categories">
-        <h3>Categories</h3>
-        <div class="category-tags">
-            <span class="category-tag">AI Research</span>
-            <span class="category-tag">Global Health</span>
-            <span class="category-tag">Machine Learning</span>
-            <span class="category-tag">AI Ethics</span>
-            <span class="category-tag">Healthcare Technology</span>
-            <span class="category-tag">AI Safety</span>
-            <span class="category-tag">Clinical AI</span>
-            <span class="category-tag">Research Reflection</span>
-        </div>
+    <div class="post-tags">
+      <span class="post-tag">AI Research</span>
+      <span class="post-tag">Global Health</span>
+      <span class="post-tag">Machine Learning</span>
+      <span class="post-tag">AI Ethics</span>
+      <span class="post-tag">Healthcare Technology</span>
+      <span class="post-tag">Clinical AI</span>
+      <span class="post-tag">Research Reflection</span>
     </div>
+
+    <div class="further-reading">
+      <h3>Further reading on this site</h3>
+      <ul>
+        <li><a href="arguable-system-clinician-ai.html">From Black Box to Arguable System: A Practical Framework for Clinician–AI Collaboration</a></li>
+        <li><a href="cost-of-perfect-privacy.html">The Cost of Perfect Privacy: What Differential Privacy Hides from Global Health</a></li>
+        <li><a href="trustworthy-ai-hybrid-intelligence.html">The Future of Trustworthy AI: Why Hybrid Intelligence is the Key to Human Confidence</a></li>
+      </ul>
+    </div>
+  </article>
+</div>
+
+<script>
+  document.getElementById('hbg').addEventListener('click', function(){
+    document.getElementById('navul').classList.toggle('open');
+  });
+</script>
 </body>
 </html>
