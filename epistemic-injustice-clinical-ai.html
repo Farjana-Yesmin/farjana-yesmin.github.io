@@ -1,329 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Epistemic Injustice in Clinical AI: When Marginalized Voices Are Silenced by Algorithms - Farjana's Research Blog</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.7;
-            color: #444;
-            background-color: #f8f9fa;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        .back-link {
-            margin-bottom: 30px;
-        }
-        .back-link a {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .back-link a:hover {
-            text-decoration: underline;
-        }
-        h1 {
-            color: #2563eb;
-            margin-bottom: 10px;
-            font-size: 2.4rem;
-        }
-        .author {
-            color: #666;
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            font-style: italic;
-        }
-        .post-meta {
-            color: #666;
-            font-size: 1rem;
-            margin-bottom: 30px;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 20px;
-        }
-        .post-content {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-            border-left: 4px solid #2563eb;
-        }
-        .post-content h2 {
-            color: #1e293b;
-            margin: 2rem 0 1rem 0;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 0.5rem;
-        }
-        .post-content h3 {
-            color: #2563eb;
-            margin: 1.5rem 0 0.5rem 0;
-        }
-        .post-content p {
-            margin-bottom: 1.2rem;
-            color: #666;
-        }
-        .post-content ul, .post-content ol {
-            margin-left: 20px;
-            margin-bottom: 1.2rem;
-            color: #666;
-        }
-        .post-content li {
-            margin-bottom: 0.5rem;
-        }
-        .intro-reflection {
-            background: rgba(37, 99, 235, 0.05);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 4px solid #2563eb;
-            font-style: italic;
-        }
-        .concept-box {
-            background: rgba(168, 85, 247, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 3px solid #a855f7;
-        }
-        .categories {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-top: 2rem;
-        }
-        .categories h3 {
-            color: #2563eb;
-            margin-bottom: 1rem;
-        }
-        .category-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        .category-tag {
-            background: rgba(37, 99, 235, 0.1);
-            color: #2563eb;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-        .injustice-box {
-            background: rgba(239, 68, 68, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 3px solid #ef4444;
-        }
-        .project-example {
-            background: rgba(34, 197, 94, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 3px solid #16a34a;
-        }
-        .solution-framework {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            margin: 2.5rem 0;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-        .solution-framework h3 {
-            color: white;
-            margin-bottom: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-        .solution-framework h3::before {
-            content: "🛠️";
-            font-size: 1.5rem;
-        }
-        .solution-framework ul {
-            color: rgba(255, 255, 255, 0.95);
-        }
-        .solution-framework li {
-            margin-bottom: 0.8rem;
-            padding-left: 0.5rem;
-        }
-        .warning-box {
-            background: rgba(245, 158, 11, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 3px solid #f59e0b;
-        }
-        .conclusion-reflection {
-            background: rgba(99, 102, 241, 0.1);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 3px solid #6366f1;
-            font-style: italic;
-        }
-        .reference-list {
-            background: rgba(107, 114, 128, 0.05);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            font-size: 0.9rem;
-        }
-        .reference-list h3 {
-            color: #374151;
-            margin-bottom: 1rem;
-        }
-        .reference-item {
-            margin-bottom: 0.8rem;
-            padding-left: 1rem;
-            border-left: 2px solid #d1d5db;
-        }
-    </style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Epistemic Injustice in Clinical AI: When Marginalized Voices Are Silenced by Algorithms · Farjana Yesmin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --ink:   #111827;
+      --mid:   #4b5563;
+      --light: #9ca3af;
+      --rule:  #e5e7eb;
+      --bg:    #ffffff;
+      --tint:  #f9fafb;
+      --green: #065f46;
+      --glt:   #ecfdf5;
+      --serif: 'Lora', Georgia, serif;
+      --sans:  'Inter', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      position: sticky; top: 0; z-index: 50;
+      border-bottom: 1px solid var(--rule);
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(6px);
+    }
+    nav {
+      max-width: 860px; margin: 0 auto; padding: 0 24px;
+      height: 52px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-ul { display: flex; list-style: none; gap: 2px; }
+    .nav-ul a {
+      font-size: 0.75rem; font-weight: 500; letter-spacing: .05em; text-transform: uppercase;
+      color: var(--mid); padding: 5px 10px; border-radius: 5px; transition: color .15s;
+    }
+    .nav-ul a:hover { color: var(--green); text-decoration: none; }
+    .nav-ul a.active { color: var(--green); }
+    .hamburger { display: none; background: none; border: none; font-size: 1.1rem; cursor: pointer; color: var(--mid); }
+
+    .post-page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+    .post-header {
+      margin-bottom: 48px;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 28px;
+    }
+    .post-date {
+      font-size: 0.85rem;
+      color: var(--light);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 12px;
+    }
+    .post-title {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .post-meta {
+      font-size: 0.85rem;
+      color: var(--mid);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .post-content {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      color: #2c2c2c;
+    }
+    .post-content p {
+      margin-bottom: 1.5rem;
+    }
+    .post-content h2 {
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 1.4rem;
+      margin: 2rem 0 1rem;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+    .post-content h3 {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 1.2rem;
+      margin: 1.8rem 0 0.8rem;
+      color: var(--green);
+    }
+    .post-content blockquote {
+      border-left: 4px solid var(--green);
+      background: var(--glt);
+      padding: 1rem 1.5rem;
+      margin: 1.8rem 0;
+      font-style: normal;
+      color: #1f5d4a;
+    }
+    .post-content .intro-reflection,
+    .post-content .injustice-box,
+    .post-content .project-example,
+    .post-content .concept-box,
+    .post-content .warning-box,
+    .post-content .conclusion-reflection {
+      background: var(--tint);
+      border-left: 4px solid var(--green);
+      padding: 1.2rem 1.8rem;
+      margin: 1.8rem 0;
+      border-radius: 0 12px 12px 0;
+    }
+    .post-content .solution-framework {
+      background: linear-gradient(135deg, #064e3b 0%, #0f766e 100%);
+      color: white;
+      padding: 1.8rem;
+      border-radius: 16px;
+      margin: 2rem 0;
+    }
+    .post-content .solution-framework h3 {
+      color: white;
+      margin-top: 0;
+    }
+    .post-content .solution-framework ul li {
+      color: #f0fdf4;
+    }
+    .reference-list {
+      background: var(--tint);
+      border-left: 4px solid var(--green);
+      padding: 1.2rem 1.8rem;
+      margin: 2rem 0;
+      border-radius: 0 12px 12px 0;
+    }
+    .reference-item {
+      margin-bottom: 0.6rem;
+      font-size: 0.85rem;
+      border-left: 2px solid var(--rule);
+      padding-left: 1rem;
+    }
+    .post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 2rem 0 1rem;
+    }
+    .post-tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 100px;
+      background: var(--tint);
+      border: 1px solid var(--rule);
+      color: var(--mid);
+      letter-spacing: 0.01em;
+    }
+    .further-reading {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--rule);
+    }
+    .further-reading h3 {
+      font-family: var(--sans);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .further-reading ul {
+      list-style: none;
+      margin-left: 0;
+    }
+    .further-reading li {
+      margin-bottom: 0.5rem;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 2rem;
+      font-size: 0.85rem;
+    }
+    @media (max-width: 640px) {
+      .nav-ul { display: none; }
+      .hamburger { display: block; }
+      .nav-ul.open { display: flex; flex-direction: column; position: absolute; top: 52px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 12px 20px; gap: 6px; }
+      .post-title { font-size: 1.8rem; }
+      .post-page { padding: 40px 20px 80px; }
+    }
+  </style>
 </head>
 <body>
-    <div class="back-link">
-        <a href="/blog.html">← Back to Blog</a>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo">Farjana Yesmin</a>
+    <button class="hamburger" id="hbg">☰</button>
+    <ul class="nav-ul" id="navul">
+      <li><a href="index.html#research">Research</a></li>
+      <li><a href="index.html#news">News</a></li>
+      <li><a href="index.html#publications">Publications</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="post-page">
+  <div class="back-link">
+    <a href="blog.html">← Back to all posts</a>
+  </div>
+
+  <article>
+    <div class="post-header">
+      <div class="post-date">March 31, 2026</div>
+      <h1 class="post-title">Epistemic Injustice in Clinical AI: When Marginalized Voices Are Silenced by Algorithms</h1>
+      <div class="post-meta">
+        <span>By Farjana Yesmin</span>
+        <span>•</span>
+        <span>8 min read</span>
+      </div>
     </div>
-    
-    <h1>Epistemic Injustice in Clinical AI: When Marginalized Voices Are Silenced by Algorithms</h1>
-    <div class="author">By Farjana Yesmin | Data Scientist & ML Researcher</div>
-    
-    <div class="post-meta">
-        <strong>Published:</strong> March 31, 2026<br>
-        <strong>Categories:</strong> AI Ethics, Epistemic Injustice, Global Health, Clinical AI
-    </div>
-    
+
     <div class="post-content">
-        <div class="intro-reflection">
-            In earlier posts, I argued that trust in clinical AI is not just a technical property. It is an epistemic one. Systems do not merely process data. They shape what counts as knowledge, whose voice is heard, and which realities become clinically actionable.
-        </div>
+      <div class="intro-reflection">
+        In earlier posts, I argued that trust in clinical AI is not just a technical property. It is an epistemic one. Systems do not merely process data. They shape what counts as knowledge, whose voice is heard, and which realities become clinically actionable.
+      </div>
 
-        <p>This post takes that idea further by grounding it in the work of philosopher Miranda Fricker. She distinguishes two key forms of wrong: testimonial injustice and hermeneutical injustice. When we look at clinical AI through this lens, especially in global health contexts, a troubling pattern emerges. Our models are not just biased. They are systematically silencing certain ways of knowing.</p>
+      <p>This post takes that idea further by grounding it in the work of philosopher Miranda Fricker. She distinguishes two key forms of wrong: testimonial injustice and hermeneutical injustice. When we look at clinical AI through this lens, especially in global health contexts, a troubling pattern emerges. Our models are not just biased. They are systematically silencing certain ways of knowing.</p>
 
-        <p>And I have seen this tension firsthand in my work on dengue triage systems in Bangladesh and fairness aware ECG models.</p>
+      <p>And I have seen this tension firsthand in my work on dengue triage systems in Bangladesh and fairness aware ECG models.</p>
 
-        <h2>When Data Speaks, Who Is Allowed to Be Heard?</h2>
-        
-        <div class="injustice-box">
-            <strong>The Myth of Neutral Data:</strong><br><br>
-            Clinical AI systems are often trained on datasets from high income countries. These datasets are treated as neutral, objective, and generalizable. But they are anything but.<br><br>
-            
-            They encode specific healthcare infrastructures, culturally shaped symptom reporting, and demographic distributions that rarely reflect the Global South. When such data becomes the foundation of intelligent systems deployed globally, we are not just exporting models. We are exporting epistemologies.
-        </div>
+      <h2>When Data Speaks, Who Is Allowed to Be Heard?</h2>
 
-        <h2>Testimonial Injustice in Clinical Data</h2>
-        
-        <p>Fricker describes testimonial injustice as a credibility deficit assigned to someone's word due to prejudice. In clinical AI, this happens in a subtle but powerful way.</p>
+      <div class="injustice-box">
+        <strong>The Myth of Neutral Data:</strong><br><br>
+        Clinical AI systems are often trained on datasets from high income countries. These datasets are treated as neutral, objective, and generalizable. But they are anything but.<br><br>
+        They encode specific healthcare infrastructures, culturally shaped symptom reporting, and demographic distributions that rarely reflect the Global South. When such data becomes the foundation of intelligent systems deployed globally, we are not just exporting models. We are exporting epistemologies.
+      </div>
 
-        <div class="project-example">
-            <strong>From My Dengue Triage Work in Bangladesh:</strong><br><br>
-            In my dengue triage chatbot work, patients in Bangladesh often describe symptoms differently than what is captured in structured datasets. Expressions of fatigue, pain, or warning signs of dengue are shaped by language, access to care, and lived experience. But training data does not treat all expressions equally. Symptoms common in Western datasets are weighted as reliable signals. Locally expressed or less formally documented symptoms are treated as noise. Informal care seeking patterns are often excluded entirely.<br><br>
-            
-            The result is a system that implicitly says some patients are more credible than others. Not because of malicious intent, but because their experiences were never meaningfully encoded. This is testimonial injustice at scale.
-        </div>
+      <h2>Testimonial Injustice in Clinical Data</h2>
+      <p>Fricker describes testimonial injustice as a credibility deficit assigned to someone's word due to prejudice. In clinical AI, this happens in a subtle but powerful way.</p>
 
-        <h2>Hermeneutical Injustice: When Entire Realities Are Missing</h2>
-        
-        <p>If testimonial injustice is about not being believed, hermeneutical injustice is about not being understood at all. This is even more dangerous.</p>
+      <div class="project-example">
+        <strong>From My Dengue Triage Work in Bangladesh:</strong><br><br>
+        In my dengue triage chatbot work, patients in Bangladesh often describe symptoms differently than what is captured in structured datasets. Expressions of fatigue, pain, or warning signs of dengue are shaped by language, access to care, and lived experience. But training data does not treat all expressions equally. Symptoms common in Western datasets are weighted as reliable signals. Locally expressed or less formally documented symptoms are treated as noise. Informal care seeking patterns are often excluded entirely.<br><br>
+        The result is a system that implicitly says some patients are more credible than others. Not because of malicious intent, but because their experiences were never meaningfully encoded. This is testimonial injustice at scale.
+      </div>
 
-        <div class="project-example">
-            <strong>From My Fairness Aware ECG Research:</strong><br><br>
-            In fairness aware ECG modeling, we often focus on demographic parity or representation learning. But what if the problem is deeper? What if certain cardiac patterns common in underrepresented populations are not well studied? What if wearable device data reflects usage patterns tied to socioeconomic status? What if clinical labels themselves are biased or incomplete?<br><br>
-            
-            In such cases, the issue is not just imbalance. It is absence. The system lacks the conceptual resources to interpret certain signals correctly. Entire physiological or experiential patterns remain invisible.
-        </div>
+      <h2>Hermeneutical Injustice: When Entire Realities Are Missing</h2>
+      <p>If testimonial injustice is about not being believed, hermeneutical injustice is about not being understood at all. This is even more dangerous.</p>
 
-        <div class="concept-box">
-            <strong>Beyond Bias to Structural Gaps:</strong><br>
-            This aligns with recent work in medical AI ethics that argues epistemic harm is not only about biased outputs but about structural gaps in meaning making. When AI systems learn from incomplete clinical records or historically skewed datasets, they inherit not just bias but ignorance. And unlike human clinicians, they cannot question what they do not know.
-        </div>
+      <div class="project-example">
+        <strong>From My Fairness Aware ECG Research:</strong><br><br>
+        In fairness aware ECG modeling, we often focus on demographic parity or representation learning. But what if the problem is deeper? What if certain cardiac patterns common in underrepresented populations are not well studied? What if wearable device data reflects usage patterns tied to socioeconomic status? What if clinical labels themselves are biased or incomplete?<br><br>
+        In such cases, the issue is not just imbalance. It is absence. The system lacks the conceptual resources to interpret certain signals correctly. Entire physiological or experiential patterns remain invisible.
+      </div>
 
-        <h2>Scaling Injustice Through Automation</h2>
-        
-        <div class="warning-box">
-            <strong>From Individual Harm to Systemic Infrastructure:</strong><br><br>
-            One of the most unsettling insights from recent literature is that AI does not just replicate epistemic injustice. It scales it.<br><br>
-            
-            A misinterpretation in a single clinical encounter is harmful. The same misinterpretation embedded in an AI system becomes infrastructure. It affects thousands of patients. It standardizes exclusion. It becomes harder to detect because it appears consistent. In this sense, clinical AI transforms localized epistemic failures into global ones.
-        </div>
+      <div class="concept-box">
+        <strong>Beyond Bias to Structural Gaps:</strong><br>
+        This aligns with recent work in medical AI ethics that argues epistemic harm is not only about biased outputs but about structural gaps in meaning making. When AI systems learn from incomplete clinical records or historically skewed datasets, they inherit not just bias but ignorance. And unlike human clinicians, they cannot question what they do not know.
+      </div>
 
-        <h2>Why Fairness Metrics Are Not Enough</h2>
-        
-        <p>In my ECG work, fairness aware representation learning improved performance across demographic groups. But even then, something felt incomplete.</p>
+      <h2>Scaling Injustice Through Automation</h2>
 
-        <p>Fairness metrics answer questions like: Are predictions equally accurate across groups? Is error distributed evenly? They do not answer: Whose knowledge shaped the model? Which experiences are missing? What kinds of uncertainty remain invisible?</p>
+      <div class="warning-box">
+        <strong>From Individual Harm to Systemic Infrastructure:</strong><br><br>
+        One of the most unsettling insights from recent literature is that AI does not just replicate epistemic injustice. It scales it.<br><br>
+        A misinterpretation in a single clinical encounter is harmful. The same misinterpretation embedded in an AI system becomes infrastructure. It affects thousands of patients. It standardizes exclusion. It becomes harder to detect because it appears consistent. In this sense, clinical AI transforms localized epistemic failures into global ones.
+      </div>
 
-        <p>This is where epistemic injustice frameworks push us beyond technical fixes. They force us to ask whether the system is capable of understanding all the populations it serves.</p>
+      <h2>Why Fairness Metrics Are Not Enough</h2>
+      <p>In my ECG work, fairness aware representation learning improved performance across demographic groups. But even then, something felt incomplete.</p>
+      <p>Fairness metrics answer questions like: Are predictions equally accurate across groups? Is error distributed evenly? They do not answer: Whose knowledge shaped the model? Which experiences are missing? What kinds of uncertainty remain invisible?</p>
+      <p>This is where epistemic injustice frameworks push us beyond technical fixes. They force us to ask whether the system is capable of understanding all the populations it serves.</p>
 
-        <h2>Toward Epistemically Just Clinical AI</h2>
-        
-        <p>If epistemic injustice is built into data and design, then addressing it requires more than post hoc correction. It requires rethinking how we build systems from the ground up. Here are some directions that emerge from both research and practice.</p>
+      <h2>Toward Epistemically Just Clinical AI</h2>
+      <p>If epistemic injustice is built into data and design, then addressing it requires more than post hoc correction. It requires rethinking how we build systems from the ground up. Here are some directions that emerge from both research and practice.</p>
 
-        <div class="solution-framework">
-            <h3>Five Directions for Epistemically Just AI</h3>
-            <ul>
-                <li><strong>Participatory Data Collection in Low Resource Settings:</strong> Data should not be extracted. It should be co created. Engage local clinicians, patients, and health workers. Capture culturally specific symptom expressions. Include informal and community based care knowledge. This is not just about representation. It is about restoring epistemic agency.</li>
-                
-                <li><strong>Context Aware Model Design:</strong> Models should not assume universality. Incorporate region specific features and priors. Allow adaptive decision pathways, especially in triage systems. Design hybrid systems where local rules complement learned patterns. This aligns with my earlier argument for arguable, hybrid clinical AI.</li>
-                
-                <li><strong>Epistemic Auditing, Not Just Fairness Auditing:</strong> We need to audit not only outputs but knowledge structures. What data sources dominate the model? Which populations are under described or missing? Where does the model exhibit high uncertainty, and why? This extends the idea of epistemic responsibility I discussed in earlier posts.</li>
-                
-                <li><strong>Designing for Uncertainty and Humility:</strong> A system that does not know should be able to say so. Explicit uncertainty reporting, referral mechanisms instead of forced predictions, and interfaces that invite clinician judgment rather than replace it. Epistemic justice requires humility, not just accuracy.</li>
-                
-                <li><strong>Building Hermeneutical Bridges:</strong> When gaps in understanding exist, systems should help surface them. Flag atypical patterns rather than suppress them. Enable feedback loops from clinicians in diverse settings. Continuously update models with locally grounded knowledge. This is how systems evolve from static predictors to learning participants in global health ecosystems.</li>
-            </ul>
-        </div>
+      <div class="solution-framework">
+        <h3>Five Directions for Epistemically Just AI</h3>
+        <ul>
+          <li><strong>Participatory Data Collection in Low Resource Settings:</strong> Data should not be extracted. It should be co created. Engage local clinicians, patients, and health workers. Capture culturally specific symptom expressions. Include informal and community based care knowledge. This is not just about representation. It is about restoring epistemic agency.</li>
+          <li><strong>Context Aware Model Design:</strong> Models should not assume universality. Incorporate region specific features and priors. Allow adaptive decision pathways, especially in triage systems. Design hybrid systems where local rules complement learned patterns. This aligns with my earlier argument for arguable, hybrid clinical AI.</li>
+          <li><strong>Epistemic Auditing, Not Just Fairness Auditing:</strong> We need to audit not only outputs but knowledge structures. What data sources dominate the model? Which populations are under described or missing? Where does the model exhibit high uncertainty, and why? This extends the idea of epistemic responsibility I discussed in earlier posts.</li>
+          <li><strong>Designing for Uncertainty and Humility:</strong> A system that does not know should be able to say so. Explicit uncertainty reporting, referral mechanisms instead of forced predictions, and interfaces that invite clinician judgment rather than replace it. Epistemic justice requires humility, not just accuracy.</li>
+          <li><strong>Building Hermeneutical Bridges:</strong> When gaps in understanding exist, systems should help surface them. Flag atypical patterns rather than suppress them. Enable feedback loops from clinicians in diverse settings. Continuously update models with locally grounded knowledge. This is how systems evolve from static predictors to learning participants in global health ecosystems.</li>
+        </ul>
+      </div>
 
-        <h2>Closing Thought</h2>
-        
-        <div class="conclusion-reflection">
-            In one of my earlier reflections, I wrote that building a dengue triage chatbot changed how I think about AI. Not because of its performance, but because of what it revealed.<br><br>
-            
-            It showed me that every dataset carries voices. And every model decides which of those voices matter.<br><br>
-            
-            Epistemic injustice reminds us that silence in data is not absence. It is often exclusion. If we want clinical AI to be truly global, it cannot just scale models. It must learn to listen.
-        </div>
+      <h2>Closing Thought</h2>
+      <div class="conclusion-reflection">
+        In one of my earlier reflections, I wrote that building a dengue triage chatbot changed how I think about AI. Not because of its performance, but because of what it revealed.<br><br>
+        It showed me that every dataset carries voices. And every model decides which of those voices matter.<br><br>
+        Epistemic injustice reminds us that silence in data is not absence. It is often exclusion. If we want clinical AI to be truly global, it cannot just scale models. It must learn to listen.
+      </div>
 
-        <div class="reference-list">
-            <h3>References</h3>
-            <div class="reference-item">
-                Fricker, M. (2007). Epistemic Injustice: Power and the Ethics of Knowing. Oxford University Press.
-            </div>
-            <div class="reference-item">
-                Akinlade, D. (2026). Structural Epistemic Injustice in Medical AI. Journal of Medical Ethics.
-            </div>
-            <div class="reference-item">
-                Emah, I., & Bennett, M. (2025). Relational Ethics and Algorithmic Harm. AI & Society.
-            </div>
-            <div class="reference-item">
-                This post builds on my dengue triage work in Bangladesh and fairness aware ECG research, as well as insights from the relational ethics literature on structural epistemic injustice in medical AI.
-            </div>
-        </div>
+      <div class="reference-list">
+        <h3>References</h3>
+        <div class="reference-item">Fricker, M. (2007). Epistemic Injustice: Power and the Ethics of Knowing. Oxford University Press.</div>
+        <div class="reference-item">Akinlade, D. (2026). Structural Epistemic Injustice in Medical AI. <em>Journal of Medical Ethics</em>.</div>
+        <div class="reference-item">Emah, I., & Bennett, M. (2025). Relational Ethics and Algorithmic Harm. <em>AI & Society</em>.</div>
+        <div class="reference-item">This post builds on my dengue triage work in Bangladesh and fairness aware ECG research, as well as insights from the relational ethics literature on structural epistemic injustice in medical AI.</div>
+      </div>
     </div>
 
-    <div class="categories">
-        <h3>Categories</h3>
-        <div class="category-tags">
-            <span class="category-tag">AI Ethics</span>
-            <span class="category-tag">Epistemic Injustice</span>
-            <span class="category-tag">Global Health</span>
-            <span class="category-tag">Clinical AI</span>
-            <span class="category-tag">Testimonial Injustice</span>
-            <span class="category-tag">Hermeneutical Injustice</span>
-            <span class="category-tag">Miranda Fricker</span>
-            <span class="category-tag">Dengue Triage</span>
-            <span class="category-tag">ECG Fairness</span>
-        </div>
+    <div class="post-tags">
+      <span class="post-tag">AI Ethics</span>
+      <span class="post-tag">Epistemic Injustice</span>
+      <span class="post-tag">Global Health</span>
+      <span class="post-tag">Clinical AI</span>
+      <span class="post-tag">Testimonial Injustice</span>
+      <span class="post-tag">Miranda Fricker</span>
+      <span class="post-tag">Dengue Triage</span>
     </div>
+
+    <div class="further-reading">
+      <h3>Further reading on this site</h3>
+      <ul>
+        <li><a href="arguable-system-clinician-ai.html">From Black Box to Arguable System: A Practical Framework for Clinician–AI Collaboration</a></li>
+        <li><a href="cost-of-perfect-privacy.html">The Cost of Perfect Privacy: What Differential Privacy Hides from Global Health</a></li>
+        <li><a href="cultural-calculus-healthcare-ai.html">The Cultural Calculus of Care: How Economics and Values Shape Global Healthcare AI</a></li>
+      </ul>
+    </div>
+  </article>
+</div>
+
+<script>
+  document.getElementById('hbg').addEventListener('click', function(){
+    document.getElementById('navul').classList.toggle('open');
+  });
+</script>
 </body>
 </html>
