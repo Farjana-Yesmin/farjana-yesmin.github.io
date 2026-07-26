@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Differential Diagnosis Gap: What a 21-Model Study Confirms About Arguable Systems · Farjana Yesmin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --ink: #111827;
+      --mid: #4b5563;
+      --light: #9ca3af;
+      --rule: #e5e7eb;
+      --bg: #ffffff;
+      --tint: #f9fafb;
+      --green: #065f46;
+      --glt: #ecfdf5;
+      --serif: 'Lora', Georgia, serif;
+      --sans: 'Inter', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { 
+      font-family: var(--sans); 
+      background: var(--bg); 
+      color: var(--ink); 
+      font-size: 15px; 
+      line-height: 1.75; 
+    }
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      border-bottom: 1px solid var(--rule); 
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(6px);
+    }
+    nav {
+      max-width: 860px; margin: 0 auto; padding: 0 24px;
+      height: 52px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { 
+      font-family: var(--serif); 
+      font-size: 1rem; 
+      font-weight: 600; 
+      color: var(--ink); 
+      text-decoration: none; 
+    }
+    .nav-ul { 
+      display: flex; 
+      list-style: none; 
+      gap: 2px; 
+    }
+    .nav-ul a {
+      font-size: 0.75rem; 
+      font-weight: 500; 
+      letter-spacing: .05em; 
+      text-transform: uppercase;
+      color: var(--mid); 
+      padding: 5px 10px; 
+      border-radius: 5px; 
+      transition: color .15s;
+    }
+    .nav-ul a:hover { color: var(--green); text-decoration: none; }
+    .nav-ul a.active { color: var(--green); }
+    .hamburger { 
+      display: none; 
+      background: none; 
+      border: none; 
+      font-size: 1.1rem; 
+      cursor: pointer; 
+      color: var(--mid); 
+    }
+
+    /* PAGE */
+    .page { 
+      max-width: 760px; 
+      margin: 0 auto; 
+      padding: 52px 24px 100px; 
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--mid);
+      font-size: 0.9rem;
+      margin-bottom: 32px;
+    }
+    .back-link:hover { color: var(--green); }
+
+    .post-header {
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 32px;
+    }
+    .post-title {
+      font-family: var(--serif);
+      font-size: 2.1rem;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .post-meta {
+      color: var(--mid);
+      font-size: 0.9rem;
+    }
+    .post-meta span {
+      margin-right: 16px;
+    }
+
+    /* POST CONTENT */
+    .post-content {
+      font-size: 1.02rem;
+      max-width: 680px;
+    }
+    .post-content h2 {
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 2.2rem 0 1rem;
+    }
+    .post-content h3 {
+      font-size: 1.15rem;
+      color: var(--ink);
+      margin: 1.8rem 0 0.8rem;
+    }
+    .post-content p {
+      margin-bottom: 1.35rem;
+      color: var(--mid);
+    }
+    .post-content ul, .post-content ol {
+      margin: 1.2rem 0 1.4rem 1.4rem;
+      color: var(--mid);
+    }
+    .post-content li {
+      margin-bottom: 0.6rem;
+    }
+
+    /* SPECIAL BOXES */
+    .intro-reflection, .conclusion-reflection {
+      background: var(--glt);
+      border-left: 4px solid var(--green);
+      padding: 1.5rem 1.8rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+      font-style: italic;
+      color: #1f2937;
+    }
+    .warning-box {
+      background: #fef2f2;
+      border-left: 4px solid #e11d48;
+      padding: 1.5rem 1.8rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+    .research-insight {
+      background: #f0fdfa;
+      border-left: 4px solid var(--green);
+      padding: 1.6rem 1.8rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+    .concept-box {
+      background: #f3e8ff;
+      border-left: 4px solid #a855f7;
+      padding: 1.6rem 1.8rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+    .solution-framework {
+      background: linear-gradient(135deg, #065f46, #0f766e);
+      color: white;
+      padding: 2.2rem;
+      border-radius: 10px;
+      margin: 2.5rem 0;
+    }
+    .solution-framework h3 {
+      color: white;
+      margin-bottom: 1.2rem;
+    }
+    .solution-framework ul {
+      color: #e0f2fe;
+    }
+
+    .reference-list {
+      background: var(--tint);
+      padding: 1.8rem;
+      border-radius: 8px;
+      margin: 2.5rem 0;
+      font-size: 0.92rem;
+    }
+    .reference-item {
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--rule);
+    }
+
+    /* CATEGORIES */
+    .categories {
+      margin-top: 60px;
+      padding-top: 32px;
+      border-top: 1px solid var(--rule);
+    }
+    .categories h3 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+    }
+    .category-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .category-tag {
+      font-size: 0.78rem;
+      padding: 4px 12px;
+      background: var(--glt);
+      color: var(--green);
+      border: 1px solid #a7f3d0;
+      border-radius: 9999px;
+    }
+
+    @media (max-width: 640px) {
+      .nav-ul { display: none; }
+      .hamburger { display: block; }
+      .nav-ul.open { 
+        display: flex; 
+        flex-direction: column; 
+        position: absolute; 
+        top: 52px; 
+        left: 0; 
+        right: 0; 
+        background: var(--bg); 
+        border-bottom: 1px solid var(--rule); 
+        padding: 12px 20px; 
+        gap: 6px; 
+      }
+      .page { padding: 36px 20px 80px; }
+      .post-title { font-size: 1.85rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">Farjana Yesmin</a>
+      <button class="hamburger" id="hbg">☰</button>
+      <ul class="nav-ul" id="navul">
+        <li><a href="index.html#research">Research</a></li>
+        <li><a href="index.html#news">News</a></li>
+        <li><a href="index.html#publications">Publications</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="page">
+    <a href="blog.html" class="back-link">← Back to Blog</a>
+
+    <div class="post-header">
+      <h1 class="post-title">The Differential Diagnosis Gap: What a 21-Model Study Confirms About Arguable Systems</h1>
+      <div class="post-meta">
+        <span>July 26, 2026</span>
+        <span>By Farjana Yesmin</span>
+      </div>
+    </div>
+
+    <div class="post-content">
+      <div class="intro-reflection">
+        A few weeks ago a study out of Mass General Brigham crossed my feed, and I sat with it longer than most papers I read this year. Twenty one large language models, tested on twenty nine standardized clinical cases, scored on the parts of clinical reasoning that never make it into a demo video. The headline number looked fine. The number underneath it did not.
+      </div>
+
+      <p>Every model in the study got the final diagnosis right more than 90 percent of the time, once it had been handed all the relevant patient information up front. That is the number that ends up in a press release. But the researchers also scored an earlier stage, the part where a clinician has to build a differential diagnosis from incomplete information, and every single model failed that stage more than 80 percent of the time.</p>
+
+      <p>I have spent the better part of a year writing about this exact split, usually from the direction of arguable systems and evidence synthesis. This study puts hard numbers next to something I had mostly been arguing on philosophical grounds, and it is worth sitting with properly.</p>
+
+      <h2>Why Two Scores, One Model</h2>
+      <p>A final diagnosis is, in a narrow sense, a lookup problem once the labs, imaging, and history are already sitting in front of the model. Match the case to the closest thing seen in training and the answer usually lands close to correct. A differential diagnosis asks for something else entirely: a ranked list of plausible explanations built before all the evidence is in, a decision about which test would actually distinguish between them, and a willingness to revise that list as new information comes in.</p>
+
+      <div class="research-insight">
+        <strong>The benchmark behind the numbers:</strong><br><br>
+        The researchers, led by Arya Rao and Marc Succi, built a new scoring tool called PrIME-LLM that grades models across the separate stages of a clinical workflow rather than just checking whether the last line matches an answer key. Final diagnosis accuracy came in above 90 percent across the twenty one models. Differential diagnosis failure came in above 80 percent across the same set. Same case, same model, two very different scores depending on which part of the reasoning chain gets checked.
+      </div>
+
+      <h2>Oversight Only Works on Something Visible</h2>
+      <p>The corresponding author, Marc Succi, said plainly that these models are not ready for unsupervised clinical grade deployment and that they need a human in the loop with close oversight. I agree with the conclusion, but I want to sit with the word oversight for a moment, because it is carrying a lot of quiet weight in that sentence.</p>
+
+      <div class="warning-box">
+        <strong>Oversight needs something to oversee.</strong><br><br>
+        If a model hands back a correct final answer and nothing else, there is nothing for a clinician to actually supervise. The reasoning that got skipped, the alternative diagnoses that were never seriously weighed, none of that shows up in a single confident output. A clinician looking at a right answer with no visible reasoning trail cannot tell a model that reasoned well and got lucky apart from one that reasoned badly and still landed close by proximity to its training data.
+      </div>
+
+      <div class="concept-box">
+        <strong>This is the gap arguable systems are meant to close.</strong><br><br>
+        Not by pushing the final answer accuracy higher, that number is already high, but by forcing the intermediate reasoning into a form a clinician can actually contest. A visible, ranked differential diagnosis is not an explanation bolted on after the fact. It is the clinical work itself. Skipping straight to a final answer is the same as a radiology report with no impression section, a diagnosis with no shown path for how anyone got there.
+      </div>
+
+      <h2>The Part That Worries Me More</h2>
+      <p>Mass General Brigham has the infrastructure to run a real human in the loop workflow, with the staffing to actually catch a bad differential before it reaches a patient. Most of the clinics I have worked with in Bangladesh do not have that luxury. A rural health worker using a triage tool cannot always call in a second opinion, and often does not have the time or training to interrogate a confident sounding output even when the tool offers one to interrogate.</p>
+
+      <p>In that setting, a model scoring 90 percent on final diagnosis sounds like a success story right up until the missed 10 percent lands on a case where the differential reasoning was never sound to begin with, and there was no one positioned to catch it. The failure rate on differential diagnosis is not a rounding error to patch later. It is exactly where low resource deployment is most exposed.</p>
+
+      <h2>What Actually Needs to Change</h2>
+      <div class="solution-framework">
+        <h3>Three Takeaways for Researchers and Clinics</h3>
+        <ul>
+          <li><strong>Score the reasoning stages separately.</strong> Any benchmark that only checks the final answer will keep this problem hidden.</li>
+          <li><strong>Treat "human in the loop" as a design requirement, not a disclaimer.</strong> It only works when the system exposes something for a person to review, question, and overrule.</li>
+          <li><strong>Prioritize low resource deployment scrutiny first, not last.</strong> The settings with the least capacity to catch a reasoning failure are the ones most likely to be handed a tool that hides its reasoning entirely.</li>
+        </ul>
+      </div>
+
+      <div class="conclusion-reflection">
+        None of this is an argument against using these models in clinical settings. It is an argument for building the scrutiny into the system before deployment, instead of hoping a busy clinician supplies it afterward, in a health complex that may not have a second doctor to ask.
+      </div>
+
+      <div class="reference-list">
+        <h3>References</h3>
+        <div class="reference-item">
+          Rao, A. S., Succi, M. D., et al. (2026). Large Language Model Performance and Clinical Reasoning Tasks. <em>JAMA Network Open</em>.
+        </div>
+        <div class="reference-item">
+          Mass General Brigham Newsroom (2026). AI Remains Lacking in Clinical Reasoning Abilities, According to Study of 21 Large Language Models.
+        </div>
+      </div>
+    </div>
+
+    <div class="categories">
+      <h3>Categories</h3>
+      <div class="category-tags">
+        <span class="category-tag">Clinical AI</span>
+        <span class="category-tag">Healthcare AI</span>
+        <span class="category-tag">Arguable Systems</span>
+        <span class="category-tag">Research Review</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('hbg').addEventListener('click', function(){
+      document.getElementById('navul').classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
