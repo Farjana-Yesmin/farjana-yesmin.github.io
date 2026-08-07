@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Federated Learning Grows Up: From Research Novelty to Regulatory Reality · Farjana Yesmin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --ink: #111827;
+      --mid: #4b5563;
+      --light: #9ca3af;
+      --rule: #e5e7eb;
+      --bg: #ffffff;
+      --tint: #f9fafb;
+      --green: #065f46;
+      --glt: #ecfdf5;
+      --serif: 'Lora', Georgia, serif;
+      --sans: 'Inter', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { 
+      font-family: var(--sans); 
+      background: var(--bg); 
+      color: var(--ink); 
+      font-size: 15px; 
+      line-height: 1.75; 
+    }
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      border-bottom: 1px solid var(--rule); 
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(6px);
+    }
+    nav {
+      max-width: 860px; margin: 0 auto; padding: 0 24px;
+      height: 52px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { 
+      font-family: var(--serif); 
+      font-size: 1rem; 
+      font-weight: 600; 
+      color: var(--ink); 
+      text-decoration: none; 
+    }
+    .nav-ul { 
+      display: flex; 
+      list-style: none; 
+      gap: 2px; 
+    }
+    .nav-ul a {
+      font-size: 0.75rem; 
+      font-weight: 500; 
+      letter-spacing: .05em; 
+      text-transform: uppercase;
+      color: var(--mid); 
+      padding: 5px 10px; 
+      border-radius: 5px; 
+      transition: color .15s;
+    }
+    .nav-ul a:hover { color: var(--green); text-decoration: none; }
+    .nav-ul a.active { color: var(--green); }
+    .hamburger { 
+      display: none; 
+      background: none; 
+      border: none; 
+      font-size: 1.1rem; 
+      cursor: pointer; 
+      color: var(--mid); 
+    }
+
+    /* PAGE */
+    .page { 
+      max-width: 760px; 
+      margin: 0 auto; 
+      padding: 52px 24px 100px; 
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--mid);
+      font-size: 0.9rem;
+      margin-bottom: 32px;
+    }
+    .back-link:hover { color: var(--green); }
+
+    .post-header {
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 32px;
+    }
+    .post-title {
+      font-family: var(--serif);
+      font-size: 2.1rem;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .post-meta {
+      color: var(--mid);
+      font-size: 0.9rem;
+    }
+    .post-meta span {
+      margin-right: 16px;
+    }
+
+    /* POST CONTENT */
+    .post-content {
+      font-size: 1.02rem;
+      max-width: 680px;
+    }
+    .post-content h2 {
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 2.2rem 0 1rem;
+    }
+    .post-content h3 {
+      font-size: 1.15rem;
+      color: var(--ink);
+      margin: 1.8rem 0 0.8rem;
+    }
+    .post-content p {
+      margin-bottom: 1.35rem;
+      color: var(--mid);
+    }
+    .post-content ul, .post-content ol {
+      margin: 1.2rem 0 1.4rem 1.4rem;
+      color: var(--mid);
+    }
+    .post-content li {
+      margin-bottom: 0.6rem;
+    }
+
+    /* SPECIAL BOXES */
+    .intro-reflection, .conclusion-reflection {
+      background: var(--glt);
+      border-left: 4px solid var(--green);
+      padding: 1.5rem 1.8rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+      font-style: italic;
+      color: #1f2937;
+    }
+    .warning-box {
+      background: #fef2f2;
+      border-left: 4px solid #e11d48;
+      padding: 1.5rem 1.8rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+    .research-insight {
+      background: #f0fdfa;
+      border-left: 4px solid var(--green);
+      padding: 1.6rem 1.8rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+    .concept-box {
+      background: #f3e8ff;
+      border-left: 4px solid #a855f7;
+      padding: 1.6rem 1.8rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+    .solution-framework {
+      background: linear-gradient(135deg, #065f46, #0f766e);
+      color: white;
+      padding: 2.2rem;
+      border-radius: 10px;
+      margin: 2.5rem 0;
+    }
+    .solution-framework h3 {
+      color: white;
+      margin-bottom: 1.2rem;
+    }
+    .solution-framework ul {
+      color: #e0f2fe;
+    }
+
+    .reference-list {
+      background: var(--tint);
+      padding: 1.8rem;
+      border-radius: 8px;
+      margin: 2.5rem 0;
+      font-size: 0.92rem;
+    }
+    .reference-item {
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--rule);
+    }
+
+    /* CATEGORIES */
+    .categories {
+      margin-top: 60px;
+      padding-top: 32px;
+      border-top: 1px solid var(--rule);
+    }
+    .categories h3 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+    }
+    .category-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .category-tag {
+      font-size: 0.78rem;
+      padding: 4px 12px;
+      background: var(--glt);
+      color: var(--green);
+      border: 1px solid #a7f3d0;
+      border-radius: 9999px;
+    }
+
+    @media (max-width: 640px) {
+      .nav-ul { display: none; }
+      .hamburger { display: block; }
+      .nav-ul.open { 
+        display: flex; 
+        flex-direction: column; 
+        position: absolute; 
+        top: 52px; 
+        left: 0; 
+        right: 0; 
+        background: var(--bg); 
+        border-bottom: 1px solid var(--rule); 
+        padding: 12px 20px; 
+        gap: 6px; 
+      }
+      .page { padding: 36px 20px 80px; }
+      .post-title { font-size: 1.85rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">Farjana Yesmin</a>
+      <button class="hamburger" id="hbg">☰</button>
+      <ul class="nav-ul" id="navul">
+        <li><a href="index.html#research">Research</a></li>
+        <li><a href="index.html#news">News</a></li>
+        <li><a href="index.html#publications">Publications</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="page">
+    <a href="blog.html" class="back-link">← Back to Blog</a>
+
+    <div class="post-header">
+      <h1 class="post-title">Federated Learning Grows Up: From Research Novelty to Regulatory Reality</h1>
+      <div class="post-meta">
+        <span>August 7, 2026</span>
+        <span>By Farjana Yesmin</span>
+      </div>
+    </div>
+
+    <div class="post-content">
+      <div class="intro-reflection">
+        A 2026 review in the Annual Review of Biomedical Engineering puts the problem in plain terms. Most AI studies in healthcare never leave academia. The reason is not a shortage of clever algorithms. It is the stubborn barrier of data access. Privacy rules, legal restrictions, and institutional caution keep diverse real-world datasets locked inside separate hospitals, registries, and national systems.
+      </div>
+
+      <p>Centralized training, the old default for multi-site work, collides with those walls. Federated learning was supposed to solve this by letting models travel to the data instead of the other way around. For years the idea lived mostly in papers and proof-of-concept diagrams. In 2026 the picture looks different. The technology is no longer only a research novelty. It is starting to appear inside actual regulatory workflows and governed research environments.</p>
+
+      <p>I have written about federated learning before, mostly from the angle of privacy guarantees and the ethical gaps those guarantees leave open. In late 2025 I argued that technical privacy is not the same as ethical accountability. A system can keep every patient record inside its original institution and still produce a global model that quietly amplifies the biases of the largest or best-resourced participants. Around the same time I examined the hidden epistemic costs of privacy-preserving methods, how, when local data stay isolated and only model updates or noisy aggregates move, certain forms of clinical insight become harder to form. Rare signals, intersectional patterns, and the granular case knowledge clinicians rely on can thin out. Those earlier posts were written while most real deployments remained limited. The question now is what has actually moved from diagram to production.</p>
+
+      <h2>What the 2026 Review Actually Shows</h2>
+
+      <div class="research-insight">
+        <strong>Bakas, Li, Shah, and Roth, Annual Review of Biomedical Engineering (2026):</strong><br><br>
+        Algorithmic work on non-identical data distributions, secure aggregation, differential privacy, and confidential computing has matured. Frameworks such as NVIDIA FLARE and OpenFL have lowered the barrier between simulation and multi-institutional runs. Real-world case studies exist: breast density classification across hospitals, multi-national COVID region segmentation, pan-cancer lymphocyte detection, and the ongoing Federated Tumor Segmentation challenges. These are no longer toy experiments. Yet the same review is clear-eyed about remaining limits. Scalable, interoperable infrastructure is still incomplete, and regulatory-aligned workflows for persistent deployment, rather than one-off research projects, are still emerging.
+      </div>
+
+      <h2>Regulators Are Starting to Use It Themselves</h2>
+
+      <p>Parallel developments in regulation are closing that gap from another direction. A 2025 methods paper from Swissmedic and partners describes a concrete use of federated learning for data-centric regulatory cooperation. Regulatory agencies face the same privacy and legal obstacles as hospitals. They need reliable risk-assessment models for medical-device incident reports, yet cannot simply pool the underlying data.</p>
+
+      <div class="research-insight">
+        <strong>Swissmedic, working with the U.S. FDA and the Danish Medicines Agency:</strong><br><br>
+        The team built a proof-of-concept around TRICIA, an existing AI tool for assessing serious incident reports. Using synthetic data at the 14th Global Summit on Regulatory Science, they demonstrated collaborative training without direct data exchange, while remaining compliant with GDPR and, potentially, the EU AI Act. It is an early but concrete step: regulators themselves using the technique to improve their own processes rather than merely approving systems that use it.
+      </div>
+
+      <h2>Governance Built Into the Architecture</h2>
+
+      <div class="concept-box">
+        <strong>The federated Trusted Research Environment:</strong><br><br>
+        Traditional TREs are secure enclaves where approved researchers can analyze sensitive data without the data leaving a controlled setting. The federated version extends that principle across institutions. Code and queries travel to the data; only reviewed aggregate results return. Governance is built into the architecture rather than bolted on afterward. Deployments linked to Genomics England, national biobanks, and multi-party clinical-genomic projects show the model working at scale. A federated TRE does not replace federated learning. It supplies the governed substrate in which federated learning, and federated analytics more broadly, can operate under clear legal and ethical rules.
+      </div>
+
+      <h2>What Still Doesn't Ship</h2>
+
+      <div class="warning-box">
+        <strong>The picture is still uneven.</strong><br><br>
+        Reviews of federated learning in multimodal diagnostics, biomedical informatics, environmental monitoring, and quantum-resistant variants all note the shift from pure algorithmic novelty toward questions of deployment, interoperability, and long-term maintenance. Systematic reviews in health informatics catalog both the growing number of real-world pilots and the persistent difficulties of non-identical data across sites, communication cost, and incentive alignment across competing or resource-unequal institutions. Cancer imaging consortia and certain national genomics efforts have working systems. Many other domains remain closer to the diagram stage. Low-resource settings face an additional layer of difficulty: the compute and networking assumptions built into most frameworks do not map cleanly onto the realities of under-resourced hospitals or national systems with limited connectivity.
+      </div>
+
+      <div class="concept-box">
+        <strong>Hardware is catching up too.</strong><br><br>
+        A parallel line of work looks at the device side rather than the model side. A 2026 framework called HybridTrust demonstrates on-device federated learning with security designed to work on both older, legacy medical devices and future quantum-safe systems, using what the authors call crypto-agile encryption that can be swapped out as standards change. It is a reminder that "federated learning is ready" depends on more than algorithms. It depends on whether the actual machines in a rural clinic or an aging hospital ward can run any of this at all.
+      </div>
+
+      <h2>What Hasn't Changed</h2>
+
+      <p>Looking back at my earlier posts, the ethical and epistemic concerns have not disappeared. They have simply become more urgent as the technology moves closer to routine use.</p>
+
+      <div class="solution-framework">
+        <h3>What Still Needs to Be True Before This Scales Further</h3>
+        <ul>
+          <li><strong>Privacy budgets still require a collective decision.</strong> Whose risk tolerance prevails when institutions disagree is a governance question, not a technical one.</li>
+          <li><strong>Fairness has to be measured after every round.</strong> The federated barrier protects data location, not equity. Global model bias can still grow quietly behind it.</li>
+          <li><strong>Rule-augmented designs and continuous audit gates are necessities, not refinements.</strong> They are what turns a research technique into something regulators and health systems can actually rely on.</li>
+        </ul>
+      </div>
+
+      <div class="conclusion-reflection">
+        Federated learning has grown up in the sense that it is no longer only a clever workaround for data that cannot be shared. It is becoming part of the regulatory and infrastructural machinery that decides how medical knowledge is produced across institutional and national boundaries. The 2026 review is right: most AI studies still never leave academia because of data access. The response taking shape is not to weaken privacy rules but to redesign collaboration around them. Governance plus federation by architecture is the practical form that response is taking. Whether the resulting systems remain arguable, fair, and epistemically responsible will depend on the choices made in the next few years of real deployment, not on the elegance of the next algorithm.
+      </div>
+
+      <div class="reference-list">
+        <h3>References</h3>
+        <div class="reference-item">
+          Bakas, S., Li, X., Shah, P., Roth, H.R.: Federated Learning in Healthcare: From Research to Real-World Deployment. <em>Annual Review of Biomedical Engineering</em> 28, 163&ndash;186 (2026). <a href="https://doi.org/10.1146/annurev-bioeng-080125-041414">https://doi.org/10.1146/annurev-bioeng-080125-041414</a>
+        </div>
+        <div class="reference-item">
+          Federated learning: a privacy-preserving approach to data-centric regulatory cooperation. <em>Frontiers in Drug Safety and Regulation</em> 5 (2025). <a href="https://doi.org/10.3389/fdsfr.2025.1579922">https://doi.org/10.3389/fdsfr.2025.1579922</a>
+        </div>
+        <div class="reference-item">
+          Miller, T., Durlik, I., Kostecka, E., Puszkarek, A.: Federated Learning for Environmental Monitoring: A Review of Applications, Challenges, and Future Directions.
+        </div>
+        <div class="reference-item">
+          Khan, N., Nisar, S., Khan, M.A., Khan, M.A., Camacho, D., Rehman, Y.A.U., Hussain, A.: Federated Learning: Concepts, Challenges and Implementation (2025). <a href="https://doi.org/10.1111/exsy.70096">https://doi.org/10.1111/exsy.70096</a>
+        </div>
+        <div class="reference-item">
+          Nemane, S., Sarad, V.M., Tulaskar, D.P., Marode, T.P., Bhangdiya, V., Agrawal, L., Avthankar, A., Kondylakis, H., Kulkarni, M.B., Bhaiyya, M., Haick, H.: Federated Learning in Multimodal Healthcare Diagnostics: Privacy-Preserving AI for Biomedical Imaging, Electronic Health Records, Wearables, and Clinical Decision Support (2026).
+        </div>
+        <div class="reference-item">
+          Khan, U.H., Khan, R., Chelloug, S.A., Alturise, F., Khan, S., Alkhalaf, S.: HybridTrust: on-device federated learning with crypto-agile security for legacy and quantum-safe medical devices. <em>Scientific Reports</em> 16, 19539 (2026).
+        </div>
+        <div class="reference-item">
+          Quantum Federated Learning: A Comprehensive Survey. <em>IEEE</em>.
+        </div>
+        <div class="reference-item">
+          Hornback, A., Ceschini, A., Kim, K., Sathu, H., Wang, Y., Gaeta, E., Viguera Varea, A., Piazzi, M., Panella, M., Cabrera-Umpierrez, M.F., Wang, M.D.: Federated Learning in Biomedical and Health Informatics: A Systematic Review and Future Directions.
+        </div>
+        <div class="reference-item">
+          Orthi, S.M., Rahman, M.H., Siddiqa, K.B., Uddin, M., Hossain, S., Al Mamun, A., Khan, M.N.: Federated Learning with Privacy-Preserving Big Data Analytics for Distributed Healthcare Systems. <em>Journal of Computer Science and Technology Studies</em> 7(8) (2025). <a href="https://doi.org/10.32996/jcsts.2025.7.8.31">https://doi.org/10.32996/jcsts.2025.7.8.31</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="categories">
+      <h3>Categories</h3>
+      <div class="category-tags">
+        <span class="category-tag">Federated Learning</span>
+        <span class="category-tag">Healthcare AI</span>
+        <span class="category-tag">Trustworthy AI</span>
+        <span class="category-tag">Research Review</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('hbg').addEventListener('click', function(){
+      document.getElementById('navul').classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
